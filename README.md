@@ -1,7 +1,7 @@
 # DD2AML-Converter
 =======
 # Gsd2Aml
-
+<!--
 Welcome to Gsd2Aml! This project was developed as a student project by (in alphabetical order)
 
 1. [Nico Dietz](https://github.com/dillasyx)
@@ -59,7 +59,7 @@ Contains the code that makes up the CLI.
 The Gui gives the user access to the functonality of the library without requiring the user to implement the library for themselfs.
 It comes with added functionality like checking paths and visually informing the user about events.
 
-![The main window of the GUI](./res/gui.png)
+![The main window of the GUI](./SOURCE/res/gui.png)
 
 ### Gsd2Aml.Cli
 
@@ -69,7 +69,7 @@ The CLI gives the user access to the functonality of the library without requiri
 
 It comes with various flags to handle the conversion:
 
-![The Clis help flag](./res/cli.png)
+![The Clis help flag](./SOURCE/res/cli.png)
 
 ### Gsd2Aml.Setup
 
@@ -80,4 +80,4 @@ It uses the [WIX toolset](http://wixtoolset.org/).
 
 Contains the code for all unit tests.
 The unit tests were build with Microsoft Unit Test Framework.
->>>>>>> GSD2AML-Converter/master
+-->
