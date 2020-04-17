@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <?include Variables.wxi ?>
+  <Product Id="*" Name="$(var.ProductMainName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.ManufacturerName)" UpgradeCode="$(var.UpgradeGuid)">
+		<Package Manufacturer="$(var.ManufacturerName)" InstallerVersion="301" Compressed="yes"/>
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of $(var.ProductMainName) is already installed." />
+    <Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
+		<Feature Id="ProductFeature" Title="$(var.ProductMainName)" Level="1">
+      <ComponentGroupRef Id="Components" />
+      <ComponentGroupRef Id="Environment" />
+      <ComponentGroupRef Id="StartMenuShortcut" />
+      <ComponentGroupRef Id="DesktopShortcut" />
+		</Feature>
+
+    <!-- Check for installed .NET Framework 4.7 -->
+    <PropertyRef Id="NETFRAMEWORK45" />
+    <Condition Message="This application requires .NET Framework 4.7. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR (NETFRAMEWORK45 AND NETFRAMEWORK45 >= "#460798")]]>
+    </Condition>
+
+    <!-- Variable for install path selection -->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+    <!-- Resources -->
+    <WixVariable Id="WixUILicenseRtf" Value="Resources\LICENSE.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="Resources\Banner.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="Resources\Dialog.bmp"/>
+
+    <Icon Id="Converter.ico" SourceFile="..\Converter.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="Converter.ico" />
+
+    <!-- Properties for install scope selection-->
+    <Property Id='WIXUI_INSTALLMODE' Value='0' />
+
+    <!-- Select which UI to use -->
+    <UI>
+      <UIRef Id="CustomWixUI_InstallDir" />
+    </UI>
+  </Product>
+
+  <!-- Define folder structure -->
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.myProgramFilesFolder)">
+        <Directory Id="INSTALLFOLDER" Name="$(var.myProductDir)">
+          <Directory Id="CMDFOLDER" Name="Cmd" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder" Name="ProgramMenuFolder">
+      </Directory>
+      <Directory Id="DesktopFolder" Name="DesktopFolder">
+      </Directory>
+    </Directory>
+	</Fragment>
+
+  <Fragment>
+    <!-- ComponentGroup for environment related stuff -->
+    <ComponentGroup Id="Environment" Directory="CMDFOLDER">
+      <Component Id="SystemPathForCli" Guid="6C529FE1-87B0-43E4-B626-CFD054AD5919">
+        <Condition>WIXUI_INSTALLMODE = "1"</Condition>
+        <Environment Id="SystemCmdPath" Name="PATH" Value="[CMDFOLDER]" Permanent="no" Part="last" Action="set" System="yes" />
+        <CreateFolder/>
+      </Component>
+      <Component Id="UserPathForCli" Guid="5B1B1E0D-508E-4FEC-813F-AB8C0EAF565C">
+        <Condition>WIXUI_INSTALLMODE = "0"</Condition>
+        <Environment Id="UserCmdPath" Name="PATH" Value="[CMDFOLDER]" Permanent="no" Part="last" Action="set" System="no" />
+        <CreateFolder/>
+      </Component>
+      <Component Id="BatForCli" Guid="EBF043BB-F332-463D-AED2-10C6C14E832B">
+        <File Id="BatForCli" KeyPath="yes" Source="..\..\dpl\gsd2aml.bat"/>
+      </Component>
+    </ComponentGroup>
+
+    <!-- ComponentGroups for shortcuts-->
+    <ComponentGroup Id="StartMenuShortcut" Directory="ProgramMenuFolder">
+      <Component Id="GuiStartMenuShortcut" Guid="21cb1fc1-c555-4b11-92d1-91ad4b95b9c9">
+        <Condition>WIXUI_CREATESTARTMENUSHORTCUT</Condition>
+        <Shortcut Id="GuiStartMenuShortcut" Name="GSD2AML Converter"
+                  Target="[#Gsd2Aml.Gui.exe]"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <RemoveFile Id="RemoveStartmenuIcon" Name="GSD2AML Converter" On="uninstall"/>
+        <RemoveFolder Id="ProgramMenuFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\GSD2AMLConverter" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="DesktopShortcut" Directory="DesktopFolder">
+      <Component Id="GuiDesktopShortcut" Guid="2d0a481a-8bd1-407f-b308-619514bedfbe">
+        <Condition>WIXUI_CREATEDESKTOPSHORTCUT</Condition>
+        <Shortcut Id="GuiDesktopShortcut" Name="GSD2AML Converter"
+                  Target="[#Gsd2Aml.Gui.exe]"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <RemoveFile Id="RemoveDesktopIcon" Name="GSD2AML Converter" On="uninstall"/>
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\GSD2AMLConverter" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

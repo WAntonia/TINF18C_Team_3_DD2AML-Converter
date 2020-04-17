@@ -1,0 +1,115 @@
+﻿<!--
+ *  Copyright (C) 2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
+ *  Jonas Komarek, Phuc Quang Vu, Michael Weidmann)
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License as published by
+ *  the Free Software Foundation version 3 of the License.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Affero General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<Window x:Class="Gsd2Aml.Gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converter="clr-namespace:Gsd2Aml.Gui.Converter"
+        Title="{Binding ProductTitle, Mode=OneWay}"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        AllowDrop="True"
+        DragEnter="MainWindow_OnDragEnter"
+        PreviewDragOver="MainWindow_OnPreviewDragOver"
+        Drop="MainWindow_OnDrop"
+        Height="300"
+        ResizeMode="NoResize"
+        Width="700"
+        WindowStyle="SingleBorderWindow"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal">
+    <Window.Resources>
+        <converter:PathValidator x:Key="PathValidator" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Label Content="Input file:" Grid.Column="0" Grid.Row="0" Margin="10,0,0,0" VerticalAlignment="Center" />
+        <DockPanel Grid.Column="1" Grid.Row="0" Margin="0,0,10,0" VerticalAlignment="Center">
+            <Button Content="..." Click="BrowseGsdFile_OnClick" DockPanel.Dock="Right" Padding="5,0" />
+            <TextBox AllowDrop="True"
+                     DragEnter="TxtGsdFile_OnDragEnter"
+                     PreviewDragOver="TxtGsdFile_OnPreviewDragOver"
+                     Drop="TxtGsdFile_OnDrop"
+                     x:Name="TxtGsdFile"
+                     TextChanged="TxtGsdFile_OnTextChanged">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                        <Style.Resources>
+                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                <VisualBrush.Visual>
+                                    <Label Content="Enter path to GSDML file or drop file here" Foreground="Gray" FontStyle="Italic"/>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Style.Resources>
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                            </Trigger>
+                            <Trigger Property="Text" Value="{x:Null}">
+                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter Property="Background" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+        </DockPanel>
+        
+        <Label Content="Output file:" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0" VerticalAlignment="Center" />
+        <DockPanel Grid.Column="1" Grid.Row="1" Margin="0,0,10,0" VerticalAlignment="Center">
+            <Button Content="..." Click="BrowseAmlFile_OnClick" DockPanel.Dock="Right" Padding="5,0" />
+            <TextBox x:Name="TxtAmlFile" />
+        </DockPanel>
+
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto">
+            <Button Content="Convert" Click="Convert_OnClick" HorizontalAlignment="Center" Padding="5" Width="Auto">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource PathValidator}">
+                        <Binding ElementName="TxtGsdFile" Path="Text" Mode="OneWay" />
+                        <Binding ElementName="TxtAmlFile" Path="Text" Mode="OneWay" />
+                    </MultiBinding>
+                </Button.IsEnabled>
+            </Button>
+            <CheckBox Content="use strict mode" IsChecked="{Binding StrictModeEnabled}" HorizontalAlignment="Center" Margin="0,5" ToolTip="Turns the validation of the given GSDML file on/off" />
+        </StackPanel>
+
+        <TextBlock FontSize="10" Foreground="Gray" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="5,0,0,5" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="Auto">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0}: Version {1}">
+                    <Binding Path="ProductTitle" Mode="OneWay" />
+                    <Binding Path="ProductVersion" Mode="OneWay" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+
+        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="5,0,0,5" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="Auto">
+            <Label.Content>
+                <Hyperlink Click="Hyperlink_Click">About</Hyperlink>
+            </Label.Content>
+        </Label>
+    </Grid>
+</Window>
