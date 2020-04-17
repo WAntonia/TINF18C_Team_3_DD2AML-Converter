@@ -1,7 +1,7 @@
-# DD2AML-Converter
+# DD2AML-Converter <!--
 =======
 # Gsd2Aml
-<!--
+
 Welcome to Gsd2Aml! This project was developed as a student project by (in alphabetical order)
 
 1. [Nico Dietz](https://github.com/dillasyx)
