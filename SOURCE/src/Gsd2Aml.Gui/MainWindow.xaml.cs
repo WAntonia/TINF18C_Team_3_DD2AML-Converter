@@ -1,6 +1,9 @@
 ﻿/*
- *  Copyright (C) 2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
+ *  Copyright (C) 
+ *  2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
  *  Jonas Komarek, Phuc Quang Vu, Michael Weidmann)
+ *  2020 DD2AML Team (Antonia Wermerskirch, Nora Baitinger,
+ *  Bastiane Storz, Lara Mack)
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
@@ -50,8 +53,8 @@ namespace Gsd2Aml.Gui
                     {
                         _strictModeEnabled = value;
                     }
-                    else if (MessageBox.Show(this, "WARNING!\n\nBy turning strict mode off, the converter will not validate GSDML files anymore.",
-                        "GSD2AML Converter", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+                    else if (MessageBox.Show(this, "WARNING!\n\nBy turning strict mode off, the converter will not validate your files anymore.",
+                        "DD2AML Converter", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
                     {
                         _warningShown = true;
                         _strictModeEnabled = value;
@@ -79,7 +82,7 @@ namespace Gsd2Aml.Gui
             {
                 CheckFileExists = true,
                 DefaultExt = ".xml",
-                Filter = "Generic station description markup language files (.xml)|*.xml",
+                Filter = "Files (*.xml;*.cspp)|*.xml;*.cspp",
                 InitialDirectory = string.IsNullOrEmpty(TxtGsdFile.Text.Trim()) ? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) : System.IO.Path.GetDirectoryName(TxtGsdFile.Text) ?? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 Title = "GSD2AML Converter"
             };
@@ -101,7 +104,7 @@ namespace Gsd2Aml.Gui
                 Filter = "AutomationML archives (.amlx)|*.amlx",
                 InitialDirectory = string.IsNullOrEmpty(TxtAmlFile.Text.Trim()) ? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) : System.IO.Path.GetDirectoryName(TxtAmlFile.Text) ?? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 FileName = !string.IsNullOrEmpty(TxtAmlFile.Text.Trim()) ? System.IO.Path.GetFileName(TxtAmlFile.Text) : "",
-                Title = "GSD2AML Converter",
+                Title = "DD2AML Converter",
                 ValidateNames = true
             };
 
@@ -125,18 +128,18 @@ namespace Gsd2Aml.Gui
                 var overwrite = false;
                 if (System.IO.File.Exists(TxtAmlFile.Text))
                 {
-                    overwrite = MessageBox.Show(this, $"The File \"{TxtAmlFile.Text}\" already exits.\n\nDo you want to overwrite it?", "GSD2AML Converter", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+                    overwrite = MessageBox.Show(this, $"The File \"{TxtAmlFile.Text}\" already exits.\n\nDo you want to overwrite it?", "DD2AML Converter", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
                 }
 
                 App.Logger.Log(Lib.Logging.LogLevel.Info, "Start conversion of file \"" + TxtGsdFile.Text + "\"");
                 Lib.Converter.Convert(TxtGsdFile.Text, TxtAmlFile.Text, overwrite, StrictModeEnabled);
 
                 App.Logger.Log(Lib.Logging.LogLevel.Info, "Conversion successfully completed!");
-                MessageBox.Show(this, "Conversion successfully completed!", "GSD2AML Converter");
+                MessageBox.Show(this, "Conversion successfully completed!", "DD2AML Converter");
 
                 if (GetAmlEditor() is string editor && !string.IsNullOrEmpty(editor))
                 {
-                    if (MessageBox.Show(this, "Do you want to open the file in AutomationML Editor?", "GSD2AML Converter", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    if (MessageBox.Show(this, "Do you want to open the file in AutomationML Editor?", "DD2AML Converter", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     {
                         try
                         {
@@ -146,7 +149,7 @@ namespace Gsd2Aml.Gui
                         catch (Exception ex)
                         {
                             App.Logger.Log(Lib.Logging.LogLevel.Error, ex.Message);
-                            MessageBox.Show(this, "An error occured when trying to open the AutomationML Editor.", "GSD2AML Converter", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(this, "An error occured when trying to open the AutomationML Editor.", "DD2AML Converter", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 }
@@ -154,7 +157,7 @@ namespace Gsd2Aml.Gui
             catch (Exception ex)
             {
                 App.Logger.Log(Lib.Logging.LogLevel.Error, ex.Message);
-                MessageBox.Show(this, ex.Message, "GSD2AML Converter: Conversion failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(this, ex.Message, "DD2AML Converter: Conversion failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -206,8 +209,7 @@ namespace Gsd2Aml.Gui
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
                 App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" drag onto window");
-                if (!string.IsNullOrEmpty(fileName) && fileName.StartsWith("GSDML", StringComparison.InvariantCultureIgnoreCase) &&
-                    fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase))
+                if (!string.IsNullOrEmpty(fileName) && (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))
                 {
                     App.Logger.Log(Lib.Logging.LogLevel.Debug, "File is legal");
                     e.Effects = DragDropEffects.All | DragDropEffects.Copy | DragDropEffects.Link | DragDropEffects.Move;
@@ -231,8 +233,8 @@ namespace Gsd2Aml.Gui
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
                 App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" draged over window");
-                if (!string.IsNullOrEmpty(fileName) && fileName.StartsWith("GSDML", StringComparison.InvariantCultureIgnoreCase) &&
-                    fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase))
+                if (!string.IsNullOrEmpty(fileName) &&  (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))
+
                 {
                     e.Effects = DragDropEffects.All | DragDropEffects.Copy | DragDropEffects.Link | DragDropEffects.Move;
                 }
@@ -256,8 +258,7 @@ namespace Gsd2Aml.Gui
 
             var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
             App.Logger.Log(Lib.Logging.LogLevel.Debug, "Dropped file \"" + fileName + "\"");
-            if (!string.IsNullOrEmpty(fileName) && fileName.StartsWith("GSDML", StringComparison.InvariantCultureIgnoreCase) &&
-                fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase))
+            if (!string.IsNullOrEmpty(fileName) && (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))
             {
                 TxtGsdFile.Text = ((string[])data)[0];
             }
@@ -267,14 +268,14 @@ namespace Gsd2Aml.Gui
         #region Textbox
         private void TxtGsdFile_OnDragEnter(object sender, DragEventArgs e)
         {
-            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Drag entered gsd textbox");
+            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Drag entered first textbox");
             var data = e.Data.GetData(DataFormats.FileDrop);
             if ((data as string[])?.FirstOrDefault() != null)
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" drag onto gsd textbox");
-                if (!string.IsNullOrEmpty(fileName) && fileName.StartsWith("GSDML", StringComparison.InvariantCultureIgnoreCase) &&
-                    fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase))
+                App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" drag onto first textbox");
+                if (!string.IsNullOrEmpty(fileName) && 
+                    (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))    
                 {
                     App.Logger.Log(Lib.Logging.LogLevel.Debug, "File is legal");
                     e.Effects = DragDropEffects.All | DragDropEffects.Copy | DragDropEffects.Link | DragDropEffects.Move;
@@ -299,8 +300,8 @@ namespace Gsd2Aml.Gui
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
                 App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" draged over gsd textbox");
-                if (!string.IsNullOrEmpty(fileName) && fileName.StartsWith("GSDML", StringComparison.InvariantCultureIgnoreCase) &&
-                    fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase))
+                if (!string.IsNullOrEmpty(fileName) &&
+                    (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))          
                 {
                     e.Effects = DragDropEffects.All | DragDropEffects.Copy | DragDropEffects.Link | DragDropEffects.Move;
                     e.Handled = true;
@@ -325,9 +326,9 @@ namespace Gsd2Aml.Gui
 
             var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
             App.Logger.Log(Lib.Logging.LogLevel.Debug, "Dropped file \"" + fileName + "\"");
-            if (!string.IsNullOrEmpty(fileName) && fileName.StartsWith("GSDML", StringComparison.InvariantCultureIgnoreCase) &&
-                fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase))
-            {
+            if (!string.IsNullOrEmpty(fileName) &&
+                (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))          
+            { 
                 ((TextBox)sender).Text = fileName;
             }
         }
@@ -346,6 +347,7 @@ namespace Gsd2Aml.Gui
             if (string.IsNullOrEmpty(senderText))
                 return;
 
+            // GSD
             if (Regex.IsMatch(senderText, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
             {
                 var diretoryName = System.IO.Path.GetDirectoryName(senderText) ?? "";
@@ -353,6 +355,25 @@ namespace Gsd2Aml.Gui
 
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
             }
+
+            //IODD
+            if (Regex.IsMatch(senderText, $"(.+(IODD|iodd)-.+{Regex.Escape(".xml")})"))
+            {
+                var diretoryName = System.IO.Path.GetDirectoryName(senderText) ?? "";
+                var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText).Remove(0, "IODD-".Length) + ".amlx";
+
+                TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+            }
+
+            //CSP
+            if (Regex.IsMatch(senderText, $"(.+{Regex.Escape(".cspp")})"))
+            {
+                var diretoryName = System.IO.Path.GetDirectoryName(senderText) ?? "";
+                var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText) + ".amlx";
+            
+                TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+            }
+
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)

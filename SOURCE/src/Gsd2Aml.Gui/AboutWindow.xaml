@@ -1,6 +1,9 @@
 ﻿<!--
- *  Copyright (C) 2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
+ *  Copyright (C) 
+ *  2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
  *  Jonas Komarek, Phuc Quang Vu, Michael Weidmann)
+ *  2020 DD2AML Team (Antonia Wermerskirch, Nora Baitinger,
+ *  Bastiane Storz, Lara Mack)
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
@@ -30,14 +33,12 @@
         <TextBlock Text="{Binding ProductVersion, StringFormat=Version {0}}" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
         <TextBlock Text="{Binding Copyright}" Height="Auto" HorizontalAlignment="Center" Margin="0,5" Width="Auto" />
         <TextBlock Text="Developed by:" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
-        <TextBlock Text="Nico Dietz" Height="Auto" HorizontalAlignment="Center" Width="Auto" />                   
-        <TextBlock Text="Steffen Gerdes" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
-        <TextBlock Text="Constantin Ruhdorfer" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
-        <TextBlock Text="Jonas Komarek" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
-        <TextBlock Text="Phuc Quang Vu" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
-        <TextBlock Text="Michael Weidmann" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
+        <TextBlock Text="Antonia Wermerskirch" Height="Auto" HorizontalAlignment="Center" Width="Auto" />                   
+        <TextBlock Text="Nora Baitinger" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
+        <TextBlock Text="Lara Mack" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
+        <TextBlock Text="Bastiane Storz" Height="Auto" HorizontalAlignment="Center" Width="Auto" />
         <Label Height="Auto" HorizontalAlignment="Center" Margin="0,5,0,0" Width="Auto">
-            <Hyperlink NavigateUri="https://github.com/tinf17c/gsd2aml-converter" RequestNavigate="Hyperlink_RequestNavigate">
+            <Hyperlink NavigateUri="https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter" RequestNavigate="Hyperlink_RequestNavigate">
                 GitHub
             </Hyperlink>
         </Label>
