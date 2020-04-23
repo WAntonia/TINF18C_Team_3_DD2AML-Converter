@@ -6,5 +6,15 @@
 ".\SOURCE\src\Gsd2Aml.Lib\obj" 
 ".\SOURCE\src\Gsd2Aml.GUI\obj" 
 ".\SOURCE\src\Gsd2Aml.Test\obj" 
+".\SOURCE\src\.vs"
+".\.vs"
 
-
+src/*/obj
+src/*/bin
+src/*/.vs
+src/.vs
+3rd/
+.vs/
+*.user
+obj
+tst/*.amlx
