@@ -62,7 +62,7 @@
                         <Style.Resources>
                             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
                                 <VisualBrush.Visual>
-                                    <Label Content="Enter path to GSDML/IODD/CSP file or drop file here" Foreground="Gray" FontStyle="Italic"/>
+                                    <Label Content="Enter path to GSDML/IODD/CSP+ file or drop file here" Foreground="Gray" FontStyle="Italic"/>
                                 </VisualBrush.Visual>
                             </VisualBrush>
                         </Style.Resources>

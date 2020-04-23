@@ -152,9 +152,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="WhatsApp-Image-2020-04-22-at-13.25.45.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="ConverterIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

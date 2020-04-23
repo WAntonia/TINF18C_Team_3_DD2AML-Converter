@@ -357,15 +357,16 @@ namespace Gsd2Aml.Gui
             }
 
             //IODD
-            if (Regex.IsMatch(senderText, $"(.+(IODD|iodd)-.+{Regex.Escape(".xml")})"))
+            if (Regex.IsMatch(senderText, $"(.+.-(IODD|iodd).+{Regex.Escape(".xml")})"))
             {
                 var diretoryName = System.IO.Path.GetDirectoryName(senderText) ?? "";
-                var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText).Remove(0, "IODD-".Length) + ".amlx";
+                var len = senderText.Length - 13 - diretoryName.Length;
+                var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText).Remove(len, 8) + ".amlx";
 
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
             }
 
-            //CSP
+            //CSP+
             if (Regex.IsMatch(senderText, $"(.+{Regex.Escape(".cspp")})"))
             {
                 var diretoryName = System.IO.Path.GetDirectoryName(senderText) ?? "";
