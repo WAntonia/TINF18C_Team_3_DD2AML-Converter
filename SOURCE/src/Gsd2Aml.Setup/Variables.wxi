@@ -2,7 +2,7 @@
 <Include>
   <!-- Product -->
   <?ifndef ManufacturerName ?>
-  <?define ManufacturerName="Cooperative State University Stuttgart TINF17C" ?>
+  <?define ManufacturerName="Cooperative State University Stuttgart TINF18C" ?>
   <?endif?>
   <?ifndef ProductMainName ?>
   <?define ProductMainName="DD2AML Converter" ?>
@@ -11,8 +11,8 @@
   <?define ProductVersion="1.0.0.0" ?>
   <?endif?>
   
-  <?define myManufacturerDir="GSD2AML Converter" ?>
-  <?define myProductDir="GSD2AML Converter" ?>
+  <?define myManufacturerDir="DD2AML Converter" ?>
+  <?define myProductDir="DD2AML Converter" ?>
   <?define UpgradeGuid="215ee4e9-2335-468c-8a74-7f60fd5db8bb"?>
 
   <!-- 
