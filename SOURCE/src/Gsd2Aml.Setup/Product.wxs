@@ -27,8 +27,8 @@
     <WixVariable Id="WixUIBannerBmp" Value="Resources\Banner.bmp"/>
     <WixVariable Id="WixUIDialogBmp" Value="Resources\Dialog.bmp"/>
 
-    <Icon Id="Converter.ico" SourceFile="..\Converter.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="Converter.ico" />
+    <Icon Id="Converter.ico" SourceFile="..\ConverterIcon.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="ConverterIcon.ico" />
 
     <!-- Properties for install scope selection-->
     <Property Id='WIXUI_INSTALLMODE' Value='0' />
@@ -76,23 +76,23 @@
     <ComponentGroup Id="StartMenuShortcut" Directory="ProgramMenuFolder">
       <Component Id="GuiStartMenuShortcut" Guid="21cb1fc1-c555-4b11-92d1-91ad4b95b9c9">
         <Condition>WIXUI_CREATESTARTMENUSHORTCUT</Condition>
-        <Shortcut Id="GuiStartMenuShortcut" Name="GSD2AML Converter"
+        <Shortcut Id="GuiStartMenuShortcut" Name="DD2AML Converter"
                   Target="[#Gsd2Aml.Gui.exe]"
                   WorkingDirectory="INSTALLFOLDER"/>
-        <RemoveFile Id="RemoveStartmenuIcon" Name="GSD2AML Converter" On="uninstall"/>
+        <RemoveFile Id="RemoveStartmenuIcon" Name="DD2AML Converter" On="uninstall"/>
         <RemoveFolder Id="ProgramMenuFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\GSD2AMLConverter" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RegistryValue Root="HKCU" Key="Software\DD2AMLConverter" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
     <ComponentGroup Id="DesktopShortcut" Directory="DesktopFolder">
       <Component Id="GuiDesktopShortcut" Guid="2d0a481a-8bd1-407f-b308-619514bedfbe">
         <Condition>WIXUI_CREATEDESKTOPSHORTCUT</Condition>
-        <Shortcut Id="GuiDesktopShortcut" Name="GSD2AML Converter"
+        <Shortcut Id="GuiDesktopShortcut" Name="DD2AML Converter"
                   Target="[#Gsd2Aml.Gui.exe]"
                   WorkingDirectory="INSTALLFOLDER"/>
         <RemoveFile Id="RemoveDesktopIcon" Name="GSD2AML Converter" On="uninstall"/>
         <RemoveFolder Id="DesktopFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\GSD2AMLConverter" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RegistryValue Root="HKCU" Key="Software\DD2AMLConverter" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
   </Fragment>
