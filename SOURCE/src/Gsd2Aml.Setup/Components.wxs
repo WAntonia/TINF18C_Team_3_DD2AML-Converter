@@ -2,12 +2,50 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
-          <!-- Content will be automatically generaded during build -->
+            <Component Id="AML.Engine.dll" Guid="904A2E88-D806-42AB-9954-966ABD07C10B">
+                <File Id="AML.Engine.dll" KeyPath="yes" Source="$(var.SourceDir)\AML.Engine.dll" />
+            </Component>
+            <Component Id="Gsd2Aml.Cli.exe" Guid="17C1C1F9-BCA7-4D82-9289-D51E4D70620B">
+                <File Id="Gsd2Aml.Cli.exe" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Cli.exe" />
+            </Component>
+            <Component Id="Gsd2Aml.Cli.exe.config" Guid="9769D79D-6362-4FFE-81C4-937E355C226C">
+                <File Id="Gsd2Aml.Cli.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Cli.exe.config" />
+            </Component>
+            <Component Id="Gsd2Aml.Gui.exe" Guid="0BBCCC94-F154-4740-9F8C-51DF1FF04011">
+                <File Id="Gsd2Aml.Gui.exe" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Gui.exe" />
+            </Component>
+            <Component Id="Gsd2Aml.Gui.exe.config" Guid="C4B2754B-DC80-4CAA-AA79-D2979AA9B2BE">
+                <File Id="Gsd2Aml.Gui.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Gui.exe.config" />
+            </Component>
+            <Component Id="Gsd2Aml.Lib.dll" Guid="9C27E636-C48F-43B8-B85A-D5F20619660B">
+                <File Id="Gsd2Aml.Lib.dll" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Lib.dll" />
+            </Component>
+            <Component Id="gsd2aml.xml" Guid="A1615BFA-7A01-4019-AE7F-B7C85A524D08">
+                <File Id="gsd2aml.xml" KeyPath="yes" Source="$(var.SourceDir)\gsd2aml.xml" />
+            </Component>
+            <Component Id="NLog.config" Guid="30DC423C-ECB8-4A8E-AA9C-4FBBAE89F6D6">
+                <File Id="NLog.config" KeyPath="yes" Source="$(var.SourceDir)\NLog.config" />
+            </Component>
+            <Component Id="NLog.dll" Guid="701C339E-C572-4FDE-86E8-C962B247D13D">
+                <File Id="NLog.dll" KeyPath="yes" Source="$(var.SourceDir)\NLog.dll" />
+            </Component>
+            <Component Id="README.md" Guid="87E0A17F-A509-4CC8-A583-19C8426EA99E">
+                <File Id="README.md" KeyPath="yes" Source="$(var.SourceDir)\README.md" />
+            </Component>
         </DirectoryRef>
     </Fragment>
     <Fragment>
         <ComponentGroup Id="Components">
-          <!-- Content will be automatically generaded during build -->
+            <ComponentRef Id="AML.Engine.dll" />
+            <ComponentRef Id="Gsd2Aml.Cli.exe" />
+            <ComponentRef Id="Gsd2Aml.Cli.exe.config" />
+            <ComponentRef Id="Gsd2Aml.Gui.exe" />
+            <ComponentRef Id="Gsd2Aml.Gui.exe.config" />
+            <ComponentRef Id="Gsd2Aml.Lib.dll" />
+            <ComponentRef Id="gsd2aml.xml" />
+            <ComponentRef Id="NLog.config" />
+            <ComponentRef Id="NLog.dll" />
+            <ComponentRef Id="README.md" />
         </ComponentGroup>
     </Fragment>
 </Wix>
