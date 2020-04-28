@@ -57,6 +57,10 @@
     <Compile Include="Logging\ILoggingService.cs" />
     <Compile Include="Converter.cs" />
     <Compile Include="Models\AML.cs" />
+    <Compile Include="Models\CAEX3.0\AML3_0.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Models\CSPP.cs" />
     <Compile Include="Models\GSD.cs" />
     <Compile Include="Compressor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,7 +85,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="gsd2aml.xml">
+    <EmbeddedResource Include="Aml2\gsd2aml.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Aml2\cspp2aml.xml" />
+    <EmbeddedResource Include="Aml2\iodd2aml.xml" />
+    <Content Include="Aml3\cspp2aml3.xml" />
+    <Content Include="Aml3\iodd2aml3.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Aml3\gsd2aml3.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

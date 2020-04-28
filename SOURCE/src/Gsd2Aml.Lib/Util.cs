@@ -23,6 +23,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace Gsd2Aml.Lib
 {
@@ -31,7 +32,8 @@ namespace Gsd2Aml.Lib
     /// </summary>
     public static class Util
     {
-        private const string CTranslationTableFileName = "gsd2aml.xml";
+        //  private const string CTranslationTableFileName = "gsd2aml.xml";
+        public static int filetype;
 
         private const string CTextPath = "ProfileBody.ApplicationProcess.ExternalTextList.PrimaryLanguage";
         private const string CRealTextName = "Text";
@@ -405,6 +407,20 @@ namespace Gsd2Aml.Lib
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyFolder = Path.GetDirectoryName(assembly.Location);
 
+            string CTranslationTableFileName= "";
+            if ( filetype == 1) 
+            { 
+                CTranslationTableFileName = "gsd2aml.xml";
+            }
+            else if (filetype == 2)
+            {
+                CTranslationTableFileName = "iodd2aml.xml";
+            }
+            else if (filetype == 3)
+            {
+                CTranslationTableFileName = "cspp2aml.xml";
+            }
+
             if (assemblyFolder != null)
             {
                 var translationTableLocation = Path.Combine(assemblyFolder, CTranslationTableFileName);
@@ -446,10 +462,20 @@ namespace Gsd2Aml.Lib
 
             var fileName = Path.GetFileNameWithoutExtension(inputFile);
 
-            fileName = fileName.StartsWith("GSDML-", StringComparison.InvariantCultureIgnoreCase)
-                        ? fileName.Remove(0, "GSDML-".Length)
-                        : fileName;
-            fileName += ".aml";
+            if(Regex.IsMatch(fileName, $"(.+(GSDML|gsdml)-.)"))
+            {
+                fileName = fileName.StartsWith("GSDML-", StringComparison.InvariantCultureIgnoreCase)
+                            ? fileName.Remove(0, "GSDML-".Length)
+                            : fileName;
+                fileName += ".aml";
+            }
+            if (Regex.IsMatch(fileName, $"(.+.-(IODD|iodd).)")){
+                fileName = fileName.StartsWith("GSDML-", StringComparison.InvariantCultureIgnoreCase)
+                ? fileName.Remove(0, "GSDML-".Length)
+                : fileName;
+                fileName += ".aml";
+            }
+
 
             var directoryName = Path.GetDirectoryName(inputFile);
 

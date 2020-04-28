@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Gsd2Aml.Cli
 {
@@ -131,6 +132,20 @@ namespace Gsd2Aml.Cli
             }
 
             InputFile = parameter[CInputFileShort] ?? parameter[CInputFile];
+
+            if (Regex.IsMatch(InputFile, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
+            {
+                Lib.Util.filetype = 1;
+            }
+            if (Regex.IsMatch(InputFile, $"(.+.-(IODD|iodd).+{Regex.Escape(".xml")})"))
+            {
+                Lib.Util.filetype = 2;
+            }
+            if (Regex.IsMatch(InputFile, $"(.+{Regex.Escape(".cspp")})"))
+            {
+                Lib.Util.filetype = 3;
+            }
+
             OutputFile = parameter[COutputFileShort] ?? parameter[COutputFile];
             StringOutput = Args.FindIndex(arg => arg.Equals(CStringOutputShort)) >= 0 ||
                            Args.FindIndex(arg => arg.Equals(CStringOutput)) >= 0;

@@ -72,7 +72,7 @@ namespace Gsd2Aml.Cli
             {
                 Console.WriteLine($"Conversion failed. Please contact the developers. {e.Message}");
                 Util.Logger.Log(LogLevel.Error, e.ToString());
-                Environment.Exit(1);
+                //Environment.Exit(1);
             }
         }
 

@@ -186,7 +186,7 @@ namespace Gsd2Aml.Gui
 
                 if (dir.Exists)
                 {
-                    var file = dir.GetFiles("AutomationML Editor.lnk", System.IO.SearchOption.TopDirectoryOnly).FirstOrDefault();
+                    var file = dir.GetFiles("AutomationMLEditor.lnk", System.IO.SearchOption.TopDirectoryOnly).FirstOrDefault();
                     return file.FullName;
                 }
             }
@@ -354,6 +354,7 @@ namespace Gsd2Aml.Gui
                 var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText).Remove(0, "GSDML-".Length) + ".amlx";
 
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+                Lib.Util.filetype =  1;
             }
 
             //IODD
@@ -364,6 +365,7 @@ namespace Gsd2Aml.Gui
                 var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText).Remove(len, 8) + ".amlx";
 
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+                Lib.Util.filetype = 2;
             }
 
             //CSP+
@@ -373,6 +375,7 @@ namespace Gsd2Aml.Gui
                 var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText) + ".amlx";
             
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+                Lib.Util.filetype = 3;
             }
 
         }

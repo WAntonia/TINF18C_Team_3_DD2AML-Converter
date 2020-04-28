@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<body>
+
+  <ProfileHeader>
+    <Replacement>
+      <AdditionalInformation>
+        <WriterHeader>
+          <WriterName>DHBW Stuttgart TINF18C</WriterName>
+          <WriterID>D331B5B6-C3FA-4D3C-8F6D-93F6F0215EF4</WriterID>
+          <WriterVendor>DD2AML TINF18C</WriterVendor>
+          <WriterVersion>1.0.0</WriterVersion>
+          <WriterRelease>1.0.0</WriterRelease>
+          <LastWritingDateTime></LastWritingDateTime>
+          <WriterProjectTitle>DD2AML Converter</WriterProjectTitle>
+          <WriterProjectID>DD2AML Converter</WriterProjectID>
+        </WriterHeader>
+      </AdditionalInformation>
+    </Replacement>
+  </ProfileHeader>
+  
+  
+</body>
