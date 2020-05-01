@@ -47,7 +47,7 @@ namespace Gsd2Aml.Lib
         private const string CReferenceGraphicId = "GraphicItemTarget";
         internal const string CRealValueGraphicName = "GraphicFile";
 
-        internal static string RelativeGsdFilePath { get; set; }
+        internal static string RelativeFilePath { get; set; }
 
         /// <summary>
         /// Gets the property information (PropertyInfo, Type, bool isArray) of a string.
@@ -223,8 +223,8 @@ namespace Gsd2Aml.Lib
                         var referenceGraphicValue = ParseRealReference(CGraphicPath, reference, CReferenceGraphicId, CRealGraphicId, CRealGraphicName, CRealValueGraphicName, xmlNode);
                         references.Add(referenceId, referenceGraphicValue);
                         break;
-                    case "RelGsdFilePath":
-                        references.Add(referenceId, RelativeGsdFilePath);
+                    case "RelFilePath":
+                        references.Add(referenceId, RelativeFilePath);
                         break;
                     case null:
                         var referenceChild = reference.FirstChild;

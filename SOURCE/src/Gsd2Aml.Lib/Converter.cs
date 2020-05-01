@@ -48,7 +48,7 @@ namespace Gsd2Aml.Lib
         /// <returns>The AML object serialized to a XML string.</returns>
         public static string Convert(string inputFile, bool strictValidation = true)
         {
-            Util.RelativeGsdFilePath = "/" + Path.GetFileName(inputFile);
+            Util.RelativeFilePath = "/" + Path.GetFileName(inputFile);
 
             Logger?.Log(LogLevel.Info, "Conversion to string started.");
             StartConversion(inputFile, Util.GetOutputFileName(inputFile), strictValidation);
@@ -70,7 +70,7 @@ namespace Gsd2Aml.Lib
         /// <param name="strictValidation">A flag which indicates if the GSD should be checked for correctness.</param>
         public static void Convert(string inputFile, string outputFile, bool overwriteFile, bool strictValidation = true)
         {
-            Util.RelativeGsdFilePath = Path.GetFileName(inputFile);
+            Util.RelativeFilePath = Path.GetFileName(inputFile);
 
             Logger?.Log(LogLevel.Info, "Conversion to file started.");
             StartConversion(inputFile, outputFile, strictValidation);

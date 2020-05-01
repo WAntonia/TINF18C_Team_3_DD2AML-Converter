@@ -133,7 +133,7 @@
     <Reference Ref="$4" Type="TextRef">
       <ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.ModuleInfo.InfoText TextId="" />
     </Reference>
-    <Reference Ref="$5" Type="RelGsdFilePath" />
+    <Reference Ref="$5" Type="RelFilePath" />
     <Reference Ref="$6">
       <ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.ModuleInfo.HardwareRelease Value="" />
     </Reference>

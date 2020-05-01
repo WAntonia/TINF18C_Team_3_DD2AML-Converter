@@ -14,8 +14,10 @@ using System.Xml.Serialization;
 // Dieser Quellcode wurde automatisch generiert von xsd, Version=4.8.3928.0.
 // 
 
+namespace Gsd2Aml.Lib.Models.IODD
+{
 
-/// <remarks/>
+    /// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4659,4 +4661,6 @@ public partial class IODDStandardVariableT : VariableT
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.io-link.com/IODD/2010/10")]
 public partial class ErrorType128T : ErrorTypeT
 {
+}
+
 }
