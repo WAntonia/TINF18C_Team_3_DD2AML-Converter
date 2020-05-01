@@ -35,17 +35,24 @@ namespace Gsd2Aml.Lib
         //  private const string CTranslationTableFileName = "gsd2aml.xml";
         public static int filetype;
 
-        private const string CTextPath = "ProfileBody.ApplicationProcess.ExternalTextList.PrimaryLanguage";
+        //private const string CTextPath = "ProfileBody.ApplicationProcess.ExternalTextList.PrimaryLanguage";
+        private static string CTextPath = "";
         private const string CRealTextName = "Text";
-        private const string CRealTextId = "TextId";
-        private const string CReferenceTextId = "TextId";
-        private const string CRealValueTextName = "Value";
+        //private const string CRealTextId = "TextId";
+        private static string CRealTextId = "";
+        //private const string CReferenceTextId = "TextId";
+        private static string CReferenceTextId = "";
+        //private const string CRealValueTextName = "Value";
+        private static string CRealValueTextName = "";
 
-        internal const string CGraphicPath = "ProfileBody.ApplicationProcess.GraphicsList";
-        internal const string CRealGraphicName = "GraphicItem";
+        //internal const string CGraphicPath = "ProfileBody.ApplicationProcess.GraphicsList";
+        internal static string CGraphicPath = "";
+        //internal const string CRealGraphicName = "GraphicItem";
+        internal static string CRealGraphicName = "";
         private const string CRealGraphicId = "ID";
         private const string CReferenceGraphicId = "GraphicItemTarget";
-        internal const string CRealValueGraphicName = "GraphicFile";
+        //internal const string CRealValueGraphicName = "GraphicFile";
+        internal static string CRealValueGraphicName = "";
 
         internal static string RelativeFilePath { get; set; }
 
@@ -282,8 +289,8 @@ namespace Gsd2Aml.Lib
 
             if (refId == null)
             {
-                Converter.Logger?.Log(LogLevel.Warning, $"GSD reference element does not have a valid reference id.");
-                throw new InvalidDataException($"GSD reference element does not have a valid id.");
+                Converter.Logger?.Log(LogLevel.Warning, $"Reference element does not have a valid reference id.");
+                throw new InvalidDataException($"Reference element does not have a valid id.");
             }
 
             var realNode = IterateThroughGsdDocument(path);
@@ -411,10 +418,24 @@ namespace Gsd2Aml.Lib
             if ( filetype == 1) 
             { 
                 CTranslationTableFileName = "gsd2aml.xml";
+                CReferenceTextId = "TextId";
+                CTextPath = "ProfileBody.ApplicationProcess.ExternalTextList.PrimaryLanguage";
+                CRealTextId = "TextId";
+                CRealValueTextName = "Value";
+                CGraphicPath = "ProfileBody.ApplicationProcess.GraphicsList";
+                CRealGraphicName = "GraphicItem";
+                CRealValueGraphicName = "GraphicFile";
             }
             else if (filetype == 2)
             {
                 CTranslationTableFileName = "iodd2aml.xml";
+                CReferenceTextId = "textId";
+                CTextPath = "ExternalTextCollection.PrimaryLanguage";
+                CRealTextId = "id";
+                CRealValueTextName = "value";
+                CGraphicPath = "ProfileBody.DeviceIdentity.DeviceVariantCollection";
+                CRealGraphicName = "DeviceVariant";
+                CRealValueGraphicName = "deviceSymbol";
             }
             else if (filetype == 3)
             {
