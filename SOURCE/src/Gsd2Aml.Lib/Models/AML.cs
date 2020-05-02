@@ -3,7 +3,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 
-namespace Gsd2Aml.Lib.Models
+namespace Gsd2Aml.Lib.Models.CAEX2
 {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]

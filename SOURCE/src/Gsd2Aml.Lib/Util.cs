@@ -33,6 +33,7 @@ namespace Gsd2Aml.Lib
     public static class Util
     {
         //  private const string CTranslationTableFileName = "gsd2aml.xml";
+        internal static string CTranslationTableFileName = "";
         public static int filetype;
 
         //private const string CTextPath = "ProfileBody.ApplicationProcess.ExternalTextList.PrimaryLanguage";
@@ -74,8 +75,15 @@ namespace Gsd2Aml.Lib
             // Iterate over the splitStrings array and find step by step the searched property.
             foreach (var splitString in splitStrings)
             {
-                var currentType = propertyInfo == null ? typeof(Wrapper) : propertyInfo.PropertyType;
-                propertyInfo = SearchPropertyByString(currentType, splitString);
+                if(Converter.CAEXVersion == 2) { 
+                    var currentType = propertyInfo == null ? typeof(Models.CAEX2.Wrapper) : propertyInfo.PropertyType;
+                    propertyInfo = SearchPropertyByString(currentType, splitString);
+                }
+                else
+                {
+                    var currentType = propertyInfo == null ? typeof(Models.CAEX3.Wrapper) : propertyInfo.PropertyType;
+                    propertyInfo = SearchPropertyByString(currentType, splitString);
+                }
 
                 Converter.Logger?.Log(LogLevel.Debug, $"Found the property {propertyInfo?.Name} with this declaring type {propertyInfo?.DeclaringType}.");
 
@@ -414,7 +422,6 @@ namespace Gsd2Aml.Lib
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyFolder = Path.GetDirectoryName(assembly.Location);
 
-            string CTranslationTableFileName= "";
             if ( filetype == 1) 
             { 
                 CTranslationTableFileName = "gsd2aml.xml";

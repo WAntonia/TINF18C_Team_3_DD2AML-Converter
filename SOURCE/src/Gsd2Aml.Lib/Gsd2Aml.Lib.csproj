@@ -57,12 +57,13 @@
     <Compile Include="Logging\ILoggingService.cs" />
     <Compile Include="Converter.cs" />
     <Compile Include="Models\AML.cs" />
-    <Compile Include="Models\CAEX3.0\AML3_0.cs">
+    <Compile Include="Models\AML3_0.cs">
       <SubType>code</SubType>
     </Compile>
     <Compile Include="Models\CSPP.cs" />
     <Compile Include="Models\GSD.cs" />
     <Compile Include="Compressor.cs" />
+    <Compile Include="Models\IODD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>

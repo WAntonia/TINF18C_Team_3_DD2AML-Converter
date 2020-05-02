@@ -1989,4 +1989,32 @@ namespace Gsd2Aml.Lib.Models.CAEX3
             }
         }
     }
+
+    public class Wrapper
+    {
+        // Default search property
+        public CAEXFile CAEXFile { get; set; }
+
+        // First rule
+        public SourceDocumentInformationType SourceDocumentInformation { get; set; }
+
+        // Second rule
+        public CAEXFileSystemUnitClassLib SystemUnitClassLib { get; set; }
+
+        // Third rule
+        public SystemUnitFamilyType SystemUnitClass { get; set; }
+
+        public SystemUnitClassType SystemUnitClassType { get; set; }
+
+        public SystemUnitClassTypeSupportedRoleClass SupportedRoleClass { get; set; }
+
+        public InternalElementType InternalElement { get; set; }
+
+        public AttributeType Attribute { get; set; }
+
+        public InterfaceClassType ExternalInterface { get; set; }
+
+        // Attributes (ID, Name)
+        public CAEXObject CAEXObject { get; set; }
+    }
 }
