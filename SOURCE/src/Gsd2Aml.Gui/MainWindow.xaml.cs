@@ -347,6 +347,8 @@ namespace Gsd2Aml.Gui
             if (string.IsNullOrEmpty(senderText))
                 return;
 
+            //Lib.Converter.CAEXVersion =  HIER BRAUCH ICH DEN WERT VON RADIO BUTTON AM BESTEN 2 ODER 3
+
             // GSD
             if (Regex.IsMatch(senderText, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
             {
