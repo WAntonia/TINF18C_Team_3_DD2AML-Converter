@@ -32,9 +32,15 @@ namespace Gsd2Aml.Lib
     /// </summary>
     public static class Converter
     {
+        public static int CAEXVersion = 2;
+
         public static ILoggingService Logger { get; set; }
 
-        private static CAEXFile AmlObject { get; } = new CAEXFile();
+        //private static Models.CAEX2.CAEXFile AmlObject { get; } = new Models.CAEX2.CAEXFile(); //Hier wird CAEX ausgewählt
+
+        private static Models.CAEX2.CAEXFile AmlObject { get; } = new Models.CAEX2.CAEXFile();
+
+        private static Models.CAEX3.CAEXFile AmlObject3 { get; } = new Models.CAEX3.CAEXFile(); //Hier wird CAEX ausgewählt
 
         private static List<XmlNode> TranslationRules { get; } = new List<XmlNode>();
 
@@ -55,8 +61,17 @@ namespace Gsd2Aml.Lib
 
             using (var stringwriter = new StringWriter())
             {
-                var serializer = new XmlSerializer(AmlObject.GetType());
-                serializer.Serialize(stringwriter, AmlObject);
+                if(CAEXVersion == 2)
+                {
+                    var serializer = new XmlSerializer(AmlObject.GetType());
+                    serializer.Serialize(stringwriter, AmlObject);
+                }
+                else
+                {
+                    var serializer = new XmlSerializer(AmlObject3.GetType());
+                    serializer.Serialize(stringwriter, AmlObject3);
+                }
+
                 return stringwriter.ToString();
             }
         }
@@ -76,11 +91,25 @@ namespace Gsd2Aml.Lib
             StartConversion(inputFile, outputFile, strictValidation);
 
             var serializer = new XmlSerializer(AmlObject.GetType());
+
+            if(CAEXVersion != 2)
+            {
+                serializer = new XmlSerializer(AmlObject3.GetType());
+            }
             var temporaryPath = Path.Combine(Path.GetTempPath(), Path.GetFileNameWithoutExtension(outputFile) + ".aml");
 
             using (var textWriter = new StreamWriter(temporaryPath))
             {
-                serializer.Serialize(textWriter, AmlObject);
+                if(CAEXVersion == 2)
+                {
+                    serializer.Serialize(textWriter, AmlObject);
+                }
+                else
+                {
+                    serializer.Serialize(textWriter, AmlObject3);
+                }
+
+
             }
 
             var resources = new List<string> {inputFile};
@@ -125,12 +154,23 @@ namespace Gsd2Aml.Lib
             }
 
             // Set FileName property of CAEX-element.
-            AmlObject.GetType().GetProperties().FirstOrDefault(p => p.Name.Equals("FileName"))?.SetValue(AmlObject, new FileInfo(outputFile).Name);
-            Logger?.Log(LogLevel.Debug, "Added the FileName attribute to the CAEXFile element.");
+            if(CAEXVersion == 2) { 
+                AmlObject.GetType().GetProperties().FirstOrDefault(p => p.Name.Equals("FileName"))?.SetValue(AmlObject, new FileInfo(outputFile).Name);
+                Logger?.Log(LogLevel.Debug, "Added the FileName attribute to the CAEXFile element.");
 
-            Logger?.Log(LogLevel.Info, "Start the Handle function.");
-            Handle(GsdDocument.DocumentElement, AmlObject);
-            Logger?.Log(LogLevel.Info, "Successfully ended the Handle function.");
+                Logger?.Log(LogLevel.Info, "Start the Handle function.");
+                Handle(GsdDocument.DocumentElement, AmlObject);
+                Logger?.Log(LogLevel.Info, "Successfully ended the Handle function.");
+            }
+            else
+            {
+                AmlObject3.GetType().GetProperties().FirstOrDefault(p => p.Name.Equals("FileName"))?.SetValue(AmlObject3, new FileInfo(outputFile).Name);
+                Logger?.Log(LogLevel.Debug, "Added the FileName attribute to the CAEXFile element.");
+
+                Logger?.Log(LogLevel.Info, "Start the Handle function.");
+                Handle(GsdDocument.DocumentElement, AmlObject3);
+                Logger?.Log(LogLevel.Info, "Successfully ended the Handle function.");
+            }
         }
 
         /// <summary>
