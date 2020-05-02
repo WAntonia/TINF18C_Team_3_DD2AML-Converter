@@ -1,0 +1,858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified"
+			targetNamespace="http://MitsubishiElectric.co.jp/iQWorks/iQP/2/"
+			xmlns:p="http://MitsubishiElectric.co.jp/iQWorks/iQP/2/">
+
+  <!--******************************************-->
+  <!--【全体の構造】 -->
+  <!--******************************************-->
+
+  <xsd:element name="profile">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:file" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:device" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:block" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:commIf" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--******************************************-->
+  <!--【各セクションの構造】 -->
+  <!--******************************************-->
+
+  <!-- セクション -->
+  <xsd:element name="file">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:fileInfo" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="device">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:deviceInfo" minOccurs="1" maxOccurs="unbounded"/>
+        <xsd:element ref="p:commandArgument" minOccurs="0" maxOccurs="unbounded"/>
+        <!--<xsd:element ref="p:deviceInfo" minOccurs="1" maxOccurs="1"/>-->
+        <!--【iQP Ver2 END】-->
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="block">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:blockInfo" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:blockInput" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:blockOutput" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:blockParameter" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:blockCommand" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:struct" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:enum" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:commandArgument" minOccurs="0" maxOccurs="unbounded"/>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:condition" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="commIf">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:commIfInfo" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:commIfInput" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:commIfOutput" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:commIfParameter" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:commIfCommand" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:method" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:message" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:struct" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:enum" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="p:commandArgument" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--******************************************-->
+  <!--【各パートの構造】 -->
+  <!--******************************************-->
+
+  <!--INFO用のパートのMember構造を定義-->
+  <xsd:complexType name="InfoTableMemberType">
+    <xsd:sequence>
+      <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:datatype" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="p:data" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+    <xsd:attribute name="label" type="p:LabelType" use="required"/>
+  </xsd:complexType>
+
+  <!--FILE_INFOのパートの構造を定義-->
+  <xsd:element name="fileInfo">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:fileInfoMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="fileInfoMember" type="p:InfoTableMemberType"/>
+
+
+  <!--DEVICE_INFOのパートの構造を定義-->
+  <xsd:element name="deviceInfo">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:deviceInfoMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="deviceInfoMember" type="p:InfoTableMemberType"/>
+
+  <!--BLOCK_INFOのパートの構造を定義-->
+  <xsd:element name="blockInfo">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:blockInfoMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="blockInfoMember" type="p:InfoTableMemberType"/>
+
+  <!--COMM_IF_INFOのパートの構造を定義-->
+  <xsd:element name="commIfInfo">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:commIfInfoMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="commIfInfoMember" type="p:InfoTableMemberType"/>
+
+  <!-- BLOCK_INPUT、BLOCK_OUTPUTのパートのMember構造を定義 -->
+  <xsd:complexType name="BlockTableMemberType">
+    <xsd:sequence>
+      <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+      <!--【iQP Ver2 START】-->
+      <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+      <!--<xsd:element ref="p:name" minOccurs="1" maxOccurs="1"/>-->
+      <!--【iQP Ver2 END】-->
+      <xsd:element ref="p:datatype" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="p:default" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:range" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:minInc" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:engUnit" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:access" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:uiAttribute" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+    <xsd:attribute name="label" type="p:LabelType" use="required"/>
+  </xsd:complexType>
+
+  <!--BLOCK_INPUTのパートの構造を定義-->
+  <xsd:element name="blockInput">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:blockInputMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="blockInputMember" type="p:BlockTableMemberType"/>
+
+  <!--BLOCK_OUTPUTのパートの構造を定義-->
+  <xsd:element name="blockOutput">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:blockOutputMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="blockOutputMember" type="p:BlockTableMemberType"/>
+
+  <!-- BLOCK_PARAMETERのパートの構造を定義 -->
+  <xsd:element name="blockParameter">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:blockParameterMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="blockParameterMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <!--<xsd:element ref="p:name" minOccurs="1" maxOccurs="1"/>-->
+        <!--【iQP Ver2 END】-->
+        <xsd:element ref="p:datatype" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:default" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:range" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:minInc" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:engUnit" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:eleNum" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:access" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:writeOrder" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:uiAttribute" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--BLOCK_COMMANDのパートの構造を定義-->
+  <xsd:element name="blockCommand">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:blockCommandMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="blockCommandMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <!--<xsd:element ref="p:name" minOccurs="1" maxOccurs="1"/>-->
+        <!--【iQP Ver2 END】-->
+        <xsd:element ref="p:argument" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!-- COMM_IF_INPUT、COMM_IF_OUTPUTのパートの構造を定義 -->
+  <xsd:complexType name="CommIfTableMemberType">
+    <xsd:sequence>
+      <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:datatype" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:default" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:range" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:minInc" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:engUnit" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:access" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:assign" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:uiAttribute" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:ref" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+    <xsd:attribute name="label" type="p:LabelType" use="required"/>
+  </xsd:complexType>
+
+  <!-- COMM_IF_INPUTのパートの構造を定義 -->
+  <xsd:element name="commIfInput">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:commIfInputMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="commIfInputMember" type="p:CommIfTableMemberType"/>
+
+  <!-- COMM_IF_OUTPUTのパートの構造を定義 -->
+  <xsd:element name="commIfOutput">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:commIfOutputMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="commIfOutputMember" type="p:CommIfTableMemberType"/>
+
+  <!-- COMM_IF_PARAMETERのパートの構造を定義 -->
+  <xsd:element name="commIfParameter">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:commIfParameterMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="commIfParameterMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:datatype" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:default" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:range" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:minInc" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:engUnit" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:access" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:writeOrder" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:assign" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:eleNum" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:uiAttribute" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:ref" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--COMM_IF_COMMANDのパートの構造を定義-->
+  <xsd:element name="commIfCommand">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:commIfCommandMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="commIfCommandMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:argument" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:ref" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--METHODのパートの構造を定義-->
+  <xsd:element name="method">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:methodMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="methodMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <!--<xsd:element ref="p:name" minOccurs="1" maxOccurs="1"/>-->
+        <!--【iQP Ver2 END】-->
+        <xsd:element ref="p:target" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:methodType" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:writeRegister" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:writeData" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:writeDatatype" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:readRegister" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:readData" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:readDatatype" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:interlock" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:reqFlag" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:endCondition" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:errCondition" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:errRegister" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:errCodeRange" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:relatedMethod" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--MESSAGEのパートの構造を定義-->
+  <xsd:element name="message">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:messageMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="messageMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <!--<xsd:element ref="p:name" minOccurs="1" maxOccurs="1"/>-->
+        <!--【iQP Ver2 END】-->
+        <xsd:element ref="p:target" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:messageType" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="p:requestType" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:requestData" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:requestDatatype" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:responseType" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:responseData" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:responseDatatype" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:errType" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:errCodeRange" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:relatedMessage" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!-- 共通情報 -->
+  <!--STRUCTのパートの構造を定義-->
+  <xsd:element name="struct">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:structMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="structMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:datatype" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:default" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:range" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:minInc" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:engUnit" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:edit" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 END】-->
+        <xsd:element ref="p:offset" minOccurs="1" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:assign" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:eleNum" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 END】-->
+        <xsd:element ref="p:ref" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--ENUMのパートの構造を定義-->
+  <xsd:element name="enum">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:enumMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="enumMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <!--<xsd:element ref="p:name" minOccurs="1" maxOccurs="1"/>-->
+        <!--【iQP Ver2 END】-->
+        <xsd:element ref="p:code" minOccurs="1" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:type" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:relatedEle" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="unbounded"/>
+        <!--<xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>-->
+        <!--【iQP Ver2 END】-->
+
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--COMMAND_ARGUMENTのパートの構造を定義-->
+  <xsd:element name="commandArgument">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!--【iQP Ver2】-->
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:commandArgumentMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="commandArgumentMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:category" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:name" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:datatype" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:default" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:range" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:minInc" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:engUnit" minOccurs="0" maxOccurs="1"/>
+        <!--【iQP Ver2 START】-->
+        <xsd:element ref="p:access" minOccurs="0" maxOccurs="1"/>
+        <!--<xsd:element ref="p:access" minOccurs="1" maxOccurs="1"/>-->
+        <!--【iQP Ver2 END】-->
+        <xsd:element ref="p:assign" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:ref" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="p:LabelType" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--【iQP Ver2 START】-->
+
+  <!--CONDITIONのパートの構造を定義-->
+  <xsd:element name="condition">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:label2" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="p:comment" minOccurs="0" maxOccurs="1"/>
+        <!--条件式に使用するラベルへの参照情報を記述-->
+        <xsd:element ref="p:conditionVariable" minOccurs="1" maxOccurs="1"/>
+        <!--条件判定に用いる値を記述-->
+        <xsd:element ref="p:conditionMember" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="label" type="xsd:string" use="required"/>
+      <xsd:attribute name="conditionNumber" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="resultNumber" type="xsd:positiveInteger" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="conditionVariable">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:conditionXVariable" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="conditionMember">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="p:conditionX" minOccurs="1" maxOccurs="unbounded"/>
+        <xsd:element ref="p:resultX" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--【iQP Ver2 END】-->
+
+  <!--******************************************-->
+  <!--【項目の型宣言】 -->
+  <!--******************************************-->
+  <xsd:element name="label2" type="p:ItemLabel2Type"/>
+  
+  <xsd:element name="category" type="p:ItemType"/>
+  <!--【iQP Ver2 START】-->
+  <xsd:element name="name" type="p:ItemOrConditionType"/>
+  <!-- <xsd:element name="name" type="p:ItemType"/> -->
+  <!--【iQP Ver2 END】-->
+
+  <!--【iQP Ver2 START】-->
+  <xsd:element name="datatype" type="p:ItemOrStructOrConditionType"/>
+  <!--<xsd:element name="datatype" type="p:ItemOrStructType"/>-->
+  <!--【iQP Ver2 END】-->
+  <xsd:element name="default" type="p:ItemType"/>
+  <!--【iQP Ver2 START】-->
+  <xsd:element name="range" type="p:ItemListOrEnumOrConditionType"/>
+  <!--<xsd:element name="range" type="p:ItemListOrEnumType"/>-->
+  <xsd:element name="minInc" type="p:ItemOrConditionType"/>
+  <!--<xsd:element name="minInc" type="p:ItemType"/>-->
+  <xsd:element name="engUnit" type="p:ItemOrConditionType"/>
+  <!--<xsd:element name="engUnit" type="p:ItemType"/>-->
+  <!--【iQP Ver2 END】-->
+
+  <xsd:element name="assign" type="p:ItemType"/>
+  <!--【iQP Ver2 START】-->
+  <xsd:element name="eleNum" type="p:ItemType"/>
+  <xsd:element name="access" type="p:ItemOrConditionType"/>
+  <xsd:element name="edit" type="p:ItemOrConditionType"/>
+  <!--<xsd:element name="access" type="p:ItemType"/>-->
+
+  <!--【iQP Ver2 END】-->
+
+  <xsd:element name="ref" type="p:ItemFLabelListType"/>
+  <!--【iQP Ver2 START】-->
+  <xsd:element name="comment" type="p:IndexedItemType"/>
+  <!--<xsd:element name="comment" type="p:ItemType"/>-->
+  <!--【iQP Ver2 END】-->
+
+  <xsd:element name="uiAttribute" type="p:ItemListType"/>
+  <xsd:element name="writeOrder" type="p:ItemType"/>
+  <xsd:element name="data" type="p:ItemListType"/>
+  <xsd:element name="argument" type="p:ItemType"/>
+
+  <!--Method用の項目-->
+  <xsd:element name="target" type="p:ItemListType"/>
+  <xsd:element name="methodType" type="p:ItemListType"/>
+  <xsd:element name="writeRegister" type="p:ItemType"/>
+  <xsd:element name="writeData" type="p:ItemType"/>
+  <xsd:element name="writeDatatype" type="p:ItemType"/>
+  <xsd:element name="readRegister" type="p:ItemType"/>
+  <xsd:element name="readData" type="p:ItemType"/>
+  <xsd:element name="readDatatype" type="p:ItemType"/>
+  <xsd:element name="interlock" type="p:ItemType"/>
+  <xsd:element name="reqFlag" type="p:ItemListType"/>
+  <xsd:element name="endCondition" type="p:ItemListType"/>
+  <xsd:element name="errCondition" type="p:ItemType"/>
+  <xsd:element name="errRegister" type="p:ItemType"/>
+  <xsd:element name="errCodeRange" type="p:ItemListOrEnumType"/>
+  <xsd:element name="relatedMethod" type="p:ItemListType"/>
+  <!--Message用の項目-->
+  <xsd:element name="messageType" type="p:ItemListType"/>
+  <xsd:element name="requestType" type="p:ItemType"/>
+  <xsd:element name="requestData" type="p:ItemType"/>
+  <xsd:element name="requestDatatype" type="p:ItemType"/>
+  <xsd:element name="responseType" type="p:ItemType"/>
+  <xsd:element name="responseData" type="p:ItemType"/>
+  <xsd:element name="responseDatatype" type="p:ItemType"/>
+  <xsd:element name="errType" type="p:ItemType"/>
+  <xsd:element name="relatedMessage" type="p:ItemListType"/>
+  <!--共通情報用の項目-->
+  <xsd:element name="offset" type="p:ItemType"/>
+  <xsd:element name="code" type="p:ItemType"/>
+  <!--【iQP Ver2】-->
+  <xsd:element name="type" type="p:ItemListType"/>
+  <!--【iQP Ver2】-->
+  <xsd:element name="relatedEle" type="p:ItemType"/>
+
+  <!--【iQP Ver2 START】-->
+  <xsd:element name="conditionXVariable" type="p:IndexedItemType"/>
+  <xsd:element name="conditionX" type="p:IndexedItemListType"/>
+  <xsd:element name="resultX" type="p:IndexedItemListOrEnumType"/>
+  <!--【iQP Ver2 END】-->
+
+  <!--******************************************-->
+  <!--【型定義】 -->
+  <!--******************************************-->
+
+  <!--itemのみを記述する項目用のType-->
+  <xsd:complexType name="ItemType">
+    <xsd:sequence>
+      <xsd:element ref="p:item" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!--itemを複数記述可能な項目用のType-->
+  <xsd:complexType name="ItemListType">
+    <xsd:sequence>
+      <xsd:element ref="p:item" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!--itemか、STRUCTへの参照を記述可能な項目用の型定義-->
+  <xsd:complexType name="ItemOrStructType">
+    <xsd:choice>
+      <xsd:element ref="p:item"/>
+      <xsd:element ref="p:structRefItem"/>
+    </xsd:choice>
+  </xsd:complexType>
+
+  <!--【iQP Ver2 START】-->
+  <!--itemか、CONDITIONへの参照を記述可能な項目用の型定義-->
+  <xsd:complexType name="ItemOrConditionType">
+    <xsd:choice>
+      <xsd:element ref="p:item"/>
+      <xsd:element ref="p:conditionRefItem"/>
+    </xsd:choice>
+  </xsd:complexType>
+
+  <!--itemか、STRUCTかCONDITIONへの参照を記述可能な項目用の型定義-->
+  <xsd:complexType name="ItemOrStructOrConditionType">
+    <xsd:choice>
+      <xsd:element ref="p:item"/>
+      <xsd:element ref="p:structRefItem"/>
+      <xsd:element ref="p:conditionRefItem"/>
+    </xsd:choice>
+  </xsd:complexType>
+
+  <!--【iQP Ver2 END】-->
+
+  <!--itemの複数記述か、ENUMへの参照を記述可能な項目定義-->
+  <xsd:complexType name="ItemListOrEnumType">
+    <xsd:choice>
+      <xsd:element ref="p:item" minOccurs="1" maxOccurs="unbounded"/>
+      <xsd:element ref="p:enumRefItem"/>
+    </xsd:choice>
+  </xsd:complexType>
+
+  <!--【iQP Ver2 START】-->
+  <!--itemの複数記述、ENUMへの参照、もしくはCONDITIONへの参照を記述可能な項目定義-->
+  <xsd:complexType name="ItemListOrEnumOrConditionType">
+    <xsd:choice>
+      <xsd:element ref="p:item" minOccurs="1" maxOccurs="unbounded"/>
+      <xsd:element ref="p:enumRefItem"/>
+      <xsd:element ref="p:conditionRefItem"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <!--【iQP Ver2 END】-->
+
+  <!--LABEL2用itemのみを記述する項目用のType-->
+  <xsd:complexType name="ItemLabel2Type">
+    <xsd:sequence>
+      <xsd:element name="item" type="p:Label2Type" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!--LABELでの参照用itemを複数記述可能な項目用のType-->
+  <xsd:complexType name="ItemFLabelListType">
+    <xsd:sequence>
+      <xsd:element name="item" type="p:FLabelType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!--【iQP Ver2 START】-->
+
+  <!--indexを持ち、itemのみ使用可能な項目用のType-->
+  <xsd:complexType name="IndexedItemType">
+    <xsd:sequence>
+      <xsd:element ref="p:item" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+    <xsd:attribute name="index" type="xsd:positiveInteger" default="1" />
+  </xsd:complexType>
+
+  <!--indexを持ち、itemを複数定義可能な項目用のType-->
+  <xsd:complexType name="IndexedItemListType">
+    <xsd:sequence>
+      <xsd:element ref="p:item" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="index" type="xsd:positiveInteger" default="1" />
+  </xsd:complexType>
+
+  <!--indexを持ち、itemを複数記述か、Enumへの参照を記述可能な項目用のType-->
+  <xsd:complexType name="IndexedItemListOrEnumType">
+    <xsd:choice>
+      <xsd:element ref="p:item" minOccurs="1" maxOccurs="unbounded"/>
+      <xsd:element ref="p:enumRefItem"/>
+    </xsd:choice>
+    <xsd:attribute name="index" type="xsd:positiveInteger" default="1" />
+  </xsd:complexType>
+
+  <!--【iQP Ver2 END】-->
+
+  <xsd:element name="item">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="structRefItem" type="p:FLabelType"/>
+  <xsd:element name="enumRefItem" type="p:FLabelType"/>
+  <!--【iQP Ver2】-->
+  <xsd:element name="conditionRefItem" type="p:FLabelType"/>
+
+  <xsd:simpleType name="LabelType">
+    <xsd:restriction base="xsd:string">
+      <!--【iQP Ver2 START】-->
+      <xsd:pattern value="[a-zA-Z][a-zA-Z0-9_]{0,63}"/>
+      <!--<xsd:pattern value="[a-zA-Z][a-zA-Z0-9_]{0,31}"/>-->
+      <!--【iQP Ver2 END】-->
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="FLabelType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[a-zA-Z][a-zA-Z0-9_]*(\.[a-zA-Z][a-zA-Z0-9_]*)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="Label2Type">
+    <xsd:restriction base="xsd:string">
+      <!--【iQP Ver2 START】-->
+      <xsd:pattern value="[^0-9_!&quot;#$%&amp;'()*+,\-\./:;&lt;=&gt;?@\[\\\]^`{|}~ ][^!&quot;#$%&amp;'()*+,\-/:;&lt;=&gt;?@\\^`{|}~ ]{0,127}"/>
+         <!--<xsd:pattern value="[^0-9_!&quot;#$%&amp;'()*+,-\./:;&lt;=&gt;?@\[\\\]^`{|}~ ][^!&quot;#$%&amp;'()*+,-\./:;&lt;=&gt;?@\[\\\]^`{|}~ ]{0,31}"/>-->
+        <!--【iQP Ver2 END】-->
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+</xsd:schema>
