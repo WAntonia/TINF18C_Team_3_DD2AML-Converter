@@ -124,6 +124,17 @@ namespace Gsd2Aml.Gui
         /// <param name="e">Corresponding event.</param>
         private void Convert_OnClick(object sender, RoutedEventArgs e)
         {
+            if (v1.IsChecked.HasValue == true && v1.IsChecked.Value)
+            {
+                Lib.Converter.CAEXVersion = 2;
+                return;
+            }
+            else if (v2.IsChecked.HasValue == true && v2.IsChecked.Value)
+            {
+                Lib.Converter.CAEXVersion = 3;
+                return;
+            }
+
             try
             {
                 var overwrite = false;
@@ -337,22 +348,22 @@ namespace Gsd2Aml.Gui
 
         #endregion
 
-        //Checks which version is selected
+        ///Checks which version is selected
         //CAEX 2.0 = 2 / CAEX 3.15 = 3
-        private void RadioButton_Value(object sender, RoutedEventArgs e)
-        {
-            if (v1.IsChecked.HasValue == true && v1.IsChecked.Value)
-            {
-                Lib.Converter.CAEXVersion = 2;
-                return; 
-            }
-            else if (v2.IsChecked.HasValue == true && v2.IsChecked.Value)
-            {
-                Lib.Converter.CAEXVersion = 3;
-                return;
-            }
+        //private void RadioButton_Value(object sender, RoutedEventArgs e)
+        //{
+        //    if (v1.IsChecked.HasValue == true && v1.IsChecked.Value)
+        //    {
+        //        Lib.Converter.CAEXVersion = 2;
+        //        return; 
+        //    }
+        //    else if (v2.IsChecked.HasValue == true && v2.IsChecked.Value)
+        //    {
+        //        Lib.Converter.CAEXVersion = 3;
+        //        return;
+        //    }
             
-        }
+        //}
 
         /// <summary>
         /// Takes the GSDML file path and tries to convert it to an .amlx output path.
