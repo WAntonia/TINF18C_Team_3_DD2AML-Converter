@@ -3,7 +3,7 @@
 =======
 # Gsd2Aml
 
-Welcome to Gsd2Aml! This project was developed as a student project by (in alphabetical order)
+Welcome to DD2AML! This project was developed for GSD as a student project by (in alphabetical order)
 
 1. [Nico Dietz](https://github.com/dillasyx)
 2. [Steffen Gerdes](https://github.com/SteffenGerdes)
@@ -12,26 +12,31 @@ Welcome to Gsd2Aml! This project was developed as a student project by (in alpha
 5. [Vu Quang Phuc](https://github.com/VuQuangPhuc)
 6. [Michael Weidmann](https://github.com/michaelweidmann)
 
+and was further developed for IODD and CSP+ files by (in alphabetical order)
+
+1. [Nora Baitinger](https://github.com/naboga)
+2. [Lara Mack] (https://github.com/Sophelec)
+3. [Bastiane Storz] (https://github.com/Maruny)
+4. [Antonia Wermerskirch] (https://github.com/WAntonia)
+
 at [Baden-Wuerttemberg Cooperative State University (DHBW) Stuttgart](https://www.dhbw-stuttgart.de/home/) under supervision of [Markus Rentschler](http://wwwlehre.dhbw-stuttgart.de/~rentschler/) and Christian Ewertz.
 
 This project is distributed via:
 
-1. [GitHub](https://github.com/TINF17C/GSD2AML-Converter)
-2. [NuGet](https://www.nuget.org/packages/Gsd2Aml.Lib)
+1. [GitHub](https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter)
 
-We can be found as a [GitHub Team](https://github.com/orgs/TINF17C/teams/gsd2aml).
 
 ## About this project
 
 This project was developed in .Net Framework 4.7.
-This project converts a Profinet (PN-)GSD file to AutomationML.
+This project converts Profinet (PN-)GSD, CSP+ and IODD files to AutomationML.
 There are several ways to use this project:
 
 1. GUI
 2. CLI
 3. Implement the library for your own purposes
 
-You can get an installer or a portable version on the appropiate GitHub [release page](https://github.com/TINF17C/GSD2AML-Converter/releases).
+You can get an installer or a portable version on the appropiate GitHub [release page](https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter/...).
 
 ## Contributing to this project
 
@@ -42,27 +47,26 @@ If you want to contribute feel free to fork this repo and later perform a pull r
 
 The seperate subprojects are explained here and can be found under /src/.
 
-### Gsd2Aml.Lib
+### DD2Aml.Lib
 
-The heart of this project.
-The library contains all the relevant logic for:
+The library contains all relevant logic for:
 
-1. checking the GSD files validity
+1. checking whether the GSD, IODD and CSP+ files are valid
 2. performing the conversion and either
-    * returning a string containing the AutomatonML content.
-    * or converting the GSD file to an .aml file and package that, including all its dependencies, into an .amlx package. This process uses the [AML.Engine](https://www.nuget.org/packages/Aml.Engine).
+    * returns a string containing the content of the AML file
+    * or converting the GSD, CSP+ or IODD file into an .aml file and including all its dependencies, storing it in an .amlx package. This process uses the [AML.Engine].
 
-Additional information, including the relevant conversion rules, can be found in the readme of the [library](src/Gsd2Aml.Lib/README.md).
+For more information, including the relevant conversion rules, see the [library] readme file (located at: src/DdAml.Lib/README.md).
 
-### Gsd2Aml.Gui
+
+### DD2Aml.Gui
 
 Contains the code that makes up the CLI.
-The Gui gives the user access to the functonality of the library without requiring the user to implement the library for themselfs.
-It comes with added functionality like checking paths and visually informing the user about events.
+The Gui gives the user access to the functionality of the library without the user having to implement the library himself.
+It contains additional functions such as path checking, various selection options, and visual information for the user about events.
 
-![The main window of the GUI](./SOURCE/res/gui.png)
 
-### Gsd2Aml.Cli
+### Dd2Aml.Cli
 
 Contains the code that makes up the CLI.
 This includes parsing and handeling the arguments.
@@ -70,15 +74,9 @@ The CLI gives the user access to the functonality of the library without requiri
 
 It comes with various flags to handle the conversion:
 
-![The Clis help flag](./SOURCE/res/cli.png)
-
-### Gsd2Aml.Setup
-
-Contains the code relevant for building the installer.
-It uses the [WIX toolset](http://wixtoolset.org/).
-
-### Gsd2Aml.Test
+### Dd2Aml.Test
 
 Contains the code for all unit tests.
 The unit tests were build with Microsoft Unit Test Framework.
--->
+
+
