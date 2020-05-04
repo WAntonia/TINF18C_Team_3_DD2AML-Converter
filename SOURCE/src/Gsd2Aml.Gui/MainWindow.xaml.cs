@@ -127,12 +127,10 @@ namespace Gsd2Aml.Gui
             if (v1.IsChecked.HasValue == true && v1.IsChecked.Value)
             {
                 Lib.Converter.CAEXVersion = 2;
-                return;
             }
             else if (v2.IsChecked.HasValue == true && v2.IsChecked.Value)
             {
                 Lib.Converter.CAEXVersion = 3;
-                return;
             }
 
             try
@@ -347,23 +345,6 @@ namespace Gsd2Aml.Gui
         #endregion
 
         #endregion
-
-        ///Checks which version is selected
-        //CAEX 2.0 = 2 / CAEX 3.15 = 3
-        //private void RadioButton_Value(object sender, RoutedEventArgs e)
-        //{
-        //    if (v1.IsChecked.HasValue == true && v1.IsChecked.Value)
-        //    {
-        //        Lib.Converter.CAEXVersion = 2;
-        //        return; 
-        //    }
-        //    else if (v2.IsChecked.HasValue == true && v2.IsChecked.Value)
-        //    {
-        //        Lib.Converter.CAEXVersion = 3;
-        //        return;
-        //    }
-            
-        //}
 
         /// <summary>
         /// Takes the GSDML file path and tries to convert it to an .amlx output path.

@@ -32,7 +32,7 @@ namespace Gsd2Aml.Lib
     /// </summary>
     public static class Converter
     {
-        public static int CAEXVersion = 2;
+        public static int CAEXVersion;
 
         public static ILoggingService Logger { get; set; }
 
