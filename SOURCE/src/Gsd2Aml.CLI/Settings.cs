@@ -44,7 +44,10 @@ namespace Gsd2Aml.Cli
         private const string CValidation = "--novalidate";
         private const string CValidationShort = "-n";
 
-        private static string[] Arguments { get; } = { CHelp, CHelpShort, CInputFile, CInputFileShort, COutputFile, COutputFileShort, CStringOutput, CStringOutputShort, CValidation, CValidationShort };
+        private const string CCAEXVersion = "--version";
+        private const string CCAEXVersionShort = "-v";
+
+        private static string[] Arguments { get; } = { CHelp, CHelpShort, CInputFile, CInputFileShort, COutputFile, COutputFileShort, CStringOutput, CStringOutputShort, CValidation, CValidationShort, CCAEXVersion, CCAEXVersionShort };
 
         internal string InputFile { get; set; }
 
@@ -53,6 +56,8 @@ namespace Gsd2Aml.Cli
         internal bool StringOutput { get; set; }
 
         internal bool Validation { get; set; } = true;
+
+        internal string CAEXVersion { get; set; }
 
         internal List<string> Args { get; set; }
 
@@ -90,7 +95,7 @@ namespace Gsd2Aml.Cli
 
                 Util.Logger.Log(LogLevel.Error, $"User passed {Arguments[i]} and {Arguments[i + 1]} but only of them is allowed.");
                 throw new ArgumentException($"{Environment.NewLine}Error: You used {Arguments[i]} and {Arguments[i + 1]} while only one of them is allowed." +
-                                            $"{Environment.NewLine}For more information run 'gsd2aml --help'.");
+                                            $"{Environment.NewLine}For more information run 'dd2aml --help'.");
             }
 
             // Check for 2)
@@ -105,7 +110,7 @@ namespace Gsd2Aml.Cli
 
             Util.Logger.Log(LogLevel.Error, "User passed -o/--output and -s/--string at the same time.");
             throw new ArgumentException($"{Environment.NewLine}Error: You used {COutputFile} and {CStringOutput} while only one of them is allowed." +
-                                        $"{Environment.NewLine}For more information run 'gsd2aml --help'.");
+                                        $"{Environment.NewLine}For more information run 'dd2aml --help'.");
         }
 
         /// <summary>
@@ -147,18 +152,32 @@ namespace Gsd2Aml.Cli
             }
 
             OutputFile = parameter[COutputFileShort] ?? parameter[COutputFile];
+
+            if (Regex.IsMatch(OutputFile, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
+            {
+                Lib.Util.filetype = 1;
+            }
+            if (Regex.IsMatch(OutputFile, $"(.+.-(IODD|iodd).+{Regex.Escape(".xml")})"))
+            {
+                Lib.Util.filetype = 2;
+            }
+            if (Regex.IsMatch(OutputFile, $"(.+{Regex.Escape(".cspp")})"))
+            {
+                Lib.Util.filetype = 3;
+            }
+
             StringOutput = Args.FindIndex(arg => arg.Equals(CStringOutputShort)) >= 0 ||
                            Args.FindIndex(arg => arg.Equals(CStringOutput)) >= 0;
             if (!Args.Contains(CValidationShort) && !Args.Contains(CValidation)) return;
-            Console.WriteLine("Warning: The GSD file validation was turned off.");
-            Util.Logger.Log(LogLevel.Warning, "GSD file validation was turned off.");
+            Console.WriteLine("Warning: The file validation was turned off.");
+            Util.Logger.Log(LogLevel.Warning, "file validation was turned off.");
             Validation = false;
         }
 
         /// <summary>
-        /// Checks for the existence of the GSD file.
+        /// Checks for the existence of the GSD-, IODD or CSP+ file.
         /// </summary>
-        /// <exception cref="FileNotFoundException">The GSD file could not be found.</exception>
+        /// <exception cref="FileNotFoundException">The GSD-, IODD or CSP+ file could not be found.</exception>
         private void CheckGsdExistence()
         {
             if (File.Exists(InputFile))
@@ -173,10 +192,40 @@ namespace Gsd2Aml.Cli
             else
             {
                 Util.Logger.Log(LogLevel.Error, "Input file does not exist.");
-                throw new FileNotFoundException($"{Environment.NewLine}Error: Input file not found. Please enter a valid path to a GSD-formatted file." +
-                                                $"{Environment.NewLine}For more information run 'gsd2aml --help'.");
+                throw new FileNotFoundException($"{Environment.NewLine}Error: Input file not found. Please enter a valid path to a GSD-, IODD or CSP+ formatted file." +
+                                                $"{Environment.NewLine}For more information run 'dd2aml --help'.");
             }
         }
+        /*
+              if (Regex.IsMatch(InputFile, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
+            {
+                var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
+                var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile).Remove(0, "GSDML-".Length) + ".amlx";
+
+                TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+                Lib.Util.filetype =  1;
+            }
+
+            //IODD
+            if (Regex.IsMatch(InputFile, $"(.+.-(IODD|iodd).+{Regex.Escape(".xml")})"))
+            {
+                var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
+                var len = senderText.Length - 13 - diretoryName.Length;
+                var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile).Remove(len, 8) + ".amlx";
+
+                TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+                Lib.Util.filetype = 2;
+            }
+
+            //CSP+
+            if (Regex.IsMatch(InputFile, $"(.+{Regex.Escape(".cspp")})"))
+            {
+                var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
+                var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile) + ".amlx";
+
+                TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+                Lib.Util.filetype = 3;
+            }*/
 
         /// <summary>
         /// Prints an error message if the same argument was used multiple times.
@@ -197,9 +246,11 @@ namespace Gsd2Aml.Cli
                 {
                     Util.Logger.Log(LogLevel.Error, $"User passed {argument} multiple times.");
                     throw new ArgumentException($"{Environment.NewLine}Error: You used {argument} multiple times." +
-                                                $"{Environment.NewLine}For more information run 'gsd2aml --help'.");
+                                                $"{Environment.NewLine}For more information run 'dd2aml --help'.");
                 }
             }
         }
     }
 }
+
+        
