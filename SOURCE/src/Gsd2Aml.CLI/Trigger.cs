@@ -59,13 +59,13 @@ namespace Gsd2Aml.Cli
                 if (Settings.StringOutput)
                 {
                     var amlString = Converter.Convert(Settings.InputFile, Settings.Validation);
-                    Console.WriteLine($"Successfully converted the GSD file to an AML string. {Environment.NewLine}");
+                    Console.WriteLine($"Successfully converted the DD file to an AML string. {Environment.NewLine}");
                     Console.WriteLine(amlString);
                 }
                 else
                 {
                     Converter.Convert(Settings.InputFile, Settings.OutputFile, true, Settings.Validation);
-                    Console.WriteLine($"Successfully converted the GSD file to a .amlx package and saved it to {Settings.OutputFile}");
+                    Console.WriteLine($"Successfully converted the DD file to a .amlx package and saved it to {Settings.OutputFile}");
                 }
             }
             catch (Exception e)
@@ -125,7 +125,7 @@ namespace Gsd2Aml.Cli
                 if (string.IsNullOrEmpty(directory)) {
                     Util.Logger.Log(LogLevel.Error, $"User passed invalid output path: {Settings.OutputFile}");
                     throw new NullReferenceException($"{Environment.NewLine}Error: You passed an invalid output path." +
-                                                        $"{Environment.NewLine}For more information run 'gsd2aml --help'");
+                                                        $"{Environment.NewLine}For more information run 'dd2aml --help'");
                 }
 
                 Directory.CreateDirectory(directory);
@@ -134,7 +134,7 @@ namespace Gsd2Aml.Cli
             {
                 Util.Logger.Log(LogLevel.Error, $"User passed invalid output path: {Settings.OutputFile}");
                 throw new Exception($"{Environment.NewLine}Error: You passed an invalid output path." +
-                                    $"{Environment.NewLine}For more information run 'gsd2aml --help'.", e);
+                                    $"{Environment.NewLine}For more information run 'dd2aml --help'.", e);
             }
 
             if (string.IsNullOrEmpty(Path.GetExtension(Settings.OutputFile)) ||

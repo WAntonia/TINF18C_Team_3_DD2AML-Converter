@@ -90,7 +90,7 @@ namespace Gsd2Aml.Cli
 
                 Util.Logger.Log(LogLevel.Error, $"User passed {Arguments[i]} and {Arguments[i + 1]} but only of them is allowed.");
                 throw new ArgumentException($"{Environment.NewLine}Error: You used {Arguments[i]} and {Arguments[i + 1]} while only one of them is allowed." +
-                                            $"{Environment.NewLine}For more information run 'gsd2aml --help'.");
+                                            $"{Environment.NewLine}For more information run 'dd2aml --help'.");
             }
 
             // Check for 2)
@@ -105,7 +105,7 @@ namespace Gsd2Aml.Cli
 
             Util.Logger.Log(LogLevel.Error, "User passed -o/--output and -s/--string at the same time.");
             throw new ArgumentException($"{Environment.NewLine}Error: You used {COutputFile} and {CStringOutput} while only one of them is allowed." +
-                                        $"{Environment.NewLine}For more information run 'gsd2aml --help'.");
+                                        $"{Environment.NewLine}For more information run 'dd2aml --help'.");
         }
 
         /// <summary>
@@ -150,15 +150,15 @@ namespace Gsd2Aml.Cli
             StringOutput = Args.FindIndex(arg => arg.Equals(CStringOutputShort)) >= 0 ||
                            Args.FindIndex(arg => arg.Equals(CStringOutput)) >= 0;
             if (!Args.Contains(CValidationShort) && !Args.Contains(CValidation)) return;
-            Console.WriteLine("Warning: The GSD file validation was turned off.");
-            Util.Logger.Log(LogLevel.Warning, "GSD file validation was turned off.");
+            Console.WriteLine("Warning: The DD file validation was turned off.");
+            Util.Logger.Log(LogLevel.Warning, "DD file validation was turned off.");
             Validation = false;
         }
 
         /// <summary>
-        /// Checks for the existence of the GSD file.
+        /// Checks for the existence of the DD file.
         /// </summary>
-        /// <exception cref="FileNotFoundException">The GSD file could not be found.</exception>
+        /// <exception cref="FileNotFoundException">The DD file could not be found.</exception>
         private void CheckGsdExistence()
         {
             if (File.Exists(InputFile))
@@ -173,8 +173,8 @@ namespace Gsd2Aml.Cli
             else
             {
                 Util.Logger.Log(LogLevel.Error, "Input file does not exist.");
-                throw new FileNotFoundException($"{Environment.NewLine}Error: Input file not found. Please enter a valid path to a GSD-formatted file." +
-                                                $"{Environment.NewLine}For more information run 'gsd2aml --help'.");
+                throw new FileNotFoundException($"{Environment.NewLine}Error: Input file not found. Please enter a valid path to a DD-formatted file." +
+                                                $"{Environment.NewLine}For more information run 'dd2aml --help'.");
             }
         }
 
@@ -197,7 +197,7 @@ namespace Gsd2Aml.Cli
                 {
                     Util.Logger.Log(LogLevel.Error, $"User passed {argument} multiple times.");
                     throw new ArgumentException($"{Environment.NewLine}Error: You used {argument} multiple times." +
-                                                $"{Environment.NewLine}For more information run 'gsd2aml --help'.");
+                                                $"{Environment.NewLine}For more information run 'dd2aml --help'.");
                 }
             }
         }

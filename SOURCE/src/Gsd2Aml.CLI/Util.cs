@@ -30,10 +30,10 @@ namespace Gsd2Aml.Cli
         private static string HelpText { get; } = $"{Environment.NewLine}{System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName} " +
                                                   $"(Version: {System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion})" +
                                                   $"{Environment.NewLine}" +
-                                                  $"{Environment.NewLine}Converts a GSD-formatted file in an AML-formatted file." +
+                                                  $"{Environment.NewLine}Converts a DD-formatted file in an AML-formatted file." +
                                                   $"{Environment.NewLine}" +
                                                   $"{Environment.NewLine}Usage:" +
-                                                  $"{Environment.NewLine}\tgsd2aml [-i | --input] <path-to-gsd-file> [options]" +
+                                                  $"{Environment.NewLine}\tdd2aml [-i | --input] <path-to-gsd-file> [options]" +
                                                   $"{Environment.NewLine}" +
                                                   $"{Environment.NewLine}Options:" +
                                                   $"{Environment.NewLine}\t-h, --help\t\tPrints this info and the converter's usage/options." +
@@ -41,11 +41,11 @@ namespace Gsd2Aml.Cli
                                                   $"{Environment.NewLine}\t-o, --output file\tSets the path to the output file. Example: C:\\path\\to\\output\\file.amlx" +
                                                   $"{Environment.NewLine}\t\t\t\tIf nothing is specified default is: C:\\path\\to\\input\\file\\<input-file-name>.amlx (OPTIONAL)" +
                                                   $"{Environment.NewLine}\t-s, --string\t\tPrints the generated AML XML file to stdout. No *.amlx file will be generated. (OPTIONAL)" +
-                                                  $"{Environment.NewLine}\t-n, --novalidate\tValidates the GSD not against the specification. (OPTIONAL)" +
+                                                  $"{Environment.NewLine}\t-n, --novalidate\tValidates the DD not against the specification. (OPTIONAL)" +
                                                   $"{Environment.NewLine}Note:" +
                                                   $"{Environment.NewLine}\t--output and --string cannot be used together." +
                                                   $"{Environment.NewLine}" +
-                                                  $"{Environment.NewLine}Find us on GitHub: https://github.com/TINF17C/GSD2AML-Converter";
+                                                  $"{Environment.NewLine}Find us on GitHub: https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter";
 
         /// <summary>
         /// Prints the help text and exits the program.
