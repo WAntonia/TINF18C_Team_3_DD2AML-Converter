@@ -42,10 +42,15 @@
             <ComponentRef Id="Gsd2Aml.Gui.exe" />
             <ComponentRef Id="Gsd2Aml.Gui.exe.config" />
             <ComponentRef Id="Gsd2Aml.Lib.dll" />
-            <ComponentRef Id="gsd2aml.xml" />
             <ComponentRef Id="NLog.config" />
             <ComponentRef Id="NLog.dll" />
             <ComponentRef Id="README.md" />
+            <ComponentRef Id="gsd2aml.xml" />
+            <ComponentRef Id="gsd2aml3.xml" />
+            <ComponentRef Id="iodd2aml.xml" />
+            <ComponentRef Id="iodd2aml3.xml" />
+            <ComponentRef Id="cspp2aml.xml" />
+            <ComponentRef Id="cspp2aml3.xml" />
         </ComponentGroup>
     </Fragment>
 </Wix>
