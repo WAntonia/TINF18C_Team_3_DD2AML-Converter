@@ -24,6 +24,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using Microsoft.Win32;
 
 namespace Gsd2Aml.Gui
@@ -336,6 +337,23 @@ namespace Gsd2Aml.Gui
 
         #endregion
 
+        //Checks which version is selected
+        //CAEX 2.0 = 2 / CAEX 3.15 = 3
+        private void RadioButton_Value(object sender, RoutedEventArgs e)
+        {
+            if (v1.IsChecked.HasValue == true && v1.IsChecked.Value)
+            {
+                Lib.Converter.CAEXVersion = 2;
+                return; 
+            }
+            else if (v2.IsChecked.HasValue == true && v2.IsChecked.Value)
+            {
+                Lib.Converter.CAEXVersion = 3;
+                return;
+            }
+            
+        }
+
         /// <summary>
         /// Takes the GSDML file path and tries to convert it to an .amlx output path.
         /// </summary>
@@ -345,9 +363,7 @@ namespace Gsd2Aml.Gui
         {
             var senderText = ((TextBox)sender).Text;
             if (string.IsNullOrEmpty(senderText))
-                return;
-
-            //Lib.Converter.CAEXVersion =  HIER BRAUCH ICH DEN WERT VON RADIO BUTTON AM BESTEN 2 ODER 3
+                return;                                          
 
             // GSD
             if (Regex.IsMatch(senderText, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
