@@ -24,6 +24,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using Microsoft.Win32;
 
 namespace Gsd2Aml.Gui
@@ -123,6 +124,15 @@ namespace Gsd2Aml.Gui
         /// <param name="e">Corresponding event.</param>
         private void Convert_OnClick(object sender, RoutedEventArgs e)
         {
+            if (v1.IsChecked.HasValue == true && v1.IsChecked.Value)
+            {
+                Lib.Converter.CAEXVersion = 2;
+            }
+            else if (v2.IsChecked.HasValue == true && v2.IsChecked.Value)
+            {
+                Lib.Converter.CAEXVersion = 3;
+            }
+
             try
             {
                 var overwrite = false;
@@ -345,9 +355,7 @@ namespace Gsd2Aml.Gui
         {
             var senderText = ((TextBox)sender).Text;
             if (string.IsNullOrEmpty(senderText))
-                return;
-
-            //Lib.Converter.CAEXVersion =  HIER BRAUCH ICH DEN WERT VON RADIO BUTTON AM BESTEN 2 ODER 3
+                return;                                          
 
             // GSD
             if (Regex.IsMatch(senderText, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
