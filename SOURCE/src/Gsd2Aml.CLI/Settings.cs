@@ -80,8 +80,8 @@ namespace Gsd2Aml.Cli
 
         /// <summary>
         /// This method checks three things:
-        /// 1) If the user passed the corresponding long/short argument to an argument multiple times. E.g. gsd2aml -i --input
-        /// 2) If the user passed the same argument multiple times . E.g. gsd2aml -i -i
+        /// 1) If the user passed the corresponding long/short argument to an argument multiple times. E.g. dd2aml -i --input
+        /// 2) If the user passed the same argument multiple times . E.g. dd2aml -i -i
         /// 3) If the user passed --output and --string at the same time.
         /// If one of the above happens, an exception will be thrown.
         /// </summary>
