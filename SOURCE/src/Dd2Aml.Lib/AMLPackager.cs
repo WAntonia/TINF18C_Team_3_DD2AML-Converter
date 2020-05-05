@@ -19,14 +19,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Dd2Aml.Lib.Logging;
-using Gsd2Aml.Lib;
 
 namespace Dd2Aml.Lib
 {
     /// <summary>
     /// Compress an AML file and its resources to an .amlx package using the AML.Engine.
     /// </summary>
-    public static class Compressor
+    public static class AMLPackager
     {
         private const string Dd2AmlName = "DD2AML";
 

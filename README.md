@@ -1,7 +1,4 @@
 # DD2AML-Converter
-<!--
-=======
-# Gsd2Aml
 
 Welcome to DD2AML! This project was developed for GSD as a student project by (in alphabetical order)
 
@@ -15,9 +12,9 @@ Welcome to DD2AML! This project was developed for GSD as a student project by (i
 and was further developed for IODD and CSP+ files by (in alphabetical order)
 
 1. [Nora Baitinger](https://github.com/naboga)
-2. [Lara Mack] (https://github.com/Sophelec)
-3. [Bastiane Storz] (https://github.com/Maruny)
-4. [Antonia Wermerskirch] (https://github.com/WAntonia)
+2. [Lara Mack](https://github.com/Sophelec)
+3. [Bastiane Storz](https://github.com/Maruny)
+4. [Antonia Wermerskirch](https://github.com/WAntonia)
 
 at [Baden-Wuerttemberg Cooperative State University (DHBW) Stuttgart](https://www.dhbw-stuttgart.de/home/) under supervision of [Markus Rentschler](http://wwwlehre.dhbw-stuttgart.de/~rentschler/) and Christian Ewertz.
 
