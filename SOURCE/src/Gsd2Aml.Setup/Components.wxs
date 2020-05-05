@@ -2,36 +2,43 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
-            <Component Id="AML.Engine.dll" Guid="F4F5B9D1-09C3-49C1-B782-C941632B7349">
+            <Component Id="AML.Engine.dll" Guid="005512C9-5D4E-484B-BA94-07856A4A937A">
                 <File Id="AML.Engine.dll" KeyPath="yes" Source="$(var.SourceDir)\AML.Engine.dll" />
             </Component>
-            <Component Id="Gsd2Aml.Cli.exe" Guid="7150DD37-5B91-4EDD-BCED-6F1FE0961016">
+            <Component Id="Gsd2Aml.Cli.exe" Guid="BFF5B784-91C6-4C14-B1E0-773BCAC37E2C">
                 <File Id="Gsd2Aml.Cli.exe" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Cli.exe" />
             </Component>
-            <Component Id="Gsd2Aml.Cli.exe.config" Guid="FE73C51A-4C5D-46E5-86A4-67FC93E35ACF">
+            <Component Id="Gsd2Aml.Cli.exe.config" Guid="30F606CD-EC17-4BEC-AD4F-87E9D850C83F">
                 <File Id="Gsd2Aml.Cli.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Cli.exe.config" />
             </Component>
-            <Component Id="Gsd2Aml.Gui.exe" Guid="410E5AAF-72C7-4A0D-BC42-28C2B1E4AABA">
+            <Component Id="Gsd2Aml.Gui.exe" Guid="D6A62310-41CE-42BB-9366-678A0FC60B25">
                 <File Id="Gsd2Aml.Gui.exe" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Gui.exe" />
             </Component>
-            <Component Id="Gsd2Aml.Gui.exe.config" Guid="8A4FB693-DBD6-42FC-9F83-B91E68D87AD6">
+            <Component Id="Gsd2Aml.Gui.exe.config" Guid="DE84A2D7-B9DF-4275-80DF-532E8BB32CC7">
                 <File Id="Gsd2Aml.Gui.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Gui.exe.config" />
             </Component>
-            <Component Id="Gsd2Aml.Lib.dll" Guid="FB7D8CF2-E02F-4B14-BABE-FC33522A54E0">
+            <Component Id="Gsd2Aml.Lib.dll" Guid="56B18C5E-C8E6-43F6-9568-2AF6EDB86769">
                 <File Id="Gsd2Aml.Lib.dll" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Lib.dll" />
             </Component>
-            <Component Id="gsd2aml.xml" Guid="6FBC980E-494C-47E4-B21D-1BA9DD39C1B1">
-                <File Id="gsd2aml.xml" KeyPath="yes" Source="$(var.SourceDir)\gsd2aml.xml" />
-            </Component>
-            <Component Id="NLog.config" Guid="B3CA2C52-4F2E-4133-AF41-4C722EE32BD4">
+            <Component Id="NLog.config" Guid="3C0DDF47-4A09-4C54-9EB4-93515C768F9A">
                 <File Id="NLog.config" KeyPath="yes" Source="$(var.SourceDir)\NLog.config" />
             </Component>
-            <Component Id="NLog.dll" Guid="EB50E807-CAD2-46AD-ADB9-6A218FA3DB63">
+            <Component Id="NLog.dll" Guid="D7844404-AC10-4813-BC3A-3A61DAC14DC3">
                 <File Id="NLog.dll" KeyPath="yes" Source="$(var.SourceDir)\NLog.dll" />
             </Component>
-            <Component Id="README.md" Guid="592A9F9D-75A0-4052-89BF-2EFE8DCDD530">
+            <Component Id="README.md" Guid="A2DFE9E4-A20A-4750-A220-A8F40F7CC776">
                 <File Id="README.md" KeyPath="yes" Source="$(var.SourceDir)\README.md" />
             </Component>
+            <Directory Id="Aml2" Name="Aml2">
+                <Component Id="gsd2aml.xml" Guid="48AC4DC4-3D01-4B9D-AD73-89F4F911BDB7">
+                    <File Id="gsd2aml.xml" KeyPath="yes" Source="$(var.SourceDir)\Aml2\gsd2aml.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="Aml3" Name="Aml3">
+                <Component Id="gsd2aml3.xml" Guid="24A6B5B3-5A72-43DB-98B2-C67629CB4DAF">
+                    <File Id="gsd2aml3.xml" KeyPath="yes" Source="$(var.SourceDir)\Aml3\gsd2aml3.xml" />
+                </Component>
+            </Directory>
         </DirectoryRef>
     </Fragment>
     <Fragment>
@@ -47,10 +54,6 @@
             <ComponentRef Id="README.md" />
             <ComponentRef Id="gsd2aml.xml" />
             <ComponentRef Id="gsd2aml3.xml" />
-            <ComponentRef Id="iodd2aml.xml" />
-            <ComponentRef Id="iodd2aml3.xml" />
-            <ComponentRef Id="cspp2aml.xml" />
-            <ComponentRef Id="cspp2aml3.xml" />
         </ComponentGroup>
     </Fragment>
 </Wix>
