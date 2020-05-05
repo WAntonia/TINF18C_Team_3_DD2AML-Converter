@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("Gsd2Aml.Cli")]
+[assembly: AssemblyTitle("Dd2Aml.Cli")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Cooperative State University Stuttgart TINF17C")]
-[assembly: AssemblyProduct("GSD2AML Converter")]
-[assembly: AssemblyCopyright("Copyright © 2019 Cooperative State University Stuttgart TINF17C")]
+[assembly: AssemblyCompany("Cooperative State University Stuttgart TINF18C")]
+[assembly: AssemblyProduct("DD2AML Converter")]
+[assembly: AssemblyCopyright("Copyright © 2019 Cooperative State University Stuttgart TINF18C")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

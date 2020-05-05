@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Gsd2Aml.Setup", "Gsd2Aml.Setup\Gsd2Aml.Setup.wixproj", "{B9DC7CEF-9BE1-4D94-8E94-80244B828E6E}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Dd2Aml.Setup", "Dd2Aml.Setup\Dd2Aml.Setup.wixproj", "{B9DC7CEF-9BE1-4D94-8E94-80244B828E6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,19 +15,20 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gsd2Aml.Lib.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Dd2Aml.Lib.Logging;
+using Gsd2Aml.Lib;
 
-namespace Gsd2Aml.Lib
+namespace Dd2Aml.Lib
 {
     /// <summary>
     /// Compress an AML file and its resources to an .amlx package using the AML.Engine.
     /// </summary>
     public static class Compressor
     {
-        private const string Gsd2AmlName = "GSD2AML";
+        private const string Dd2AmlName = "DD2AML";
 
         /// <summary>
         /// Creates a zip archive from a directory and the relevant GSD resources.
@@ -44,7 +45,7 @@ namespace Gsd2Aml.Lib
             if (string.IsNullOrEmpty(amlFilePath)) throw new ArgumentNullException(amlFilePath, "AML file path was null or empty.");
             if (string.IsNullOrEmpty(destination)) throw new ArgumentNullException(destination, "Destination file path was null or empty.");
 
-            var tmpPath = CreateTmpDirectory(Gsd2AmlName);
+            var tmpPath = CreateTmpDirectory(Dd2AmlName);
 
             if (string.IsNullOrEmpty(tmpPath)) throw new IOException("Path to GSD2AML-Temp folder unexpectedly null or empty.");
 
@@ -132,7 +133,7 @@ namespace Gsd2Aml.Lib
                     {
                         var fileName = Path.GetFileName(resource);
                         if (string.IsNullOrEmpty(fileName)) continue;
-                        var fileTmpPath = Path.Combine(Path.GetTempPath(), Gsd2AmlName, fileName);
+                        var fileTmpPath = Path.Combine(Path.GetTempPath(), Dd2AmlName, fileName);
                         if (!File.Exists(fileTmpPath)) continue;
                         var fileUri = new Uri("/" + fileName, UriKind.Relative);
                         ac.AddAnyContent(root, fileTmpPath, fileUri);

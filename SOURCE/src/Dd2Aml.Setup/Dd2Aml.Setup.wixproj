@@ -6,8 +6,9 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>b9dc7cef-9be1-4d94-8e94-80244b828e6e</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>Gsd2Aml.Setup</OutputName>
+    <OutputName>DdAml.Setup</OutputName>
     <OutputType>Package</OutputType>
+    <Name>Dd2Aml.Setup</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
@@ -72,8 +73,8 @@
   <PropertyGroup>
     <PreBuildEvent>mkdir "$(ProjectDir)bin\$(Configuration)\publish"
 
-xcopy /s /y "$(ProjectDir)..\Gsd2Aml.Cli\bin\$(Configuration)" "$(ProjectDir)bin\$(Configuration)\publish"
-xcopy /s /y "$(ProjectDir)..\Gsd2Aml.Gui\bin\$(Configuration)" "$(ProjectDir)bin\$(Configuration)\publish"
+xcopy /s /y "$(ProjectDir)..\Dd2Aml.Cli\bin\$(Configuration)" "$(ProjectDir)bin\$(Configuration)\publish"
+xcopy /s /y "$(ProjectDir)..\Dd2Aml.Gui\bin\$(Configuration)" "$(ProjectDir)bin\$(Configuration)\publish"
 
 "$(WixToolPath)heat" dir "$(ProjectDir)bin\$(Configuration)\publish" -dr INSTALLFOLDER -cg Components -gg -g1 -sfrag -sreg -suid -srd -t "$(ProjectDir)Filter.xslt" -var var.SourceDir -out "$(ProjectDir)Components.wxs"</PreBuildEvent>
   </PropertyGroup>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<body>
+
+  <ProfileHeader>
+    <Replacement>
+      <AdditionalInformation>
+        <WriterHeader>
+          <WriterName>DHBW Stuttgart TINF18C</WriterName>
+          <WriterID>D331B5B6-C3FA-4D3C-8F6D-93F6F0215EF4</WriterID>
+          <WriterVendor>DD2AML TINF18C</WriterVendor>
+          <WriterVersion>1.0.0</WriterVersion>
+          <WriterRelease>1.0.0</WriterRelease>
+          <LastWritingDateTime></LastWritingDateTime>
+          <WriterProjectTitle>DD2AML Converter</WriterProjectTitle>
+          <WriterProjectID>DD2AML Converter</WriterProjectID>
+        </WriterHeader>
+      </AdditionalInformation>
+    </Replacement>
+  </ProfileHeader>
+
+  <ProfileBody>
+    <Replacement>
+      <CAEXFile.SystemUnitClassLib>
+        <SystemUnitClassLib CAEXObject.Name="ComponentSystemUnitClassLib">
+          <CAEXFile.SystemUnitClass>
+            <SystemUnitClass CAEXObject.Name="$1" CAEXObject.ID="GUID">
+
+              <SystemUnitClassType.SupportedRoleClass>
+                <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentBaseRCL/AdditionalDeviceDescription/IODD" />
+              </SystemUnitClassType.SupportedRoleClass>
+              
+            </SystemUnitClass>
+          </CAEXFile.SystemUnitClass>
+        </SystemUnitClassLib>
+      </CAEXFile.SystemUnitClassLib>
+    </Replacement>
+
+    <!-- DeviceName -->
+    <Reference Ref="$1" Type="TextRef">
+      <ProfileBody.DeviceIdentity.DeviceName textId=""/>
+    </Reference>
+  </ProfileBody>
+
+  <DeviceIdentity>
+    <Replacement>
+      
+    </Replacement>
+  </DeviceIdentity>
+
+  <DeviceVariantCollection>
+    <Replacement>
+      
+    </Replacement>
+  </DeviceVariantCollection>
+
+  <DeviceFunction>
+    <Replacement>
+      
+    </Replacement>
+  </DeviceFunction>
+
+</body>

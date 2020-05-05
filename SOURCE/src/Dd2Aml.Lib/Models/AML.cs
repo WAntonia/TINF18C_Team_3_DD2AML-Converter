@@ -3,7 +3,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 
-namespace Gsd2Aml.Lib.Models.CAEX2
+namespace Dd2Aml.Lib.Models.CAEX2
 {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
@@ -1590,7 +1590,7 @@ namespace Gsd2Aml.Lib.Models.CAEX2
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("SystemUnitClass")]
-        public SystemUnitFamilyType[] SystemUnitClass 
+        public SystemUnitFamilyType[] SystemUnitClass
         {
             get
             {
@@ -1602,7 +1602,7 @@ namespace Gsd2Aml.Lib.Models.CAEX2
             }
         }
     }
-    
+
     public class WriterHeader
     {
         public string WriterName { get; set; }

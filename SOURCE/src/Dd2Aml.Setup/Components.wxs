@@ -5,20 +5,20 @@
             <Component Id="AML.Engine.dll" Guid="005512C9-5D4E-484B-BA94-07856A4A937A">
                 <File Id="AML.Engine.dll" KeyPath="yes" Source="$(var.SourceDir)\AML.Engine.dll" />
             </Component>
-            <Component Id="Gsd2Aml.Cli.exe" Guid="BFF5B784-91C6-4C14-B1E0-773BCAC37E2C">
-                <File Id="Gsd2Aml.Cli.exe" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Cli.exe" />
+            <Component Id="Dd2Aml.Cli.exe" Guid="BFF5B784-91C6-4C14-B1E0-773BCAC37E2C">
+                <File Id="Dd2Aml.Cli.exe" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Cli.exe" />
             </Component>
-            <Component Id="Gsd2Aml.Cli.exe.config" Guid="30F606CD-EC17-4BEC-AD4F-87E9D850C83F">
-                <File Id="Gsd2Aml.Cli.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Cli.exe.config" />
+            <Component Id="Dd2Aml.Cli.exe.config" Guid="30F606CD-EC17-4BEC-AD4F-87E9D850C83F">
+                <File Id="Dd2Aml.Cli.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Cli.exe.config" />
             </Component>
-            <Component Id="Gsd2Aml.Gui.exe" Guid="D6A62310-41CE-42BB-9366-678A0FC60B25">
-                <File Id="Gsd2Aml.Gui.exe" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Gui.exe" />
+            <Component Id="Dd2Aml.Gui.exe" Guid="D6A62310-41CE-42BB-9366-678A0FC60B25">
+                <File Id="Dd2Aml.Gui.exe" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Gui.exe" />
             </Component>
-            <Component Id="Gsd2Aml.Gui.exe.config" Guid="DE84A2D7-B9DF-4275-80DF-532E8BB32CC7">
-                <File Id="Gsd2Aml.Gui.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Gui.exe.config" />
+            <Component Id="Dd2Aml.Gui.exe.config" Guid="DE84A2D7-B9DF-4275-80DF-532E8BB32CC7">
+                <File Id="Dd2Aml.Gui.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Gui.exe.config" />
             </Component>
-            <Component Id="Gsd2Aml.Lib.dll" Guid="56B18C5E-C8E6-43F6-9568-2AF6EDB86769">
-                <File Id="Gsd2Aml.Lib.dll" KeyPath="yes" Source="$(var.SourceDir)\Gsd2Aml.Lib.dll" />
+            <Component Id="Dd2Aml.Lib.dll" Guid="56B18C5E-C8E6-43F6-9568-2AF6EDB86769">
+                <File Id="Dd2Aml.Lib.dll" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Lib.dll" />
             </Component>
             <Component Id="NLog.config" Guid="3C0DDF47-4A09-4C54-9EB4-93515C768F9A">
                 <File Id="NLog.config" KeyPath="yes" Source="$(var.SourceDir)\NLog.config" />
@@ -44,11 +44,11 @@
     <Fragment>
         <ComponentGroup Id="Components">
             <ComponentRef Id="AML.Engine.dll" />
-            <ComponentRef Id="Gsd2Aml.Cli.exe" />
-            <ComponentRef Id="Gsd2Aml.Cli.exe.config" />
-            <ComponentRef Id="Gsd2Aml.Gui.exe" />
-            <ComponentRef Id="Gsd2Aml.Gui.exe.config" />
-            <ComponentRef Id="Gsd2Aml.Lib.dll" />
+            <ComponentRef Id="Dd2Aml.Cli.exe" />
+            <ComponentRef Id="Dd2Aml.Cli.exe.config" />
+            <ComponentRef Id="Dd2Aml.Gui.exe" />
+            <ComponentRef Id="Dd2Aml.Gui.exe.config" />
+            <ComponentRef Id="Dd2Aml.Lib.dll" />
             <ComponentRef Id="NLog.config" />
             <ComponentRef Id="NLog.dll" />
             <ComponentRef Id="README.md" />

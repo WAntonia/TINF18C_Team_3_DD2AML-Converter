@@ -78,7 +78,7 @@
       <Component Id="GuiStartMenuShortcut" Guid="21cb1fc1-c555-4b11-92d1-91ad4b95b9c9">
         <Condition>WIXUI_CREATESTARTMENUSHORTCUT</Condition>
         <Shortcut Id="GuiStartMenuShortcut" Name="DD2AML Converter"
-                  Target="[#Gsd2Aml.Gui.exe]"
+                  Target="[#Dd2Aml.Gui.exe]"
                   WorkingDirectory="INSTALLFOLDER"/>
         <RemoveFile Id="RemoveStartmenuIcon" Name="DD2AML Converter" On="uninstall"/>
         <RemoveFolder Id="ProgramMenuFolder" On="uninstall"/>
@@ -89,7 +89,7 @@
       <Component Id="GuiDesktopShortcut" Guid="2d0a481a-8bd1-407f-b308-619514bedfbe">
         <Condition>WIXUI_CREATEDESKTOPSHORTCUT</Condition>
         <Shortcut Id="GuiDesktopShortcut" Name="DD2AML Converter"
-                  Target="[#Gsd2Aml.Gui.exe]"
+                  Target="[#Dd2Aml.Gui.exe]"
                   WorkingDirectory="INSTALLFOLDER"/>
         <RemoveFile Id="RemoveDesktopIcon" Name="DD2AML Converter" On="uninstall"/>
         <RemoveFolder Id="DesktopFolder" On="uninstall"/>

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dd2Aml.Cli", "Gsd2Aml.Cli\Dd2Aml.Cli.csproj", "{230F627D-51CA-4456-9ADA-DA98A6260E8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dd2Aml.Cli", "Dd2Aml.Cli\Dd2Aml.Cli.csproj", "{230F627D-51CA-4456-9ADA-DA98A6260E8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dd2Aml.Gui", "Gsd2Aml.Gui\Dd2Aml.Gui.csproj", "{866BA688-F4E8-4CC9-A832-C16E7C0795ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dd2Aml.Gui", "Dd2Aml.Gui\Dd2Aml.Gui.csproj", "{866BA688-F4E8-4CC9-A832-C16E7C0795ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dd2Aml.Lib", "Gsd2Aml.Lib\Dd2Aml.Lib.csproj", "{AE5F413E-6E4F-41FD-B352-2CA720E98551}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dd2Aml.Lib", "Dd2Aml.Lib\Dd2Aml.Lib.csproj", "{AE5F413E-6E4F-41FD-B352-2CA720E98551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dd2Aml.Test", "Gsd2Aml.Test\Dd2Aml.Test.csproj", "{401A3264-7E0A-4FC9-AC21-65A0FD79999B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dd2Aml.Test", "Dd2Aml.Test\Dd2Aml.Test.csproj", "{401A3264-7E0A-4FC9-AC21-65A0FD79999B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
