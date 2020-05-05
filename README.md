@@ -1,7 +1,4 @@
 # DD2AML-Converter
-<!--
-=======
-# Gsd2Aml
 
 Welcome to DD2AML! This project was developed for GSD as a student project by (in alphabetical order)
 
