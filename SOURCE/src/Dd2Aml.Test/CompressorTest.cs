@@ -60,7 +60,7 @@ namespace Dd2Aml.Test
             // Tests for 1)
 
             var finalAmlxFile = Path.Combine(testDir, "myAmlx.amlx");
-            Compressor.Compress(amlFile, Path.Combine(testDir, "myAmlx.amlx"), res, true);
+            AMLPackager.Compress(amlFile, Path.Combine(testDir, "myAmlx.amlx"), res, true);
 
             using (var archive = ZipFile.OpenRead(finalAmlxFile))
             {
@@ -92,7 +92,7 @@ namespace Dd2Aml.Test
             var exceptionOccured = false;
             try
             {
-                Compressor.Compress("", "randomDestination", null);
+                AMLPackager.Compress("", "randomDestination", null);
             }
             catch
             {
@@ -114,7 +114,7 @@ namespace Dd2Aml.Test
             var exceptionOccured = false;
             try
             {
-                Compressor.Compress("myAml.xml", "", null);
+                AMLPackager.Compress("myAml.xml", "", null);
             }
             catch
             {
@@ -147,7 +147,7 @@ namespace Dd2Aml.Test
             var finalAmlxFile = Path.Combine(testDir, "myAmlx.amlx");
             try
             {
-                Compressor.Compress(amlFile, Path.Combine(testDir, "myAmlx.amlx"), res, true);
+                AMLPackager.Compress(amlFile, Path.Combine(testDir, "myAmlx.amlx"), res, true);
                 try
                 {
                     File.Delete(finalAmlxFile);

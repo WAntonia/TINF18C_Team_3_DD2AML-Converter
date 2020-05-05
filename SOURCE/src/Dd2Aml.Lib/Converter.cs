@@ -122,7 +122,7 @@ namespace Dd2Aml.Lib
                 resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
             }
 
-            Compressor.Compress(temporaryPath, outputFile, resources.ToArray(), overwriteFile);
+            AMLPackager.Compress(temporaryPath, outputFile, resources.ToArray(), overwriteFile);
 
             File.Delete(temporaryPath);
         }

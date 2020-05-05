@@ -62,7 +62,7 @@
     </Compile>
     <Compile Include="Models\CSPP.cs" />
     <Compile Include="Models\GSD.cs" />
-    <Compile Include="Compressor.cs" />
+    <Compile Include="AMLPackager.cs" />
     <Compile Include="Models\IODD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
