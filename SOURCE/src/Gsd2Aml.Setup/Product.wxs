@@ -69,7 +69,7 @@
       </Component>
       <Component Id="BatForCli" Guid="EBF043BB-F332-463D-AED2-10C6C14E832B">
         <File Id="BatForCli" KeyPath="yes" Source="..\..\dpl\dd2aml.bat"/>
-        <!--  <File Id="BatForCli" KeyPath="yes" Source="..\..\dpl\gsd2aml.bat"/>-->
+        <!--  <File Id="BatForCli" KeyPath="yes" Source="..\..\dpl\dd2aml.bat"/>-->
       </Component>
     </ComponentGroup>
 
