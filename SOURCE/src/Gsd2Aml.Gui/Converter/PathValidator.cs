@@ -23,7 +23,7 @@ using System.Globalization;
 using System.IO;
 using System.Windows.Data;
 
-namespace Gsd2Aml.Gui.Converter
+namespace Dd2Aml.Gui.Converter
 {
     class PathValidator : IMultiValueConverter
     {

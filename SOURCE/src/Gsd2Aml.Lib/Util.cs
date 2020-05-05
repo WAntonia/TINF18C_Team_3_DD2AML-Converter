@@ -15,17 +15,18 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gsd2Aml.Lib.Logging;
-using Gsd2Aml.Lib.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Xml;
 using System.Text.RegularExpressions;
+using System.Xml;
+using Dd2Aml.Lib.Logging;
+using Dd2Aml.Lib.Models;
+using Dd2Aml.Lib.Models.CAEX2;
 
-namespace Gsd2Aml.Lib
+namespace Dd2Aml.Lib
 {
     /// <summary>
     /// Contains utility functions which provide helping functionalities for the conversion process.
@@ -34,7 +35,7 @@ namespace Gsd2Aml.Lib
     {
         //  private const string CTranslationTableFileName = "gsd2aml.xml";
         internal static string CTranslationTableFileName = "";
-        public static int filetype;
+        public static int filetype = 0;
 
         //private const string CTextPath = "ProfileBody.ApplicationProcess.ExternalTextList.PrimaryLanguage";
         private static string CTextPath = "";
@@ -76,7 +77,7 @@ namespace Gsd2Aml.Lib
             foreach (var splitString in splitStrings)
             {
                 if(Converter.CAEXVersion == 2) { 
-                    var currentType = propertyInfo == null ? typeof(Models.CAEX2.Wrapper) : propertyInfo.PropertyType;
+                    var currentType = propertyInfo == null ? typeof(Wrapper) : propertyInfo.PropertyType;
                     propertyInfo = SearchPropertyByString(currentType, splitString);
                 }
                 else

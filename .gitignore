@@ -12,3 +12,4 @@ SOURCE/tst/*.amlx
 **/obj/
 **/.vs/
 **/3rd/
+*.user

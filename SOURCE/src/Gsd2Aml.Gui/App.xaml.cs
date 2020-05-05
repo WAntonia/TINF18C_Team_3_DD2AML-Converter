@@ -20,7 +20,7 @@
 
 using System.Windows;
 
-namespace Gsd2Aml.Gui
+namespace Dd2Aml.Gui
 {
     /// <summary>
     /// Interaktionslogik für "App.xaml"

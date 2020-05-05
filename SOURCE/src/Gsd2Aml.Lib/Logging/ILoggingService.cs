@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Gsd2Aml.Lib.Logging
+namespace Dd2Aml.Lib.Logging
 {
     /// <summary>
     /// Interface to provide logging information of the conversion process.

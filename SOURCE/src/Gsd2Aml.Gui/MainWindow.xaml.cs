@@ -24,10 +24,11 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
+using Dd2Aml.Lib;
+using Dd2Aml.Lib.Logging;
 using Microsoft.Win32;
 
-namespace Gsd2Aml.Gui
+namespace Dd2Aml.Gui
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -91,7 +92,7 @@ namespace Gsd2Aml.Gui
             if (dialog.ShowDialog(this).Value)
             {
                 TxtGsdFile.Text = dialog.FileName;
-                App.Logger.Log(Lib.Logging.LogLevel.Info, "Open file \"" + TxtGsdFile.Text + "\"");
+                App.Logger.Log(LogLevel.Info, "Open file \"" + TxtGsdFile.Text + "\"");
             }
         }
 
@@ -112,7 +113,7 @@ namespace Gsd2Aml.Gui
             if (dialog.ShowDialog(this).Value)
             {
                 TxtAmlFile.Text = dialog.FileName;
-                App.Logger.Log(Lib.Logging.LogLevel.Info, "Save file to \"" + TxtGsdFile.Text + "\"");
+                App.Logger.Log(LogLevel.Info, "Save file to \"" + TxtGsdFile.Text + "\"");
             }
         }
         #endregion
@@ -141,10 +142,10 @@ namespace Gsd2Aml.Gui
                     overwrite = MessageBox.Show(this, $"The File \"{TxtAmlFile.Text}\" already exits.\n\nDo you want to overwrite it?", "DD2AML Converter", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
                 }
 
-                App.Logger.Log(Lib.Logging.LogLevel.Info, "Start conversion of file \"" + TxtGsdFile.Text + "\"");
+                App.Logger.Log(LogLevel.Info, "Start conversion of file \"" + TxtGsdFile.Text + "\"");
                 Lib.Converter.Convert(TxtGsdFile.Text, TxtAmlFile.Text, overwrite, StrictModeEnabled);
 
-                App.Logger.Log(Lib.Logging.LogLevel.Info, "Conversion successfully completed!");
+                App.Logger.Log(LogLevel.Info, "Conversion successfully completed!");
                 MessageBox.Show(this, "Conversion successfully completed!", "DD2AML Converter");
 
                 if (GetAmlEditor() is string editor && !string.IsNullOrEmpty(editor))
@@ -153,12 +154,12 @@ namespace Gsd2Aml.Gui
                     {
                         try
                         {
-                            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Trying to start AutomationML Editor");
+                            App.Logger.Log(LogLevel.Debug, "Trying to start AutomationML Editor");
                             System.Diagnostics.Process.Start(editor, "\"" + TxtAmlFile.Text + "\"");
                         }
                         catch (Exception ex)
                         {
-                            App.Logger.Log(Lib.Logging.LogLevel.Error, ex.Message);
+                            App.Logger.Log(LogLevel.Error, ex.Message);
                             MessageBox.Show(this, "An error occured when trying to open the AutomationML Editor.", "DD2AML Converter", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
@@ -166,7 +167,7 @@ namespace Gsd2Aml.Gui
             }
             catch (Exception ex)
             {
-                App.Logger.Log(Lib.Logging.LogLevel.Error, ex.Message);
+                App.Logger.Log(LogLevel.Error, ex.Message);
                 MessageBox.Show(this, ex.Message, "DD2AML Converter: Conversion failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -179,19 +180,19 @@ namespace Gsd2Aml.Gui
         {
             try
             {
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "Search for AutomationML Editor");
+                App.Logger.Log(LogLevel.Debug, "Search for AutomationML Editor");
                 var key = Registry.CurrentUser.OpenSubKey(@"Software\AutomationML\AutomationML Editor");
 
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "Opened key \"" + key.Name + "\"");
+                App.Logger.Log(LogLevel.Debug, "Opened key \"" + key.Name + "\"");
                 key = key.OpenSubKey(key.GetSubKeyNames().FirstOrDefault());
 
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "Opened subkey \"" + key.Name + "\"");
+                App.Logger.Log(LogLevel.Debug, "Opened subkey \"" + key.Name + "\"");
                 var valueName = key.GetValueNames().FirstOrDefault();
 
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "Reading value from \"" + valueName + "\"");
+                App.Logger.Log(LogLevel.Debug, "Reading value from \"" + valueName + "\"");
                 var value = key.GetValue(valueName).ToString();
 
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "Result from value is \"" + value + "\"");
+                App.Logger.Log(LogLevel.Debug, "Result from value is \"" + value + "\"");
                 var dir = new System.IO.DirectoryInfo(value);
 
                 if (dir.Exists)
@@ -202,7 +203,7 @@ namespace Gsd2Aml.Gui
             }
             catch (Exception ex)
             {
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, ex.Message);
+                App.Logger.Log(LogLevel.Debug, ex.Message);
             }
 
             return string.Empty;
@@ -213,20 +214,20 @@ namespace Gsd2Aml.Gui
         #region Window
         private void MainWindow_OnDragEnter(object sender, DragEventArgs e)
         {
-            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Drag entered window");
+            App.Logger.Log(LogLevel.Debug, "Drag entered window");
             var data = e.Data.GetData(DataFormats.FileDrop);
             if ((data as string[])?.FirstOrDefault() != null)
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" drag onto window");
+                App.Logger.Log(LogLevel.Debug, "File \"" + fileName + "\" drag onto window");
                 if (!string.IsNullOrEmpty(fileName) && (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))
                 {
-                    App.Logger.Log(Lib.Logging.LogLevel.Debug, "File is legal");
+                    App.Logger.Log(LogLevel.Debug, "File is legal");
                     e.Effects = DragDropEffects.All | DragDropEffects.Copy | DragDropEffects.Link | DragDropEffects.Move;
                 }
                 else
                 {
-                    App.Logger.Log(Lib.Logging.LogLevel.Debug, "File is not legal");
+                    App.Logger.Log(LogLevel.Debug, "File is not legal");
                     e.Effects = DragDropEffects.None;
                 }
             }
@@ -242,7 +243,7 @@ namespace Gsd2Aml.Gui
             if ((data as string[])?.FirstOrDefault() != null)
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" draged over window");
+                App.Logger.Log(LogLevel.Debug, "File \"" + fileName + "\" draged over window");
                 if (!string.IsNullOrEmpty(fileName) &&  (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))
 
                 {
@@ -261,13 +262,13 @@ namespace Gsd2Aml.Gui
 
         private void MainWindow_OnDrop(object sender, DragEventArgs e)
         {
-            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Dropped file onto window");
+            App.Logger.Log(LogLevel.Debug, "Dropped file onto window");
             var data = e.Data.GetData(DataFormats.FileDrop);
 
             if ((data as string[])?.FirstOrDefault() == null) return;
 
             var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
-            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Dropped file \"" + fileName + "\"");
+            App.Logger.Log(LogLevel.Debug, "Dropped file \"" + fileName + "\"");
             if (!string.IsNullOrEmpty(fileName) && (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))
             {
                 TxtGsdFile.Text = ((string[])data)[0];
@@ -278,22 +279,22 @@ namespace Gsd2Aml.Gui
         #region Textbox
         private void TxtGsdFile_OnDragEnter(object sender, DragEventArgs e)
         {
-            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Drag entered first textbox");
+            App.Logger.Log(LogLevel.Debug, "Drag entered first textbox");
             var data = e.Data.GetData(DataFormats.FileDrop);
             if ((data as string[])?.FirstOrDefault() != null)
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" drag onto first textbox");
+                App.Logger.Log(LogLevel.Debug, "File \"" + fileName + "\" drag onto first textbox");
                 if (!string.IsNullOrEmpty(fileName) && 
                     (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))    
                 {
-                    App.Logger.Log(Lib.Logging.LogLevel.Debug, "File is legal");
+                    App.Logger.Log(LogLevel.Debug, "File is legal");
                     e.Effects = DragDropEffects.All | DragDropEffects.Copy | DragDropEffects.Link | DragDropEffects.Move;
                     e.Handled = true;
                 }
                 else
                 {
-                    App.Logger.Log(Lib.Logging.LogLevel.Debug, "File is not legal");
+                    App.Logger.Log(LogLevel.Debug, "File is not legal");
                     e.Effects = DragDropEffects.None;
                 }
             }
@@ -309,7 +310,7 @@ namespace Gsd2Aml.Gui
             if ((data as string[])?.FirstOrDefault() != null)
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
-                App.Logger.Log(Lib.Logging.LogLevel.Debug, "File \"" + fileName + "\" draged over gsd textbox");
+                App.Logger.Log(LogLevel.Debug, "File \"" + fileName + "\" draged over gsd textbox");
                 if (!string.IsNullOrEmpty(fileName) &&
                     (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))          
                 {
@@ -329,13 +330,13 @@ namespace Gsd2Aml.Gui
 
         private void TxtGsdFile_OnDrop(object sender, DragEventArgs e)
         {
-            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Dropped file onto gsd textbox");
+            App.Logger.Log(LogLevel.Debug, "Dropped file onto gsd textbox");
             var data = e.Data.GetData(DataFormats.FileDrop);
 
             if ((data as string[])?.FirstOrDefault() == null) return;
 
             var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
-            App.Logger.Log(Lib.Logging.LogLevel.Debug, "Dropped file \"" + fileName + "\"");
+            App.Logger.Log(LogLevel.Debug, "Dropped file \"" + fileName + "\"");
             if (!string.IsNullOrEmpty(fileName) &&
                 (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))          
             { 
@@ -364,7 +365,7 @@ namespace Gsd2Aml.Gui
                 var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText).Remove(0, "GSDML-".Length) + ".amlx";
 
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
-                Lib.Util.filetype =  1;
+                Util.filetype =  1;
             }
 
             //IODD
@@ -375,7 +376,7 @@ namespace Gsd2Aml.Gui
                 var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText).Remove(len, 8) + ".amlx";
 
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
-                Lib.Util.filetype = 2;
+                Util.filetype = 2;
             }
 
             //CSP+
@@ -385,7 +386,7 @@ namespace Gsd2Aml.Gui
                 var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText) + ".amlx";
             
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
-                Lib.Util.filetype = 3;
+                Util.filetype = 3;
             }
 
         }

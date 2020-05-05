@@ -18,10 +18,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Dd2Aml.Lib.Logging;
 using NLog;
-using Gsd2Aml.Lib.Logging;
+using LogLevel = Dd2Aml.Lib.Logging.LogLevel;
 
-namespace Gsd2Aml.Gui
+namespace Dd2Aml.Gui
 {
     /// <summary>
     /// The logger instance of the CLI.
@@ -35,32 +36,32 @@ namespace Gsd2Aml.Gui
         /// </summary>
         /// <param name="level">The level on which to log on.</param>
         /// <param name="message">The log message.</param>
-        public void Log(Lib.Logging.LogLevel level, string message)
+        public void Log(LogLevel level, string message)
         {
             NLog.LogLevel logLevel;
             switch (level)
             {
-                case Lib.Logging.LogLevel.Error:
+                case LogLevel.Error:
                     logLevel = NLog.LogLevel.Error;
                     break;
 
-                case Lib.Logging.LogLevel.Info:
+                case LogLevel.Info:
                     logLevel = NLog.LogLevel.Info;
                     break;
 
-                case Lib.Logging.LogLevel.Trace:
+                case LogLevel.Trace:
                     logLevel = NLog.LogLevel.Trace;
                     break;
 
-                case Lib.Logging.LogLevel.Warning:
+                case LogLevel.Warning:
                     logLevel = NLog.LogLevel.Warn;
                     break;
 
-                case Lib.Logging.LogLevel.Debug:
+                case LogLevel.Debug:
                     logLevel = NLog.LogLevel.Debug;
                     break;
 
-                case Lib.Logging.LogLevel.Fatal:
+                case LogLevel.Fatal:
                     logLevel = NLog.LogLevel.Fatal;
                     break;
                     

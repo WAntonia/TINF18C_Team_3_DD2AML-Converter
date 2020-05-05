@@ -8,8 +8,8 @@
     <ProjectGuid>{401A3264-7E0A-4FC9-AC21-65A0FD79999B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gsd2Aml.Test</RootNamespace>
-    <AssemblyName>Gsd2Aml.Test</AssemblyName>
+    <RootNamespace>Dd2Aml.Test</RootNamespace>
+    <AssemblyName>Dd2Aml.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -71,17 +71,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gsd2Aml.Cli\Gsd2Aml.Cli.csproj">
+    <ProjectReference Include="..\Gsd2Aml.Cli\Dd2Aml.Cli.csproj">
       <Project>{230f627d-51ca-4456-9ada-da98a6260e8a}</Project>
-      <Name>Gsd2Aml.Cli</Name>
+      <Name>Dd2Aml.Cli</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gsd2Aml.Gui\Gsd2Aml.Gui.csproj">
+    <ProjectReference Include="..\Gsd2Aml.Gui\Dd2Aml.Gui.csproj">
       <Project>{866ba688-f4e8-4cc9-a832-c16e7c0795ed}</Project>
-      <Name>Gsd2Aml.Gui</Name>
+      <Name>Dd2Aml.Gui</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gsd2Aml.Lib\Gsd2Aml.Lib.csproj">
+    <ProjectReference Include="..\Gsd2Aml.Lib\Dd2Aml.Lib.csproj">
       <Project>{ae5f413e-6e4f-41fd-b352-2ca720e98551}</Project>
-      <Name>Gsd2Aml.Lib</Name>
+      <Name>Dd2Aml.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

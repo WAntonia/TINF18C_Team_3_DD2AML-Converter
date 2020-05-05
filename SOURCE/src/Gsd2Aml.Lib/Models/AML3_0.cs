@@ -14,7 +14,7 @@ using System;
 // Dieser Quellcode wurde automatisch generiert von xsd, Version=4.8.3928.0.
 // 
 
-namespace Gsd2Aml.Lib.Models.CAEX3
+namespace Dd2Aml.Lib.Models.CAEX3
 {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]

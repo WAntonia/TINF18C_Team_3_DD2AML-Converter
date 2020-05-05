@@ -18,10 +18,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 
-<Window x:Class="Gsd2Aml.Gui.MainWindow"
+<Window x:Class="Dd2Aml.Gui.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:converter="clr-namespace:Gsd2Aml.Gui.Converter"
+        xmlns:converter="clr-namespace:Dd2Aml.Gui.Converter"
         Title="{Binding ProductTitle, Mode=OneWay}"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         AllowDrop="True"

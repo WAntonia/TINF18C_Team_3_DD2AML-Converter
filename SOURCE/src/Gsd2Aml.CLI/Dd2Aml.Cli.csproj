@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{230F627D-51CA-4456-9ADA-DA98A6260E8A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Gsd2Aml.Cli</RootNamespace>
-    <AssemblyName>Gsd2Aml.Cli</AssemblyName>
+    <RootNamespace>Dd2Aml.Cli</RootNamespace>
+    <AssemblyName>Dd2Aml.Cli</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -84,9 +84,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gsd2Aml.Lib\Gsd2Aml.Lib.csproj">
+    <ProjectReference Include="..\Gsd2Aml.Lib\Dd2Aml.Lib.csproj">
       <Project>{ae5f413e-6e4f-41fd-b352-2ca720e98551}</Project>
-      <Name>Gsd2Aml.Lib</Name>
+      <Name>Dd2Aml.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

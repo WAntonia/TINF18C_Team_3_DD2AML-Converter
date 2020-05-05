@@ -15,10 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gsd2Aml.Lib.Logging;
+using Dd2Aml.Lib.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Gsd2Aml.Test
+namespace Dd2Aml.Test
 {
     internal class Logger : ILoggingService
     {

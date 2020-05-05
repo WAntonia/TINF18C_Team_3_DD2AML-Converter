@@ -15,12 +15,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gsd2Aml.Lib;
-using Gsd2Aml.Lib.Logging;
 using System;
 using System.IO;
+using Dd2Aml.Lib;
+using Dd2Aml.Lib.Logging;
+using Gsd2Aml.Lib;
+using Util = Dd2Aml.Cli.Util;
 
-namespace Gsd2Aml.Cli
+namespace Dd2Aml.Cli
 {
     /// <summary>
     /// Acts on the settings and converts the input according to the settings.

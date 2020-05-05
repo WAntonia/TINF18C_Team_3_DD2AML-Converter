@@ -7,8 +7,8 @@
     <ProjectGuid>{AE5F413E-6E4F-41FD-B352-2CA720E98551}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gsd2Aml.Lib</RootNamespace>
-    <AssemblyName>Gsd2Aml.Lib</AssemblyName>
+    <RootNamespace>Dd2Aml.Lib</RootNamespace>
+    <AssemblyName>Dd2Aml.Lib</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -29,7 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Gsd2Aml.Lib.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Dd2Aml.Lib.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -80,6 +80,24 @@
     <EmbeddedResource Include="Models\xsd\xmldsig-core-schema.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="Models\xsd\CSP+\CSPPSchema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\xsd\CSP+\CSPPSchema2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\xsd\CSP+\CSPPSchema3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\xsd\CSP+\iQPSchema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\xsd\CSP+\iQPSchema2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\xsd\IODD1.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="README.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -92,9 +110,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Aml2\cspp2aml.xml" />
-    <EmbeddedResource Include="Aml2\iodd2aml.xml" />
-    <Content Include="Aml3\cspp2aml3.xml" />
-    <Content Include="Aml3\iodd2aml3.xml" />
+    <EmbeddedResource Include="Aml2\iodd2aml.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aml3\cspp2aml3.xml" />
+    <EmbeddedResource Include="Aml3\iodd2aml3.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Aml3\gsd2aml3.xml">

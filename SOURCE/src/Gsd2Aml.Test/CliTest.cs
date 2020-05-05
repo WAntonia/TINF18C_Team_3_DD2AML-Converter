@@ -15,12 +15,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gsd2Aml.Cli;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Gsd2Aml.Test
+namespace Dd2Aml.Test
 {
     /// <summary>
     /// Performs tests on the CLI.

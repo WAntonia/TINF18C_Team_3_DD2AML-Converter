@@ -15,15 +15,16 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gsd2Aml.Lib;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
+using Dd2Aml.Lib;
+using Gsd2Aml.Lib;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Gsd2Aml.Test
+namespace Dd2Aml.Test
 {
     /// <summary>
     /// Tests the compressor.

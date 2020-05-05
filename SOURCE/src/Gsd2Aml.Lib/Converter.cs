@@ -16,29 +16,29 @@
  */
 
 using System;
-using Gsd2Aml.Lib.Logging;
-using Gsd2Aml.Lib.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
 using System.Xml.Serialization;
+using Dd2Aml.Lib.Logging;
+using Dd2Aml.Lib.Models;
 
-namespace Gsd2Aml.Lib
+namespace Dd2Aml.Lib
 {
     /// <summary>
     /// The converter class which contains the logic to convert a GSD formatted file to an AML file.
     /// </summary>
     public static class Converter
     {
-        public static int CAEXVersion;
+        public static int CAEXVersion= 2;
 
         public static ILoggingService Logger { get; set; }
 
-        //private static Models.CAEX2.CAEXFile AmlObject { get; } = new Models.CAEX2.CAEXFile(); //Hier wird CAEX ausgewählt
+        private static Models.CAEX2.CAEXFile AmlObject { get; } = new Models.CAEX2.CAEXFile(); //Hier wird CAEX ausgewählt
 
-        private static Models.CAEX2.CAEXFile AmlObject { get; } = new Models.CAEX2.CAEXFile();
+        //private static CAEXFile AmlObject { get; } = new CAEXFile();
 
         private static Models.CAEX3.CAEXFile AmlObject3 { get; } = new Models.CAEX3.CAEXFile(); //Hier wird CAEX ausgewählt
 

@@ -15,14 +15,15 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using NLog.Targets;
 using NLog.Targets.Wrappers;
-using System;
-using System.IO;
+using LogLevel = Dd2Aml.Lib.Logging.LogLevel;
 
-namespace Gsd2Aml.Test
+namespace Dd2Aml.Test
 {
     /// <summary>
     /// Tests the logger.
@@ -36,7 +37,7 @@ namespace Gsd2Aml.Test
         [TestMethod]
         public void TestCliLogging()
         {
-            var logger = new Cli.Logger();
+            var logger = new Dd2Aml.Cli.Logger();
             const string logMessage1 = "Logging 1";
             const string logMessage2 = "Logging 2";
             const string logMessage3 = "Logging 3";
@@ -48,15 +49,15 @@ namespace Gsd2Aml.Test
             var filename = GetLogFileName("cli_logfile");
 
             // should appear in log file
-            logger.Log(Lib.Logging.LogLevel.Info, logMessage1);
-            logger.Log(Lib.Logging.LogLevel.Warning, logMessage2);
-            logger.Log(Lib.Logging.LogLevel.Error, logMessage3);
-            logger.Log(Lib.Logging.LogLevel.Fatal, logMessage4);
+            logger.Log(LogLevel.Info, logMessage1);
+            logger.Log(LogLevel.Warning, logMessage2);
+            logger.Log(LogLevel.Error, logMessage3);
+            logger.Log(LogLevel.Fatal, logMessage4);
 
             // should not be written in log file
-            logger.Log(Lib.Logging.LogLevel.Off, logMessage5);
-            logger.Log(Lib.Logging.LogLevel.Debug, logMessage6);
-            logger.Log(Lib.Logging.LogLevel.Trace, logMessage7);
+            logger.Log(LogLevel.Off, logMessage5);
+            logger.Log(LogLevel.Debug, logMessage6);
+            logger.Log(LogLevel.Trace, logMessage7);
             LogManager.Flush();
 
             var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GSD2AML", "Logs", "CLI", filename);
@@ -106,7 +107,7 @@ namespace Gsd2Aml.Test
         [TestMethod]
         public void TestGuiLogging()
         {
-            var logger = new Gui.Logger();
+            var logger = new Dd2Aml.Gui.Logger();
             const string logMessage1 = "Logging 1";
             const string logMessage2 = "Logging 2";
             const string logMessage3 = "Logging 3";
@@ -116,15 +117,15 @@ namespace Gsd2Aml.Test
             const string logMessage7 = "Logging 7";
 
             var filename = GetLogFileName("gui_logfile");
-            logger.Log(Lib.Logging.LogLevel.Info, logMessage1);
-            logger.Log(Lib.Logging.LogLevel.Warning, logMessage2);
-            logger.Log(Lib.Logging.LogLevel.Error, logMessage3);
-            logger.Log(Lib.Logging.LogLevel.Fatal, logMessage4);
+            logger.Log(LogLevel.Info, logMessage1);
+            logger.Log(LogLevel.Warning, logMessage2);
+            logger.Log(LogLevel.Error, logMessage3);
+            logger.Log(LogLevel.Fatal, logMessage4);
 
             // should not be logged
-            logger.Log(Lib.Logging.LogLevel.Off, logMessage5);
-            logger.Log(Lib.Logging.LogLevel.Debug, logMessage6);
-            logger.Log(Lib.Logging.LogLevel.Trace, logMessage7);
+            logger.Log(LogLevel.Off, logMessage5);
+            logger.Log(LogLevel.Debug, logMessage6);
+            logger.Log(LogLevel.Trace, logMessage7);
             LogManager.Flush();
 
             var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GSD2AML", "Logs", "GUI", filename);

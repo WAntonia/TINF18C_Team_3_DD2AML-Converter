@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 
-<Window x:Class="Gsd2Aml.Gui.AboutWindow"
+<Window x:Class="Dd2Aml.Gui.AboutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="About"

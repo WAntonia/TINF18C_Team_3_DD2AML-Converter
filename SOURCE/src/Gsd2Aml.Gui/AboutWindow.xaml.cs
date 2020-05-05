@@ -22,7 +22,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Navigation;
 
-namespace Gsd2Aml.Gui
+namespace Dd2Aml.Gui
 {
     /// <summary>
     /// Interaction logic for AboutWindow.xaml

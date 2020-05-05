@@ -18,7 +18,7 @@
 using System;
 using System.Reflection;
 
-namespace Gsd2Aml.Cli
+namespace Dd2Aml.Cli
 {
     /// <summary>
     /// Contains utility logic.

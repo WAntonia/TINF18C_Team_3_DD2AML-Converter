@@ -15,11 +15,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gsd2Aml.Lib.Logging;
 using System;
 using System.Linq;
+using Dd2Aml.Lib.Logging;
 
-namespace Gsd2Aml.Cli
+namespace Dd2Aml.Cli
 {
     public static class Program
     {

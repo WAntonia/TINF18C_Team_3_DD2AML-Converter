@@ -15,14 +15,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gsd2Aml.Lib.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Dd2Aml.Lib.Logging;
 
-namespace Gsd2Aml.Cli
+namespace Dd2Aml.Cli
 {
     /// <summary>
     /// Stores the settings specified by the user.
