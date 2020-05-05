@@ -44,7 +44,10 @@ namespace Gsd2Aml.Cli
         private const string CValidation = "--novalidate";
         private const string CValidationShort = "-n";
 
-        private static string[] Arguments { get; } = { CHelp, CHelpShort, CInputFile, CInputFileShort, COutputFile, COutputFileShort, CStringOutput, CStringOutputShort, CValidation, CValidationShort };
+        private const string CCAEXVersion = "--version";
+        private const string CCAEXVersionShort = "-v";
+
+        private static string[] Arguments { get; } = { CHelp, CHelpShort, CInputFile, CInputFileShort, COutputFile, COutputFileShort, CStringOutput, CStringOutputShort, CValidation, CValidationShort, CCAEXVersion, CCAEXVersionShort };
 
         internal string InputFile { get; set; }
 
@@ -53,6 +56,8 @@ namespace Gsd2Aml.Cli
         internal bool StringOutput { get; set; }
 
         internal bool Validation { get; set; } = true;
+
+        internal string CAEXVersion { get; set; }
 
         internal List<string> Args { get; set; }
 
@@ -147,6 +152,7 @@ namespace Gsd2Aml.Cli
             }
 
             OutputFile = parameter[COutputFileShort] ?? parameter[COutputFile];
+
             StringOutput = Args.FindIndex(arg => arg.Equals(CStringOutputShort)) >= 0 ||
                            Args.FindIndex(arg => arg.Equals(CStringOutput)) >= 0;
             if (!Args.Contains(CValidationShort) && !Args.Contains(CValidation)) return;
@@ -177,6 +183,37 @@ namespace Gsd2Aml.Cli
                                                 $"{Environment.NewLine}For more information run 'dd2aml --help'.");
             }
         }
+
+        /*
+      if (Regex.IsMatch(InputFile, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
+    {
+        var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
+        var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile).Remove(0, "GSDML-".Length) + ".amlx";
+
+        TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+        Lib.Util.filetype =  1;
+    }
+
+    //IODD
+    if (Regex.IsMatch(InputFile, $"(.+.-(IODD|iodd).+{Regex.Escape(".xml")})"))
+    {
+        var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
+        var len = senderText.Length - 13 - diretoryName.Length;
+        var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile).Remove(len, 8) + ".amlx";
+
+        TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+        Lib.Util.filetype = 2;
+    }
+
+    //CSP+
+    if (Regex.IsMatch(InputFile, $"(.+{Regex.Escape(".cspp")})"))
+    {
+        var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
+        var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile) + ".amlx";
+
+        TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
+        Lib.Util.filetype = 3;
+    }*/
 
         /// <summary>
         /// Prints an error message if the same argument was used multiple times.

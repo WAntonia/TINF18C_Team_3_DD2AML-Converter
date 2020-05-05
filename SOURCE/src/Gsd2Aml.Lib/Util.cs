@@ -358,6 +358,7 @@ namespace Gsd2Aml.Lib
         /// <param name="inputFile">The path to the GSD file.</param>
         internal static void CheckGsdFileForCorrectness(string inputFile)
         {
+            // filetype  1 = GSD; 2 = IODD; 3 = CSP+
             var xmlDocument = new XmlDocument();
             xmlDocument.Load(inputFile);
 
