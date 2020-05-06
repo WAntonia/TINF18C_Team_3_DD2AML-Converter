@@ -1,4 +1,71 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<test>
+<?xml version="1.0" encoding="utf-8" ?>
 
-</test>
+<body xsi:schemaLocation="http://cc-link.org/cspplus/ver1/ CSPPSchema.xsd" xmlns:p="http://cc-link.org/cspplus/ver1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <p:file>
+    <Replacement>
+      <AdditionalInformation>
+        <WriterHeader>
+          <WriterName>DHBW Stuttgart TINF18C</WriterName>
+          <WriterID>D331B5B6-C3FA-4D3C-8F6D-93F6F0215EF4</WriterID>
+          <WriterVendor>DD2AML TINF18C</WriterVendor>
+          <WriterVersion>1.0.0</WriterVersion>
+          <WriterRelease>1.0.0</WriterRelease>
+          <LastWritingDateTime></LastWritingDateTime>
+          <WriterProjectTitle>DD2AML Converter</WriterProjectTitle>
+          <WriterProjectID>DD2AML Converter</WriterProjectID>
+        </WriterHeader>
+      </AdditionalInformation>
+    </Replacement>
+   </p:file>
+  
+	<p:commIf>
+		<Replacement>
+		<CAEXFile.SystemUnitClassLib>
+			<SystemUnitClassLib CAEXObject.Name="ComponentSystemUnitClassLib">
+			</SystemUnitClassLib>
+		</CAEXFile.SystemUnitClassLib>
+		</Replacement>
+    </p:commIf>
+
+		<p:struct>
+			<!-- <p:structMember> -->
+				<!-- <p:offset> -->
+					<!-- <p:item> -->
+						<Replacement>
+							<CAEXFile.SystemUnitClass>
+								<SystemUnitClass CAEXObject.Name="test" CAEXObject.ID="GUID">          
+
+									<SystemUnitClassType.SupportedRoleClass>
+										<SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentBaseRCL/AdditionalDeviceDescription/CSP" />
+									</SystemUnitClassType.SupportedRoleClass> 
+								  
+									<SystemUnitClassType.InternalElement>
+										<InternalElement CAEXObject.Name="DeviceSection" CAEXObject.ID="GUID">
+										<SystemUnitClassType.Attribute>
+						  
+											<Attribute CAEXObject.Name="VendorId" Attribute.AttributeDataType="xs:integer">
+												<Attribute.Value>test</Attribute.Value>
+											</Attribute>
+										
+										</SystemUnitClassType.Attribute>
+										</InternalElement>
+									</SystemUnitClassType.InternalElement>
+								</SystemUnitClass>
+							</CAEXFile.SystemUnitClass>
+						</Replacement>
+						
+						 <!-- DeviceName -->
+						<!-- <Reference Ref="$1" Type="TextRef"> -->
+						  <!-- <CommIfSection.StructDeviceIdent.VendorID.offset.item textId=""/> -->
+						<!-- </Reference> -->
+						 <!--VendorId--> 
+						<!-- <Reference Ref="$2"> -->
+						  <!-- <CommIfSection.StructDeviceIdent.VendorID.offset.item vendorId=""/> -->
+						<!-- </Reference> -->
+					<!-- </p:item> -->
+				<!-- </p:offset> -->
+			<!-- </p:structMember> -->
+		</p:struct>
+
+</body>	
