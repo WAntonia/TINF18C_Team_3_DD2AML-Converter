@@ -112,7 +112,7 @@ namespace Dd2Aml.Cli
         {
             if (File.Exists(Settings.OutputFile)) return;
 
-            var defaultFilePath = Lib.Util.GetOutputFileName(Settings.InputFile) + "x";
+            var defaultFilePath = Lib.Util.GetOutputFileName(Settings.InputFile) + "amlx";
 
             if (string.IsNullOrEmpty(Settings.OutputFile))
             {
