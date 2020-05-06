@@ -15,12 +15,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Gsd2Aml.Lib.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Dd2Aml.Lib.Logging;
 
 namespace Dd2Aml.Cli
 {
@@ -80,8 +80,8 @@ namespace Dd2Aml.Cli
 
         /// <summary>
         /// This method checks three things:
-        /// 1) If the user passed the corresponding long/short argument to an argument multiple times. E.g. dd2aml -i --input
-        /// 2) If the user passed the same argument multiple times . E.g. dd2aml -i -i
+        /// 1) If the user passed the corresponding long/short argument to an argument multiple times. E.g. gsd2aml -i --input
+        /// 2) If the user passed the same argument multiple times . E.g. gsd2aml -i -i
         /// 3) If the user passed --output and --string at the same time.
         /// If one of the above happens, an exception will be thrown.
         /// </summary>
@@ -156,15 +156,15 @@ namespace Dd2Aml.Cli
             StringOutput = Args.FindIndex(arg => arg.Equals(CStringOutputShort)) >= 0 ||
                            Args.FindIndex(arg => arg.Equals(CStringOutput)) >= 0;
             if (!Args.Contains(CValidationShort) && !Args.Contains(CValidation)) return;
-            Console.WriteLine("Warning: The DD file validation was turned off.");
-            Util.Logger.Log(LogLevel.Warning, "DD file validation was turned off.");
+            Console.WriteLine("Warning: The file validation was turned off.");
+            Util.Logger.Log(LogLevel.Warning, "file validation was turned off.");
             Validation = false;
         }
 
         /// <summary>
-        /// Checks for the existence of the DD file.
+        /// Checks for the existence of the GSD-, IODD or CSP+ file.
         /// </summary>
-        /// <exception cref="FileNotFoundException">The DD file could not be found.</exception>
+        /// <exception cref="FileNotFoundException">The GSD-, IODD or CSP+ file could not be found.</exception>
         private void CheckGsdExistence()
         {
             if (File.Exists(InputFile))
@@ -179,41 +179,10 @@ namespace Dd2Aml.Cli
             else
             {
                 Util.Logger.Log(LogLevel.Error, "Input file does not exist.");
-                throw new FileNotFoundException($"{Environment.NewLine}Error: Input file not found. Please enter a valid path to a DD-formatted file." +
+                throw new FileNotFoundException($"{Environment.NewLine}Error: Input file not found. Please enter a valid path to a GSD-, IODD or CSP+ formatted file." +
                                                 $"{Environment.NewLine}For more information run 'dd2aml --help'.");
             }
         }
-
-        /*
-      if (Regex.IsMatch(InputFile, $"(.+(GSDML|gsdml)-.+{Regex.Escape(".xml")})"))
-    {
-        var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
-        var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile).Remove(0, "GSDML-".Length) + ".amlx";
-
-        TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
-        Lib.Util.filetype =  1;
-    }
-
-    //IODD
-    if (Regex.IsMatch(InputFile, $"(.+.-(IODD|iodd).+{Regex.Escape(".xml")})"))
-    {
-        var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
-        var len = senderText.Length - 13 - diretoryName.Length;
-        var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile).Remove(len, 8) + ".amlx";
-
-        TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
-        Lib.Util.filetype = 2;
-    }
-
-    //CSP+
-    if (Regex.IsMatch(InputFile, $"(.+{Regex.Escape(".cspp")})"))
-    {
-        var diretoryName = System.IO.Path.GetDirectoryName(InputFile) ?? "";
-        var fileName = System.IO.Path.GetFileNameWithoutExtension(InputFile) + ".amlx";
-
-        TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
-        Lib.Util.filetype = 3;
-    }*/
 
         /// <summary>
         /// Prints an error message if the same argument was used multiple times.
@@ -240,3 +209,5 @@ namespace Dd2Aml.Cli
         }
     }
 }
+
+        
