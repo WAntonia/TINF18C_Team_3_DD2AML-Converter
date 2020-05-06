@@ -42,7 +42,7 @@ namespace Dd2Aml.Cli
                                                   $"{Environment.NewLine}\t\t\t\tIf nothing is specified default is: C:\\path\\to\\input\\file\\<input-file-name>.amlx (OPTIONAL)" +
                                                   $"{Environment.NewLine}\t-s, --string\t\tPrints the generated AML XML file to stdout. No *.amlx file will be generated. (OPTIONAL)" +
                                                   $"{Environment.NewLine}\t-n, --novalidate\tValidates the GSD not against the specification. (OPTIONAL)" +
-                                                  $"{Environment.NewLine}\t-v, --version\tSet the CAEX version" +
+                                                  $"{Environment.NewLine}\t-v, --version\t\tSet the CAEX version" +
                                                   $"{Environment.NewLine}Note:" +
                                                   $"{Environment.NewLine}\t--output and --string cannot be used together." +
                                                   $"{Environment.NewLine}" +

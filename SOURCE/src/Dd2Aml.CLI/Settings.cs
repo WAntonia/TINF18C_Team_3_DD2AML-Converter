@@ -151,8 +151,15 @@ namespace Dd2Aml.Cli
                 Lib.Util.filetype = 3;
             }
 
+          
             OutputFile = parameter[COutputFileShort] ?? parameter[COutputFile];
 
+            if (Args.Contains(CCAEXVersion))
+                {
+                    Lib.Converter.CAEXVersion = 2;
+                }
+      
+            
             StringOutput = Args.FindIndex(arg => arg.Equals(CStringOutputShort)) >= 0 ||
                            Args.FindIndex(arg => arg.Equals(CStringOutput)) >= 0;
             if (!Args.Contains(CValidationShort) && !Args.Contains(CValidation)) return;
