@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Cooperative State University Stuttgart TINF18C")]
 [assembly: AssemblyProduct("DD2AML Converter")]
-[assembly: AssemblyCopyright("Copyright © 2019 Cooperative State University Stuttgart TINF18C")]
+[assembly: AssemblyCopyright("Copyright © 2020 Cooperative State University Stuttgart TINF18C")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -35,4 +35,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: InternalsVisibleTo("Gsd2Aml.Test")]
+[assembly: InternalsVisibleTo("DD2Aml.Test")]
