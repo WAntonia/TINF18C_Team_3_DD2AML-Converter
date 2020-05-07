@@ -80,8 +80,8 @@ namespace Dd2Aml.Cli
 
         /// <summary>
         /// This method checks three things:
-        /// 1) If the user passed the corresponding long/short argument to an argument multiple times. E.g. gsd2aml -i --input
-        /// 2) If the user passed the same argument multiple times . E.g. gsd2aml -i -i
+        /// 1) If the user passed the corresponding long/short argument to an argument multiple times. E.g. dd2aml -i --input
+        /// 2) If the user passed the same argument multiple times . E.g. dd2aml -i -i
         /// 3) If the user passed --output and --string at the same time.
         /// If one of the above happens, an exception will be thrown.
         /// </summary>
@@ -123,7 +123,9 @@ namespace Dd2Aml.Cli
                 { CInputFile, null },
                 { CInputFileShort, null },
                 { COutputFile, null },
-                { COutputFileShort, null}
+                { COutputFileShort, null},
+                { CCAEXVersion, null},
+                { CCAEXVersionShort, null}
             };
 
             for (var i = 0; i < Args.Count; i++)
@@ -154,10 +156,26 @@ namespace Dd2Aml.Cli
           
             OutputFile = parameter[COutputFileShort] ?? parameter[COutputFile];
 
-            if (Args.Contains(CCAEXVersion))
+            CAEXVersion = parameter[CCAEXVersionShort] ?? parameter[CCAEXVersion];
+
+            if (!Args.Contains(CAEXVersion))
+            {
+                    Lib.Converter.CAEXVersion = 2;
+            }
+            else
+            {
+                if (CAEXVersion == "3" || CAEXVersion == "2")
+                {
+                    Lib.Converter.CAEXVersion = Int32.Parse(CAEXVersion);
+                }
+                else
                 {
                     Lib.Converter.CAEXVersion = 2;
+                    Console.WriteLine("Warning: Invalid CAEX Version. Conversion will be performed with CAEX Version 2.15.");
+                    Util.Logger.Log(LogLevel.Warning, "Invalid CAEX Version. Conversion will be performed with CAEX Version 2.15.");
                 }
+
+            }
       
             
             StringOutput = Args.FindIndex(arg => arg.Equals(CStringOutputShort)) >= 0 ||

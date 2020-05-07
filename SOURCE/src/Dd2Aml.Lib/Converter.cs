@@ -36,11 +36,11 @@ namespace Dd2Aml.Lib
 
         public static ILoggingService Logger { get; set; }
 
-        private static Models.CAEX2.CAEXFile AmlObject { get; } = new Models.CAEX2.CAEXFile(); //Hier wird CAEX ausgewählt
+        private static Models.CAEX2.CAEXFile AmlObject { get; } = new Models.CAEX2.CAEXFile();
 
         //private static CAEXFile AmlObject { get; } = new CAEXFile();
 
-        private static Models.CAEX3.CAEXFile AmlObject3 { get; } = new Models.CAEX3.CAEXFile(); //Hier wird CAEX ausgewählt
+        private static Models.CAEX3.CAEXFile AmlObject3 { get; } = new Models.CAEX3.CAEXFile();
 
         private static List<XmlNode> TranslationRules { get; } = new List<XmlNode>();
 
