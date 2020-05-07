@@ -17,6 +17,7 @@
 
 using System;
 using System.Collections.Generic;
+using Dd2Aml.Cli;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Dd2Aml.Test
