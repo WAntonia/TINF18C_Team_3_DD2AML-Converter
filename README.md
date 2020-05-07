@@ -62,6 +62,7 @@ Contains the code that makes up the CLI.
 The Gui gives the user access to the functionality of the library without the user having to implement the library himself.
 It contains additional functions such as path checking, various selection options, and visual information for the user about events.
 
+<img width="900" alt="GUI" src="https://user-images.githubusercontent.com/50714940/81333452-f0f75a00-90a4-11ea-8249-86deee0ac1c8.jpg">
 
 ### Dd2Aml.Cli
 
@@ -70,6 +71,8 @@ This includes parsing and handeling the arguments.
 The CLI gives the user access to the functonality of the library without requiring the user to implement the library for themselfs.
 
 It comes with various flags to handle the conversion:
+
+<img width="900" alt="CLI" src="https://user-images.githubusercontent.com/50714940/81333644-2e5be780-90a5-11ea-8f0a-46017e26153f.png">
 
 ### Dd2Aml.Test
 
