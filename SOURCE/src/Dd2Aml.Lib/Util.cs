@@ -333,6 +333,14 @@ namespace Dd2Aml.Lib
         internal static XmlElement IterateThroughGsdDocument(string path, XmlElement alternativeIterator = null)
         {
             var splitStrings = path.Split('.');
+
+            if (filetype == 3)
+            {
+                for (var i = 0; i < splitStrings.Length; i++)
+                {
+                    splitStrings[i] = "p:" + splitStrings[i];
+                }
+            }
             var iteratorNode = alternativeIterator ?? Converter.GsdDocument.DocumentElement;
 
             if (iteratorNode == null)
