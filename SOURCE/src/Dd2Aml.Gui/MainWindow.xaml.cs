@@ -86,7 +86,7 @@ namespace Dd2Aml.Gui
                 DefaultExt = ".xml",
                 Filter = "Files (*.xml;*.cspp)|*.xml;*.cspp",
                 InitialDirectory = string.IsNullOrEmpty(TxtGsdFile.Text.Trim()) ? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) : System.IO.Path.GetDirectoryName(TxtGsdFile.Text) ?? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                Title = "GSD2AML Converter"
+                Title = "DD2AML Converter"
             };
 
             if (dialog.ShowDialog(this).Value)
@@ -310,7 +310,7 @@ namespace Dd2Aml.Gui
             if ((data as string[])?.FirstOrDefault() != null)
             {
                 var fileName = System.IO.Path.GetFileName(((string[])data)[0]);
-                App.Logger.Log(LogLevel.Debug, "File \"" + fileName + "\" draged over gsd textbox");
+                App.Logger.Log(LogLevel.Debug, "File \"" + fileName + "\" draged over dd textbox");
                 if (!string.IsNullOrEmpty(fileName) &&
                     (fileName.EndsWith(".xml", StringComparison.InvariantCultureIgnoreCase) || fileName.EndsWith(".cspp", StringComparison.InvariantCultureIgnoreCase)))          
                 {
@@ -330,7 +330,7 @@ namespace Dd2Aml.Gui
 
         private void TxtGsdFile_OnDrop(object sender, DragEventArgs e)
         {
-            App.Logger.Log(LogLevel.Debug, "Dropped file onto gsd textbox");
+            App.Logger.Log(LogLevel.Debug, "Dropped file onto dd textbox");
             var data = e.Data.GetData(DataFormats.FileDrop);
 
             if ((data as string[])?.FirstOrDefault() == null) return;
@@ -348,7 +348,7 @@ namespace Dd2Aml.Gui
         #endregion
 
         /// <summary>
-        /// Takes the GSDML file path and tries to convert it to an .amlx output path.
+        /// Takes the DD file path and tries to convert it to an .amlx output path.
         /// </summary>
         /// <param name="sender">The sending object.</param>
         /// <param name="e">Corresponding event.</param>

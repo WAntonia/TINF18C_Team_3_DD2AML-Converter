@@ -1,6 +1,8 @@
 ﻿/*
  *  Copyright (C) 2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
  *  Jonas Komarek, Phuc Quang Vu, Michael Weidmann)
+ *  2020 DD2AML Team (Antonia Wermerskirch, Nora Baitinger,
+ *  Bastiane Storz, Lara Mack)
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
@@ -30,7 +32,7 @@ namespace Dd2Aml.Lib
         private const string Dd2AmlName = "DD2AML";
 
         /// <summary>
-        /// Creates a zip archive from a directory and the relevant GSD resources.
+        /// Creates a zip archive from a directory and the relevant DD resources.
         /// </summary>
         /// <param name="amlFilePath">The path to the AML file which will be zipped.</param>
         /// <param name="destination">The directory you want to store the archive in including the name of the archive.amlx.</param>
@@ -46,7 +48,7 @@ namespace Dd2Aml.Lib
 
             var tmpPath = CreateTmpDirectory(Dd2AmlName);
 
-            if (string.IsNullOrEmpty(tmpPath)) throw new IOException("Path to GSD2AML-Temp folder unexpectedly null or empty.");
+            if (string.IsNullOrEmpty(tmpPath)) throw new IOException("Path to DD2AML-Temp folder unexpectedly null or empty.");
 
             var amlFileName = Path.GetFileName(amlFilePath);
             if (string.IsNullOrEmpty(amlFileName)) throw new IOException("AML filename unexpectedly null or empty.");
