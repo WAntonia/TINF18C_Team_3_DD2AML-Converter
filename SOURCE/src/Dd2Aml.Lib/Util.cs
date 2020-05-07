@@ -242,6 +242,16 @@ namespace Dd2Aml.Lib
                     case "RelFilePath":
                         references.Add(referenceId, RelativeFilePath);
                         break;
+                    case "InnerRef":
+                        var refereneceFirstChild = reference.FirstChild;
+                        var cspp = xmlNode ?? IterateThroughGsdDocument(refereneceFirstChild.Name);
+
+                        if (cspp.InnerXml != "")
+                        {
+                            references.Add(referenceId, cspp.InnerText);
+                        }
+
+                        break;
                     case null:
                         var referenceChild = reference.FirstChild;
                         var referenceChildAttributes = referenceChild.Attributes;
