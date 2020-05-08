@@ -8,12 +8,18 @@ Welcome to the Gsd2Aml.Lib! This library was developed as a student project by (
 5. Phuc Quang Vu
 6. Michael Weidmann
 
-at [Cooperate State University Stuttgart](https://www.dhbw-stuttgart.de/home/).
-This project is distributed via:
-1. [GitHub](https://github.com/TINF17C/GSD2AML-Converter)
-2. [NuGet](https://www.nuget.org/packages/Gsd2Aml.Lib)
+and was further developed for IODD and CSP+ files by (in alphabetical order)
 
-We can be found as a [GitHub Team](https://github.com/orgs/TINF17C/teams/gsd2aml).
+1. Nora Baitinger
+2. Lara Mack
+3. Bastiane Storz
+4. Antonia Wermerskirch
+
+at Baden-Wuerttemberg Cooperative State University (DHBW) Stuttgart under supervision of Markus Rentschler and Christian Ewertz.
+
+This project is distributed via:
+
+GitHub
 
 ## About this project
 
