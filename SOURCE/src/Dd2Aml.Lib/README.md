@@ -220,4 +220,18 @@ ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.Syste
 </ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.SystemDefinedSubmoduleList.InterfaceSubmoduleItem>
 ```
 ## IODD2AML Rules
+This section will explain the structure of a Iodd2aml rulesset file.
+
+The iodd2aml file will consist of one, and only one, element, the `<Body>`. Each seperate rule shall be direct child of this element.
+
+```xml
+  <ProfileBody>
+    <Replacement>
+      <CAEXFile.SystemUnitClassLib>
+        <SystemUnitClassLib CAEXObject.Name="ComponentSystemUnitClassLib">
+        </SystemUnitClassLib>
+      </CAEXFile.SystemUnitClassLib>
+    </Replacement>
+  </ProfileBody>
+  ```
 ## CSPP2AML Rules
