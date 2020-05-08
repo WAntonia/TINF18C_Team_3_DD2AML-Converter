@@ -110,8 +110,6 @@ namespace Dd2Aml.Lib
                 {
                     serializer.Serialize(textWriter, AmlObject3);
                 }
-
-
             }
 
             var resources = new List<string> {inputFile};

@@ -353,7 +353,14 @@ namespace Dd2Aml.Lib
                     splitStrings[i] = "p:" + splitStrings[i];
                 }
             }
-            var iteratorNode = alternativeIterator ?? Converter.GsdDocument.DocumentElement;
+
+            var iteratorNode = Converter.GsdDocument.DocumentElement;
+
+            if (alternativeIterator != null)
+            {
+                iteratorNode = alternativeIterator;
+                splitStrings = splitStrings.Skip(Array.IndexOf(splitStrings, alternativeIterator.Name) + 1).Take(splitStrings.Length).ToArray();
+            }
 
             if (iteratorNode == null)
             {
@@ -379,7 +386,6 @@ namespace Dd2Aml.Lib
         /// <param name="inputFile">The path to the DD file.</param>
         internal static void CheckGsdFileForCorrectness(string inputFile)
         {
-            // filetype  1 = GSD; 2 = IODD; 3 = CSP+
             var xmlDocument = new XmlDocument();
             xmlDocument.Load(inputFile);
 
@@ -526,15 +532,18 @@ namespace Dd2Aml.Lib
             }
             if (Regex.IsMatch(fileName, $"(.+.-(IODD|iodd).)")){
                 fileName = fileName.EndsWith("-IODD1.1", StringComparison.InvariantCultureIgnoreCase)
-                    ? fileName.Remove(0, "-IODD1.1".Length)
+                    ? fileName.Remove(fileName.Length-8, "-IODD1.1".Length)
                     : fileName;
                 fileName = fileName.EndsWith("-IODD1.0.1", StringComparison.InvariantCultureIgnoreCase)
-                    ? fileName.Remove(0, "-IODD1.0.1".Length) 
+                    ? fileName.Remove(fileName.Length - 10, "-IODD1.0.1".Length) 
                     : fileName;
-
-                //fileName += ".aml";
+                fileName += ".aml";
             }
 
+            if (Regex.IsMatch(fileName, $"(.+{Regex.Escape(".cspp")})"))
+            {
+                fileName += ".aml";
+            }
 
             var directoryName = Path.GetDirectoryName(inputFile);
 
