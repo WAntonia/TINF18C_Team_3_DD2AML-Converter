@@ -348,7 +348,7 @@ namespace Dd2Aml.Lib
         /// <summary>
         /// Iterates through the GSD document with the given path.
         /// </summary>
-        /// <param name="path">The by dots seperated path through the GSD docment.</param>
+        /// <param name="path">The by dots seperated path through the GSD document.</param>
         /// <param name="alternativeIterator">Optional parameter. If it is set the iteration starts from there.</param>
         /// <returns>The last XmlNode of the path.</returns>
         internal static XmlElement IterateThroughGsdDocument(string path, XmlElement alternativeIterator = null)
@@ -453,9 +453,14 @@ namespace Dd2Aml.Lib
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyFolder = Path.GetDirectoryName(assembly.Location);
 
-            if ( filetype == 1) 
-            { 
-                CTranslationTableFileName = "gsd2aml.xml";
+            if ( filetype == 1)
+            {
+                if(Converter.CAEXVersion == 2){
+                    CTranslationTableFileName = "gsd2aml.xml";
+                }else if (Converter.CAEXVersion == 3)
+                {
+                    CTranslationTableFileName = "gsd2aml3.xml";
+                }
                 CReferenceTextId = "TextId";
                 CTextPath = "ProfileBody.ApplicationProcess.ExternalTextList.PrimaryLanguage";
                 CRealTextId = "TextId";
@@ -531,10 +536,14 @@ namespace Dd2Aml.Lib
                 fileName += ".aml";
             }
             if (Regex.IsMatch(fileName, $"(.+.-(IODD|iodd).)")){
-                fileName = fileName.StartsWith("GSDML-", StringComparison.InvariantCultureIgnoreCase)
-                ? fileName.Remove(0, "GSDML-".Length)
-                : fileName;
-                fileName += ".aml";
+                fileName = fileName.EndsWith("-IODD1.1", StringComparison.InvariantCultureIgnoreCase)
+                    ? fileName.Remove(0, "-IODD1.1".Length)
+                    : fileName;
+                fileName = fileName.EndsWith("-IODD1.0.1", StringComparison.InvariantCultureIgnoreCase)
+                    ? fileName.Remove(0, "-IODD1.0.1".Length) 
+                    : fileName;
+
+                //fileName += ".aml";
             }
 
 
