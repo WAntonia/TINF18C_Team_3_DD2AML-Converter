@@ -1,6 +1,6 @@
 # DD2AML-Converter
 
-Welcome to DD2AML! This project was developed for DD as a student project by (in alphabetical order)
+Welcome to DD2AML! This project was developed for GSD as a student project by (in alphabetical order)
 
 1. [Nico Dietz](https://github.com/dillasyx)
 2. [Steffen Gerdes](https://github.com/SteffenGerdes)
