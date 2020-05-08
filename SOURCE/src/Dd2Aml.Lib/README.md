@@ -60,8 +60,8 @@ Contains all the logic that traverses the DD file and uses the rulesset file to 
 ### Util.cs
 Contains the utility functionality.
 
-### dd2aml.xml
-This is the rulesset file.
+### AML2/ and AML3/
+These two folders contain the rulesset files.
 Please have a look below.
 
 ## GSD2AML Rules
