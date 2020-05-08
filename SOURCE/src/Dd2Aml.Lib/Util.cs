@@ -19,10 +19,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Xml;
 using Dd2Aml.Lib.Logging;
 using Dd2Aml.Lib.Models;
@@ -300,16 +298,11 @@ namespace Dd2Aml.Lib
         {
             var refNode = xmlNode ?? IterateThroughGsdDocument(reference.FirstChild.Name);
 
-            if (refNode.Name == "Variable" || refNode.Name == "Datatype" || refNode.Name == "Recorditem")
-            {
-                return null;
-            }
-
             if (!refNode.Name.EndsWith(reference.FirstChild.Name.Split('.').Last()))
             {
                 refNode = IterateThroughGsdDocument(reference.FirstChild.Name, (XmlElement)xmlNode);
             }
-            
+
             if (refNode.Attributes == null) return null;
             var refId = refNode.Attributes[referenceIdName]?.Value;
 
@@ -334,10 +327,6 @@ namespace Dd2Aml.Lib
 
                 if (realItemAttributes[realIdName].Value.Equals(refId))
                 {
-                    if (refId == "TI_InputInversion")
-                    {
-                        Console.Write(refNode.Name + "\t" + refId + "\t"+ realItemAttributes[realValueName].Value + "\n");
-                    }
                     return realItemAttributes[realValueName].Value;
                 }
             }
@@ -483,8 +472,6 @@ namespace Dd2Aml.Lib
             else if (filetype == 3)
             {
                 CTranslationTableFileName = "cspp2aml.xml";
-                CRealValueGraphicName = "label";
-                CRealGraphicName = "GraphicsFileName";
             }
 
             if (assemblyFolder != null)
