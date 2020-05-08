@@ -1,6 +1,6 @@
 # Dd2Aml.Lib
 
-Welcome to DD2AML.Lib! This project was developed for DD as a student project by (in alphabetical order)
+Welcome to DD2AML.Lib! This project was developed for GSD as a student project by (in alphabetical order)
 
 1. [Nico Dietz](https://github.com/dillasyx)
 2. [Steffen Gerdes](https://github.com/SteffenGerdes)
@@ -48,7 +48,7 @@ Also contains the used XSD files.
 ### Properties/
 Contains the assembly info.
 
-### Compressor.cs
+### AMLPackager.cs
 Contains all the logic that is required to:
 1. Create a temporary folder
 2. Find files and copy them to this folder
