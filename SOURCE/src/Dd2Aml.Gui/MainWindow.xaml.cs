@@ -372,8 +372,15 @@ namespace Dd2Aml.Gui
             if (Regex.IsMatch(senderText, $"(.+.-(IODD|iodd).+{Regex.Escape(".xml")})"))
             {
                 var diretoryName = System.IO.Path.GetDirectoryName(senderText) ?? "";
-                var len = senderText.Length - 13 - diretoryName.Length;
-                var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText).Remove(len, 8) + ".amlx";
+                var fileName = System.IO.Path.GetFileNameWithoutExtension(senderText);
+                if (senderText.Contains("IODD1.1"))
+                {
+                    fileName = fileName.Remove(fileName.Length - 8, "-IODD1.1".Length) + ".amlx";
+                }
+                else if (senderText.Contains("IODD1.0.1"))
+                {
+                    fileName = fileName.Remove(fileName.Length - 10, "-IODD1.0.1".Length) + ".amlx";
+                }
 
                 TxtAmlFile.Text = System.IO.Path.Combine(diretoryName, fileName);
                 Util.filetype = 2;
