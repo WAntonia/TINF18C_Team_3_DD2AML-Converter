@@ -1,6 +1,8 @@
 ﻿/*
  *  Copyright (C) 2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
  *  Jonas Komarek, Phuc Quang Vu, Michael Weidmann)
+ *  2020 DD2AML Team (Antonia Wermerskirch, Nora Baitinger,
+ *  Bastiane Storz, Lara Mack)
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
@@ -28,7 +30,7 @@ using Dd2Aml.Lib.Models;
 namespace Dd2Aml.Lib
 {
     /// <summary>
-    /// The converter class which contains the logic to convert a GSD formatted file to an AML file.
+    /// The converter class which contains the logic to convert a DD formatted file to an AML file.
     /// </summary>
     public static class Converter
     {
@@ -47,10 +49,10 @@ namespace Dd2Aml.Lib
         internal static XmlDocument GsdDocument { get; set; }
 
         /// <summary>
-        /// Converts a GSDML input file and returns the resulting AML file as a string.
+        /// Converts a DD input file and returns the resulting AML file as a string.
         /// </summary>
         /// <param name="inputFile">The path to the input file.</param>
-        /// <param name="strictValidation">A flag which indicates if the GSD should be checked for correctness.</param>
+        /// <param name="strictValidation">A flag which indicates if the DD should be checked for correctness.</param>
         /// <returns>The AML object serialized to a XML string.</returns>
         public static string Convert(string inputFile, bool strictValidation = true)
         {
@@ -77,12 +79,12 @@ namespace Dd2Aml.Lib
         }
 
         /// <summary>
-        /// Converts a GSDML input file and creates the .amlx package.
+        /// Converts a DD input file and creates the .amlx package.
         /// </summary>
         /// <param name="inputFile">The path to the input file.</param>
         /// <param name="outputFile">The path to the output file.</param>
         /// <param name="overwriteFile">A flag which indicates if the file should be overwritten if it exists.</param>
-        /// <param name="strictValidation">A flag which indicates if the GSD should be checked for correctness.</param>
+        /// <param name="strictValidation">A flag which indicates if the DD should be checked for correctness.</param>
         public static void Convert(string inputFile, string outputFile, bool overwriteFile, bool strictValidation = true)
         {
             Util.RelativeFilePath = Path.GetFileName(inputFile);
@@ -133,12 +135,12 @@ namespace Dd2Aml.Lib
         /// </summary>
         /// <param name="inputFile">The path to the input file.</param>
         /// <param name="outputFile">The path to the output file.</param>
-        /// <param name="strictValidation">A flag which indicates if the GSDML should be checked for correctness.</param>
+        /// <param name="strictValidation">A flag which indicates if the DD should be checked for correctness.</param>
         private static void StartConversion(string inputFile, string outputFile, bool strictValidation)
         {
             if (strictValidation) Util.CheckGsdFileForCorrectness(inputFile);
 
-            // Load the GSD and the translation table XML document.
+            // Load the DD and the translation table XML document.
             GsdDocument = Util.LoadXmlDocument(inputFile);
             var translationTable = Util.LoadTranslationTable();
 
@@ -175,22 +177,22 @@ namespace Dd2Aml.Lib
 
         /// <summary>
         /// Starts the real conversion process.
-        /// It iterates over the GSDML properties and translates it to AML.
+        /// It iterates over the DD properties and translates it to AML.
         /// Then it recursively starts a new Handle call with the translated property.
         /// </summary>
         /// <typeparam name="TA">The type of the current AML head object.</typeparam>
         /// <param name="currentAmlHead">The current AML head object.</param>
-        /// <param name="currentGsdHead">The current GSD head object as a XmlElement.</param>
+        /// <param name="currentGsdHead">The current DD head object as a XmlElement.</param>
         private static void Handle<TA>(XmlNode currentGsdHead, TA currentAmlHead)
         {
-            Logger?.Log(LogLevel.Debug, $"Started the Handle function with these heads. GSD: {currentGsdHead.Name} AML: {currentAmlHead.GetType().Name}");
+            Logger?.Log(LogLevel.Debug, $"Started the Handle function with these heads. DD-File: {currentGsdHead.Name} AML: {currentAmlHead.GetType().Name}");
             
-            // Iterate over the properties of the current GSD parent.
+            // Iterate over the properties of the current DD parent.
             foreach (XmlNode gsdChildNode in currentGsdHead.ChildNodes)
             {
-                Logger?.Log(LogLevel.Debug, $"Current iterated GSD child node {gsdChildNode.Name}.");
+                Logger?.Log(LogLevel.Debug, $"Current iterated DD-File child node {gsdChildNode.Name}.");
 
-                // Try to get a translation rule of the gsdTranslationElements list.
+                // Try to get a translation rule of the ddTranslationElements list.
                 var translationRule = TranslationRules.FirstOrDefault(node => node.Name.Equals(gsdChildNode.Name));
                 // If the rule does not exist, it cannot be translated. It continues with the next property.
                 if (translationRule == null)
@@ -200,7 +202,7 @@ namespace Dd2Aml.Lib
                 }
                 Logger?.Log(LogLevel.Debug, $"Translation rule was found for {gsdChildNode.Name}. Now we are trying to translate it.");
                 
-                // Translate the gsdChildNode to AML.
+                // Translate the ddChildNode to AML.
                 var newAmlHead = Translate(ref currentAmlHead, translationRule);
                 Logger?.Log(LogLevel.Info, $"Translated successfully {gsdChildNode.Name} to {translationRule["Replacement"]?.FirstChild.Name}.");
 
@@ -215,20 +217,20 @@ namespace Dd2Aml.Lib
                 }
                 else
                 {
-                    // Call the Handle function with the current gsdChildNode and the new AML head.
+                    // Call the Handle function with the current ddChildNode and the new AML head.
                     Logger?.Log(LogLevel.Debug, "The translated AML is not an array. Therefore the Handle function will be directly called.");
                     Handle(gsdChildNode, newAmlHead);
                 }
             }
-            Logger?.Log(LogLevel.Info, $"The Handle function ended for these heads. AML: {currentAmlHead.GetType().Name} GSD: {currentGsdHead.Name}");
+            Logger?.Log(LogLevel.Info, $"The Handle function ended for these heads. AML: {currentAmlHead.GetType().Name} DD-File: {currentGsdHead.Name}");
         }
 
         /// <summary>
-        /// The actual translation of the GSD object to an AML object.
+        /// The actual translation of the DD object to an AML object.
         /// </summary>
         /// <typeparam name="TA">The type of the AML head object.</typeparam>
         /// <param name="currentAmlHead">The AML head object in which the translation object will be set.</param>
-        /// <param name="translationRule">The translation rule which will be used to translate the GSD object to an AML object.</param>
+        /// <param name="translationRule">The translation rule which will be used to translate the DD object to an AML object.</param>
         /// <returns>The new AML head object.</returns>
         private static dynamic Translate<TA>(ref TA currentAmlHead, XmlNode translationRule)
         {

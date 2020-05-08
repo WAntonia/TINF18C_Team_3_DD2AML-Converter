@@ -1,6 +1,8 @@
 ﻿/*
  *  Copyright (C) 2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
  *  Jonas Komarek, Phuc Quang Vu, Michael Weidmann)
+ *  2020 DD2AML Team (Antonia Wermerskirch, Nora Baitinger,
+ *  Bastiane Storz, Lara Mack)
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
@@ -204,7 +206,7 @@ namespace Dd2Aml.Lib
         /// Parses the references given in the translation table and saves them to a dictionary.
         /// </summary>
         /// <param name="ruleReferences">The references in a list of XmlNodes.</param>
-        /// <param name="xmlNode">Optional parameter which is a GSD tag and will be used instead of the iterated one.</param>
+        /// <param name="xmlNode">Optional parameter which is a DD tag and will be used instead of the iterated one.</param>
         /// <returns>A dictionary which contains for each reference identifier the correct value.</returns>
         internal static Dictionary<string, string> ParseReferences(IEnumerable<XmlNode> ruleReferences, XmlNode xmlNode = null)
         {
@@ -286,13 +288,13 @@ namespace Dd2Aml.Lib
         /// <summary>
         /// Parse real references (TextRef, GraphicRef) and find the correct value.
         /// </summary>
-        /// <param name="path">Path to the real GSD element.</param>
+        /// <param name="path">Path to the real DD element.</param>
         /// <param name="reference">The reference contains the reference.</param>
         /// <param name="referenceIdName">The referenceIdName contains the name of the reference id.</param>
         /// <param name="realIdName">The realIdName contains the name of the real id.</param>
         /// <param name="realElementName">The realElementname contains the name of the real element tag.</param>
         /// <param name="realValueName">The realValueName contains the name of the real value attribute.</param>
-        /// <param name="xmlNode">Optional parameter which is a GSD tag and will be used instead of the iterated one.</param>
+        /// <param name="xmlNode">Optional parameter which is a DD tag and will be used instead of the iterated one.</param>
         /// <returns>The value of the real reference.</returns>
         private static string ParseRealReference(string path, XmlNode reference, string referenceIdName, string realIdName, string realElementName, string realValueName, XmlNode xmlNode)
         {
@@ -321,8 +323,8 @@ namespace Dd2Aml.Lib
 
                 if (realItemAttributes == null)
                 {
-                    Converter.Logger?.Log(LogLevel.Warning, $"GSD real element does not have any attributes.");
-                    throw new InvalidDataException($"GSD real element does not have any attributes.");
+                    Converter.Logger?.Log(LogLevel.Warning, $"DD real element does not have any attributes.");
+                    throw new InvalidDataException($"DD real element does not have any attributes.");
                 }
 
                 if (realItemAttributes[realIdName].Value.Equals(refId))
@@ -335,9 +337,9 @@ namespace Dd2Aml.Lib
         }
 
         /// <summary>
-        /// Iterates through the GSD document with the given path.
+        /// Iterates through the DD document with the given path.
         /// </summary>
-        /// <param name="path">The by dots seperated path through the GSD document.</param>
+        /// <param name="path">The by dots seperated path through the DD document.</param>
         /// <param name="alternativeIterator">Optional parameter. If it is set the iteration starts from there.</param>
         /// <returns>The last XmlNode of the path.</returns>
         internal static XmlElement IterateThroughGsdDocument(string path, XmlElement alternativeIterator = null)
@@ -355,7 +357,7 @@ namespace Dd2Aml.Lib
 
             if (iteratorNode == null)
             {
-                Converter.Logger?.Log(LogLevel.Debug, $"Could not find the right GSD node for this rule: {path}");
+                Converter.Logger?.Log(LogLevel.Debug, $"Could not find the right DD node for this rule: {path}");
                 return null;
             }
 
@@ -365,16 +367,16 @@ namespace Dd2Aml.Lib
 
                 if (iteratorNode != null) continue;
 
-                Converter.Logger?.Log(LogLevel.Debug, $"Could not find the right GSD node for this rule: {path}");
+                Converter.Logger?.Log(LogLevel.Debug, $"Could not find the right DD node for this rule: {path}");
                 return null;
             }
             return iteratorNode;
         }
 
         /// <summary>
-        /// This method checks the GSD file against the the xsd-files and validates it.
+        /// This method checks the DD file against the the xsd-files and validates it.
         /// </summary>
-        /// <param name="inputFile">The path to the GSD file.</param>
+        /// <param name="inputFile">The path to the DD file.</param>
         internal static void CheckGsdFileForCorrectness(string inputFile)
         {
             // filetype  1 = GSD; 2 = IODD; 3 = CSP+
@@ -405,10 +407,10 @@ namespace Dd2Aml.Lib
             }
             catch (Exception e)
             {
-                Converter.Logger?.Log(LogLevel.Error, $"Failed to deserialize the GSD-File correctly. {e.Message} Path to the GSD file: {inputFile}");
-                throw new XmlException($"Invalid GSD-file. Failed to deserialize the GSD-File correctly. {e.Message} Path to the GSD file: {inputFile}", e);
+                Converter.Logger?.Log(LogLevel.Error, $"Failed to deserialize the DD-File correctly. {e.Message} Path to the DD file: {inputFile}");
+                throw new XmlException($"Invalid DD-file. Failed to deserialize the DD-File correctly. {e.Message} Path to the DD file: {inputFile}", e);
             }
-            Converter.Logger?.Log(LogLevel.Info, $"GSD file was deserialized correctly. Path to the GSD file: {inputFile}");
+            Converter.Logger?.Log(LogLevel.Info, $"DD file was deserialized correctly. Path to the GSD file: {inputFile}");
         }
 
         /// <summary>

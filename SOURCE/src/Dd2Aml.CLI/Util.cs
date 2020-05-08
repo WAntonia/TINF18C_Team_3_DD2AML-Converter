@@ -1,6 +1,8 @@
 ﻿/*
  *  Copyright (C) 2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
  *  Jonas Komarek, Phuc Quang Vu, Michael Weidmann)
+ *  DD2AML Team (Antonia Wermerskirch, Nora Baitinger,
+ *  Bastiane Storz, Lara Mack)
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
@@ -33,7 +35,7 @@ namespace Dd2Aml.Cli
                                                   $"{Environment.NewLine}Converts a DD-formatted file in an AML-formatted file." +
                                                   $"{Environment.NewLine}" +
                                                   $"{Environment.NewLine}Usage:" +
-                                                  $"{Environment.NewLine}\tdd2aml [-i | --input] <path-to-gsd-file> [options]" +
+                                                  $"{Environment.NewLine}\tdd2aml [-i | --input] <path-to-dd-file> [options]" +
                                                   $"{Environment.NewLine}" +
                                                   $"{Environment.NewLine}Options:" +
                                                   $"{Environment.NewLine}\t-h, --help\t\tPrints this info and the converter's usage/options." +
@@ -41,8 +43,9 @@ namespace Dd2Aml.Cli
                                                   $"{Environment.NewLine}\t-o, --output file\tSets the path to the output file. Example: C:\\path\\to\\output\\file.amlx" +
                                                   $"{Environment.NewLine}\t\t\t\tIf nothing is specified default is: C:\\path\\to\\input\\file\\<input-file-name>.amlx (OPTIONAL)" +
                                                   $"{Environment.NewLine}\t-s, --string\t\tPrints the generated AML XML file to stdout. No *.amlx file will be generated. (OPTIONAL)" +
-                                                  $"{Environment.NewLine}\t-n, --novalidate\tValidates the GSD not against the specification. (OPTIONAL)" +
-                                                  $"{Environment.NewLine}\t-v, --version\t\tSet the CAEX version" +
+                                                  $"{Environment.NewLine}\t-n, --novalidate\tValidates the DD not against the specification. (OPTIONAL)" +
+                                                  $"{Environment.NewLine}\t-v, --version\t\tSet the CAEX version either 2.15 or Version 3.0. Please enter 2 or 3 (OPTIONAL)" +
+                                                  $"{Environment.NewLine}\t\t\t\tIf nothing is specified default is: CAEX Version 2.15" +
                                                   $"{Environment.NewLine}Note:" +
                                                   $"{Environment.NewLine}\t--output and --string cannot be used together." +
                                                   $"{Environment.NewLine}" +

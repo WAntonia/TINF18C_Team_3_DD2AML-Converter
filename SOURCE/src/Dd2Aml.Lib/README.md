@@ -1,26 +1,35 @@
-# Gsd2Aml.Lib
+# Dd2Aml.Lib
 
-Welcome to the Gsd2Aml.Lib! This library was developed as a student project by (in alphabetical order)
-1. Nico Dietz
-2. Steffen Gerdes
-3. Constantin Ruhdorfer
-4. Jonas Komarek
-5. Phuc Quang Vu
-6. Michael Weidmann
+Welcome to DD2AML.Lib! 
 
-at [Cooperate State University Stuttgart](https://www.dhbw-stuttgart.de/home/).
+This project was developed for GSD as a student project by (in alphabetical order)
+
+1. [Nico Dietz](https://github.com/dillasyx)
+2. [Steffen Gerdes](https://github.com/SteffenGerdes)
+3. [Constantin Ruhdorfer](https://github.com/ConstantinRuhdorfer)
+4. [Jonas Komarek](https://github.com/JonasKomarek)
+5. [Vu Quang Phuc](https://github.com/VuQuangPhuc)
+6. [Michael Weidmann](https://github.com/michaelweidmann)
+
+and was further developed for IODD and CSP+ files by (in alphabetical order)
+
+1. [Nora Baitinger](https://github.com/naboga)
+2. [Lara Mack](https://github.com/Sophelec)
+3. [Bastiane Storz](https://github.com/Maruny)
+4. [Antonia Wermerskirch](https://github.com/WAntonia)
+
+at [Baden-Wuerttemberg Cooperative State University (DHBW) Stuttgart](https://www.dhbw-stuttgart.de/home/) under supervision of [Markus Rentschler](http://wwwlehre.dhbw-stuttgart.de/~rentschler/) and Christian Ewertz.
+
 This project is distributed via:
-1. [GitHub](https://github.com/TINF17C/GSD2AML-Converter)
-2. [NuGet](https://www.nuget.org/packages/Gsd2Aml.Lib)
 
-We can be found as a [GitHub Team](https://github.com/orgs/TINF17C/teams/gsd2aml).
+1. [GitHub](https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter)
 
 ## About this project
 
-This library converts a Profinet (PN-)GSD file to AutomationML.
+This library converts a Profinet DD-formatted (GSD, IODD or CSP) file to AutomationML.
 The library can either
 1. return a string containing the AutomatonML content.
-2. convert the GSD file to an .aml file and package that, including all its dependencies, into an .amlx package. This process uses the [AML.Engine](https://www.nuget.org/packages/Aml.Engine).
+2. convert the DD file to an .aml file and package that, including all its dependencies, into an .amlx package. This process uses the [AML.Engine](https://www.nuget.org/packages/Aml.Engine).
 
 ## Contributing to this project
 
@@ -35,26 +44,26 @@ The relevant files and folders are listed here.
 Contains the logging service.
 
 ### Models/
-Contains the classes representing AML and GSD.
+Contains the classes representing AML, GSD, IODD and CSP.
 Also contains the used XSD files.
 
 ### Properties/
 Contains the assembly info.
 
-### Compressor.cs
+### AMLPackager.cs
 Contains all the logic that is required to:
 1. Create a temporary folder
 2. Find files and copy them to this folder
 3. Uses the AML.Engine to build the .amlx package
 
 ### Converter.cs
-Contains all the logic that traverses the GSD file and uses the rulesset file to translate the GSD file to AML.
+Contains all the logic that traverses the DD file and uses the rulesset file to translate the DD file to AML.
 
 ### Util.cs
 Contains the utility functionality.
 
-### gsd2aml.xml
-This is the rulesset file.
+### AML2/ and AML3/
+These two folders contain the rulesset files.
 Please have a look below.
 
 ## GSD2AML Rules
@@ -212,3 +221,19 @@ ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.Syste
   ...
 </ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.SystemDefinedSubmoduleList.InterfaceSubmoduleItem>
 ```
+## IODD2AML Rules
+This section will explain the structure of a Iodd2aml rulesset file.
+
+The iodd2aml file will consist of one, and only one, element, the `<Body>`. Each seperate rule shall be direct child of this element.
+
+```xml
+  <ProfileBody>
+    <Replacement>
+      <CAEXFile.SystemUnitClassLib>
+        <SystemUnitClassLib CAEXObject.Name="ComponentSystemUnitClassLib">
+        </SystemUnitClassLib>
+      </CAEXFile.SystemUnitClassLib>
+    </Replacement>
+  </ProfileBody>
+  ```
+## CSPP2AML Rules
