@@ -1,4 +1,4 @@
-# Gsd2Aml.Lib
+# Dd2Aml.Lib
 
 Welcome to the Gsd2Aml.Lib! This library was developed as a student project by (in alphabetical order)
 1. Nico Dietz
