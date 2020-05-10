@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <body>
-
   <ProfileHeader>
     <Replacement>
-      <AdditionalInformation>
-        <WriterHeader>
-          <WriterName>DHBW Stuttgart TINF17C</WriterName>
-          <WriterID>D331B5B6-C3FA-4D3C-8F6D-93F6F0215EF4</WriterID>
-          <WriterVendor>GSD2AML TINF17C</WriterVendor>
-          <WriterVersion>1.0.0</WriterVersion>
-          <WriterRelease>1.0.0</WriterRelease>
-          <LastWritingDateTime></LastWritingDateTime>
-          <WriterProjectTitle>GSD2AML Converter</WriterProjectTitle>
-          <WriterProjectID>GSD2AML Converter</WriterProjectID>
-        </WriterHeader>
-      </AdditionalInformation>
+      <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+      <SourceDocumentInformation
+        OriginName="DHBW Stuttgart TINF18C"
+        OriginID="Test"
+        OriginVendor="DD2AML TINF18C"
+        OriginVendorURL="https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter"
+        OriginVersion="1.0.0"
+        OriginRelease="1.0.0"
+        OriginProjectTitle="DD2AML Converter"
+        OriginProjectID="DD2AML Converter">
+      </SourceDocumentInformation>
     </Replacement>
   </ProfileHeader>
 
@@ -232,7 +230,9 @@
   <ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.Graphics.GraphicItemRef>
     <Replacement>
       <InternalElement CAEXObject.Name="DeviceSymbol" CAEXObject.ID="GUID">
-        <InternalElement.RoleRequirements InternalElement.RoleRequirements.RefBaseRoleClassPath="AutomationMLComponentStandardRCL/ComponentPicture" />
+        <SystemUnitClassType.SupportedRoleClass>
+          <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentStandardRCL/ComponentPicture" />
+        </SystemUnitClassType.SupportedRoleClass>
 
         <SystemUnitClassType.ExternalInterface>
           <ExternalInterface CAEXObject.Name="ExternalDataReference" CAEXObject.ID="GUID" ExternalInterface.RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">

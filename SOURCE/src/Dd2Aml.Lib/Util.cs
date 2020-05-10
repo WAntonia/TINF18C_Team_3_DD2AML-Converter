@@ -452,9 +452,11 @@ namespace Dd2Aml.Lib
 
             if ( filetype == 1)
             {
-                if(Converter.CAEXVersion == 2){
+                if(Converter.CAEXVersion == 2)
+                {
                     CTranslationTableFileName = "gsd2aml.xml";
-                }else if (Converter.CAEXVersion == 3)
+                }
+                else if (Converter.CAEXVersion == 3)
                 {
                     CTranslationTableFileName = "gsd2aml3.xml";
                 }
@@ -468,7 +470,14 @@ namespace Dd2Aml.Lib
             }
             else if (filetype == 2)
             {
-                CTranslationTableFileName = "iodd2aml.xml";
+                if (Converter.CAEXVersion == 2)
+                {
+                    CTranslationTableFileName = "iodd2aml.xml";
+                }
+                else if (Converter.CAEXVersion == 3)
+                {
+                    CTranslationTableFileName = "iodd2aml3.xml";
+                }
                 CReferenceTextId = "textId";
                 CTextPath = "ExternalTextCollection.PrimaryLanguage";
                 CRealTextId = "id";
@@ -479,7 +488,15 @@ namespace Dd2Aml.Lib
             }
             else if (filetype == 3)
             {
-                CTranslationTableFileName = "cspp2aml.xml";
+                if (Converter.CAEXVersion == 2)
+                {
+                    CTranslationTableFileName = "cspp2aml.xml";
+                }
+                else if (Converter.CAEXVersion == 3)
+                {
+                    CTranslationTableFileName = "cspp2aml3.xml";
+                }
+                
             }
 
             if (assemblyFolder != null)
@@ -523,7 +540,7 @@ namespace Dd2Aml.Lib
 
             var fileName = Path.GetFileNameWithoutExtension(inputFile);
 
-            if(Regex.IsMatch(fileName, $"(.+(GSDML|gsdml)-.)"))
+            if(Regex.IsMatch(fileName, $"((GSDML|gsdml)-.)"))
             {
                 fileName = fileName.StartsWith("GSDML-", StringComparison.InvariantCultureIgnoreCase)
                             ? fileName.Remove(0, "GSDML-".Length)

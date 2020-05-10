@@ -1,62 +1,530 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<body>
+<body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <ProfileHeader>
     <Replacement>
       <AdditionalInformation>
-        <WriterHeader>
-          <WriterName>DHBW Stuttgart TINF18C</WriterName>
-          <WriterID>D331B5B6-C3FA-4D3C-8F6D-93F6F0215EF4</WriterID>
-          <WriterVendor>DD2AML TINF18C</WriterVendor>
-          <WriterVersion>1.0.0</WriterVersion>
-          <WriterRelease>1.0.0</WriterRelease>
-          <LastWritingDateTime></LastWritingDateTime>
-          <WriterProjectTitle>DD2AML Converter</WriterProjectTitle>
-          <WriterProjectID>DD2AML Converter</WriterProjectID>
-        </WriterHeader>
+        <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+        <SourceDocumentInformation 
+          OriginName="DHBW Stuttgart TINF18C" 
+          OriginID="Test"
+          OriginVendor="DD2AML TINF18C"
+          OriginVendorURL="https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter"
+          OriginVersion="1.0.0"
+          OriginRelease="1.0.0"
+          OriginProjectTitle="DD2AML Converter"
+          OriginProjectID="DD2AML Converter">
+        </SourceDocumentInformation>
       </AdditionalInformation>
     </Replacement>
   </ProfileHeader>
+
 
   <ProfileBody>
     <Replacement>
       <CAEXFile.SystemUnitClassLib>
         <SystemUnitClassLib CAEXObject.Name="ComponentSystemUnitClassLib">
-          <CAEXFile.SystemUnitClass>
-            <SystemUnitClass CAEXObject.Name="$1" CAEXObject.ID="GUID">
-
-              <SystemUnitClassType.SupportedRoleClass>
-                <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentBaseRCL/AdditionalDeviceDescription/IODD" />
-              </SystemUnitClassType.SupportedRoleClass>
-              
-            </SystemUnitClass>
-          </CAEXFile.SystemUnitClass>
         </SystemUnitClassLib>
       </CAEXFile.SystemUnitClassLib>
+    </Replacement>
+  </ProfileBody>
+
+  <DeviceIdentity>
+    <Replacement>
+      <CAEXFile.SystemUnitClass>
+        <SystemUnitClass CAEXObject.Name="$1" CAEXObject.ID="GUID">
+
+          <SystemUnitClassType.SupportedRoleClass>
+            <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentBaseRCL/AdditionalDeviceDescription/IODD" />
+          </SystemUnitClassType.SupportedRoleClass>
+
+          <SystemUnitClassType.InternalElement>
+            <InternalElement CAEXObject.Name="DeviceIdentity" CAEXObject.ID="GUID">
+              <SystemUnitClassType.Attribute>
+
+                <Attribute CAEXObject.Name="VendorId" Attribute.AttributeDataType="xs:integer">
+                  <Attribute.Value>$2</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="VendorName" Attribute.AttributeDataType="xs:string">
+                  <Attribute.Value>$3</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="DeviceId" Attribute.AttributeDataType="xs:integer">
+                  <Attribute.Value>$4</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="VendorText" Attribute.AttributeDataType="xs:string">
+                  <Attribute.Value>$5</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="VendorUrl" Attribute.AttributeDataType="xs:anyURI">
+                  <Attribute.Value>$6</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="DeviceFamily" Attribute.AttributeDataType="xs:string">
+                  <Attribute.Value>$7</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="DeviceName" Attribute.AttributeDataType="xs:string">
+                  <Attribute.Value>$8</Attribute.Value>
+                </Attribute>
+
+              </SystemUnitClassType.Attribute>
+            </InternalElement>
+
+            <InternalElement CAEXObject.Name="ManufacturerIcon" CAEXObject.ID="GUID">
+              <SystemUnitClassType.SupportedRoleClass>
+                <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentStandardRCL/ManufacturerIcon" />
+              </SystemUnitClassType.SupportedRoleClass>
+
+              <SystemUnitClassType.ExternalInterface>
+                <ExternalInterface CAEXObject.Name="ExternalDataConnector" CAEXObject.ID="GUID" ExternalInterface.RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+                  <ExternalInterface.Attribute>
+                    <Attribute CAEXObject.Name="refURI" Attribute.AttributeDataType="xs:anyURI">
+                      <Attribute.Value>$9</Attribute.Value>
+                    </Attribute>
+                  </ExternalInterface.Attribute>
+                </ExternalInterface>
+
+              </SystemUnitClassType.ExternalInterface>
+            </InternalElement>
+
+            <InternalElement CAEXObject.Name="IODD" CAEXObject.ID="GUID">
+              <SystemUnitClassType.SupportedRoleClass>
+                <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentBaseRCL/AdditionalDeviceDescription" />
+              </SystemUnitClassType.SupportedRoleClass>
+
+              <SystemUnitClassType.ExternalInterface>
+                <ExternalInterface CAEXObject.Name="IODD 1.1" CAEXObject.ID="GUID" ExternalInterface.RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+                  <ExternalInterface.Attribute>
+                    <Attribute CAEXObject.Name="refURI" Attribute.AttributeDataType="xs:anyURI">
+                      <Attribute.Value>$10</Attribute.Value>
+                    </Attribute>
+                    <Attribute CAEXObject.Name="MIMEType" Attribute.AttributeDataType="xs:string">
+                      <Attribute.Value>application/xml</Attribute.Value>
+                    </Attribute>
+                  </ExternalInterface.Attribute>
+                </ExternalInterface>
+              </SystemUnitClassType.ExternalInterface>
+            </InternalElement>
+
+            <InternalElement CAEXObject.Name="DeviceVariantCollection" CAEXObject.ID="GUID">
+              <SystemUnitClassType.InternalElement>
+                <Rule>ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant</Rule>
+              </SystemUnitClassType.InternalElement>
+            </InternalElement>
+
+            <InternalElement CAEXObject.Name="DeviceFunction" CAEXObject.ID="GUID">
+              <SystemUnitClassType.InternalElement>
+                <Rule>ProfileBody.DeviceFunction.Features</Rule>
+                <Rule>ProfileBody.DeviceFunction.VariableCollection</Rule>
+                <Rule>ProfileBody.DeviceFunction.ProcessDataCollection</Rule>
+              </SystemUnitClassType.InternalElement>
+            </InternalElement>
+
+          </SystemUnitClassType.InternalElement>
+
+        </SystemUnitClass>
+      </CAEXFile.SystemUnitClass>
+
     </Replacement>
 
     <!-- DeviceName -->
     <Reference Ref="$1" Type="TextRef">
       <ProfileBody.DeviceIdentity.DeviceName textId=""/>
     </Reference>
-  </ProfileBody>
+    <!--VendorId-->
+    <Reference Ref="$2">
+      <ProfileBody.DeviceIdentity vendorId=""/>
+    </Reference>
+    <!--VendorName-->
+    <Reference Ref="$3">
+      <ProfileBody.DeviceIdentity vendorName=""/>
+    </Reference>
+    <!--DeviceId-->
+    <Reference Ref="$4">
+      <ProfileBody.DeviceIdentity deviceId=""/>
+    </Reference>
+    <!--VendorText-->
+    <Reference Ref="$5" Type="TextRef">
+      <ProfileBody.DeviceIdentity.VendorText textId=""/>
+    </Reference>
+    <!--VendorURL-->
+    <Reference Ref="$6" Type="TextRef">
+      <ProfileBody.DeviceIdentity.VendorUrl textId=""/>
+    </Reference>
+    <!--DeviceFamily-->
+    <Reference Ref="$7" Type="TextRef">
+      <ProfileBody.DeviceIdentity.DeviceFamily textId=""/>
+    </Reference>
+    <!--DeviceName-->
+    <Reference Ref="$8" Type="TextRef">
+      <ProfileBody.DeviceIdentity.DeviceName textId=""/>
+    </Reference>
+    <!--VendorLogo-->
+    <Reference Ref="$9">
+      <ProfileBody.DeviceIdentity.VendorLogo name=""/>
+    </Reference>
+    <!--Filepath-->
+    <Reference Ref="$10" Type="RelFilePath" />
 
-  <DeviceIdentity>
-    <Replacement>
-      
-    </Replacement>
   </DeviceIdentity>
 
-  <DeviceVariantCollection>
+  <ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant>
     <Replacement>
-      
-    </Replacement>
-  </DeviceVariantCollection>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
 
-  <DeviceFunction>
-    <Replacement>
-      
+        <SystemUnitClassType.SupportedRoleClass>
+          <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="DD2AML.Lib/"/>
+        </SystemUnitClassType.SupportedRoleClass>
+
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="productId" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+          <Attribute CAEXObject.Name="Description" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+        </SystemUnitClassType.Attribute>
+
+        <SystemUnitClassType.InternalElement>
+          <InternalElement CAEXObject.Name="deviceSymbol" CAEXObject.ID="GUID">
+            <SystemUnitClassType.SupportedRoleClass>
+              <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentStandardRCL/ComponentPicture" />
+            </SystemUnitClassType.SupportedRoleClass>
+
+            <SystemUnitClassType.ExternalInterface>
+              <ExternalInterface CAEXObject.Name="ExternalDataReference" CAEXObject.ID="GUID" ExternalInterface.RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+                <ExternalInterface.Attribute>
+                  <Attribute CAEXObject.Name="refURI" Attribute.AttributeDataType="xs:anyURI">
+                    <Attribute.Value>$4</Attribute.Value>
+                  </Attribute>
+                </ExternalInterface.Attribute>
+              </ExternalInterface>
+            </SystemUnitClassType.ExternalInterface>
+          </InternalElement>
+
+          <InternalElement CAEXObject.Name="deviceIcon" CAEXObject.ID="GUID">
+            <SystemUnitClassType.SupportedRoleClass>
+             <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentStandardRCL/ComponentIcon" />
+           </SystemUnitClassType.SupportedRoleClass>
+
+            <SystemUnitClassType.ExternalInterface>
+              <ExternalInterface CAEXObject.Name="ExternalDataReference" CAEXObject.ID="GUID" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+                <ExternalInterface.Attribute>
+                  <Attribute CAEXObject.Name="refURI" Attribute.AttributeDataType="xs:anyURI">
+                    <Attribute.Value>$5</Attribute.Value>
+                  </Attribute>
+                </ExternalInterface.Attribute>
+              </ExternalInterface>
+            </SystemUnitClassType.ExternalInterface>
+          </InternalElement>
+        </SystemUnitClassType.InternalElement>
+      </InternalElement>
+
     </Replacement>
-  </DeviceFunction>
+
+    <!--DeviceName-->
+    <Reference Ref="$1" Type="TextRef">
+      <ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant.Name textId=""/>
+    </Reference>
+    <!--productId-->
+    <Reference Ref="$2">
+      <ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant productId=""/>
+    </Reference>
+    <!--Description-->
+    <Reference Ref="$3" Type="TextRef">
+      <ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant.Description textId=""/>
+    </Reference>
+    <!--DeviceSymbol-->
+    <Reference Ref="$4">
+      <ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant deviceSymbol=""/>
+    </Reference>
+    <!--DeviceIcon-->
+    <Reference Ref="$5">
+      <ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant deviceIcon=""/>
+    </Reference>
+
+  </ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant>
+
+  <ProfileBody.DeviceFunction.Features>
+    <Replacement>
+      <InternalElement CAEXObject.Name="Features" CAEXObject.ID="Features">
+
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="blockParameter" AttributeDataType="xs:boolean">
+            <Attribute.Value>$1</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="dataStorage" AttributeDataType="xs:boolean">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+        </SystemUnitClassType.Attribute>
+
+        <SystemUnitClassType.InternalElement>
+          <InternalElement CAEXObject.Name="SupportedAccessLocks" CAEXObject.ID="GUID">
+            <SystemUnitClassType.Attribute>
+              <Attribute CAEXObject.Name="parameter" AttributeDataType="xs:boolean">
+                <Attribute.Value>$3</Attribute.Value>
+              </Attribute>
+
+              <Attribute CAEXObject.Name="dataStorage" AttributeDataType="xs:boolean">
+                <Attribute.Value>$4</Attribute.Value>
+              </Attribute>
+
+              <Attribute CAEXObject.Name="localUserInterface" AttributeDataType="xs:boolean">
+                <Attribute.Value>$5</Attribute.Value>
+              </Attribute>
+
+              <Attribute CAEXObject.Name="localParameterization" AttributeDataType="xs:boolean">
+                <Attribute.Value>$6</Attribute.Value>
+              </Attribute>
+            </SystemUnitClassType.Attribute>
+          </InternalElement>
+        </SystemUnitClassType.InternalElement>
+
+      </InternalElement>
+    </Replacement>
+
+    <!--blockParameter-->
+    <Reference Ref="$1">
+      <ProfileBody.DeviceFunction.Features blockParameter=""/>
+    </Reference>
+    <!--dataStorage-->
+    <Reference Ref="$2">
+      <ProfileBody.DeviceFunction.Features dataStorage=""/>
+    </Reference>
+    <!--parameter-->
+    <Reference Ref="$3">
+      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks parameter=""/>
+    </Reference>
+    <!--dataStorage-->
+    <Reference Ref="$4">
+      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks dataStorage=""/>
+    </Reference>
+    <!--localUserInterface-->
+    <Reference Ref="$5">
+      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks localUserInterface=""/>
+    </Reference>
+    <!--localParameterization-->
+    <Reference Ref="$6">
+      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks localParameterization=""/>
+    </Reference>
+
+
+  </ProfileBody.DeviceFunction.Features>
+
+  <ProfileBody.DeviceFunction.VariableCollection>
+    <Replacement>
+
+      <InternalElement CAEXObject.Name="VariableCollection" CAEXObject.ID="GUID">
+
+        <SystemUnitClassType.InternalElement>
+          <InternalElement CAEXObject.Name="StdVariableRef" CAEXObject.ID="GUID">
+            <SystemUnitClassType.InternalElement>
+              <Rule>ProfileBody.DeviceFunction.VariableCollection.StdVariableRef</Rule>
+            </SystemUnitClassType.InternalElement>
+          </InternalElement>
+
+
+          <InternalElement CAEXObject.Name="Variable" CAEXObject.ID="GUID">
+            <SystemUnitClassType.InternalElement>
+              <Rule>ProfileBody.DeviceFunction.VariableCollection.Variable</Rule>
+            </SystemUnitClassType.InternalElement>
+          </InternalElement>
+        </SystemUnitClassType.InternalElement>
+      </InternalElement>
+
+    </Replacement>
+  </ProfileBody.DeviceFunction.VariableCollection>
+
+  <ProfileBody.DeviceFunction.VariableCollection.StdVariableRef>
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+        <InternalElement.Attribute>
+          <Attribute CAEXObject.Name="defaultValue" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+          <Attribute CAEXObject.Name="accessRights" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+        </InternalElement.Attribute>
+      </InternalElement>
+    </Replacement>
+
+    <Reference Ref="$1">
+      <ProfileBody.DeviceFunction.VariableCollection.StdVariableRef id=""/>
+    </Reference>
+    <Reference Ref="$2">
+      <ProfileBody.DeviceFunction.VariableCollection.StdVariableRef defaultValue=""/>
+    </Reference>
+    <Reference Ref="$3">
+      <ProfileBody.DeviceFunction.VariableCollection.StdVariableRef accessRights=""/>
+    </Reference>
+
+  </ProfileBody.DeviceFunction.VariableCollection.StdVariableRef>
+
+  <ProfileBody.DeviceFunction.VariableCollection.Variable>
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="$1">
+        <SystemUnitClassType.Attribute>
+
+          <Attribute CAEXObject.Name="index" AttributeDataType="xs:integer">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="accessRights" AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Name" AttributeDataType="xs:string">
+            <Attribute.Value>$6</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Description" AttributeDataType="xs:string">
+            <Attribute.Value>$7</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="xsi:type" AttributeDataType="xs:string">
+            <Attribute.Value>$8</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="subindexAccessSupported" AttributeDataType="xs:boolean">
+            <Attribute.Value>$5</Attribute.Value>
+          </Attribute>
+        </SystemUnitClassType.Attribute>
+
+        <SystemUnitClassType.InternalElement>
+          <InternalElement CAEXObject.Name="RecordItem" CAEXObject.ID="GUID">
+            <SystemUnitClassType.InternalElement>
+              <Rule>ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem</Rule>
+            </SystemUnitClassType.InternalElement>
+          </InternalElement>
+        </SystemUnitClassType.InternalElement>
+
+      </InternalElement>
+
+
+
+    </Replacement>
+
+    <!--Variableid EVENTUELL TEXTREF-->
+    <Reference Ref="$1">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable id=""/>
+    </Reference>
+    <!--Variableindex-->
+    <Reference Ref="$2">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable index=""/>
+    </Reference>
+    <!--accessRights-->
+    <Reference Ref="$3">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable accessRights=""/>
+    </Reference>
+    <!--subindexAccessSupported-->
+    <Reference Ref="$5">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype subindexAccessSupported=""/>
+    </Reference>
+    <!--VariableName TextRef funktioniert nicht!-->
+    <Reference Ref="$6" Type="TextRef">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Name textId=""/>
+    </Reference>
+    <!--VariableDescription TextRef funktioniert nicht!-->
+    <Reference Ref="$7" Type="TextRef" >
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Description textId=""/>
+    </Reference>
+    <!--xsi:type-->
+    <Reference Ref="$8">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype xsi:type=""/>
+    </Reference>
+
+  </ProfileBody.DeviceFunction.VariableCollection.Variable>
+
+
+  <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem>
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="subindex" Attribute.AttributeDataType="xs:integer">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="bitOffset" Attribute.AttributeDataType="xs:integer">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+
+          <Rule>ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype</Rule>
+          <!--!!!!!!!!!-->
+
+        </SystemUnitClassType.Attribute>
+
+      </InternalElement>
+
+
+    </Replacement>
+
+    <!--RecordItemName-->
+    <Reference Ref="$1" Type="TextRef">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.Name textId=""/>
+    </Reference>
+    <!--subindex-->
+    <Reference Ref="$2">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem subindex=""/>
+    </Reference>
+    <!--bitOffset-->
+    <Reference Ref="$3">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem bitOffset=""/>
+    </Reference>
+    <!--xsi:type!!-->
+    <Reference Ref="$4">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype xsi:type=""/>
+    </Reference>
+    <!--bitLength!!-->
+    <Reference Ref="$5">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype bitLength=""/>
+    </Reference>
+
+
+  </ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem>
+
+  <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype>
+    <Replacement>
+
+      <Attribute CAEXObject.Name="$1" Attribute.AttributeDataType="xs:string">
+        <Attribute.Value>$2</Attribute.Value>
+      </Attribute>
+
+    </Replacement>
+
+    <!--Name-->
+    <Reference Ref="$1" Type="TextRef">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue.Name textId=""/>
+    </Reference>
+    <!--value-->
+    <Reference Ref="$2">
+      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue value=""/>
+    </Reference>
+
+  </ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype>
+
+
+  <ProfileBody.DeviceFunction.ProcessDataCollection>
+    <Replacement>
+      <InternalElement CAEXObject.Name="ProcessDataCollection" CAEXObject.ID="GUID">
+
+        <SystemUnitClassType.InternalElement>
+          <InternalElement CAEXObject.Name="$1" CAEXObject.ID="$1">
+
+
+          </InternalElement>
+        </SystemUnitClassType.InternalElement>
+      </InternalElement>
+    </Replacement>
+
+    <!--ProzessDataId-->
+    <Reference Ref="$1">
+      <ProfileBody.DeviceFunction.VariableCollection.ProcessData id=""/>
+    </Reference>
+  </ProfileBody.DeviceFunction.ProcessDataCollection>
 
 </body>
