@@ -3,17 +3,19 @@
 <body>
   <ProfileHeader>
     <Replacement>
-      <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
-      <SourceDocumentInformation
-        OriginName="DHBW Stuttgart TINF18C"
-        OriginID="Test"
-        OriginVendor="DD2AML TINF18C"
-        OriginVendorURL="https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter"
-        OriginVersion="1.0.0"
-        OriginRelease="1.0.0"
-        OriginProjectTitle="DD2AML Converter"
-        OriginProjectID="DD2AML Converter">
-      </SourceDocumentInformation>
+      <AdditionalInformation>
+        <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+        <SourceDocumentInformation
+          OriginName="DHBW Stuttgart TINF18C"
+          OriginID="Test"
+          OriginVendor="DD2AML TINF18C"
+          OriginVendorURL="https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter"
+          OriginVersion="1.0.0"
+          OriginRelease="1.0.0"
+          OriginProjectTitle="DD2AML Converter"
+          OriginProjectID="DD2AML Converter">
+        </SourceDocumentInformation>
+      </AdditionalInformation>
     </Replacement>
   </ProfileHeader>
 
@@ -131,7 +133,7 @@
     <Reference Ref="$4" Type="TextRef">
       <ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.ModuleInfo.InfoText TextId="" />
     </Reference>
-    <Reference Ref="$5" Type="RelGsdFilePath" />
+    <Reference Ref="$5" Type="RelFilePath" />
     <Reference Ref="$6">
       <ProfileBody.ApplicationProcess.DeviceAccessPointList.DeviceAccessPointItem.ModuleInfo.HardwareRelease Value="" />
     </Reference>
