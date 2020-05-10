@@ -564,7 +564,6 @@ namespace Dd2Aml.Lib
             {
                 fileName += ".aml";
             }
-
             var directoryName = Path.GetDirectoryName(inputFile);
 
             if (!string.IsNullOrEmpty(directoryName)) return Path.Combine(directoryName, fileName);
