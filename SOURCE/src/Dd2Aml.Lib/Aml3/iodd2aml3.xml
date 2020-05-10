@@ -19,7 +19,6 @@
     </Replacement>
   </ProfileHeader>
 
-
   <ProfileBody>
     <Replacement>
       <CAEXFile.SystemUnitClassLib>
@@ -117,10 +116,220 @@
 
             <InternalElement CAEXObject.Name="DeviceFunction" CAEXObject.ID="GUID">
               <SystemUnitClassType.InternalElement>
-                <Rule>ProfileBody.DeviceFunction.Features</Rule>
-                <Rule>ProfileBody.DeviceFunction.VariableCollection</Rule>
-                <Rule>ProfileBody.DeviceFunction.ProcessDataCollection</Rule>
+
+                <InternalElement CAEXObject.Name="Features" CAEXObject.ID="Features">
+
+                  <SystemUnitClassType.Attribute>
+                    <Attribute CAEXObject.Name="blockParameter" Attribute.AttributeDataType="xs:boolean">
+                      <Attribute.Value>$11</Attribute.Value>
+                    </Attribute>
+
+                    <Attribute CAEXObject.Name="dataStorage" Attribute.AttributeDataType="xs:boolean">
+                      <Attribute.Value>$12</Attribute.Value>
+                    </Attribute>
+                  </SystemUnitClassType.Attribute>
+
+                  <SystemUnitClassType.InternalElement>
+                    <InternalElement CAEXObject.Name="SupportedAccessLocks" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.Attribute>
+                        <Attribute CAEXObject.Name="parameter" Attribute.AttributeDataType="xs:boolean">
+                          <Attribute.Value>$13</Attribute.Value>
+                        </Attribute>
+
+                        <Attribute CAEXObject.Name="dataStorage" Attribute.AttributeDataType="xs:boolean">
+                          <Attribute.Value>$14</Attribute.Value>
+                        </Attribute>
+
+                        <Attribute CAEXObject.Name="localUserInterface" Attribute.AttributeDataType="xs:boolean">
+                          <Attribute.Value>$15</Attribute.Value>
+                        </Attribute>
+
+                        <Attribute CAEXObject.Name="localParameterization" Attribute.AttributeDataType="xs:boolean">
+                          <Attribute.Value>$16</Attribute.Value>
+                        </Attribute>
+                      </SystemUnitClassType.Attribute>
+                    </InternalElement>
+                  </SystemUnitClassType.InternalElement>
+
+                </InternalElement>
+                <InternalElement CAEXObject.Name="VariableCollection" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.InternalElement>
+                    <InternalElement CAEXObject.Name="StdVariableRef" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.InternalElement>
+                        <Rule>ProfileBody.DeviceFunction.VariableCollection.StdVariableRef</Rule>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+                    <InternalElement CAEXObject.Name="Variable" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.InternalElement>
+                        <Rule>ProfileBody.DeviceFunction.VariableCollection.Variable</Rule>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+                  </SystemUnitClassType.InternalElement>
+                </InternalElement>
+
+                <InternalElement CAEXObject.Name="ProcessDataCollection" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.InternalElement>
+                    <InternalElement CAEXObject.Name="$17" CAEXObject.ID="$17">
+                      <SystemUnitClassType.Attribute>
+                        <Attribute CAEXObject.Name="bitLength" Attribute.AttributeDataType="xs:integer">
+                          <Attribute.Value>$18</Attribute.Value>
+                        </Attribute>
+                      </SystemUnitClassType.Attribute>
+                      <SystemUnitClassType.InternalElement>
+                        <InternalElement CAEXObject.Name="$20" CAEXObject.ID="GUID">
+                          <SystemUnitClassType.Attribute>
+                            <Attribute CAEXObject.Name="xsi:type" Attribute.AttributeDataType="xs:string">
+                              <Attribute.Value>$19</Attribute.Value>
+                            </Attribute>
+                            <Attribute CAEXObject.Name="bitLength" Attribute.AttributeDataType="xs:integer">
+                              <Attribute.Value>$21</Attribute.Value>
+                            </Attribute>
+                          </SystemUnitClassType.Attribute>
+                        </InternalElement>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+                    <InternalElement CAEXObject.Name="$22" CAEXObject.ID="$22">
+                      <SystemUnitClassType.Attribute>
+                        <Attribute CAEXObject.Name="bitLength" Attribute.AttributeDataType="xs:integer">
+                          <Attribute.Value>$23</Attribute.Value>
+                        </Attribute>
+                      </SystemUnitClassType.Attribute>
+                      <SystemUnitClassType.InternalElement>
+                        <InternalElement CAEXObject.Name="$25" CAEXObject.ID="GUID">
+                          <SystemUnitClassType.Attribute>
+                            <Attribute CAEXObject.Name="xsi:type" Attribute.AttributeDataType="xs:string">
+                              <Attribute.Value>$24</Attribute.Value>
+                            </Attribute>
+                            <Attribute CAEXObject.Name="bitLength" Attribute.AttributeDataType="xs:integer">
+                              <Attribute.Value>$26</Attribute.Value>
+                            </Attribute>
+                          </SystemUnitClassType.Attribute>
+                        </InternalElement>
+                      </SystemUnitClassType.InternalElement>
+
+                    </InternalElement>
+                  </SystemUnitClassType.InternalElement>
+                </InternalElement>
+                <InternalElement CAEXObject.Name="ErrorTypeCollection" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.Attribute>
+                    <Rule>ProfileBody.DeviceFunction.ErrorTypeCollection.StdErrorTypeRef</Rule>
+                  </SystemUnitClassType.Attribute>
+                </InternalElement>
+
+                <InternalElement CAEXObject.Name="EventCollection" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.Attribute>
+                    <Rule>ProfileBody.DeviceFunction.EventCollection.StdEventRef</Rule>
+                  </SystemUnitClassType.Attribute>
+                </InternalElement>
+
+                <InternalElement CAEXObject.Name="UserInterface" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.InternalElement>
+                    <InternalElement CAEXObject.Name="MenuCollection" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.InternalElement>
+                        <Rule>ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu</Rule>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+                  </SystemUnitClassType.InternalElement>
+                </InternalElement>
+
               </SystemUnitClassType.InternalElement>
+            </InternalElement>
+
+            <InternalElement CAEXObject.Name="IO-Link Device Port" CAEXObject.ID="GUID">
+              <SystemUnitClassType.Attribute>
+                <Attribute CAEXObject.Name="minCycleTime" Attribute.AttributeDataType="xs:integer">
+                  <Attribute.Value>$27</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="sioSupported" Attribute.AttributeDataType="xs:boolean">
+                  <Attribute.Value>$28</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="bitrate" Attribute.AttributeDataType="xs:string">
+                  <Attribute.Value>$29</Attribute.Value>
+                </Attribute>
+
+                <Attribute CAEXObject.Name="mSequenceCapability" Attribute.AttributeDataType="xs:integer">
+                  <Attribute.Value>$30</Attribute.Value>
+                </Attribute>
+              </SystemUnitClassType.Attribute>
+              <SystemUnitClassType.ExternalInterface>
+                <ExternalInterface CAEXObject.Name="IO-Link Device Port" CAEXObject.ID="GUID" RefBaseClassPath="physicalEndPoint/IOLD">
+                  <ExternalInterface.Attribute>
+                    <Attribute CAEXObject.Name="Socket" Attribute.AttributeDataType="xsi:type">
+                      <Attribute.Value>$31</Attribute.Value>
+                    </Attribute>
+                  </ExternalInterface.Attribute>
+                </ExternalInterface>
+              </SystemUnitClassType.ExternalInterface>
+              <SystemUnitClassType.InternalElement>
+                <InternalElement CAEXObject.Name="Wire1" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.ExternalInterface>
+                    <ExternalInterface CAEXObject.Name="Pin1" CAEXObject.ID="GUID" RefBaseClassPath="physicalEndPoint/wire">
+                      <ExternalInterface.Attribute>
+                        <Attribute CAEXObject.Name="function" Attribute.AttributeDataType="xsi:string">
+                          <Attribute.Value>$32</Attribute.Value>
+                        </Attribute>
+                        <Attribute CAEXObject.Name="color" Attribute.AttributeDataType="xsi:string">
+                          <Attribute.Value>$33</Attribute.Value>
+                        </Attribute>
+                      </ExternalInterface.Attribute>
+                    </ExternalInterface>
+                  </SystemUnitClassType.ExternalInterface>
+                </InternalElement>
+
+                <InternalElement CAEXObject.Name="Wire2" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.ExternalInterface>
+                    <ExternalInterface CAEXObject.Name="Pin2" CAEXObject.ID="GUID" RefBaseClassPath="physicalEndPoint/wire">
+                      <ExternalInterface.Attribute>
+                        <Attribute CAEXObject.Name="function" Attribute.AttributeDataType="xsi:string">
+                          <Attribute.Value>$34</Attribute.Value>
+                        </Attribute>
+                        <Attribute CAEXObject.Name="color" Attribute.AttributeDataType="xsi:string">
+                          <Attribute.Value>$35</Attribute.Value>
+                        </Attribute>
+                      </ExternalInterface.Attribute>
+                    </ExternalInterface>
+                  </SystemUnitClassType.ExternalInterface>
+                </InternalElement>
+
+                <InternalElement CAEXObject.Name="Wire3" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.ExternalInterface>
+                    <ExternalInterface CAEXObject.Name="Pin3" CAEXObject.ID="GUID" RefBaseClassPath="physicalEndPoint/wire">
+                      <ExternalInterface.Attribute>
+                        <Attribute CAEXObject.Name="function" Attribute.AttributeDataType="xsi:string">
+                          <Attribute.Value>$36</Attribute.Value>
+                        </Attribute>
+                        <Attribute CAEXObject.Name="color" Attribute.AttributeDataType="xsi:string">
+                          <Attribute.Value>$37</Attribute.Value>
+                        </Attribute>
+                      </ExternalInterface.Attribute>
+                    </ExternalInterface>
+                  </SystemUnitClassType.ExternalInterface>
+                </InternalElement>
+
+                <InternalElement CAEXObject.Name="Wire4" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.ExternalInterface>
+                    <ExternalInterface CAEXObject.Name="Pin4" CAEXObject.ID="GUID" RefBaseClassPath="physicalEndPoint/wire">
+                      <ExternalInterface.Attribute>
+                        <Attribute CAEXObject.Name="function" Attribute.AttributeDataType="xsi:string">
+                          <Attribute.Value>$38</Attribute.Value>
+                        </Attribute>
+                        <Attribute CAEXObject.Name="color" Attribute.AttributeDataType="xsi:string">
+                          <Attribute.Value>$39</Attribute.Value>
+                        </Attribute>
+                      </ExternalInterface.Attribute>
+                    </ExternalInterface>
+                  </SystemUnitClassType.ExternalInterface>
+                </InternalElement>
+              </SystemUnitClassType.InternalElement>
+
+            </InternalElement>
+
+            <InternalElement CAEXObject.Name="ExternalTextCollection" CAEXObject.ID="GUID">
+              <SystemUnitClassType.Attribute>
+                <Rule>ExternalTextCollection.PrimaryLanguage.Text</Rule>
+              </SystemUnitClassType.Attribute>
             </InternalElement>
 
           </SystemUnitClassType.InternalElement>
@@ -169,6 +378,125 @@
     <!--Filepath-->
     <Reference Ref="$10" Type="RelFilePath" />
 
+    <!--blockParameter-->
+    <Reference Ref="$11">
+      <ProfileBody.DeviceFunction.Features blockParameter=""/>
+    </Reference>
+    <!--dataStorage-->
+    <Reference Ref="$12">
+      <ProfileBody.DeviceFunction.Features dataStorage=""/>
+    </Reference>
+    <!--parameter-->
+    <Reference Ref="$13">
+      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks parameter=""/>
+    </Reference>
+    <!--dataStorage-->
+    <Reference Ref="$14">
+      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks dataStorage=""/>
+    </Reference>
+    <!--localUserInterface-->
+    <Reference Ref="$15">
+      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks localUserInterface=""/>
+    </Reference>
+    <!--localParameterization-->
+    <Reference Ref="$16">
+      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks localParameterization=""/>
+    </Reference>
+
+    <!--ProzessDataInId-->
+    <Reference Ref="$17">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataIn id=""/>
+    </Reference>
+    <!--bitLength-->
+    <Reference Ref="$18">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataIn bitLength=""/>
+    </Reference>
+    <!--xsi:type-->
+    <Reference Ref="$19">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataIn.Datatype xsi:type=""/>
+    </Reference>
+    <!--ProcessName-->
+    <Reference Ref="$20" Type="TextRef">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataIn.Name textId=""/>
+    </Reference>
+    <!--bitLengthDatatype-->
+    <Reference Ref="$21">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataIn.Datatype bitLength=""/>
+    </Reference>
+
+    <!--ProzessDataOutId-->
+    <Reference Ref="$22">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataOut id=""/>
+    </Reference>
+    <!--bitLength-->
+    <Reference Ref="$23">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataOut bitLength=""/>
+    </Reference>
+    <!--xsi:type-->
+    <Reference Ref="$24">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataOut.Datatype xsi:type=""/>
+    </Reference>
+    <!--ProcessName-->
+    <Reference Ref="$25" Type="TextRef">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataOut.Name textId=""/>
+    </Reference>
+    <!--bitLengthDatatype-->
+    <Reference Ref="$26">
+      <ProfileBody.DeviceFunction.ProcessDataCollection.ProcessData.ProcessDataOut.Datatype bitLength=""/>
+    </Reference>
+
+    <!--minCycleTime-->
+    <Reference Ref="$27">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer minCycleTime=""/>
+    </Reference>
+    <!--sioSupported-->
+    <Reference Ref="$28">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer sioSupported=""/>
+    </Reference>
+    <!--bitrate-->
+    <Reference Ref="$29">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer sioSupported=""/>
+    </Reference>
+    <!--mSequenceCapability-->
+    <Reference Ref="$30">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer mSequenceCapability=""/>
+    </Reference>
+    <!--xsi:type-->
+    <Reference Ref="$31">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection xsi:type=""/>
+    </Reference>
+    <!--Wire1function-->
+    <Reference Ref="$32">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection.Wire1 function=""/>
+    </Reference>
+    <!--Wire1color-->
+    <Reference Ref="$33">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection.Wire1 color=""/>
+    </Reference>
+    <!--Wire2function-->
+    <Reference Ref="$34">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection.Wire2 function=""/>
+    </Reference>
+    <!--Wire2color-->
+    <Reference Ref="$35">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection.Wire2 color=""/>
+    </Reference>
+    <!--Wire3function-->
+    <Reference Ref="$36">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection.Wire3 function=""/>
+    </Reference>
+    <!--Wire3color-->
+    <Reference Ref="$37">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection.Wire3 color=""/>
+    </Reference>
+    <!--Wire4function-->
+    <Reference Ref="$38">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection.Wire4 function=""/>
+    </Reference>
+    <!--Wire4color-->
+    <Reference Ref="$39">
+      <CommNetworkProfile.TransportLayers.PhysicalLayer.Connection.Wire4 color=""/>
+    </Reference>
   </DeviceIdentity>
 
   <ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant>
@@ -248,97 +576,6 @@
 
   </ProfileBody.DeviceIdentity.DeviceVariantCollection.DeviceVariant>
 
-  <ProfileBody.DeviceFunction.Features>
-    <Replacement>
-      <InternalElement CAEXObject.Name="Features" CAEXObject.ID="Features">
-
-        <SystemUnitClassType.Attribute>
-          <Attribute CAEXObject.Name="blockParameter" AttributeDataType="xs:boolean">
-            <Attribute.Value>$1</Attribute.Value>
-          </Attribute>
-
-          <Attribute CAEXObject.Name="dataStorage" AttributeDataType="xs:boolean">
-            <Attribute.Value>$2</Attribute.Value>
-          </Attribute>
-        </SystemUnitClassType.Attribute>
-
-        <SystemUnitClassType.InternalElement>
-          <InternalElement CAEXObject.Name="SupportedAccessLocks" CAEXObject.ID="GUID">
-            <SystemUnitClassType.Attribute>
-              <Attribute CAEXObject.Name="parameter" AttributeDataType="xs:boolean">
-                <Attribute.Value>$3</Attribute.Value>
-              </Attribute>
-
-              <Attribute CAEXObject.Name="dataStorage" AttributeDataType="xs:boolean">
-                <Attribute.Value>$4</Attribute.Value>
-              </Attribute>
-
-              <Attribute CAEXObject.Name="localUserInterface" AttributeDataType="xs:boolean">
-                <Attribute.Value>$5</Attribute.Value>
-              </Attribute>
-
-              <Attribute CAEXObject.Name="localParameterization" AttributeDataType="xs:boolean">
-                <Attribute.Value>$6</Attribute.Value>
-              </Attribute>
-            </SystemUnitClassType.Attribute>
-          </InternalElement>
-        </SystemUnitClassType.InternalElement>
-
-      </InternalElement>
-    </Replacement>
-
-    <!--blockParameter-->
-    <Reference Ref="$1">
-      <ProfileBody.DeviceFunction.Features blockParameter=""/>
-    </Reference>
-    <!--dataStorage-->
-    <Reference Ref="$2">
-      <ProfileBody.DeviceFunction.Features dataStorage=""/>
-    </Reference>
-    <!--parameter-->
-    <Reference Ref="$3">
-      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks parameter=""/>
-    </Reference>
-    <!--dataStorage-->
-    <Reference Ref="$4">
-      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks dataStorage=""/>
-    </Reference>
-    <!--localUserInterface-->
-    <Reference Ref="$5">
-      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks localUserInterface=""/>
-    </Reference>
-    <!--localParameterization-->
-    <Reference Ref="$6">
-      <ProfileBody.DeviceFunction.Features.SupportedAccessLocks localParameterization=""/>
-    </Reference>
-
-
-  </ProfileBody.DeviceFunction.Features>
-
-  <ProfileBody.DeviceFunction.VariableCollection>
-    <Replacement>
-
-      <InternalElement CAEXObject.Name="VariableCollection" CAEXObject.ID="GUID">
-
-        <SystemUnitClassType.InternalElement>
-          <InternalElement CAEXObject.Name="StdVariableRef" CAEXObject.ID="GUID">
-            <SystemUnitClassType.InternalElement>
-              <Rule>ProfileBody.DeviceFunction.VariableCollection.StdVariableRef</Rule>
-            </SystemUnitClassType.InternalElement>
-          </InternalElement>
-
-
-          <InternalElement CAEXObject.Name="Variable" CAEXObject.ID="GUID">
-            <SystemUnitClassType.InternalElement>
-              <Rule>ProfileBody.DeviceFunction.VariableCollection.Variable</Rule>
-            </SystemUnitClassType.InternalElement>
-          </InternalElement>
-        </SystemUnitClassType.InternalElement>
-      </InternalElement>
-
-    </Replacement>
-  </ProfileBody.DeviceFunction.VariableCollection>
-
   <ProfileBody.DeviceFunction.VariableCollection.StdVariableRef>
     <Replacement>
       <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
@@ -370,27 +607,27 @@
       <InternalElement CAEXObject.Name="$1" CAEXObject.ID="$1">
         <SystemUnitClassType.Attribute>
 
-          <Attribute CAEXObject.Name="index" AttributeDataType="xs:integer">
+          <Attribute CAEXObject.Name="index" Attribute.AttributeDataType="xs:integer">
             <Attribute.Value>$2</Attribute.Value>
           </Attribute>
 
-          <Attribute CAEXObject.Name="accessRights" AttributeDataType="xs:string">
+          <Attribute CAEXObject.Name="accessRights" Attribute.AttributeDataType="xs:string">
             <Attribute.Value>$3</Attribute.Value>
           </Attribute>
 
-          <Attribute CAEXObject.Name="Name" AttributeDataType="xs:string">
+          <Attribute CAEXObject.Name="Name" Attribute.AttributeDataType="xs:string">
             <Attribute.Value>$6</Attribute.Value>
           </Attribute>
 
-          <Attribute CAEXObject.Name="Description" AttributeDataType="xs:string">
+          <Attribute CAEXObject.Name="Description" Attribute.AttributeDataType="xs:string">
             <Attribute.Value>$7</Attribute.Value>
           </Attribute>
 
-          <Attribute CAEXObject.Name="xsi:type" AttributeDataType="xs:string">
+          <Attribute CAEXObject.Name="xsi:type" Attribute.AttributeDataType="xs:string">
             <Attribute.Value>$8</Attribute.Value>
           </Attribute>
 
-          <Attribute CAEXObject.Name="subindexAccessSupported" AttributeDataType="xs:boolean">
+          <Attribute CAEXObject.Name="subindexAccessSupported" Attribute.AttributeDataType="xs:boolean">
             <Attribute.Value>$5</Attribute.Value>
           </Attribute>
         </SystemUnitClassType.Attribute>
@@ -402,14 +639,11 @@
             </SystemUnitClassType.InternalElement>
           </InternalElement>
         </SystemUnitClassType.InternalElement>
-
       </InternalElement>
-
-
 
     </Replacement>
 
-    <!--Variableid EVENTUELL TEXTREF-->
+    <!--Variableid-->
     <Reference Ref="$1">
       <ProfileBody.DeviceFunction.VariableCollection.Variable id=""/>
     </Reference>
@@ -425,11 +659,11 @@
     <Reference Ref="$5">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype subindexAccessSupported=""/>
     </Reference>
-    <!--VariableName TextRef funktioniert nicht!-->
+    <!--VariableName-->
     <Reference Ref="$6" Type="TextRef">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Name textId=""/>
     </Reference>
-    <!--VariableDescription TextRef funktioniert nicht!-->
+    <!--VariableDescription-->
     <Reference Ref="$7" Type="TextRef" >
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Description textId=""/>
     </Reference>
@@ -439,7 +673,6 @@
     </Reference>
 
   </ProfileBody.DeviceFunction.VariableCollection.Variable>
-
 
   <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem>
     <Replacement>
@@ -453,8 +686,9 @@
             <Attribute.Value>$3</Attribute.Value>
           </Attribute>
 
-          <Rule>ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype</Rule>
-          <!--!!!!!!!!!-->
+          <Attribute CAEXObject.Name="$6" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$7</Attribute.Value>
+          </Attribute>
 
         </SystemUnitClassType.Attribute>
 
@@ -484,47 +718,100 @@
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype bitLength=""/>
     </Reference>
 
-
-  </ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem>
-
-  <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype>
-    <Replacement>
-
-      <Attribute CAEXObject.Name="$1" Attribute.AttributeDataType="xs:string">
-        <Attribute.Value>$2</Attribute.Value>
-      </Attribute>
-
-    </Replacement>
-
     <!--Name-->
-    <Reference Ref="$1" Type="TextRef">
+    <Reference Ref="$6" Type="TextRef">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue.Name textId=""/>
     </Reference>
     <!--value-->
-    <Reference Ref="$2">
+    <Reference Ref="$7">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue value=""/>
     </Reference>
 
-  </ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype>
 
+  </ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem>
 
-  <ProfileBody.DeviceFunction.ProcessDataCollection>
+  <ProfileBody.DeviceFunction.ErrorTypeCollection.StdErrorTypeRef>
     <Replacement>
-      <InternalElement CAEXObject.Name="ProcessDataCollection" CAEXObject.ID="GUID">
+      <Attribute CAEXObject.Name="$1" Attribute.AttributeDataType="xs:integer">
+        <Attribute.Value></Attribute.Value>
+      </Attribute>
+    </Replacement>
 
+    <!--ErrorCode-->
+    <Reference Ref="$1">
+      <ProfileBody.DeviceFunction.ErrorTypeCollection.StdErrorTypeRef additionalCode=""/>
+    </Reference>
+
+  </ProfileBody.DeviceFunction.ErrorTypeCollection.StdErrorTypeRef>
+
+
+  <ProfileBody.DeviceFunction.EventCollection.StdEventRef>
+    <Replacement>
+      <Attribute CAEXObject.Name="$1" Attribute.AttributeDataType="xs:integer">
+        <Attribute.Value></Attribute.Value>
+      </Attribute>
+    </Replacement>
+
+    <!--Code-->
+    <Reference Ref="$1">
+      <ProfileBody.DeviceFunction.EventCollection.StdEventRef code=""/>
+    </Reference>
+
+  </ProfileBody.DeviceFunction.EventCollection.StdEventRef>
+
+  <ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu>
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
         <SystemUnitClassType.InternalElement>
-          <InternalElement CAEXObject.Name="$1" CAEXObject.ID="$1">
-
-
-          </InternalElement>
+          <Rule>ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu.VariableRef</Rule>
         </SystemUnitClassType.InternalElement>
       </InternalElement>
     </Replacement>
 
-    <!--ProzessDataId-->
+    <!--Name-->
     <Reference Ref="$1">
-      <ProfileBody.DeviceFunction.VariableCollection.ProcessData id=""/>
+      <ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu id=""/>
     </Reference>
-  </ProfileBody.DeviceFunction.ProcessDataCollection>
+
+  </ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu>
+
+  <ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu.VariableRef>
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="accessRightRestriction" Attribute.AttributeDataType="xs:integer">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+        </SystemUnitClassType.Attribute>
+      </InternalElement>
+    </Replacement>
+
+    <!--VariableId-->
+    <Reference Ref="$1">
+      <ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu.VariableRef variableId=""/>
+    </Reference>
+    <!--accessRightRestriction-->
+    <Reference Ref="$2">
+      <ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu.VariableRef accessRightRestriction=""/>
+    </Reference>
+
+  </ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu.VariableRef>
+
+  <ExternalTextCollection.PrimaryLanguage.Text>
+    <Replacement>
+      <Attribute CAEXObject.Name="$1" Attribute.AttributeDataType="xs:string">
+        <Attribute.Value>$2</Attribute.Value>
+      </Attribute>
+    </Replacement>
+
+    <!--Textid-->
+    <Reference Ref="$1">
+      <ExternalTextCollection.PrimaryLanguage.Text id=""/>
+    </Reference>
+    <!--value-->
+    <Reference Ref="$2">
+      <ExternalTextCollection.PrimaryLanguage.Text value=""/>
+    </Reference>
+  </ExternalTextCollection.PrimaryLanguage.Text>
 
 </body>
