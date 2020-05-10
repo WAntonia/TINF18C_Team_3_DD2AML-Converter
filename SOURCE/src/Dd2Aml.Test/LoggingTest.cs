@@ -60,7 +60,7 @@ namespace Dd2Aml.Test
             logger.Log(LogLevel.Trace, logMessage7);
             LogManager.Flush();
 
-            var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GSD2AML", "Logs", "CLI", filename);
+            var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DD2AML", "Logs", "CLI", filename);
             if (File.Exists(filepath))
             {
                 var logText = File.ReadAllText(filepath);
@@ -128,7 +128,7 @@ namespace Dd2Aml.Test
             logger.Log(LogLevel.Trace, logMessage7);
             LogManager.Flush();
 
-            var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GSD2AML", "Logs", "GUI", filename);
+            var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DD2AML", "Logs", "GUI", filename);
             if (File.Exists(filepath))
             {
                 var logText = File.ReadAllText(filepath);
