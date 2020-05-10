@@ -547,7 +547,7 @@ namespace Dd2Aml.Lib
                             : fileName;
                 fileName += ".aml";
             }
-            if (Regex.IsMatch(fileName, $"(.+.-(IODD|iodd).)")){
+            else if (Regex.IsMatch(fileName, $"(.+.-(IODD|iodd).)")){
                 fileName = fileName.EndsWith("-IODD1.1", StringComparison.InvariantCultureIgnoreCase)
                     ? fileName.Remove(fileName.Length-8, "-IODD1.1".Length)
                     : fileName;
@@ -556,8 +556,11 @@ namespace Dd2Aml.Lib
                     : fileName;
                 fileName += ".aml";
             }
-
-            if (Regex.IsMatch(fileName, $"(.+{Regex.Escape(".cspp")})"))
+            else if (Regex.IsMatch(fileName, $"(.+{Regex.Escape(".cspp")})"))
+            {
+                fileName += ".aml";
+            }
+            else
             {
                 fileName += ".aml";
             }
