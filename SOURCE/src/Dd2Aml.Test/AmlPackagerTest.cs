@@ -30,7 +30,7 @@ namespace Dd2Aml.Test
     /// Tests the compressor.
     /// </summary>
     [TestClass]
-    public class CompressorTest
+    public class AmlPackagerTest
     {
         /// <summary>
         /// A full end-to-end test of the compressor.
