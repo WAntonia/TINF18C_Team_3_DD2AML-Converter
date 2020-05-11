@@ -248,11 +248,10 @@ namespace Dd2Aml.Lib
                         var refereneceFirstChild = reference.FirstChild;
                         var cspp = xmlNode ?? IterateThroughGsdDocument(refereneceFirstChild.Name);
 
-                        if (cspp.InnerXml != "")
+                        if (cspp.InnerText != "")
                         {
                             references.Add(referenceId, cspp.InnerText);
                         }
-
                         break;
                     case null:
                         var referenceChild = reference.FirstChild;
@@ -496,7 +495,9 @@ namespace Dd2Aml.Lib
                 {
                     CTranslationTableFileName = "cspp2aml3.xml";
                 }
-                
+
+                CGraphicPath = "device.deviceInfo.deviceInfoMember";
+                CRealGraphicName = "label";
             }
 
             if (assemblyFolder != null)
