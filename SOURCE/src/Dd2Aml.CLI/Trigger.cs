@@ -21,7 +21,6 @@ using System;
 using System.IO;
 using Dd2Aml.Lib;
 using Dd2Aml.Lib.Logging;
-using Gsd2Aml.Lib;
 using Util = Dd2Aml.Cli.Util;
 
 namespace Dd2Aml.Cli

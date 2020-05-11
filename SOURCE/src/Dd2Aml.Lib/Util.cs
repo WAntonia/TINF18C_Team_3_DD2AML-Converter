@@ -246,7 +246,7 @@ namespace Dd2Aml.Lib
                         break;
                     case "InnerRef":
                         var refereneceFirstChild = reference.FirstChild;
-                        var cspp = xmlNode ?? IterateThroughGsdDocument(refereneceFirstChild.Name);
+                        var cspp = IterateThroughGsdDocument(refereneceFirstChild.Name);
 
                         if (cspp.InnerText != "")
                         {
