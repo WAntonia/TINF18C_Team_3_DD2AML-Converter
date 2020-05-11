@@ -393,7 +393,7 @@ namespace Dd2Aml.Lib
         /// <summary>
         /// This function sets the attributes of a replacement node to the translation instance.
         /// This function assumes that all attributes are of type string.
-        /// If not, then please contact the developers <see href="https://github.com/TINF17C/GSD2AML-Converter"/>.
+        /// If not, then please contact the developers <see href="https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter"/>.
         /// </summary>
         /// <param name="replacement">The replacement node of the translation table which will be used to set those attributes to the instance.</param>
         /// <param name="translationInstance">The instance in which the attributes will be set.</param>
