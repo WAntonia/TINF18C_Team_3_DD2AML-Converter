@@ -14,7 +14,7 @@ using System.Xml.Serialization;
 // Dieser Quellcode wurde automatisch generiert von xsd, Version=4.8.3928.0.
 // 
 
-namespace Gsd2Aml.Lib.Models.IODD
+namespace Dd2Aml.Lib.Models.IODD
 {
 
         /// <remarks/>
