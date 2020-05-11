@@ -26,6 +26,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using Dd2Aml.Lib.Logging;
 using Dd2Aml.Lib.Models;
+using Dd2Aml.Lib.Models.CAEX3;
 
 namespace Dd2Aml.Lib
 {
@@ -99,6 +100,7 @@ namespace Dd2Aml.Lib
                 serializer = new XmlSerializer(AmlObject3.GetType());
             }
             var temporaryPath = Path.Combine(Path.GetTempPath(), Path.GetFileNameWithoutExtension(outputFile) + ".aml");
+            var inputPath = Path.GetDirectoryName(inputFile);
 
             using (var textWriter = new StreamWriter(temporaryPath))
             {
@@ -114,12 +116,21 @@ namespace Dd2Aml.Lib
 
             var resources = new List<string> {inputFile};
 
-            foreach (XmlNode xmlNode in Util.IterateThroughGsdDocument(Util.CGraphicPath).GetElementsByTagName(Util.CRealGraphicName))
+            if (Util.filetype != 3)
             {
-                var xmlNodeAttributes = xmlNode.Attributes;
-                var file = xmlNodeAttributes?[Util.CRealValueGraphicName].Value;
-                file += string.IsNullOrEmpty(Path.GetExtension(file)) ? ".bmp" : string.Empty;
-                resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
+                foreach (XmlNode xmlNode in Util.IterateThroughGsdDocument(Util.CGraphicPath).GetElementsByTagName(Util.CRealGraphicName)) 
+                {
+                    var xmlNodeAttributes = xmlNode.Attributes;
+                    var file = xmlNodeAttributes?[Util.CRealValueGraphicName].Value;
+                    file += string.IsNullOrEmpty(Path.GetExtension(file)) ? ".bmp" : string.Empty;
+                    resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
+                }
+            } 
+            else if (Util.filetype == 3)
+            {
+                var files = Directory.GetFiles(inputPath, "*.png", SearchOption.AllDirectories);
+                var ImageFile = files[0];
+                resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), ImageFile));
             }
 
             AMLPackager.Compress(temporaryPath, outputFile, resources.ToArray(), overwriteFile);
