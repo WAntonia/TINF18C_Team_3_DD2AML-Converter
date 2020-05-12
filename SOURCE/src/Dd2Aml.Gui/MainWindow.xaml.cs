@@ -160,7 +160,7 @@ namespace Dd2Aml.Gui
                         catch (Exception ex)
                         {
                             App.Logger.Log(LogLevel.Error, ex.Message);
-                            MessageBox.Show(this, "An error occured when trying to open the AutomationML Editor.", "DD2AML Converter", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(this, "An error occured when trying to open the AutomationML Editor.", "DD2AML Converter", MessageBoxButton.OK, MessageBoxImage.Error);                           
                         }
                     }
                 }
@@ -170,6 +170,8 @@ namespace Dd2Aml.Gui
                 App.Logger.Log(LogLevel.Error, ex.Message);
                 MessageBox.Show(this, ex.Message, "DD2AML Converter: Conversion failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            Application.Current.Shutdown();
         }
 
         /// <summary>
@@ -403,5 +405,7 @@ namespace Dd2Aml.Gui
             var about = new AboutWindow() { DataContext = this, Owner = this };
             about.ShowDialog();
         }
-    }
+        
+    }    
+
 }

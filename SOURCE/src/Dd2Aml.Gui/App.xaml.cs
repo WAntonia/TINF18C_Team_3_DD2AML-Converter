@@ -33,7 +33,7 @@ namespace Dd2Aml.Gui
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
-            Lib.Converter.Logger = Logger;
+            Lib.Converter.Logger = Logger;           
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

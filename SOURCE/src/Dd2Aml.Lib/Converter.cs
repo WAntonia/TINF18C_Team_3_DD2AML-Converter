@@ -59,9 +59,13 @@ namespace Dd2Aml.Lib
         {
             Util.RelativeFilePath = "/" + Path.GetFileName(inputFile);
 
-            if (inputFile.Contains(" "))
+            if (Util.RelativeFilePath.Contains(" "))
             {
-
+                int index = Util.RelativeFilePath.IndexOf(" ");
+                index += 1;
+                String message = "The given DD-filename includes a space at position " + index + ". Please, rename your file and try again.";
+                Logger?.Log(LogLevel.Error, message);
+                throw new InvalidDataException(message);
             }
 
             Logger?.Log(LogLevel.Info, "Conversion to string started.");
@@ -93,14 +97,18 @@ namespace Dd2Aml.Lib
         /// <param name="strictValidation">A flag which indicates if the DD should be checked for correctness.</param>
         public static void Convert(string inputFile, string outputFile, bool overwriteFile, bool strictValidation = true)
         {
-            Util.RelativeFilePath = Path.GetFileName(inputFile);
 
+            Util.RelativeFilePath = Path.GetFileName(inputFile);
 
             if (Util.RelativeFilePath.Contains(" "))
             {
-
+                int index = Util.RelativeFilePath.IndexOf(" ");
+                index += 1;
+                String message = "The given DD-filename includes a space at position "+ index +". Please, rename your file and try again.";
+                Logger?.Log(LogLevel.Error, message);
+                throw new InvalidDataException(message);
             }
-
+            
             Logger?.Log(LogLevel.Info, "Conversion to file started.");
             StartConversion(inputFile, outputFile, strictValidation);
 
