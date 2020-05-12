@@ -535,8 +535,8 @@
 
           <InternalElement CAEXObject.Name="deviceIcon" CAEXObject.ID="GUID">
             <SystemUnitClassType.SupportedRoleClass>
-             <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentStandardRCL/ComponentIcon" />
-           </SystemUnitClassType.SupportedRoleClass>
+              <SupportedRoleClass SupportedRoleClass.RefRoleClassPath="AutomationMLComponentStandardRCL/ComponentIcon" />
+            </SystemUnitClassType.SupportedRoleClass>
 
             <SystemUnitClassType.ExternalInterface>
               <ExternalInterface CAEXObject.Name="ExternalDataReference" CAEXObject.ID="GUID" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
@@ -685,16 +685,15 @@
           <Attribute CAEXObject.Name="bitOffset" Attribute.AttributeDataType="xs:integer">
             <Attribute.Value>$3</Attribute.Value>
           </Attribute>
-
-          <Attribute CAEXObject.Name="$6" Attribute.AttributeDataType="xs:string">
-            <Attribute.Value>$7</Attribute.Value>
-          </Attribute>
-
         </SystemUnitClassType.Attribute>
-
+        <SystemUnitClassType.InternalElement>
+          <InternalElement CAEXObject.Name="SimpleDatatype" CAEXObject.ID="GUID">
+            <SystemUnitClassType.Attribute>
+              <Rule>ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue</Rule>
+            </SystemUnitClassType.Attribute>
+          </InternalElement>
+        </SystemUnitClassType.InternalElement>
       </InternalElement>
-
-
     </Replacement>
 
     <!--RecordItemName-->
@@ -709,26 +708,26 @@
     <Reference Ref="$3">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem bitOffset=""/>
     </Reference>
-    <!--xsi:type!!-->
-    <Reference Ref="$4">
-      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype xsi:type=""/>
-    </Reference>
-    <!--bitLength!!-->
-    <Reference Ref="$5">
-      <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype bitLength=""/>
-    </Reference>
+
+  </ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem>
+
+  <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue>
+    <Replacement>
+      <Attribute CAEXObject.Name="$1" Attribute.AttributeDataType="xs:boolean">
+        <Attribute.Value>$2</Attribute.Value>
+      </Attribute>
+    </Replacement>
 
     <!--Name-->
-    <Reference Ref="$6" Type="TextRef">
+    <Reference Ref="$1" Type="TextRef">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue.Name textId=""/>
     </Reference>
     <!--value-->
-    <Reference Ref="$7">
+    <Reference Ref="$2">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue value=""/>
     </Reference>
 
-
-  </ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem>
+  </ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype.RecordItem.SimpleDatatype.SingleValue>
 
   <ProfileBody.DeviceFunction.ErrorTypeCollection.StdErrorTypeRef>
     <Replacement>
@@ -743,7 +742,6 @@
     </Reference>
 
   </ProfileBody.DeviceFunction.ErrorTypeCollection.StdErrorTypeRef>
-
 
   <ProfileBody.DeviceFunction.EventCollection.StdEventRef>
     <Replacement>
@@ -779,8 +777,11 @@
     <Replacement>
       <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
         <SystemUnitClassType.Attribute>
-          <Attribute CAEXObject.Name="accessRightRestriction" Attribute.AttributeDataType="xs:integer">
+          <Attribute CAEXObject.Name="accessRightRestriction" Attribute.AttributeDataType="xs:string">
             <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+          <Attribute CAEXObject.Name="unitCode" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
           </Attribute>
         </SystemUnitClassType.Attribute>
       </InternalElement>
@@ -794,7 +795,10 @@
     <Reference Ref="$2">
       <ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu.VariableRef accessRightRestriction=""/>
     </Reference>
-
+    <!--unitCode-->
+    <Reference Ref="$3">
+      <ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu.VariableRef unitCode=""/>
+    </Reference>
   </ProfileBody.DeviceFunction.UserInterface.MenuCollection.Menu.VariableRef>
 
   <ExternalTextCollection.PrimaryLanguage.Text>
@@ -813,5 +817,4 @@
       <ExternalTextCollection.PrimaryLanguage.Text value=""/>
     </Reference>
   </ExternalTextCollection.PrimaryLanguage.Text>
-
 </body>
