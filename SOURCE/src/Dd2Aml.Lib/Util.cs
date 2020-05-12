@@ -376,6 +376,27 @@ namespace Dd2Aml.Lib
                 Converter.Logger?.Log(LogLevel.Debug, $"Could not find the right DD node for this rule: {path}");
                 return null;
             }
+
+            if (filetype == 3)
+            {
+                var parent = (XmlElement) iteratorNode.ParentNode.ParentNode ?? iteratorNode;
+                while (iteratorNode.HasAttribute("visited") || parent.HasAttribute("visited"))
+                {
+                    parent = (XmlElement) parent.NextSibling;
+                }
+                for (var i = 3; i < splitStrings.Length; i++)
+                {
+                    for (var j = 0; j < parent.ChildNodes.Count; j++)
+                    {
+                        if (splitStrings[i] == parent.ChildNodes[j].Name)
+                        {
+                            parent = (XmlElement)parent.ChildNodes[j];
+                            break;
+                        }
+                    }
+                    iteratorNode = parent;
+                }
+            }
             return iteratorNode;
         }
 

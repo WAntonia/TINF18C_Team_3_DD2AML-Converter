@@ -332,6 +332,12 @@ namespace Dd2Aml.Lib
             }
 
             var preLastnode = (XmlElement) lastNode.ParentNode;
+
+            while (preLastnode.HasAttribute("visited"))
+            {
+                preLastnode = (XmlElement) preLastnode.NextSibling;
+            }
+
             var (ruleReplacement, _, refList) = Util.GetInformationFromRule(translationRule);
             var nodeList = preLastnode?.GetElementsByTagName(lastNode.Name);
 
@@ -343,13 +349,47 @@ namespace Dd2Aml.Lib
 
             foreach (XmlNode node in nodeList)
             {
-                var ruleReferences = Util.ParseReferences(refList, node);
-                var (_, ruleReplacementPropertyType, isRuleReplacementPropertyArray) = Util.GetProperty(ruleReplacement.Name);
-                var ruleReplacementInstance = Util.CreateInstance(ruleReplacementPropertyType, isRuleReplacementPropertyArray);
-                SetAttributes(ruleReplacement, ruleReplacementInstance, ruleReferences);
-                AddSubInstancesToInstance(ruleReplacement, ruleReplacementInstance, isRuleReplacementPropertyArray, ruleReferences);
-                replacementInstance.Add(ruleReplacementInstance);
+                if (Util.filetype == 3)
+                {
+                    if (lastNode.HasAttribute("visited"))
+                    {
+                        lastNode = (XmlElement)lastNode.NextSibling;
+                    }
+
+                    var ruleReferences = Util.ParseReferences(refList, lastNode);
+                    var (_, ruleReplacementPropertyType, isRuleReplacementPropertyArray) =
+                        Util.GetProperty(ruleReplacement.Name);
+                    var ruleReplacementInstance =
+                        Util.CreateInstance(ruleReplacementPropertyType, isRuleReplacementPropertyArray);
+                    SetAttributes(ruleReplacement, ruleReplacementInstance, ruleReferences);
+                    AddSubInstancesToInstance(ruleReplacement, ruleReplacementInstance, isRuleReplacementPropertyArray,
+                        ruleReferences);
+                    replacementInstance.Add(ruleReplacementInstance);
+
+                    lastNode.SetAttribute("visited", "true");
+                }
+                else
+                {
+                    var ruleReferences = Util.ParseReferences(refList, node);
+                    var (_, ruleReplacementPropertyType, isRuleReplacementPropertyArray) =
+                        Util.GetProperty(ruleReplacement.Name);
+                    var ruleReplacementInstance =
+                        Util.CreateInstance(ruleReplacementPropertyType, isRuleReplacementPropertyArray);
+                    SetAttributes(ruleReplacement, ruleReplacementInstance, ruleReferences);
+                    AddSubInstancesToInstance(ruleReplacement, ruleReplacementInstance, isRuleReplacementPropertyArray,
+                        ruleReferences);
+                    replacementInstance.Add(ruleReplacementInstance);
+
+                }
             }
+
+
+
+            if (preLastnode.Name == "Menu")
+            {
+                preLastnode.SetAttribute("visited", "true");
+            }
+
         }
 
         /// <summary>
