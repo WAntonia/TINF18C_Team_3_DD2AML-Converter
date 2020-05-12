@@ -59,6 +59,11 @@ namespace Dd2Aml.Lib
         {
             Util.RelativeFilePath = "/" + Path.GetFileName(inputFile);
 
+            if (inputFile.Contains(" "))
+            {
+
+            }
+
             Logger?.Log(LogLevel.Info, "Conversion to string started.");
             StartConversion(inputFile, Util.GetOutputFileName(inputFile), strictValidation);
 
@@ -89,6 +94,12 @@ namespace Dd2Aml.Lib
         public static void Convert(string inputFile, string outputFile, bool overwriteFile, bool strictValidation = true)
         {
             Util.RelativeFilePath = Path.GetFileName(inputFile);
+
+
+            if (Util.RelativeFilePath.Contains(" "))
+            {
+
+            }
 
             Logger?.Log(LogLevel.Info, "Conversion to file started.");
             StartConversion(inputFile, outputFile, strictValidation);
@@ -316,7 +327,7 @@ namespace Dd2Aml.Lib
             var lastNode = Util.IterateThroughGsdDocument(translationRule.Name);
             if (lastNode == null)
             {
-                Logger?.Log(LogLevel.Warning, $"Failed to iterate thorugh a rule path. {translationRule.Name}");
+                Logger?.Log(LogLevel.Warning, $"Failed to iterate through a rule path. {translationRule.Name}");
                 // throw new InvalidDataException("Failed to handle a rule call in translation table.");
             }
 
