@@ -158,14 +158,13 @@ namespace Dd2Aml.Cli
           
             OutputFile = parameter[COutputFileShort] ?? parameter[COutputFile];
 
-            CAEXVersion = parameter[CCAEXVersionShort] ?? parameter[CCAEXVersion];
-
-            if (!Args.Contains(CAEXVersion))
+            if (!Args.Contains(CCAEXVersion) && !Args.Contains(CCAEXVersionShort))
             {
                     Lib.Converter.CAEXVersion = 2;
             }
             else
             {
+                CAEXVersion = parameter[CCAEXVersionShort] ?? parameter[CCAEXVersion];
                 if (CAEXVersion == "3" || CAEXVersion == "2")
                 {
                     Lib.Converter.CAEXVersion = Int32.Parse(CAEXVersion);
