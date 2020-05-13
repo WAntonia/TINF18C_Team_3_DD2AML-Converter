@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<body xmlns:p="http://cc-link.org/cspplus/ver1/">
+
+  <p:file>
+    <Replacement>
+      <AdditionalInformation>
+        <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+        <SourceDocumentInformation
+          OriginName="DHBW Stuttgart TINF18C"
+          OriginID="Test"
+          OriginVendor="DD2AML TINF18C"
+          OriginVendorURL="https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter"
+          OriginVersion="1.0.0"
+          OriginRelease="1.0.0"
+          OriginProjectTitle="DD2AML Converter"
+          OriginProjectID="DD2AML Converter">
+        </SourceDocumentInformation>
+      </AdditionalInformation>
+    </Replacement>
+  </p:file>
+
+  <p:device>
+    <Replacement>
+      <CAEXFile.SystemUnitClassLib>
+        <SystemUnitClassLib CAEXObject.Name="ComponentSystemUnitClassLib">
+          <CAEXFile.SystemUnitClass>
+
+            <SystemUnitClass CAEXObject.Name="Device" CAEXObject.ID="GUID">
+              <SystemUnitClassType.InternalElement>
+
+                <InternalElement CAEXObject.Name="File Information" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.InternalElement>
+                    <Rule>file.fileInfo.fileInfoMember</Rule>
+                  </SystemUnitClassType.InternalElement>
+                </InternalElement>
+
+                <InternalElement CAEXObject.Name="Device Information" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.InternalElement>
+                    <Rule>device.deviceInfo.deviceInfoMember</Rule>
+                  </SystemUnitClassType.InternalElement>
+                </InternalElement>
+
+                <InternalElement CAEXObject.Name="CommIf Information" CAEXObject.ID="GUID">
+                  <SystemUnitClassType.InternalElement>
+                    <InternalElement CAEXObject.Name="CommIf Input" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.InternalElement>
+                        <Rule>commIf.commIfInfo.commIfInfoMember</Rule>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+
+                    <InternalElement CAEXObject.Name="CommIf Input" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.InternalElement>
+                        <Rule>commIf.commIfInput.commIfInputMember</Rule>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+
+                    <InternalElement CAEXObject.Name="CommIf Output" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.InternalElement>
+                        <Rule>commIf.commIfOutput.commIfOutputMember</Rule>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+
+                    <InternalElement CAEXObject.Name="CommIf Parameter" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.InternalElement>
+                        <Rule>commIf.commIfParameter.commIfParameterMember</Rule>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+
+                    <InternalElement CAEXObject.Name="CommIf Command" CAEXObject.ID="GUID">
+                      <SystemUnitClassType.InternalElement>
+                        <Rule>commIf.commIfCommand.commIfCommandMember</Rule>
+                      </SystemUnitClassType.InternalElement>
+                    </InternalElement>
+
+                  </SystemUnitClassType.InternalElement>
+                </InternalElement>
+
+              </SystemUnitClassType.InternalElement>
+            </SystemUnitClass>
+
+          </CAEXFile.SystemUnitClass>
+        </SystemUnitClassLib>
+      </CAEXFile.SystemUnitClassLib>
+    </Replacement>
+
+  </p:device>
+
+  <file.fileInfo.fileInfoMember>
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="Datatype" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+
+          <Attribute CAEXObject.Name="Value" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+
+        </SystemUnitClassType.Attribute>
+      </InternalElement>
+    </Replacement>
+
+    <!-- Name label-->
+    <Reference Ref="$1">
+      <file.fileInfo.fileInfoMember label=""/>
+    </Reference>
+
+    <!-- Datatype -->
+    <Reference Ref="$2" Type="InnerRef">
+      <file.fileInfo.fileInfoMember.datatype.item/>
+    </Reference>
+
+    <!-- Value -->
+    <Reference Ref="$3" Type="InnerRef">
+      <file.fileInfo.fileInfoMember.data.item/>
+    </Reference>
+
+  </file.fileInfo.fileInfoMember>
+
+  <device.deviceInfo.deviceInfoMember>
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="Datatype" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+
+          <Attribute CAEXObject.Name="Value" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+
+        </SystemUnitClassType.Attribute>
+      </InternalElement>
+    </Replacement>
+
+    <!-- Name label-->
+    <Reference Ref="$1">
+      <device.deviceInfo.deviceInfoMember label=""/>
+    </Reference>
+
+    <!-- Datatype -->
+    <Reference Ref="$2" Type="InnerRef">
+      <device.deviceInfo.deviceInfoMember.datatype.item/>
+    </Reference>
+
+    <!-- Value -->
+    <Reference Ref="$3" Type="InnerRef">
+      <device.deviceInfo.deviceInfoMember.data.item/>
+    </Reference>
+
+  </device.deviceInfo.deviceInfoMember>
+
+  <commIf.commIfInfo.commIfInfoMember>
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="Datatype" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+
+          <Attribute CAEXObject.Name="Value" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+
+        </SystemUnitClassType.Attribute>
+      </InternalElement>
+    </Replacement>
+
+    <!-- Name Attribute-->
+    <Reference Ref="$1">
+      <commIf.commIfInfo.commIfInfoMember label=""/>
+    </Reference>
+
+    <!-- Datatype -->
+    <Reference Ref="$2" Type="InnerRef">
+      <commIf.commIfInfo.commIfInfoMember.datatype.item/>
+    </Reference>
+
+    <!-- Value -->
+    <Reference Ref="$3" Type="InnerRef">
+      <commIf.commIfInfo.commIfInfoMember.data.item/>
+    </Reference>
+
+  </commIf.commIfInfo.commIfInfoMember>
+
+  <commIf.commIfInput.commIfInputMember>
+
+    <Replacement>
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="Name" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Datatype" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Access" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$4</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Assign" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$5</Attribute.Value>
+          </Attribute>
+        </SystemUnitClassType.Attribute>
+
+      </InternalElement>
+    </Replacement>
+
+    <!-- Name label-->
+    <Reference Ref="$1">
+      <commIf.commIfInput.commIfInputMember label=""/>
+    </Reference>
+
+    <!-- Name-->
+    <Reference Ref="$2" Type="InnerRef">
+      <commIf.commIfInput.commIfInputMember.name.item/>
+    </Reference>
+
+    <!-- Datatype -->
+    <Reference Ref="$3" Type="InnerRef">
+      <commIf.commIfInput.commIfInputMember.datatype.item/>
+    </Reference>
+
+    <!-- Access -->
+    <Reference Ref="$4" Type="InnerRef">
+      <commIf.commIfInput.commIfInputMember.access.item/>
+    </Reference>
+
+    <!-- Assign -->
+    <Reference Ref="$5" Type="InnerRef">
+      <commIf.commIfInput.commIfInputMember.assign.item/>
+    </Reference>
+
+  </commIf.commIfInput.commIfInputMember>
+
+  <commIf.commIfOutput.commIfOutputMember>
+    <Replacement>
+
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="Name" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Datatype" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Access" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$4</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Assign" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$5</Attribute.Value>
+          </Attribute>
+
+        </SystemUnitClassType.Attribute>
+      </InternalElement>
+    </Replacement>
+
+    <!-- Name label-->
+    <Reference Ref="$1">
+      <commIf.commIfOutput.commIfOutputMember label=""/>
+    </Reference>
+
+    <!--Name-->
+    <Reference Ref="$2" Type="InnerRef">
+      <commIf.commIfOutput.commIfOutputMember.name.item/>
+    </Reference>
+
+    <!-- Datatype -->
+    <Reference Ref="$3" Type="InnerRef">
+      <commIf.commIfOutput.commIfOutputMember.datatype.item/>
+    </Reference>
+
+    <!-- Access -->
+    <Reference Ref="$4" Type="InnerRef">
+      <commIf.commIfOutput.commIfOutputMember.access.item/>
+    </Reference>
+
+    <!-- Assign -->
+    <Reference Ref="$5" Type="InnerRef">
+      <commIf.commIfOutput.commIfOutputMember.assign.item/>
+    </Reference>
+
+  </commIf.commIfOutput.commIfOutputMember>
+
+  <commIf.commIfCommand.commIfCommandMember>
+    <Replacement>
+
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="Name" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Argument" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+        </SystemUnitClassType.Attribute>
+
+      </InternalElement>
+    </Replacement>
+
+    <!-- Name label -->
+    <Reference Ref="$1">
+      <commIf.commIfCommand.commIfCommandMember label=""/>
+    </Reference>
+
+    <!-- Name -->
+    <Reference Ref="$2" Type="InnerRef">
+      <commIf.commIfCommand.commIfCommandMember.name.item/>
+    </Reference>
+
+    <!-- Argument -->
+    <Reference Ref="$3" Type="InnerRef">
+      <commIf.commIfCommand.commIfCommandMember.argument.item/>
+    </Reference>
+
+  </commIf.commIfCommand.commIfCommandMember>
+
+  <commIf.commIfParameter.commIfParameterMember>
+    <Replacement>
+
+      <InternalElement CAEXObject.Name="$1" CAEXObject.ID="GUID">
+
+        <SystemUnitClassType.Attribute>
+          <Attribute CAEXObject.Name="Name" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$2</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Datatype" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$3</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="default" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$4</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Range" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$5</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Access" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$6</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Assign" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$7</Attribute.Value>
+          </Attribute>
+
+          <Attribute CAEXObject.Name="Comment" Attribute.AttributeDataType="xs:string">
+            <Attribute.Value>$8</Attribute.Value>
+          </Attribute>
+
+        </SystemUnitClassType.Attribute>
+
+      </InternalElement>
+    </Replacement>
+
+    <!-- Name label -->
+    <Reference Ref="$1">
+      <commIf.commIfParameter.commIfParameterMember label=""/>
+    </Reference>
+
+    <!-- Name -->
+    <Reference Ref="$2" Type="InnerRef">
+      <commIf.commIfParameter.commIfParameterMember.name.item/>
+    </Reference>
+
+    <!-- Datatype -->
+    <Reference Ref="$3" Type="InnerRef">
+      <commIf.commIfParameter.commIfParameterMember.datatype.item/>
+    </Reference>
+
+    <!--default-->
+    <Reference Ref="$4" Type="InnerRef">
+      <commIf.commIfParameter.commIfParameterMember.default.item/>
+    </Reference>
+
+    <!--Range-->
+    <Reference Ref="$5" Type="InnerRef">
+      <commIf.commIfParameter.commIfParameterMember.range.enumRefItem/>
+    </Reference>
+
+    <!--Access-->
+    <Reference Ref="$6" Type="InnerRef">
+      <commIf.commIfParameter.commIfParameterMember.access.item/>
+    </Reference>
+
+    <!--Assign-->
+    <Reference Ref="$7" Type="InnerRef">
+      <commIf.commIfParameter.commIfParameterMember.assign.item/>
+    </Reference>
+
+    <!--comment-->
+    <Reference Ref="$8" Type="InnerRef">
+      <commIf.commIfParameter.commIfParameterMember.comment.item/>
+    </Reference>
+  </commIf.commIfParameter.commIfParameterMember>
+</body>
+
