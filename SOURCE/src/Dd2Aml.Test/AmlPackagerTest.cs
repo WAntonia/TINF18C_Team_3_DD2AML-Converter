@@ -21,7 +21,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using Dd2Aml.Lib;
-using Gsd2Aml.Lib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Dd2Aml.Test
