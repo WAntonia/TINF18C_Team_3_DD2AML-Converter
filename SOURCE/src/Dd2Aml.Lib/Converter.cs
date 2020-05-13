@@ -26,6 +26,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using Dd2Aml.Lib.Logging;
 using Dd2Aml.Lib.Models;
+using Dd2Aml.Lib.Models.CAEX3;
 
 namespace Dd2Aml.Lib
 {
@@ -58,6 +59,15 @@ namespace Dd2Aml.Lib
         {
             Util.RelativeFilePath = "/" + Path.GetFileName(inputFile);
 
+            if (Util.RelativeFilePath.Contains(" "))
+            {
+                int index = Util.RelativeFilePath.IndexOf(" ");
+                index += 1;
+                String message = "The given DD-filename includes a space at position " + index + ". Please, rename your file and try again.";
+                Logger?.Log(LogLevel.Error, message);
+                throw new InvalidDataException(message);
+            }
+
             Logger?.Log(LogLevel.Info, "Conversion to string started.");
             StartConversion(inputFile, Util.GetOutputFileName(inputFile), strictValidation);
 
@@ -87,8 +97,18 @@ namespace Dd2Aml.Lib
         /// <param name="strictValidation">A flag which indicates if the DD should be checked for correctness.</param>
         public static void Convert(string inputFile, string outputFile, bool overwriteFile, bool strictValidation = true)
         {
+
             Util.RelativeFilePath = Path.GetFileName(inputFile);
 
+            if (Util.RelativeFilePath.Contains(" "))
+            {
+                int index = Util.RelativeFilePath.IndexOf(" ");
+                index += 1;
+                String message = "The given DD-filename includes a space at position "+ index +". Please, rename your file and try again.";
+                Logger?.Log(LogLevel.Error, message);
+                throw new InvalidDataException(message);
+            }
+            
             Logger?.Log(LogLevel.Info, "Conversion to file started.");
             StartConversion(inputFile, outputFile, strictValidation);
 
@@ -99,6 +119,7 @@ namespace Dd2Aml.Lib
                 serializer = new XmlSerializer(AmlObject3.GetType());
             }
             var temporaryPath = Path.Combine(Path.GetTempPath(), Path.GetFileNameWithoutExtension(outputFile) + ".aml");
+            var inputPath = Path.GetDirectoryName(inputFile);
 
             using (var textWriter = new StreamWriter(temporaryPath))
             {
@@ -110,18 +131,25 @@ namespace Dd2Aml.Lib
                 {
                     serializer.Serialize(textWriter, AmlObject3);
                 }
-
-
             }
 
             var resources = new List<string> {inputFile};
 
-            foreach (XmlNode xmlNode in Util.IterateThroughGsdDocument(Util.CGraphicPath).GetElementsByTagName(Util.CRealGraphicName))
+            if (Util.filetype != 3)
             {
-                var xmlNodeAttributes = xmlNode.Attributes;
-                var file = xmlNodeAttributes?[Util.CRealValueGraphicName].Value;
-                file += string.IsNullOrEmpty(Path.GetExtension(file)) ? ".bmp" : string.Empty;
-                resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
+                foreach (XmlNode xmlNode in Util.IterateThroughGsdDocument(Util.CGraphicPath).GetElementsByTagName(Util.CRealGraphicName)) 
+                {
+                    var xmlNodeAttributes = xmlNode.Attributes;
+                    var file = xmlNodeAttributes?[Util.CRealValueGraphicName].Value;
+                    file += string.IsNullOrEmpty(Path.GetExtension(file)) ? ".bmp" : string.Empty;
+                    resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
+                }
+            } 
+            else if (Util.filetype == 3)
+            {
+                var files = Directory.GetFiles(inputPath, "*.png", SearchOption.AllDirectories);
+                var ImageFile = files[0];
+                resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), ImageFile));
             }
 
             AMLPackager.Compress(temporaryPath, outputFile, resources.ToArray(), overwriteFile);
@@ -307,11 +335,17 @@ namespace Dd2Aml.Lib
             var lastNode = Util.IterateThroughGsdDocument(translationRule.Name);
             if (lastNode == null)
             {
-                Logger?.Log(LogLevel.Warning, $"Failed to iterate thorugh a rule path. {translationRule.Name}");
+                Logger?.Log(LogLevel.Warning, $"Failed to iterate through a rule path. {translationRule.Name}");
                 // throw new InvalidDataException("Failed to handle a rule call in translation table.");
             }
 
             var preLastnode = (XmlElement) lastNode.ParentNode;
+
+            while (preLastnode.HasAttribute("visited"))
+            {
+                preLastnode = (XmlElement) preLastnode.NextSibling;
+            }
+
             var (ruleReplacement, _, refList) = Util.GetInformationFromRule(translationRule);
             var nodeList = preLastnode?.GetElementsByTagName(lastNode.Name);
 
@@ -323,13 +357,47 @@ namespace Dd2Aml.Lib
 
             foreach (XmlNode node in nodeList)
             {
-                var ruleReferences = Util.ParseReferences(refList, node);
-                var (_, ruleReplacementPropertyType, isRuleReplacementPropertyArray) = Util.GetProperty(ruleReplacement.Name);
-                var ruleReplacementInstance = Util.CreateInstance(ruleReplacementPropertyType, isRuleReplacementPropertyArray);
-                SetAttributes(ruleReplacement, ruleReplacementInstance, ruleReferences);
-                AddSubInstancesToInstance(ruleReplacement, ruleReplacementInstance, isRuleReplacementPropertyArray, ruleReferences);
-                replacementInstance.Add(ruleReplacementInstance);
+                if (Util.filetype == 3)
+                {
+                    if (lastNode.HasAttribute("visited"))
+                    {
+                        lastNode = (XmlElement)lastNode.NextSibling;
+                    }
+
+                    var ruleReferences = Util.ParseReferences(refList, lastNode);
+                    var (_, ruleReplacementPropertyType, isRuleReplacementPropertyArray) =
+                        Util.GetProperty(ruleReplacement.Name);
+                    var ruleReplacementInstance =
+                        Util.CreateInstance(ruleReplacementPropertyType, isRuleReplacementPropertyArray);
+                    SetAttributes(ruleReplacement, ruleReplacementInstance, ruleReferences);
+                    AddSubInstancesToInstance(ruleReplacement, ruleReplacementInstance, isRuleReplacementPropertyArray,
+                        ruleReferences);
+                    replacementInstance.Add(ruleReplacementInstance);
+
+                    lastNode.SetAttribute("visited", "true");
+                }
+                else
+                {
+                    var ruleReferences = Util.ParseReferences(refList, node);
+                    var (_, ruleReplacementPropertyType, isRuleReplacementPropertyArray) =
+                        Util.GetProperty(ruleReplacement.Name);
+                    var ruleReplacementInstance =
+                        Util.CreateInstance(ruleReplacementPropertyType, isRuleReplacementPropertyArray);
+                    SetAttributes(ruleReplacement, ruleReplacementInstance, ruleReferences);
+                    AddSubInstancesToInstance(ruleReplacement, ruleReplacementInstance, isRuleReplacementPropertyArray,
+                        ruleReferences);
+                    replacementInstance.Add(ruleReplacementInstance);
+
+                }
             }
+
+
+
+            if (preLastnode.Name == "Menu")
+            {
+                preLastnode.SetAttribute("visited", "true");
+            }
+
         }
 
         /// <summary>
@@ -384,7 +452,7 @@ namespace Dd2Aml.Lib
         /// <summary>
         /// This function sets the attributes of a replacement node to the translation instance.
         /// This function assumes that all attributes are of type string.
-        /// If not, then please contact the developers <see href="https://github.com/TINF17C/GSD2AML-Converter"/>.
+        /// If not, then please contact the developers <see href="https://github.com/WAntonia/TINF18C_Team_3_DD2AML-Converter"/>.
         /// </summary>
         /// <param name="replacement">The replacement node of the translation table which will be used to set those attributes to the instance.</param>
         /// <param name="translationInstance">The instance in which the attributes will be set.</param>

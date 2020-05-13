@@ -246,13 +246,12 @@ namespace Dd2Aml.Lib
                         break;
                     case "InnerRef":
                         var refereneceFirstChild = reference.FirstChild;
-                        var cspp = xmlNode ?? IterateThroughGsdDocument(refereneceFirstChild.Name);
+                        var cspp = IterateThroughGsdDocument(refereneceFirstChild.Name);
 
-                        if (cspp.InnerXml != "")
+                        if (cspp.InnerText != "")
                         {
                             references.Add(referenceId, cspp.InnerText);
                         }
-
                         break;
                     case null:
                         var referenceChild = reference.FirstChild;
@@ -339,7 +338,7 @@ namespace Dd2Aml.Lib
         /// <summary>
         /// Iterates through the DD document with the given path.
         /// </summary>
-        /// <param name="path">The by dots seperated path through the DD docment.</param>
+        /// <param name="path">The by dots seperated path through the DD document.</param>
         /// <param name="alternativeIterator">Optional parameter. If it is set the iteration starts from there.</param>
         /// <returns>The last XmlNode of the path.</returns>
         internal static XmlElement IterateThroughGsdDocument(string path, XmlElement alternativeIterator = null)
@@ -353,7 +352,14 @@ namespace Dd2Aml.Lib
                     splitStrings[i] = "p:" + splitStrings[i];
                 }
             }
-            var iteratorNode = alternativeIterator ?? Converter.GsdDocument.DocumentElement;
+
+            var iteratorNode = Converter.GsdDocument.DocumentElement;
+
+            if (alternativeIterator != null)
+            {
+                iteratorNode = alternativeIterator;
+                splitStrings = splitStrings.Skip(Array.IndexOf(splitStrings, alternativeIterator.Name) + 1).Take(splitStrings.Length).ToArray();
+            }
 
             if (iteratorNode == null)
             {
@@ -370,6 +376,27 @@ namespace Dd2Aml.Lib
                 Converter.Logger?.Log(LogLevel.Debug, $"Could not find the right DD node for this rule: {path}");
                 return null;
             }
+
+            if (filetype == 3)
+            {
+                var parent = (XmlElement) iteratorNode.ParentNode.ParentNode ?? iteratorNode;
+                while (iteratorNode.HasAttribute("visited") || parent.HasAttribute("visited"))
+                {
+                    parent = (XmlElement) parent.NextSibling;
+                }
+                for (var i = 3; i < splitStrings.Length; i++)
+                {
+                    for (var j = 0; j < parent.ChildNodes.Count; j++)
+                    {
+                        if (splitStrings[i] == parent.ChildNodes[j].Name)
+                        {
+                            parent = (XmlElement)parent.ChildNodes[j];
+                            break;
+                        }
+                    }
+                    iteratorNode = parent;
+                }
+            }
             return iteratorNode;
         }
 
@@ -379,7 +406,6 @@ namespace Dd2Aml.Lib
         /// <param name="inputFile">The path to the DD file.</param>
         internal static void CheckGsdFileForCorrectness(string inputFile)
         {
-            // filetype  1 = GSD; 2 = IODD; 3 = CSP+
             var xmlDocument = new XmlDocument();
             xmlDocument.Load(inputFile);
 
@@ -444,9 +470,16 @@ namespace Dd2Aml.Lib
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyFolder = Path.GetDirectoryName(assembly.Location);
 
-            if ( filetype == 1) 
-            { 
-                CTranslationTableFileName = "gsd2aml.xml";
+            if ( filetype == 1)
+            {
+                if(Converter.CAEXVersion == 2)
+                {
+                    CTranslationTableFileName = "gsd2aml.xml";
+                }
+                else if (Converter.CAEXVersion == 3)
+                {
+                    CTranslationTableFileName = "gsd2aml3.xml";
+                }
                 CReferenceTextId = "TextId";
                 CTextPath = "ProfileBody.ApplicationProcess.ExternalTextList.PrimaryLanguage";
                 CRealTextId = "TextId";
@@ -457,7 +490,14 @@ namespace Dd2Aml.Lib
             }
             else if (filetype == 2)
             {
-                CTranslationTableFileName = "iodd2aml.xml";
+                if (Converter.CAEXVersion == 2)
+                {
+                    CTranslationTableFileName = "iodd2aml.xml";
+                }
+                else if (Converter.CAEXVersion == 3)
+                {
+                    CTranslationTableFileName = "iodd2aml3.xml";
+                }
                 CReferenceTextId = "textId";
                 CTextPath = "ExternalTextCollection.PrimaryLanguage";
                 CRealTextId = "id";
@@ -468,7 +508,17 @@ namespace Dd2Aml.Lib
             }
             else if (filetype == 3)
             {
-                CTranslationTableFileName = "cspp2aml.xml";
+                if (Converter.CAEXVersion == 2)
+                {
+                    CTranslationTableFileName = "cspp2aml.xml";
+                }
+                else if (Converter.CAEXVersion == 3)
+                {
+                    CTranslationTableFileName = "cspp2aml3.xml";
+                }
+
+                CGraphicPath = "device.deviceInfo.deviceInfoMember";
+                CRealGraphicName = "label";
             }
 
             if (assemblyFolder != null)
@@ -512,21 +562,30 @@ namespace Dd2Aml.Lib
 
             var fileName = Path.GetFileNameWithoutExtension(inputFile);
 
-            if(Regex.IsMatch(fileName, $"(.+(GSDML|gsdml)-.)"))
+            if(Regex.IsMatch(fileName, $"((GSDML|gsdml)-.)"))
             {
                 fileName = fileName.StartsWith("GSDML-", StringComparison.InvariantCultureIgnoreCase)
                             ? fileName.Remove(0, "GSDML-".Length)
                             : fileName;
                 fileName += ".aml";
             }
-            if (Regex.IsMatch(fileName, $"(.+.-(IODD|iodd).)")){
-                fileName = fileName.StartsWith("GSDML-", StringComparison.InvariantCultureIgnoreCase)
-                ? fileName.Remove(0, "GSDML-".Length)
-                : fileName;
+            else if (Regex.IsMatch(fileName, $"(.+.-(IODD|iodd).)")){
+                fileName = fileName.EndsWith("-IODD1.1", StringComparison.InvariantCultureIgnoreCase)
+                    ? fileName.Remove(fileName.Length-8, "-IODD1.1".Length)
+                    : fileName;
+                fileName = fileName.EndsWith("-IODD1.0.1", StringComparison.InvariantCultureIgnoreCase)
+                    ? fileName.Remove(fileName.Length - 10, "-IODD1.0.1".Length) 
+                    : fileName;
                 fileName += ".aml";
             }
-
-
+            else if (Regex.IsMatch(fileName, $"(.+{Regex.Escape(".cspp")})"))
+            {
+                fileName += ".aml";
+            }
+            else
+            {
+                fileName += ".aml";
+            }
             var directoryName = Path.GetDirectoryName(inputFile);
 
             if (!string.IsNullOrEmpty(directoryName)) return Path.Combine(directoryName, fileName);

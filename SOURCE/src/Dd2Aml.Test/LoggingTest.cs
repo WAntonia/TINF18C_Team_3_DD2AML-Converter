@@ -1,6 +1,8 @@
 ﻿/*
  *  Copyright (C) 2019 GSD2AML Team (Nico Dietz, Steffen Gerdes, Constantin Ruhdorfer,
  *  Jonas Komarek, Phuc Quang Vu, Michael Weidmann)
+ *  2020 DD2AML Team (Antonia Wermerskirch, Nora Baitinger,
+ *  Bastiane Storz, Lara Mack)
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
@@ -60,7 +62,7 @@ namespace Dd2Aml.Test
             logger.Log(LogLevel.Trace, logMessage7);
             LogManager.Flush();
 
-            var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GSD2AML", "Logs", "CLI", filename);
+            var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DD2AML", "Logs", "CLI", filename);
             if (File.Exists(filepath))
             {
                 var logText = File.ReadAllText(filepath);
@@ -128,7 +130,7 @@ namespace Dd2Aml.Test
             logger.Log(LogLevel.Trace, logMessage7);
             LogManager.Flush();
 
-            var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GSD2AML", "Logs", "GUI", filename);
+            var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DD2AML", "Logs", "GUI", filename);
             if (File.Exists(filepath))
             {
                 var logText = File.ReadAllText(filepath);

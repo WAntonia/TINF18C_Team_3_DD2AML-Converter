@@ -1996,6 +1996,9 @@ namespace Dd2Aml.Lib.Models.CAEX3
         public CAEXFile CAEXFile { get; set; }
 
         // First rule
+        public string SuperiorStandardVersion { get; set; }
+
+        // First rule
         public SourceDocumentInformationType SourceDocumentInformation { get; set; }
 
         // Second rule

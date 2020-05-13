@@ -21,7 +21,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using Dd2Aml.Lib;
-using Gsd2Aml.Lib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Dd2Aml.Test
@@ -30,7 +29,7 @@ namespace Dd2Aml.Test
     /// Tests the compressor.
     /// </summary>
     [TestClass]
-    public class CompressorTest
+    public class AmlPackagerTest
     {
         /// <summary>
         /// A full end-to-end test of the compressor.
