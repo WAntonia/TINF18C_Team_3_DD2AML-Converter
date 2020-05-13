@@ -66,7 +66,7 @@ Contains the utility functionality.
 These two folders contain the rulesset files.
 Please have a look below.
 
-## GSD2AML Rules
+## Conversion Rules
 
 The rules for conversion are written in XML and are listed here.
 
