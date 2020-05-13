@@ -64,7 +64,7 @@ Contains the utility functionality.
 This is the rulesset file.
 Please have a look below.
 
-## GSD2AML Rules
+## Conversion Rules
 
 The rules for conversion are written in XML and are listed here.
 
