@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>b9dc7cef-9be1-4d94-8e94-80244b828e6e</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>DdAml.Setup</OutputName>
+    <OutputName>Dd2Aml.Setup</OutputName>
     <OutputType>Package</OutputType>
     <Name>Dd2Aml.Setup</Name>
   </PropertyGroup>
