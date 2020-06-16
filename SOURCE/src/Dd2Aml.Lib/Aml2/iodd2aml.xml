@@ -614,9 +614,9 @@
             <Attribute.Value>$6</Attribute.Value>
           </Attribute>
 
-          <Attribute CAEXObject.Name="Description" Attribute.AttributeDataType="xs:string">
+          <!--<Attribute CAEXObject.Name="Description" Attribute.AttributeDataType="xs:string">
             <Attribute.Value>$7</Attribute.Value>
-          </Attribute>
+          </Attribute>-->
 
           <Attribute CAEXObject.Name="xsi:type" Attribute.AttributeDataType="xs:string">
             <Attribute.Value>$8</Attribute.Value>
@@ -658,10 +658,10 @@
     <Reference Ref="$6" Type="TextRef">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Name textId=""/>
     </Reference>
-    <!--VariableDescription-->
+    <!--VariableDescription
     <Reference Ref="$7" Type="TextRef" >
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Description textId=""/>
-    </Reference>
+    </Reference>-->
     <!--xsi:type-->
     <Reference Ref="$8">
       <ProfileBody.DeviceFunction.VariableCollection.Variable.Datatype xsi:type=""/>

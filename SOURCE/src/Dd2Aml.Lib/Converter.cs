@@ -139,10 +139,14 @@ namespace Dd2Aml.Lib
             {
                 foreach (XmlNode xmlNode in Util.IterateThroughGsdDocument(Util.CGraphicPath).GetElementsByTagName(Util.CRealGraphicName)) 
                 {
+
                     var xmlNodeAttributes = xmlNode.Attributes;
-                    var file = xmlNodeAttributes?[Util.CRealValueGraphicName].Value;
-                    file += string.IsNullOrEmpty(Path.GetExtension(file)) ? ".bmp" : string.Empty;
-                    resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
+                    if(xmlNodeAttributes.Count > 1)
+                    {
+                         var file = xmlNodeAttributes?[Util.CRealValueGraphicName].Value;
+                         file += string.IsNullOrEmpty(Path.GetExtension(file)) ? ".bmp" : string.Empty;
+                         resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
+                    }
                 }
             } 
             else if (Util.filetype == 3)
@@ -310,6 +314,7 @@ namespace Dd2Aml.Lib
                 else
                 {
                     subProperty.SetValue(replacementInstance, subPropertyInstance);
+                
                 }
                 Logger?.Log(LogLevel.Debug, $"Successfully set or added {childNode.Name} to {replacement.Name}.");
             }
@@ -337,13 +342,21 @@ namespace Dd2Aml.Lib
             {
                 Logger?.Log(LogLevel.Warning, $"Failed to iterate through a rule path. {translationRule.Name}");
                 // throw new InvalidDataException("Failed to handle a rule call in translation table.");
+                return;
             }
 
             var preLastnode = (XmlElement) lastNode.ParentNode;
 
             while (preLastnode.HasAttribute("visited"))
             {
-                preLastnode = (XmlElement) preLastnode.NextSibling;
+                if (preLastnode.NextSibling.Name != "#comment")
+                {
+                    preLastnode = (XmlElement)preLastnode.NextSibling;
+                }
+                else
+                {
+                    preLastnode = (XmlElement)preLastnode.NextSibling.NextSibling;
+                }
             }
 
             var (ruleReplacement, _, refList) = Util.GetInformationFromRule(translationRule);

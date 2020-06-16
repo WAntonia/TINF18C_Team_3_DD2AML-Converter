@@ -311,6 +311,7 @@ namespace Dd2Aml.Lib
             {
                 Converter.Logger?.Log(LogLevel.Warning, $"Reference element does not have a valid reference id.");
                 throw new InvalidDataException($"Reference element does not have a valid id.");
+
             }
 
             var realNode = IterateThroughGsdDocument(path);
