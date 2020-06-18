@@ -299,12 +299,23 @@ namespace Dd2Aml.Lib
         {
             var refNode = xmlNode ?? IterateThroughGsdDocument(reference.FirstChild.Name);
 
+            if (refNode == null)
+            {
+                return null;
+            }
             if (!refNode.Name.EndsWith(reference.FirstChild.Name.Split('.').Last()))
             {
                 refNode = IterateThroughGsdDocument(reference.FirstChild.Name, (XmlElement)xmlNode);
             }
 
-            if (refNode.Attributes == null) return null;
+            if(refNode == null)
+            {
+                return null;
+            }
+            if (refNode.Attributes == null)
+            {
+                return null;
+            }
             var refId = refNode.Attributes[referenceIdName]?.Value;
 
             if (refId == null)
