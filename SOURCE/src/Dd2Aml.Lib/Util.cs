@@ -247,11 +247,15 @@ namespace Dd2Aml.Lib
                     case "InnerRef":
                         var refereneceFirstChild = reference.FirstChild;
                         var cspp = IterateThroughGsdDocument(refereneceFirstChild.Name);
-
-                        if (cspp.InnerText != "")
+                        
+                        if(cspp != null)
                         {
-                            references.Add(referenceId, cspp.InnerText);
+                            if (cspp.InnerText != "")
+                            {
+                                references.Add(referenceId, cspp.InnerText);
+                            }
                         }
+                        
                         break;
                     case null:
                         var referenceChild = reference.FirstChild;

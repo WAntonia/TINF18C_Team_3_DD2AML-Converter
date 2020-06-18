@@ -137,7 +137,7 @@ namespace Dd2Aml.Lib
 
             if (Util.filetype != 3)
             {
-                if(Util.IterateThroughGsdDocument(Util.CGraphicPath) != null) 
+                if (Util.IterateThroughGsdDocument(Util.CGraphicPath) != null)
                 {
                     foreach (XmlNode xmlNode in Util.IterateThroughGsdDocument(Util.CGraphicPath).GetElementsByTagName(Util.CRealGraphicName))
                     {
@@ -155,6 +155,10 @@ namespace Dd2Aml.Lib
             else if (Util.filetype == 3)
             {
                 var files = Directory.GetFiles(inputPath, "*.png", SearchOption.AllDirectories);
+                if (files.Length < 1)
+                {
+                    files = Directory.GetFiles(inputPath, "*.bmp", SearchOption.AllDirectories);
+                }
                 var ImageFile = files[0];
                 resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), ImageFile));
             }
