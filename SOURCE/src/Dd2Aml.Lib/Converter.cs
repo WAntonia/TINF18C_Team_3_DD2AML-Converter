@@ -137,15 +137,18 @@ namespace Dd2Aml.Lib
 
             if (Util.filetype != 3)
             {
-                foreach (XmlNode xmlNode in Util.IterateThroughGsdDocument(Util.CGraphicPath).GetElementsByTagName(Util.CRealGraphicName)) 
+                if(Util.IterateThroughGsdDocument(Util.CGraphicPath) != null) 
                 {
-
-                    var xmlNodeAttributes = xmlNode.Attributes;
-                    if(xmlNodeAttributes.Count > 1)
+                    foreach (XmlNode xmlNode in Util.IterateThroughGsdDocument(Util.CGraphicPath).GetElementsByTagName(Util.CRealGraphicName))
                     {
-                         var file = xmlNodeAttributes?[Util.CRealValueGraphicName].Value;
-                         file += string.IsNullOrEmpty(Path.GetExtension(file)) ? ".bmp" : string.Empty;
-                         resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
+
+                        var xmlNodeAttributes = xmlNode.Attributes;
+                        if (xmlNodeAttributes.Count > 1)
+                        {
+                            var file = xmlNodeAttributes?[Util.CRealValueGraphicName].Value;
+                            file += string.IsNullOrEmpty(Path.GetExtension(file)) ? ".bmp" : string.Empty;
+                            resources.Add(Path.Combine(Path.GetDirectoryName(inputFile) ?? throw new InvalidOperationException("Invalid input file path."), file));
+                        }
                     }
                 }
             } 
