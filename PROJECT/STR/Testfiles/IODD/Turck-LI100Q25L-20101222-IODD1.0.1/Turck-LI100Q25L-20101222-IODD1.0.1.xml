@@ -1,0 +1,1478 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+	<DocumentInfo version="V00.0203" releaseDate="2010-12-22" copyright="&#169; 2010, Werner Turck GmbH  Co. &amp; KG" />
+	<ProfileHeader>
+		<ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for IO-Link Devices</ProfileName>
+		<ProfileSource>IO-Link Consortium</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>1</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>IODD</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity vendorId="317" vendorName="Turck" deviceId="655360">
+			<VendorText textId="TI_VendorText"/>
+			<VendorUrl textId="TI_VendorUrl"/>
+			<VendorLogo name="Turck-logo.png"/>
+			<DeviceFamily textId="TI_DeviceFamily"/>
+			<DeviceVariantCollection>
+				<DeviceVariant productId="n.a." firmwareRevision="n.a" deviceSymbol="Li-pic.png" deviceIcon="Li-icon.png">
+					<ProductName textId="TI_Li_Name"/>
+					<ProductText textId="TI_Li_Text"/>
+				</DeviceVariant>
+			</DeviceVariantCollection>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<DatatypeCollection>
+				<Datatype xsi:type="UIntegerT" id="DT_ProcessDataIn"  bitLength="16">
+					<ValueRange lowerValue="0" upperValue="65532">
+					<Name textId="T_PROC" />
+					</ValueRange>
+					<SingleValue value="65533">
+					<Name textId="T_PROCE1" />
+					</SingleValue>
+					<SingleValue value="65534">
+					<Name textId="T_PROCE2" />
+					</SingleValue>
+					<SingleValue value="65535">
+					<Name textId="T_PROCE3" />
+					</SingleValue>
+				</Datatype>
+			</DatatypeCollection>
+			<VariableCollection>
+				
+				<StdVariableRef id="V_DirectParameters_1" />
+				<StdVariableRef id="V_DirectParameters_2" />
+				<StdVariableRef id="V_SystemCommand" />
+				<StdVariableRef id="V_VendorName"/>
+				<StdVariableRef id="V_VendorText"/>
+				<StdVariableRef id="V_ProductName" />
+				<StdVariableRef id="V_ProductID" />
+				<StdVariableRef id="V_ProductText" />
+				<StdVariableRef id="V_SerialNumber" />
+				<StdVariableRef id="V_FirmwareRevision" />
+				<StdVariableRef id="V_ApplicationSpecificName" fixedLengthRestriction="31" />
+				<StdVariableRef id="V_ProcessDataIn" />
+				
+				<Variable id="Var_TEMP" index="72" accessRights="ro"  dynamic="true">
+					<Datatype xsi:type="IntegerT" bitLength="8">
+						<ValueRange lowerValue="-40" upperValue="100">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_TEMP" />
+					<Description textId="TI_TEMP_desc" />
+				</Variable>
+				
+				<Variable id="Var_SW_MODE" index="90" accessRights="rw"  dynamic="false">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T10_0" />
+						</SingleValue>
+						<SingleValue value="1">
+						<Name textId="T10_1" />
+						</SingleValue>
+						
+					</Datatype>
+					<Name textId="TI_SW_MODE" />
+					<Description textId="TI_SW_MODE_desc" />
+				</Variable>	
+				
+				<Variable id="Var_HYST" index="91" accessRights="rw"  dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="-100000" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_HYST" />
+					<Description textId="TI_HYST_desc" />
+				</Variable>	
+				
+				<Variable id="Var_WR_LOCK" index="81" accessRights="rw" defaultValue="1" dynamic="false">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T9_0" />
+						</SingleValue>
+						<SingleValue value="1">
+						<Name textId="T9_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_WR_LOCK" />
+					<Description textId="TI_WR_LOCK_desc" />
+				</Variable>	
+				
+				<Variable id="Var_OU1_HW_SETUP" index="100" accessRights="rw" dynamic="false">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T1_0" />
+						</SingleValue>
+						<SingleValue value="1">
+						<Name textId="T1_1" />
+						</SingleValue>
+				
+					</Datatype>
+					<Name textId="TI_OU1_HW_SETUP" />
+					<Description textId="TI_OU1_HW_SETUP_desc" />
+				</Variable>	
+			
+				<Variable id="Var_OU2_HW_SETUP" index="102" accessRights="rw" dynamic="false" defaultValue="5">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T1_0" />
+						</SingleValue>
+						<SingleValue value="1">
+						<Name textId="T1_1" />
+						</SingleValue>
+						<SingleValue value="2">
+						<Name textId="T1_2" />
+						</SingleValue>
+						<SingleValue value="3">
+						<Name textId="T1_3" />
+						</SingleValue>
+						<SingleValue value="4">
+						<Name textId="T1_4" />
+						</SingleValue>
+						<SingleValue value="5">
+						<Name textId="T1_5" />
+						</SingleValue>							
+						</Datatype>
+					<Name textId="TI_OU2_HW_SETUP" />
+					<Description textId="TI_OU2_HW_SETUP_desc" />
+				</Variable>	
+		
+				<Variable id="Var_OU2_AN_FUNC" index="104" accessRights="rw" dynamic="false">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T2_0" />
+						</SingleValue>
+						<SingleValue value="1">
+						<Name textId="T2_1" />
+						</SingleValue>
+						<SingleValue value="2">
+						<Name textId="T2_2" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_OU2_AN_FUNC" />
+					<Description textId="TI_OU2_AN_FUNC_desc" />
+				</Variable>	
+		
+				<Variable id="Var_OU1_SW_FUNC" index="101" accessRights="rw" dynamic="false" defaultValue="9">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T3_0" />
+						</SingleValue>
+						<SingleValue value="1">
+						<Name textId="T3_1" />
+						</SingleValue>
+						<SingleValue value="2">
+						<Name textId="T3_2" />
+						</SingleValue>
+						<SingleValue value="3">
+						<Name textId="T3_3" />
+						</SingleValue>
+						<SingleValue value="4">
+						<Name textId="T3_4" />
+						</SingleValue>
+						<SingleValue value="5">
+						<Name textId="T3_5" />
+						</SingleValue>
+						<SingleValue value="6">
+						<Name textId="T3_6" />
+						</SingleValue>
+						<SingleValue value="7">
+						<Name textId="T3_7" />
+						</SingleValue>
+						<SingleValue value="8">
+						<Name textId="T3_8" />
+						</SingleValue>
+						<SingleValue value="9">
+						<Name textId="T3_9" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_OU1_SW_FUNC" />
+					<Description textId="TI_OU1_SW_FUNC_desc" />
+				</Variable>	
+			
+				<Variable id="Var_OU2_SW_FUNC" index="103" accessRights="rw" dynamic="false">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+							<SingleValue value="0">
+						<Name textId="T3_0" />
+						</SingleValue>
+						<SingleValue value="1">
+						<Name textId="T3_1" />
+						</SingleValue>
+						<SingleValue value="2">
+						<Name textId="T3_2" />
+						</SingleValue>
+						<SingleValue value="3">
+						<Name textId="T3_3" />
+						</SingleValue>
+						<SingleValue value="4">
+						<Name textId="T3_4" />
+						</SingleValue>
+						<SingleValue value="5">
+						<Name textId="T3_5" />
+						</SingleValue>
+						<SingleValue value="6">
+						<Name textId="T3_6" />
+						</SingleValue>
+						<SingleValue value="7">
+						<Name textId="T3_7" />
+						</SingleValue>
+						<SingleValue value="8">
+						<Name textId="T3_8" />
+						</SingleValue>
+						<SingleValue value="9">
+						<Name textId="T3_9" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_OU2_SW_FUNC" />
+					<Description textId="TI_OU2_SW_FUNC_desc" />
+				</Variable>	
+			
+				<Variable id="Var_SENS_MODE" index="80" accessRights="rw" dynamic="false">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T4_0" />
+						</SingleValue>					
+						<SingleValue value="1">
+						<Name textId="T4_1" />
+						</SingleValue>			
+						<SingleValue value="2">
+						<Name textId="T4_2" />
+						</SingleValue>			
+					</Datatype>
+					<Name textId="TI_SENS_MODE" />
+					<Description textId="TI_SENS_MODE_desc" />
+				</Variable>	
+			
+				<Variable id="Var_ZS_TEACH_ZERO" index="108" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_ZS_TEACH_ZERO" />
+					<Description textId="TI_ZS_TEACH_ZERO_desc" />
+				</Variable>	
+			
+				<Variable id="Var_ZS_TEACH_END" index="109" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_ZS_TEACH_END" />
+					<Description textId="TI_ZS_TEACH_END_desc" />
+				</Variable>	
+	
+				<Variable id="Var_ZS_ACC_ZERO" index="110" accessRights="rw"  dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+					<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_ZS_ACC_ZERO" />
+					<Description textId="TI_ZS_ACC_ZERO_desc" />
+				</Variable>	
+		
+				<Variable id="Var_ZS_ACC_END" index="111" accessRights="rw"  dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_ZS_ACC_END" />
+					<Description textId="TI_ZS_ACC_END_desc" />
+				</Variable>	
+			
+		
+				<Variable id="Var_ZS_MAX" index="112" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+
+					<Name textId="TI_ZS_MAX" />
+					<Description textId="TI_ZS_MAX_desc" />
+				</Variable>	
+			
+				<Variable id="Var_ZS_MAX_REV" index="113" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+
+					<Name textId="TI_ZS_MAX_REV" />
+					<Description textId="TI_ZS_MAX_REV_desc" />
+				</Variable>	
+				
+				<Variable id="Var_SPEED_SCALE" index="114" accessRights="rw"  dynamic="false" defaultValue="1000" >
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+					</Datatype>
+					<Name textId="TI_SPEED_SCALE" />
+					<Description textId="SPEED_SCALE_desc" />
+				</Variable>	
+				
+				<Variable id="Var_ANOUT_BOT" index="115" accessRights="rw"  dynamic="false">
+					<Datatype xsi:type="UIntegerT" bitLength="32">
+					<ValueRange lowerValue="0" upperValue="65536">
+					</ValueRange>
+					</Datatype>
+					<Name textId="TI_ANOUT_BOT" />
+					<Description textId="ANOUT_BOT_desc" />
+				</Variable>	
+				
+				<Variable id="Var_ANOUT_TOP" index="116" accessRights="rw"  dynamic="false">
+					<Datatype xsi:type="UIntegerT" bitLength="32">
+					<ValueRange lowerValue="0" upperValue="65536">
+					</ValueRange>
+					</Datatype>
+					<Name textId="TI_ANOUT_TOP" />
+					<Description textId="ANOUT_TOP_desc" />
+				</Variable>	
+			
+				<Variable id="Var_SW_FENST1_RISE" index="120" accessRights="rw" defaultValue="0" dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_SW_FENST1_RISE" />
+					<Description textId="SW_FENST1_RISE_desc" />
+				</Variable>	
+		
+				<Variable id="Var_SW_FENST2_RISE" index="121" accessRights="rw" defaultValue="0" dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_SW_FENST2_RISE" />
+					<Description textId="SW_FENST2_RISE_desc" />
+				</Variable>	
+			
+				<Variable id="Var_SW_FENST3_RISE" index="122" accessRights="rw" defaultValue="0" dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_SW_FENST3_RISE" />
+					<Description textId="SW_FENST3_RISE_desc" />
+				</Variable>	
+			
+				<Variable id="Var_SW_FENST4_RISE" index="123" accessRights="rw" defaultValue="0" dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_SW_FENST4_RISE" />
+					<Description textId="SW_FENST4_RISE_desc" />
+				</Variable>	
+		
+				<Variable id="Var_SW_FENST1_FALL" index="124" accessRights="rw" defaultValue="0" dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_SW_FENST1_FALL" />
+					<Description textId="SW_FENST1_FALL_desc" />
+				</Variable>	
+			
+				<Variable id="Var_SW_FENST2_FALL" index="125" accessRights="rw" defaultValue="0" dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_SW_FENST2_FALL" />
+					<Description textId="SW_FENST2_FALL_desc" />
+				</Variable>	
+			
+				<Variable id="Var_SW_FENST3_FALL" index="126" accessRights="rw" defaultValue="0" dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_SW_FENST3_FALL" />
+					<Description textId="SW_FENST3_FALL_desc" />
+				</Variable>	
+		
+				<Variable id="Var_SW_FENST4_FALL" index="127" accessRights="rw" defaultValue="0" dynamic="false">
+					<Datatype xsi:type="IntegerT" bitLength="32">
+						<ValueRange lowerValue="0" upperValue="100000">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_SW_FENST4_FALL" />
+					<Description textId="SW_FENST4_FALL_desc" />
+				</Variable>	
+
+				<Variable id="Var_FENST1_R_TEACH" index="160" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_FENST1_R_TEACH" />
+					<Description textId="FENST1_R_TEACH_desc" />
+				</Variable>	
+				
+				<Variable id="Var_FENST2_R_TEACH" index="161" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_FENST2_R_TEACH" />
+					<Description textId="FENST2_R_TEACH_desc" />
+				</Variable>	
+
+				<Variable id="Var_FENST3_R_TEACH" index="162" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_FENST3_R_TEACH" />
+					<Description textId="FENST3_R_TEACH_desc" />
+				</Variable>	
+
+				<Variable id="Var_FENST4_R_TEACH" index="163" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_FENST4_R_TEACH" />
+					<Description textId="FENST4_R_TEACH_desc" />
+				</Variable>	
+
+				<Variable id="Var_FENST1_F_TEACH" index="164" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_FENST1_F_TEACH" />
+					<Description textId="FENST1_F_TEACH_desc" />
+				</Variable>	
+				
+				<Variable id="Var_FENST2_F_TEACH" index="165" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_FENST2_F_TEACH" />
+					<Description textId="FENST2_F_TEACH_desc" />
+				</Variable>	
+				
+				<Variable id="Var_FENST3_F_TEACH" index="166" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_FENST3_F_TEACH" />
+					<Description textId="FENST3_F_TEACH_desc" />
+				</Variable>	
+				
+				<Variable id="Var_FENST4_F_TEACH" index="167" accessRights="wo" >
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+							<Name textId="T8_1" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_FENST4_F_TEACH" />
+					<Description textId="FENST4_F_TEACH_desc" />
+				</Variable>	
+				
+			
+				
+				
+				<Variable id="Var_AOUT_AT_FAIL" index="105" accessRights="rw"  dynamic="false" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T5_0" />
+						</SingleValue>					
+						<SingleValue value="1">
+						<Name textId="T5_1" />
+						</SingleValue>			
+						<SingleValue value="2">
+						<Name textId="T5_2" />
+						</SingleValue>			
+						<SingleValue value="3">
+						<Name textId="T5_3" />
+						</SingleValue>							
+					</Datatype>
+					<Name textId="TI_AOUT_AT_FAIL" />
+					<Description textId="AOUT_AT_FAIL_desc" />
+				</Variable>					
+		
+				<Variable id="Var_AOUT_AT_EXC" index="106" accessRights="rw"  dynamic="false" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+						<Name textId="T5_0" />
+						</SingleValue>					
+						<SingleValue value="1">
+						<Name textId="T5_1" />
+						</SingleValue>			
+						<SingleValue value="2">
+						<Name textId="T5_2" />
+						</SingleValue>			
+						<SingleValue value="3">
+						<Name textId="T5_3" />
+						</SingleValue>							
+					</Datatype>
+					<Name textId="TI_AOUT_AT_EXC" />
+					<Description textId="AOUT_AT_EXC_desc" />
+				</Variable>					
+			
+				<Variable id="Var_FILTER_VAL" index="107" accessRights="rw"  dynamic="false" defaultValue="1">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+						<Name textId="T6_1" />
+						</SingleValue>					
+						<SingleValue value="5">
+						<Name textId="T6_2" />
+						</SingleValue>			
+						<SingleValue value="20">
+						<Name textId="T6_5" />
+						</SingleValue>			
+						<SingleValue value="50">
+						<Name textId="T6_10" />
+						</SingleValue>			
+
+					</Datatype>
+					<Name textId="TI_FILTER_VAL" />
+					<Description textId="FILTER_VAL_desc" />
+				</Variable>					
+				
+			
+				<Variable id="Var_STATUS_WORD" index="135" accessRights="ro" dynamic="true"  >
+					<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+					
+					<RecordItem subindex="1" bitOffset="0">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_1_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_1_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_1"/>
+					</RecordItem>
+					
+					<RecordItem subindex="2" bitOffset="1">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_2_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_2_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_2"/>
+					</RecordItem>
+					
+					<RecordItem subindex="3" bitOffset="2">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_3_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_3_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_3"/>
+					</RecordItem>
+					
+					<RecordItem subindex="4" bitOffset="3">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_4_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_4_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_4"/>
+					</RecordItem>
+					
+					<RecordItem subindex="5" bitOffset="4">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_5_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_5_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_5"/>
+					</RecordItem>
+					
+					<RecordItem subindex="6" bitOffset="5">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_6_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_6_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_6"/>
+					</RecordItem>
+
+					<RecordItem subindex="7" bitOffset="6">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_7_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_7_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_7"/>
+					</RecordItem>
+					
+					<RecordItem subindex="8" bitOffset="7">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_8_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_8_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_8"/>
+					</RecordItem>
+					
+					<RecordItem subindex="9" bitOffset="8">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_9_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_9_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_9"/>
+					</RecordItem>
+					
+					<RecordItem subindex="10" bitOffset="9">
+						<SimpleDatatype xsi:type="BooleanT" >
+							<SingleValue value="true">
+							<Name textId="T7_10_1"/>
+							</SingleValue>
+							<SingleValue value="false">
+							<Name textId="T7_10_0" />
+							</SingleValue>
+						</SimpleDatatype>
+					<Name textId="T7_10"/>
+					</RecordItem>
+					
+										
+					</Datatype>
+					<Name textId="TI_STATUS_WORD" />
+					<Description textId="STATUS_WORD_desc" />
+				</Variable>				
+							
+								
+				<Variable id="Var_CAM204_AMPA" index="131" accessRights="ro"  dynamic="true">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65535">
+						</ValueRange>
+					</Datatype>
+					<Name textId="TI_CAM204_AMPA" />
+					<Description textId="CAM204_AMPA_desc" />
+				</Variable>		
+				
+				<Variable id="Var_B_TEMP_PEAK_TOP" index="138" accessRights="ro"  dynamic="true">
+					<Datatype xsi:type="IntegerT" bitLength="8">
+					</Datatype>
+					<Name textId="TI_B_TEMP_PEAK_TOP" />
+					<Description textId="B_TEMP_PEAK_TOP_desc" />
+				</Variable>		
+				
+				<Variable id="Var_B_TEMP_PEAK_LOW" index="139" accessRights="ro"  dynamic="true">
+					<Datatype xsi:type="IntegerT" bitLength="8">
+					</Datatype>
+					<Name textId="TI_B_TEMP_PEAK_LOW" />
+					<Description textId="B_TEMP_PEAK_LOW_desc" />
+				</Variable>		
+				
+				<Variable id="Var_CYCLE_TIME_TICKS" index="200" accessRights="ro"  dynamic="true">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+					</Datatype>
+					<Name textId="TI_CYCLE_TIME_TICKS" />
+					<Description textId="CYCLE_TIME_TICKS_desc" />
+				</Variable>		
+						
+			</VariableCollection>				
+			
+			<ProcessDataCollection>
+				<ProcessData id="PD_ProcessData">
+					<ProcessDataIn id="PD_ProcessDataIn" bitLength="16">
+						<DatatypeRef datatypeId="DT_ProcessDataIn"/>
+						<Name textId="TI_PD_ProcessDataIn"/>
+					</ProcessDataIn>
+				</ProcessData>
+			</ProcessDataCollection>
+			
+			<UserInterface>
+				<MenuCollection>	
+					
+					<Menu id="ME_PROC">
+						<Name textId="TI_PROC" />
+						<VariableRef variableId="V_ProcessDataIn" displayFormat="Dec" gradient="0.001525948 "  unitCode="1013" />
+					</Menu>
+				
+					<Menu id="ME_MAN">
+						<Name textId="TI_MAN" />
+						<VariableRef variableId="V_VendorName" />
+						<VariableRef variableId="V_VendorText" />
+						<VariableRef variableId="V_ProductName"   />
+						<VariableRef variableId="V_ProductID"  />
+						<VariableRef variableId="V_ProductText"  />
+						<VariableRef variableId="V_SerialNumber"  />
+						<VariableRef variableId="V_FirmwareRevision"   />
+						<VariableRef variableId="V_ApplicationSpecificName" accessRightRestriction="rw" />
+					</Menu>
+					
+					<Menu id="ME_MV">
+						<Name textId="TI_MV"/>
+						<VariableRef variableId="Var_TEMP" unitCode="1001" />				
+						<VariableRef variableId="Var_CAM204_AMPA" gradient="0.0285714" offset="0" unitCode="1342" />							
+					</Menu>
+					
+					<Menu id="ME_DEV">
+						<Name textId="TI_DEV"/>
+						<VariableRef variableId="Var_SENS_MODE" />	
+						<VariableRef variableId="Var_WR_LOCK" />	
+					</Menu>
+					
+					<Menu id="ME_OU">
+						<Name textId="TI_OU"/>
+						<VariableRef variableId="Var_SW_MODE" />	
+						<VariableRef variableId="Var_HYST" unitCode="1014" />	
+					</Menu>
+
+					<Menu id="ME_OU1">
+						<Name textId="TI_OU1"/>
+						<VariableRef variableId="Var_OU1_HW_SETUP" />				
+						<VariableRef variableId="Var_OU1_SW_FUNC" />										
+					</Menu>
+					
+										
+					<Menu id="ME_OU2_AN_0_5V">
+						<Name textId="TI_OU2"/>
+						<VariableRef variableId="Var_OU2_HW_SETUP" />					
+						<VariableRef variableId="Var_ANOUT_BOT" gradient="0.000076295109" offset="0" unitCode="1240" />
+					    <VariableRef variableId="Var_ANOUT_TOP" gradient="0.000076295109" offset="0" unitCode="1240" />
+						<VariableRef variableId="Var_OU2_AN_FUNC" />										
+						<VariableRef variableId="Var_SPEED_SCALE" unitCode="1062" />										
+						<VariableRef variableId="Var_AOUT_AT_FAIL" />				
+						<VariableRef variableId="Var_AOUT_AT_EXC" />				
+						<VariableRef variableId="Var_FILTER_VAL" />	
+						<VariableRef variableId="Var_ZS_ACC_ZERO" unitCode="1014"/>										
+						<VariableRef variableId="Var_ZS_TEACH_ZERO" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_ACC_END" unitCode="1014"/>										
+						<VariableRef variableId="Var_ZS_TEACH_END" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_MAX" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_MAX_REV" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+					</Menu>
+
+					<Menu id="ME_OU2_AN_0_10V">
+						<Name textId="TI_OU2"/>
+						<VariableRef variableId="Var_OU2_HW_SETUP" />					
+						<VariableRef variableId="Var_ANOUT_BOT" gradient="0.0001525902" offset="0" unitCode="1240" />
+					    <VariableRef variableId="Var_ANOUT_TOP" gradient="0.0001525902" offset="0" unitCode="1240"/>
+						<VariableRef variableId="Var_OU2_AN_FUNC" />										
+						<VariableRef variableId="Var_SPEED_SCALE" unitCode="1062" />										
+						<VariableRef variableId="Var_AOUT_AT_FAIL" />				
+						<VariableRef variableId="Var_AOUT_AT_EXC" />				
+						<VariableRef variableId="Var_FILTER_VAL" />	
+						<VariableRef variableId="Var_ZS_ACC_ZERO" unitCode="1014"/>										
+						<VariableRef variableId="Var_ZS_TEACH_ZERO" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_ACC_END" unitCode="1014"/>										
+						<VariableRef variableId="Var_ZS_TEACH_END" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_MAX" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_MAX_REV" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+					</Menu>
+
+
+
+					<Menu id="ME_OU2_AN_0_20MA">
+						<Name textId="TI_OU2"/>
+						<VariableRef variableId="Var_OU2_HW_SETUP" />					
+					    <VariableRef variableId="Var_ANOUT_BOT" gradient="0.000305180437" offset="0" unitCode="1211"/>
+					    <VariableRef variableId="Var_ANOUT_TOP" gradient="0.000305180437" offset="0" unitCode="1211" />
+						<VariableRef variableId="Var_OU2_AN_FUNC" />										
+						<VariableRef variableId="Var_SPEED_SCALE" unitCode="1062" />										
+						<VariableRef variableId="Var_AOUT_AT_FAIL" />				
+						<VariableRef variableId="Var_AOUT_AT_EXC" />				
+						<VariableRef variableId="Var_FILTER_VAL" />	
+						<VariableRef variableId="Var_ZS_ACC_ZERO" unitCode="1014"/>										
+						<VariableRef variableId="Var_ZS_TEACH_ZERO" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_ACC_END" unitCode="1014"/>										
+						<VariableRef variableId="Var_ZS_TEACH_END" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_MAX" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_MAX_REV" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+					</Menu>
+
+					<Menu id="ME_OU2_AN_4_20MA">
+						<Name textId="TI_OU2"/>
+						<VariableRef variableId="Var_OU2_HW_SETUP" />					
+					    <VariableRef variableId="Var_ANOUT_BOT" gradient="0.00024414435" offset="4" unitCode="1211" />
+					    <VariableRef variableId="Var_ANOUT_TOP" gradient="0.00024414435" offset="4" unitCode="1211" />
+						<VariableRef variableId="Var_OU2_AN_FUNC" />										
+						<VariableRef variableId="Var_SPEED_SCALE" unitCode="1062" />										
+						<VariableRef variableId="Var_AOUT_AT_FAIL" />				
+						<VariableRef variableId="Var_AOUT_AT_EXC" />				
+						<VariableRef variableId="Var_FILTER_VAL" />	
+						<VariableRef variableId="Var_ZS_ACC_ZERO" unitCode="1014"/>										
+						<VariableRef variableId="Var_ZS_TEACH_ZERO" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_ACC_END" unitCode="1014"/>										
+						<VariableRef variableId="Var_ZS_TEACH_END" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_MAX" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+						<VariableRef variableId="Var_ZS_MAX_REV" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+					</Menu>
+
+
+
+
+
+
+
+					<Menu id="ME_OU2_DIG">
+						<Name textId="TI_OU2"/>
+						<VariableRef variableId="Var_OU2_HW_SETUP" />				
+						<VariableRef variableId="Var_OU2_SW_FUNC" />										
+					</Menu>
+					
+									
+					<Menu id="ME_WIN">
+						<Name textId="TI_WIN"/>
+						<VariableRef variableId="Var_SW_FENST1_RISE" unitCode="1014" />				
+						<VariableRef variableId="Var_FENST1_R_TEACH" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />				
+						<VariableRef variableId="Var_SW_FENST1_FALL" unitCode="1014" />				
+						<VariableRef variableId="Var_FENST1_F_TEACH" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />				
+						
+						<VariableRef variableId="Var_SW_FENST2_RISE" unitCode="1014" />															
+						<VariableRef variableId="Var_FENST2_R_TEACH" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />				
+						<VariableRef variableId="Var_SW_FENST2_FALL" unitCode="1014" />															
+						<VariableRef variableId="Var_FENST2_F_TEACH" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />				
+						
+						<VariableRef variableId="Var_SW_FENST3_RISE" unitCode="1014" />				
+						<VariableRef variableId="Var_FENST3_R_TEACH" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />				
+						<VariableRef variableId="Var_SW_FENST3_FALL" unitCode="1014" />				
+						<VariableRef variableId="Var_FENST3_F_TEACH" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />										
+						
+						<VariableRef variableId="Var_SW_FENST4_RISE" unitCode="1014" />																					
+						<VariableRef variableId="Var_FENST4_R_TEACH" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />				
+						<VariableRef variableId="Var_SW_FENST4_FALL" unitCode="1014" />				
+						<VariableRef variableId="Var_FENST4_F_TEACH" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />				
+					</Menu>
+					
+									
+					<Menu id="ME_DIAG">
+						<Name textId="TI_DIAG"/>
+						<VariableRef variableId="Var_B_TEMP_PEAK_TOP" />				
+						<VariableRef variableId="Var_B_TEMP_PEAK_LOW"  />				
+						<VariableRef variableId="Var_CYCLE_TIME_TICKS" gradient="0.0000625" offset="0" unitCode="1056"  />				
+						<VariableRef variableId="Var_STATUS_WORD" />				
+						</Menu>
+					
+								
+					
+					
+					<Menu id="ME_SC">
+						<Name textId="TI_SC"/>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo" displayFormat="Button" buttonValue="130" />
+					</Menu>
+				
+					
+					<Menu id="ME_IDENT">
+						<Name textId="TI_IDENT"/>
+							<MenuRef menuId="ME_MAN"/>
+					</Menu>
+					
+					
+					<Menu id="ME_PARAM">
+						<Name textId="TI_PARAM"/>
+							<MenuRef menuId="ME_DEV"/>
+							<MenuRef menuId="ME_OU"/>
+							<MenuRef menuId="ME_OU1"/>
+							<MenuRef menuId="ME_OU2_DIG">
+							<Condition variableId="Var_OU2_HW_SETUP" value="0" />		
+							</MenuRef>
+							<MenuRef menuId="ME_OU2_DIG">
+							<Condition variableId="Var_OU2_HW_SETUP" value="1" />		
+							</MenuRef>
+							<MenuRef menuId="ME_OU2_AN_0_5V">
+							<Condition variableId="Var_OU2_HW_SETUP" value="2" />		
+							</MenuRef>
+							<MenuRef menuId="ME_OU2_AN_0_10V">
+							<Condition variableId="Var_OU2_HW_SETUP" value="3" />		
+							</MenuRef>
+							<MenuRef menuId="ME_OU2_AN_0_20MA">
+							<Condition variableId="Var_OU2_HW_SETUP" value="4" />		
+							</MenuRef>
+							<MenuRef menuId="ME_OU2_AN_4_20MA">
+							<Condition variableId="Var_OU2_HW_SETUP" value="5" />		
+							</MenuRef>
+							<MenuRef menuId="ME_WIN"/>
+							<MenuRef menuId="ME_SC"/>
+					</Menu>
+						
+					<Menu id="ME_DIAGNOSE">
+						<Name textId="TI_DIAGNOSE"/>
+						<MenuRef menuId="ME_DIAG"/>
+					</Menu>
+					
+					<Menu id="ME_OBSERVE">
+						<Name textId="TI_OBSERVE"/>
+						<MenuRef menuId="ME_MV"/>
+						<MenuRef menuId="ME_PROC"/>
+				
+					</Menu>
+					
+					<Menu id="ME_SPECIAL">
+						<Name textId="TI_SPECIAL"/>
+					    <MenuRef menuId="ME_DEV"/>
+						<MenuRef menuId="ME_OU"/>
+						<MenuRef menuId="ME_OU1"/>
+						<MenuRef menuId="ME_OU2_DIG">
+							<Condition variableId="Var_OU2_HW_SETUP" value="0" />		
+						</MenuRef>
+						<MenuRef menuId="ME_OU2_DIG">
+							<Condition variableId="Var_OU2_HW_SETUP" value="1" />		
+						</MenuRef>
+						<MenuRef menuId="ME_OU2_AN_0_5V">
+							<Condition variableId="Var_OU2_HW_SETUP" value="2" />		
+							</MenuRef>
+							<MenuRef menuId="ME_OU2_AN_0_10V">
+							<Condition variableId="Var_OU2_HW_SETUP" value="3" />		
+							</MenuRef>
+							<MenuRef menuId="ME_OU2_AN_0_20MA">
+							<Condition variableId="Var_OU2_HW_SETUP" value="4" />		
+							</MenuRef>
+							<MenuRef menuId="ME_OU2_AN_4_20MA">
+							<Condition variableId="Var_OU2_HW_SETUP" value="5" />		
+							</MenuRef>
+						<MenuRef menuId="ME_WIN"/>
+						<MenuRef menuId="ME_SC"/>
+					</Menu>
+										
+					
+					
+				</MenuCollection>
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="ME_IDENT" />
+					<ObservationMenu menuId="ME_OBSERVE" />
+				</ObserverRoleMenuSet>
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="ME_IDENT" />
+					<ParameterMenu menuId="ME_PARAM" />
+					<ObservationMenu menuId="ME_OBSERVE" />
+				</MaintenanceRoleMenuSet>
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="ME_IDENT" />
+					<ParameterMenu menuId="ME_SPECIAL" />
+					<ObservationMenu menuId="ME_OBSERVE" />
+					<DiagnosisMenu menuId="ME_DIAGNOSE" />
+				</SpecialistRoleMenuSet>
+			</UserInterface>
+		</DeviceFunction>
+	</ProfileBody>
+	<CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+		<TransportLayers>
+			<PhysicalLayer physics="2" minCycleTime="22" sioSupported="true" baudrate="COM2"/>
+		</TransportLayers>
+	</CommNetworkProfile>
+	<ExternalTextCollection>
+		<PrimaryLanguage xml:lang="en">
+
+			<Text id="TI_PROC" value="Process values"/>
+			<Text id="TI_MAN" value="Sensor information"/>
+			<Text id="TI_MV" value="Measurement values"/>
+			<Text id="TI_DEV" value="System settings"/>
+			<Text id="TI_OU" value="Switching outputs"/>
+			<Text id="TI_OU1" value="Output 1 (OU1 / pin 4)"/>
+			<Text id="TI_OU2" value="Output 2 (OU2 / pin 2)"/>
+			<Text id="TI_WIN" value="Switch window function"/>
+			<Text id="TI_DIAG" value="Diagnosis"/>
+			<Text id="TI_SPECIAL" value="**Specialist**"/>
+			
+			 
+			<Text id="TI_IDENT" value="Identification"/>
+			<Text id="TI_DIAGNOSE" value="Diagnosis"/>
+			<Text id="TI_OBSERVE" value="Observation"/>
+			<Text id="TI_PARAM" value="Parameterization"/>
+			<Text id="TI_SC" value="System command"/>
+			
+			<Text id="TI_VendorText" value="Turck"/>
+			<Text id="TI_VendorUrl" value="http://www.turck.com"/>
+			<Text id="TI_DeviceFamily" value="LI Position Sensors"/>
+			<Text id="TI_Li_Name" value="Li100P0-Q25L"/>
+			<Text id="TI_Li_Text" value="Measuring range 100mm "/>
+			<Text id="TI_PD_ProcessDataIn" value="Raw position and error data"/>
+		
+			<Text id="TI_WR_LOCK" value="IO-Link write protection"/>
+			<Text id="TI_WR_LOCK_desc"  value="Enbales or disables the parameter write-access"/>
+			
+			<Text id="TI_TEMP" value="Board temperature"/>
+			<Text id="TI_TEMP_desc" value="Internally measured board temperature "/>
+						
+			<Text id="TI_SW_MODE" value="Mode"/>
+			<Text id="TI_SW_MODE_desc" value="Output stage configuration in switch mode "/>
+			
+			<Text id="TI_HYST" value="Hysteresis"/>
+			<Text id="TI_HYST_desc" value="Global wwitch hysteresis "/>
+			
+			<Text id="TI_OU1_HW_SETUP" value="Basic setting"/>
+			<Text id="TI_OU1_HW_SETUP_desc" value="Basic setting for Pin2"/>
+			
+			<Text id="TI_OU2_HW_SETUP" value="Basic setting"/>
+			<Text id="TI_OU2_HW_SETUP_desc" value="Basic setting for IO Link in SIO Mode "/>
+			
+			<Text id="TI_OU2_AN_FUNC" value="Analog output function"/>
+			<Text id="TI_OU2_AN_FUNC_desc" value="Function in case of analogue usage on Pin 2 "/>
+			
+			<Text id="TI_OU1_SW_FUNC" value="Switch function"/>
+			<Text id="TI_OU1_SW_FUNC_desc" value="Function in case of using Pin 2 as switching output"/>
+			
+			<Text id="TI_OU2_SW_FUNC" value="Switch function"/>
+			<Text id="TI_OU2_SW_FUNC_desc" value="Function in Case of use of IO-Link pin in sio Mode"/>
+						
+			<Text id="TI_SENS_MODE" value="Sensor mode"/>
+			<Text id="TI_SENS_MODE_desc" value="Setting of sensor samplingrate"/>
+			
+			<Text id="TI_ZS_TEACH_ZERO" value="Teach start position of measuring range"/>
+			<Text id="TI_ZS_TEACH_ZERO_desc" value="Use current position as start position"/>
+			
+			<Text id="TI_ZS_TEACH_END" value="Teach end position of measuring range"/>
+			<Text id="TI_ZS_TEACH_END_desc" value="Use current position as end position"/>
+			
+			<Text id="TI_ZS_ACC_ZERO" value="Start position of measuring range"/>
+			<Text id="TI_ZS_ACC_ZERO_desc" value="Measuring range start position in &#0181;m"/>
+			
+			<Text id="TI_ZS_ACC_END" value="End position of measuring range"/>
+			<Text id="TI_ZS_ACC_END_desc" value="Measuring range end position in &#0181;m "/>
+		
+			<Text id="TI_ZS_MAX" value="Maximum measuring range"/>
+			<Text id="TI_ZS_MAX_desc" value="Set the anlog range to Fullscale"/>
+	
+			<Text id="TI_ZS_MAX_REV" value="Maximum, inverted measuring range"/>
+			<Text id="TI_ZS_MAX_REV_desc" value="Set the anlog range to fullscale (inverted)"/>
+			
+			<Text id="TI_SPEED_SCALE" value="Speed measuring range"/>
+			<Text id="SPEED_SCALE_desc" value="Measuring range of speed output"/>
+			
+			<Text id="TI_ANOUT_BOT" value="Start value of analog output"/>
+			<Text id="ANOUT_BOT_desc" value="Offset of the analog output"/>
+			
+			<Text id="TI_ANOUT_TOP" value="Final value of analog output"/>
+			<Text id="ANOUT_TOP_desc" value="Span of the anlogue output"/>
+						
+			<Text id="TI_SW_FENST1_RISE" value="Switching point 1"/>
+			<Text id="SW_FENST1_RISE_desc" value="Switching point of window 1 in &#0181;m "/>
+		
+			<Text id="TI_SW_FENST2_RISE" value="Switching point 2 "/>
+			<Text id="SW_FENST2_RISE_desc" value="Switching point of window 2 in &#0181;m "/>
+			
+			<Text id="TI_SW_FENST3_RISE" value="Switching point 3 "/>
+			<Text id="SW_FENST3_RISE_desc" value="Switching point of window 3 in &#0181;m "/>
+			
+			<Text id="TI_SW_FENST4_RISE" value="Switching point 4 "/>
+			<Text id="SW_FENST4_RISE_desc" value="Switching point of window 4 in &#0181;m "/>
+			
+			<Text id="TI_SW_FENST1_FALL" value="Release position 1"/>
+			<Text id="SW_FENST1_FALL_desc" value="Release position for window 1 in &#0181;m"/>
+			
+			<Text id="TI_SW_FENST2_FALL" value="Release position 2 "/>
+			<Text id="SW_FENST2_FALL_desc" value="Release position for window 2 in &#0181;m"/>
+			
+			<Text id="TI_SW_FENST3_FALL" value="Release position 3 "/>
+			<Text id="SW_FENST3_FALL_desc" value="Release position for window 3 in &#0181;m"/>
+			
+			<Text id="TI_SW_FENST4_FALL" value="Release position 4"/>
+			<Text id="SW_FENST4_FALL_desc" value="Release position for window 4 in &#0181;m"/>
+	
+			<Text id="TI_FENST1_R_TEACH" value="Teach switching point 1"/>
+			<Text id="FENST1_R_TEACH_desc" value="Teach current Position as switching point for window 1 "/>
+			
+			<Text id="TI_FENST2_R_TEACH" value="Teach switching point 2"/>
+			<Text id="FENST2_R_TEACH_desc" value="Release position for window 4 in &#0181;m"/>
+			
+			<Text id="TI_FENST3_R_TEACH" value="Teach switching point 3"/>
+			<Text id="FENST3_R_TEACH_desc" value="Release position for window 4 in &#0181;m"/>
+			
+			<Text id="TI_FENST4_R_TEACH" value="Teach switching point 4"/>
+			<Text id="FENST4_R_TEACH_desc" value="Teach release position for window 4 in &#0181;m"/>
+			
+			<Text id="TI_FENST1_F_TEACH" value="Teach release position 1"/>
+			<Text id="FENST1_F_TEACH_desc" value="Teach release position for window 1 in &#0181;m"/>
+			
+			<Text id="TI_FENST2_F_TEACH" value="Teach release position 2"/>
+			<Text id="FENST2_F_TEACH_desc" value="Teach release position for window 2 in &#0181;m"/>
+			
+			<Text id="TI_FENST3_F_TEACH" value="Teach release position 3"/>
+			<Text id="FENST3_F_TEACH_desc" value="Teach release position for window 3 in &#0181;m"/>
+			
+			<Text id="TI_FENST4_F_TEACH" value="Teach release position 4"/>
+			<Text id="FENST4_F_TEACH_desc" value="Teach release position for Window 4 in &#0181;m"/>
+		
+			<Text id="TI_AOUT_AT_FAIL" value="Response in the event of an error"/>
+			<Text id="AOUT_AT_FAIL_desc" value="Specifies behaviour of the analogue output in case of target out of range "/>
+			
+			<Text id="TI_AOUT_AT_EXC" value="Response to measuring range overshoot"/>
+			<Text id="AOUT_AT_EXC_desc" value="Specifies behaviour of analogue output in case of range overshot "/>
+			
+			<Text id="TI_FILTER_VAL" value="Lowpass filter"/>
+			<Text id="FILTER_VAL_desc"  value="Filter settings to optimize signal to noise ratio"/>
+			
+			<Text id="TI_STATUS_WORD" value="Sensor status word"/>
+			<Text id="STATUS_WORD_desc" value="Internal sensor status"/>
+					
+			<Text id="TI_CAM204_AMPA" value="Sensorchip amplitude"/>
+			<Text id="CAM204_AMPA_desc" value="Signal Strength in % relative to nominal value"/>
+					
+			<Text id="TI_B_TEMP_PEAK_TOP" value="Board temperature upper peak value"/>
+			<Text id="B_TEMP_PEAK_TOP_desc" value="The maximum temperature measured inside the sensor"/>
+			
+			<Text id="TI_B_TEMP_PEAK_LOW" value="Board Temperature lower peak value"/>
+			<Text id="B_TEMP_PEAK_LOW_desc" value="The minimum Temperature measured inside the sensor"/>
+			
+			<Text id="TI_CYCLE_TIME_TICKS" value="Cycle time"/>
+			<Text id="CYCLE_TIME_TICKS_desc" value="Cycletime of sensor - not valid in poer save mode"/>
+						
+			<Text id="T1_0" value="Switch N/O = normally opened"/>
+			<Text id="T1_1" value="Switch N/C = normally closed"/>
+			<Text id="T1_2" value="0-5 V"/>		
+			<Text id="T1_3" value="0-10V"/>					
+			<Text id="T1_4" value="0-20mA"/>					
+			<Text id="T1_5" value="4-20mA"/>		
+			
+		
+			<Text id="T2_0" value="Positon"/>
+			<Text id="T2_1" value="Speed "/>
+			<Text id="T2_2" value="Speed and direction"/>
+			
+			<Text id="T3_0" value="Window 1"/>
+			<Text id="T3_1" value="Window 2"/>			
+			<Text id="T3_2" value="Window 3"/>						
+			<Text id="T3_3" value="Window 4"/>						
+			<Text id="T3_4" value="Window 1-4 combined"/>						
+			<Text id="T3_5" value="Detection range exceeded"/>			
+			<Text id="T3_6" value="Measuring range exceeded "/>
+			<Text id="T3_7" value="positioning element status"/>
+			<Text id="T3_8" value="positioning element signal amplitude"/>
+			<Text id="T3_9" value="Group error"/>
+			
+			<Text id="T4_0" value="Power save mode "/>
+			<Text id="T4_1" value="Normal mode "/>
+			<Text id="T4_2" value="Highspeed mode"/>
+			
+			<Text id="T5_0" value="Freeze output value"/>
+			<Text id="T5_1" value="0% on amplitude error"/>
+			<Text id="T5_2" value="100% on amplitude error"/>
+			<Text id="T5_3" value="11V / 22mA on amplitude error"/>
+					
+			<Text id="T6_1"  value="inactive"/>
+			<Text id="T6_2"  value="high cut-off frequency, short delay"/>
+			<Text id="T6_5"  value="medium cut-off frequency, medium delay"/>
+			<Text id="T6_10" value="mimimum cut-off frequency, long delay"/>
+			
+			
+			<Text id="T7_1"   value="Target state"/>
+			<Text id="T7_1_1" value="Out of range"/>
+			<Text id="T7_1_0" value="In range"/>
+			<Text id="T7_2"   value="Target level"/>			
+			<Text id="T7_2_1" value="Amplitude false"/>			
+			<Text id="T7_2_0" value="Amplitude okay"/>			
+			<Text id="T7_3"   value="Board temp."/>						
+			<Text id="T7_3_1" value="error"/>						
+			<Text id="T7_3_0" value="Okay"/>									
+			<Text id="T7_4"   value="Group error"/>						
+			<Text id="T7_4_1" value="Error"/>						
+			<Text id="T7_4_0" value="No error"/>									
+			<Text id="T7_5"   value="LED1 state"/>						
+			<Text id="T7_5_1" value="On "/>						
+			<Text id="T7_5_0" value="Off"/>									
+			<Text id="T7_6" value="LED 2 State"/>			
+			<Text id="T7_6_1" value="On "/>						
+			<Text id="T7_6_0" value="Off"/>									
+			<Text id="T7_7" value="Window 1"/>						
+			<Text id="T7_7_1" value="Active "/>						
+			<Text id="T7_7_0" value="Not Active"/>									
+			<Text id="T7_8" value="Window 2"/>
+			<Text id="T7_8_1" value="Active "/>						
+			<Text id="T7_8_0" value="Not ctive"/>					
+			<Text id="T7_9" value="Window 3"/>						
+			<Text id="T7_9_1" value="Active "/>						
+			<Text id="T7_9_0" value="Not Active"/>					
+			<Text id="T7_10" value="Window 4"/>			
+			<Text id="T7_10_1" value="Active "/>						
+			<Text id="T7_10_0" value="Not Active"/>					
+				
+										
+
+			<Text id="T8_1" value="Teach"/>								
+			
+			<Text id="T9_0" value="Not active"/>								
+			<Text id="T9_1" value="Active"/>								
+						
+			<Text id="T10_0" value="PNP"/>								
+			<Text id="T10_1" value="NPN"/>								
+			
+			<Text id="T_PROC" value="Signal valid"/>								
+			<Text id="T_PROCE1" value="Signal error"/>								
+			<Text id="T_PROCE2" value="Out of range error"/>								
+			<Text id="T_PROCE3" value="Signal error + out of range"/>								
+			
+		</PrimaryLanguage>
+	
+		<Language xml:lang="de">
+
+			<Text id="TI_PROC" value="Prozesswert"/>
+			<Text id="TI_MAN" value="Sensor informationen"/>
+			<Text id="TI_MV" value="Messwerte"/>
+			<Text id="TI_DEV" value="Systemeinstellungen"/>
+			<Text id="TI_OU" value="Schaltusg&#0228;nge"/>
+			<Text id="TI_OU1" value="Ausgang 1 (OU1 / pin 4)"/>
+			<Text id="TI_OU2" value="Ausgang 2 (OU2 / pin 2)"/>
+			<Text id="TI_WIN" value="Schaltfensterfunktion"/>
+			<Text id="TI_DIAG" value="Diagnose"/>
+			
+			
+			<Text id="TI_IDENT" value="Identifikation"/>
+			<Text id="TI_DIAGNOSE" value="Diagnose"/>
+			<Text id="TI_OBSERVE" value="Beobachtung"/>
+			<Text id="TI_PARAM" value="Parameter"/>
+			<Text id="TI_SC" value="System Kommando"/>
+			
+			<Text id="TI_VendorText" value="Turck"/>
+			<Text id="TI_VendorUrl" value="http://www.turck.com"/>
+			<Text id="TI_DeviceFamily" value="LI Position Sensors"/>
+			<Text id="TI_Li_Name" value="Li100P0-Q25L"/>
+			<Text id="TI_Li_Text" value="Messbereich 100 mm "/>
+			<Text id="TI_PD_ProcessDataIn" value="Positions-Rohwert / Fehlermeldung"/>
+		
+			<Text id="TI_WR_LOCK" value="IO-Link Schreibschutz"/>
+			<Text id="TI_WR_LOCK_desc"  value=" "/>
+			
+			<Text id="TI_TEMP" value="Sensor Temperatur"/>
+			<Text id="TI_TEMP_desc" value="Interne Sensortemperatur in &#0246;C"/>
+						
+			<Text id="TI_SW_MODE" value="Modus"/>
+			<Text id="TI_SW_MODE_desc" value="Einstellung der Schaltausg&#0228;nge (Pin 2 bzw. Pin 4) PNP oder NPN"/>
+			
+			<Text id="TI_HYST" value="Hysterese"/>
+			<Text id="TI_HYST_desc" value="Einstellung der Hysterese der Schaltausg&#0228;nge (Pin 2 bzw. Pin 4)"/>
+			
+			<Text id="TI_OU1_HW_SETUP" value="Grundeinstellung"/>
+			<Text id="TI_OU1_HW_SETUP_desc" value="Konfiguration des Schaltusgangs auf Pin 4. Im IO Link Kommunikationsmodus ist diese Einstellung nicht definiert"/>
+			
+			<Text id="TI_OU2_HW_SETUP" value="Grundeinstellung"/>
+			<Text id="TI_OU2_HW_SETUP_desc" value="Konfiguration des Ausgangs auf Pin 2"/>
+			
+			<Text id="TI_OU2_AN_FUNC" value="Analogausgangsfunktion"/>
+			<Text id="TI_OU2_AN_FUNC_desc" value="Einstellung des Analogausgangs als Positions, Geschwindigkeits und Richtungsr&#0252;ckmeldung"/>
+			
+			
+			<Text id="TI_OU1_SW_FUNC" value="Schaltfunktion"/>
+			<Text id="TI_OU1_SW_FUNC_desc" value="Einstellung der Schaltfunktion (Pin 4): Aktivierung der eingeteachten Schaltfenster bzw. Parametrierung der Diagnosedaten als Schaltausgang "/>
+			
+			<Text id="TI_OU2_SW_FUNC" value="Schaltfunktion"/>
+			<Text id="TI_OU2_SW_FUNC_desc" value="Einstellung des Schaltverhaltens (Pin 2) Aktivierung der eingeteachten Schaltfenster bzw. Parametrierung der Diagnosedaten als Schaltausgang"/>
+						
+			<Text id="TI_SENS_MODE" value="Sensor Modus"/>
+			<Text id="TI_SENS_MODE_desc" value="Einstellung der Abtastrate 10/500/1000Hz"/>
+			
+			<Text id="TI_ZS_TEACH_ZERO" value="Anfangsposition Messbereich anlernen"/>
+			<Text id="TI_ZS_TEACH_ZERO_desc" value="Teacht die gegenw&#0228;rtige Postion des Gebers als Anfangswert "/>
+			
+			<Text id="TI_ZS_TEACH_END" value="Endposition Messbereich anlernen"/>
+			<Text id="TI_ZS_TEACH_END_desc" value="Teacht die gegenw&#0228;rtige Postion des Gebers als Endwert"/>
+			
+			<Text id="TI_ZS_ACC_ZERO" value="Anfangsposition Messbereich"/>
+			<Text id="TI_ZS_ACC_ZERO_desc" value="Programmieren des Messbereichsanfangs in &#0181;m ausgehend vom Beginn des Erfassungsbereichs "/>
+			
+			<Text id="TI_ZS_ACC_END" value="Endposition Messbereich"/>
+			<Text id="TI_ZS_ACC_END_desc" value="Programmieren des Messbereichsendwerts in &#0181;m ausgehend vom Ende des Erfassungsbereichs"/>
+		
+			<Text id="TI_ZS_MAX" value="Maximaler Messbereich"/>
+			<Text id="TI_ZS_MAX_desc" value="Den analogen Messbereich auf den gesamten Erfassungsbereich einstellen "/>
+	
+			<Text id="TI_ZS_MAX_REV" value="Maximaler Messbereich, invertiert"/>
+			<Text id="TI_ZS_MAX_REV_desc" value="Teacht den Messbereich auf den gesamten Erfassungsbereich mit invertiertem Verhalten "/>
+			
+			<Text id="TI_SPEED_SCALE" value="Messbereich Geschwindigkeit"/>
+			<Text id="SPEED_SCALE_desc" value="Messbereich der Geschwindigkeitsmessung "/>
+			
+			<Text id="TI_ANOUT_BOT" value="Anfangswert des Analogausgangs"/>
+			<Text id="ANOUT_BOT_desc" value="Durch diese beiden Einstellungen l&#0228;sst sich der Bereich des Analogausgangs individuell einstellen, z.B. 5-17mA"/>
+			
+			<Text id="TI_ANOUT_TOP" value="Endwert des Analogausgangs"/>
+			<Text id="ANOUT_TOP_desc" value="Konfiguration des Analogwertes f&#0252;r den Messbereichsendpunkt "/>
+						
+			<Text id="TI_SW_FENST1_RISE" value="Schaltpunkt 1"/>
+			<Text id="SW_FENST1_RISE_desc" value="Einschaltpunkt Schaltfenster 1 in &#0181;m "/>
+		
+			<Text id="TI_SW_FENST2_RISE" value="Schaltpunkt 2 "/>
+			<Text id="SW_FENST2_RISE_desc" value="Einschaltpunkt Schaltfenster 2 in &#0181;m "/>
+			
+			<Text id="TI_SW_FENST3_RISE" value="Schaltpunkt 3 "/>
+			<Text id="SW_FENST3_RISE_desc" value="Einschaltpunkt Schaltfenster 3 in &#0181;m "/>
+			
+			<Text id="TI_SW_FENST4_RISE" value="Schaltpunkt 4 "/>
+			<Text id="SW_FENST4_RISE_desc" value="Einschaltpunkt Schaltfenster 4 in &#0181;m "/>
+			
+			<Text id="TI_SW_FENST1_FALL" value="R&#0252;ckschaltpunkt 1"/>
+			<Text id="SW_FENST1_FALL_desc" value="Ausschaltpunkt Schaltfenster 1 in &#0181;m"/>
+			
+			<Text id="TI_SW_FENST2_FALL" value="R&#0252;ckschaltpunkt 2 "/>
+			<Text id="SW_FENST2_FALL_desc" value="Ausschaltpunkt Schaltfenster 2 in &#0181;m"/>
+			
+			<Text id="TI_SW_FENST3_FALL" value="R&#0252;ckschaltpunkt 3 "/>
+			<Text id="SW_FENST3_FALL_desc" value="Ausschaltpunkt Schaltfenster 3 in &#0181;m"/>
+			
+			<Text id="TI_SW_FENST4_FALL" value="R&#0252;ckschaltpunkt 4"/>
+			<Text id="SW_FENST4_FALL_desc" value="Ausschaltpunkt Schaltfenster 4 in &#0181;m"/>
+	
+			<Text id="TI_FENST1_R_TEACH" value="Schaltpunkt 1 anlernen"/>
+			<Text id="FENST1_R_TEACH_desc" value="&#0220;bernahme der momentanenen Istposition als Einschaltwert Fenster 1"/>
+			
+			<Text id="TI_FENST2_R_TEACH" value="Schaltpunkt 2 anlernen"/>
+			<Text id="FENST2_R_TEACH_desc" value="&#0220;bernahme der momentanenen Istposition als Einschaltwert Fenster 2"/>
+			
+			<Text id="TI_FENST3_R_TEACH" value="Schaltpunkt 3 anlernen"/>
+			<Text id="FENST3_R_TEACH_desc" value="&#0220;bernahme der momentanenen Istposition als Einschaltwert Fenster 3"/>
+			
+			<Text id="TI_FENST4_R_TEACH" value="Schaltpunkt 4 anlernen"/>
+			<Text id="FENST4_R_TEACH_desc" value="&#0220;bernahme der momentanenen Istposition als Einschaltwert Fenster 4."/>
+			
+			<Text id="TI_FENST1_F_TEACH" value="R&#0252;ckschaltpunkt 1 anlernen"/>
+			<Text id="FENST1_F_TEACH_desc" value="&#0220;bernahme der momentanenen Istposition als Ausschaltschaltwert Fenster 1"/>
+			
+			<Text id="TI_FENST2_F_TEACH" value="R&#0252;ckschaltpunkt 2 anlernen"/>
+			<Text id="FENST2_F_TEACH_desc" value="&#0220;bernahme der momentanenen Istposition als Ausschaltschaltwert Fenster 2"/>
+			
+			<Text id="TI_FENST3_F_TEACH" value="R&#0252;ckschaltpunkt 3 anlernen"/>
+			<Text id="FENST3_F_TEACH_desc" value="&#0220;bernahme der momentanenen Istposition als Ausschaltschaltwert Fenster 3"/>
+			
+			<Text id="TI_FENST4_F_TEACH" value="R&#0252;ckschaltpunkt 4 anlernen"/>
+			<Text id="FENST4_F_TEACH_desc" value="&#0220;bernahme der momentanenen Istposition als Ausschaltschaltwert Fenster 4"/>
+		
+			<Text id="TI_AOUT_AT_FAIL" value="Verhalten im Fehlerfall"/>
+			<Text id="AOUT_AT_FAIL_desc" value="Verhalten des Analogausgangs im Fehlerfall (nicht vorhandener Positionsgeber)"/>
+			
+			<Text id="TI_AOUT_AT_EXC" value="Verhalten bei Messbereichs&#0252;berschreitung"/>
+			<Text id="AOUT_AT_EXC_desc" value="Verhalten des Analogausgangs, wenn der Positionsgeber ausserhalb des programmierten Messbereich liegt"/>
+			
+			<Text id="TI_FILTER_VAL" value="Tiefpassfilter"/>
+			<Text id="FILTER_VAL_desc"  value="Parametrierung des Tiefpassfilter"/>
+			
+			<Text id="TI_STATUS_WORD" value="Sensor Stautswort"/>
+			<Text id="STATUS_WORD_desc" value="Sensor Status (Bitcodiert) "/>
+					
+			<Text id="TI_CAM204_AMPA" value="Signalamplitude"/>
+			<Text id="CAM204_AMPA_desc" value="Signalst&#0228;rke in Prozent"/>
+					
+			<Text id="TI_B_TEMP_PEAK_TOP" value="Sensortemperatur H&#0246;chstwert"/>
+			<Text id="B_TEMP_PEAK_TOP_desc" value="Maximal gemessene Temperatur im Sensor "/>
+
+			<Text id="TI_B_TEMP_PEAK_LOW" value="Sensortemperatur Tiefstwert"/>
+			<Text id="B_TEMP_PEAK_LOW_desc" value="Minimal gemessene Temperatur im Sensor"/>
+		
+			<Text id="TI_CYCLE_TIME_TICKS" value="Zykluszeit"/>
+			<Text id="CYCLE_TIME_TICKS_desc" value="Aktuelle Zykluszeit der internen Messung "/>
+			
+			<Text id="T1_0" value="Schaltausgang N/O = Schliesser"/>
+			<Text id="T1_1" value="Schaltausgang N/C = &#0214;ffner"/>
+			<Text id="T1_2" value="0-5 V"/>		
+			<Text id="T1_3" value="0-10V"/>					
+			<Text id="T1_4" value="0-20mA"/>					
+			<Text id="T1_5" value="4-20mA"/>		
+			
+		
+			<Text id="T2_0" value="Positon"/>
+			<Text id="T2_1" value="Geschwindigkeit"/>
+			<Text id="T2_2" value="Geschwindigkeit und Richtung"/>
+			
+			<Text id="T3_0" value="Fenster 1"/>
+			<Text id="T3_1" value="Fenster 2"/>			
+			<Text id="T3_2" value="Fenster 3"/>						
+			<Text id="T3_3" value="Fenster 4"/>						
+			<Text id="T3_4" value="Fenster 1-4 kombiniert"/>						
+			<Text id="T3_5" value="Erfassungsbereich &#0252;berschritten"/>			
+			<Text id="T3_6" value="Messbereich &#0252;berschritten"/>
+			<Text id="T3_7" value="Positionsgeber Status"/>
+			<Text id="T3_8" value="Positionsgeber Signalamplitude"/>
+			<Text id="T3_9" value="Sammelfehler"/>
+			
+			<Text id="T4_0" value="Stromsparmodus"/>
+			<Text id="T4_1" value="Normalmodus"/>
+			<Text id="T4_2" value="High Speed Modus"/>
+			
+			<Text id="T5_0" value="Ausgangswert einfrieren"/>
+			<Text id="T5_1" value="0% bei Amplitudenfehler"/>
+			<Text id="T5_2" value="100% bei Amplitudenfehler"/>
+			<Text id="T5_3" value="11V / 22mA bei Amplitudenfehler"/>
+					
+			<Text id="T6_1" value="Filter inaktiv, kurze Signallaufzeit"/>
+			<Text id="T6_2" value="hohe Grenzfrequenz, kurze Signallaufzeit"/>
+			<Text id="T6_5" value="mittlere Grenzfrequenz und Signallaufzeit"/>
+			<Text id="T6_10" value="niedrige Grenzfrequenz, lange Signallaufzeit"/>
+			
+			<Text id="T7_1" value="Positionsgeber Status"/>
+			<Text id="T7_1_1" value="Messbereichs&#0252;berschreitung"/>
+			<Text id="T7_1_0" value="Positionsgeber im Messbereich "/>
+			<Text id="T7_2" value="Positionsgeber Signalamplitude"/>			
+			<Text id="T7_2_1" value="Fehler Positionsgeber"/>			
+			<Text id="T7_2_0" value="Positionsgeber Signalamplitude okay"/>			
+			<Text id="T7_3" value="Sensortemperatur"/>						
+			<Text id="T7_3_1" value="Fehler"/>						
+			<Text id="T7_3_0" value="Okay"/>									
+			<Text id="T7_4" value="Sammelfehler"/>						
+			<Text id="T7_4_1" value="error"/>						
+			<Text id="T7_4_0" value="no error"/>									
+			<Text id="T7_5" value="LED1 Status"/>						
+			<Text id="T7_5_1" value="on "/>						
+			<Text id="T7_5_0" value="off"/>									
+			<Text id="T7_6" value="LED2 Status"/>			
+			<Text id="T7_6_1" value="on "/>						
+			<Text id="T7_6_0" value="off"/>									
+			<Text id="T7_7" value="Fenster 1"/>						
+			<Text id="T7_7_1" value="active "/>						
+			<Text id="T7_7_0" value="not active"/>									
+			<Text id="T7_8" value="Fenster 2"/>
+			<Text id="T7_8_1" value="active "/>						
+			<Text id="T7_8_0" value="not active"/>					
+			<Text id="T7_9" value="Fenster 3"/>						
+			<Text id="T7_9_1" value="active "/>						
+			<Text id="T7_9_0" value="not active"/>					
+			<Text id="T7_10" value="Fenster 4"/>			
+			<Text id="T7_10_1" value="active "/>						
+			<Text id="T7_10_0" value="not active"/>					
+				
+										
+			<Text id="T8_1" value="anlernen"/>								
+			
+			<Text id="T9_0" value="inaktiv"/>								
+			<Text id="T9_1" value="aktiv"/>								
+						
+			<Text id="T10_0" value="PNP"/>								
+			<Text id="T10_1" value="NPN"/>								
+			
+			<Text id="T_PROC" value="Positionsgeber ok"/>								
+			<Text id="T_PROCE1" value="kein Positionsgeber"/>								
+			<Text id="T_PROCE2" value="Messbereichs&#0252;berschreitung"/>								
+			<Text id="T_PROCE3" value="Messbereichs&#0252;berschreitung / kein Positionsgeber"/>								
+			
+		</Language>
+	</ExternalTextCollection>
+
+	<Stamp crc="3022143430"><Checker name="IODD-Checker V1.0.4 Beta 1" version="V1.0.4.1"/></Stamp>
+</IODevice>

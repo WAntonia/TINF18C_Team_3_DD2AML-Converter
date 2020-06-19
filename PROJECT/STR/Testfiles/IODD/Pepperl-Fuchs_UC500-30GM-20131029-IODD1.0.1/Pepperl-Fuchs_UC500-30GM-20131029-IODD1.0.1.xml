@@ -1,0 +1,1894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.01" releaseDate="2013-10-29" copyright="Copyright 2012-2013, Pepperl+Fuchs GmbH"/>
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <!--UC500-30GM-IUEP -->
+    <DeviceIdentity vendorId="1" vendorName="Pepperl+Fuchs" deviceId="3145985">
+      <!--UC2000-30GM-IUEP -->
+      <!--<DeviceIdentity vendorId="1" vendorName="Pepperl+Fuchs" deviceId="3145986">-->
+      <!--UC4000-30GM-IUEP -->
+      <!--<DeviceIdentity vendorId="1" vendorName="Pepperl+Fuchs" deviceId="3145987">-->
+      <!--UC6000-30GM-IUEP -->
+      <!--<DeviceIdentity vendorId="1" vendorName="Pepperl+Fuchs" deviceId="3145988">-->
+
+      <VendorText textId="TI_VendorText"/>
+      <VendorUrl textId="TI_VendorUrl"/>
+      <VendorLogo name="Pepperl-Fuchs-logo.png"/>
+      <DeviceFamily textId="TI_DeviceFamily"/>
+
+      <DeviceVariantCollection>
+        <!--UC500-30GM-IUEP -->
+        <DeviceVariant productId="191238" firmwareRevision="FW01.00" deviceSymbol="Pepperl-Fuchs-UC500-30GM-pic.png" deviceIcon="Pepperl-Fuchs-UC500-30GM-icon.png">
+          <ProductName textId="TI_191238_Name"/>
+          <ProductText textId="TI_191238_Text"/>
+        </DeviceVariant>
+        <!--UC500-30GM-2EP -->
+        <DeviceVariant productId="191242" firmwareRevision="FW01.00" deviceSymbol="Pepperl-Fuchs-UC500-30GM-pic.png" deviceIcon="Pepperl-Fuchs-UC500-30GM-icon.png">
+          <ProductName textId="TI_191242_Name"/>
+          <ProductText textId="TI_191242_Text"/>
+        </DeviceVariant>
+
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+
+    <DeviceFunction>
+
+      <DatatypeCollection>
+
+        <Datatype xsi:type="UIntegerT" bitLength="16" id="DT_SPRange">
+          <!-- Limit setting for  idx 0x3C.1, 0x3C.2, 0x3E.1, 0x3E.2, 0x42.1, 0x42.2 -->
+          <!--UC500-30GM -->
+          <ValueRange lowerValue="35" upperValue="1000"/>
+          <!--UC2000-30GM -->
+          <!--<ValueRange lowerValue="90" upperValue="4000"/>-->
+          <!--UC4000-30GM -->
+          <!--<ValueRange lowerValue="200" upperValue="8000"/>-->
+          <!--UC6000-30GM -->
+          <!--<ValueRange lowerValue="350" upperValue="10000"/>-->
+        </Datatype>
+
+        <Datatype id="DT_BDC_SPV" xsi:type="RecordT" bitLength="32">
+          <!-- used in idx 0x3C, 0x3E -->
+          <RecordItem subindex="1" bitOffset="16">
+            <DatatypeRef datatypeId="DT_SPRange"/>
+            <Name textId="TI_DT_BDC_SP2"/>
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <DatatypeRef datatypeId="DT_SPRange"/>
+            <Name textId="TI_DT_BDC_SP1"/>
+          </RecordItem>
+        </Datatype>
+
+        <Datatype id="DT_ADC_SPV" xsi:type="RecordT" bitLength="32">
+          <!-- used in idx 0x42 -->
+          <RecordItem subindex="1" bitOffset="16">
+            <DatatypeRef datatypeId="DT_SPRange"/>
+            <Name textId="TI_DT_ADC_SP2"/>
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <DatatypeRef datatypeId="DT_SPRange"/>
+            <Name textId="TI_DT_ADC_SP1"/>
+          </RecordItem>
+        </Datatype>
+
+        <Datatype id="DT_SPCLogic" xsi:type="UIntegerT" bitLength="8">
+          <SingleValue value="0">
+            <Name textId="TI_DT_SPCLogic_notinv"/>
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_DT_SPCLogic_inv"/>
+          </SingleValue>
+        </Datatype>
+
+        <Datatype id="DT_SPCMode" xsi:type="UIntegerT" bitLength="8">
+          <SingleValue value="1">
+            <Name textId="TI_DT_SPCMode_singlepoint"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_DT_SPCMode_window"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_DT_SPCMode_twopoint"/>
+          </SingleValue>
+          <SingleValue value="128">
+            <Name textId="TI_DT_SPCMode_barrier"/>
+          </SingleValue>
+        </Datatype>
+
+        <Datatype id="DT_SPCHys" xsi:type="UIntegerT" bitLength="16">
+          <ValueRange lowerValue="0" upperValue="50"/>
+        </Datatype>
+
+        <Datatype id="DT_BDC_SPC" xsi:type="RecordT" bitLength="32">
+          <!-- used in idx 0x3D, 0x3F -->
+          <RecordItem subindex="1" bitOffset="24">
+            <DatatypeRef datatypeId="DT_SPCLogic"/>
+            <Name textId="TI_DT_BDC_SPCLogic"/>
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="16">
+            <DatatypeRef datatypeId="DT_SPCMode"/>
+            <Name textId="TI_DT_BDC_SPCMode"/>
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="0">
+            <DatatypeRef datatypeId="DT_SPCHys"/>
+            <Name textId="TI_DT_BDC_SPCHys"/>
+          </RecordItem>
+        </Datatype>
+
+        <Datatype xsi:type="UIntegerT" bitLength="8" id="DT_SPBarrierOffs">
+          <ValueRange lowerValue="1" upperValue="50"/>
+        </Datatype>
+
+        <Datatype id="DT_BDC_Delay" xsi:type="UIntegerT" bitLength="8">
+          <ValueRange lowerValue="0" upperValue="255"/>
+        </Datatype>
+
+        <Datatype xsi:type="UIntegerT" bitLength="16" id="DT_MeasMode_Cycletime">
+          <!-- Limit setting for  idx 0x61.3 -->
+          <SingleValue value="0">
+            <Name textId="TI_V_MeasMode_Cycletime_off"/>
+          </SingleValue>
+          <!--UC500-30GM-->
+          <ValueRange lowerValue="7" upperValue="65535"/>
+          <!--UC2000-30GM-->
+          <!--<ValueRange lowerValue="15" upperValue="65535"/>-->
+          <!--UC4000-30GM-->
+          <!--<ValueRange lowerValue="30" upperValue="65535"/>-->
+          <!--UC6000-30GM-->
+          <!--<ValueRange lowerValue="45" upperValue="65535"/>-->
+        </Datatype>
+
+        <Datatype xsi:type="UIntegerT" bitLength="16" id="DT_MeasMode_Blindrng">
+          <!-- Limit setting for  idx 0x61.5 -->
+          <SingleValue value="0">
+            <Name textId="TI_V_MeasMode_Blindrng_off"/>
+          </SingleValue>
+          <!--UC500-30GM-->
+          <ValueRange lowerValue="1" upperValue="980"/>
+          <!--UC2000-30GM-->
+          <!--<ValueRange lowerValue="1" upperValue="3950"/>-->
+          <!--UC4000-30GM-->
+          <!--<ValueRange lowerValue="1" upperValue="7900"/>-->
+          <!--UC6000-30GM-->
+          <!--<ValueRange lowerValue="1" upperValue="9800"/>-->
+        </Datatype>
+
+        <Datatype xsi:type="UIntegerT" bitLength="16" id="DT_MeasMode_Rangereduct">
+          <!-- Limit setting for  idx 0x61.6 -->
+          <SingleValue value="0">
+            <Name textId="TI_V_MeasMode_Rangereduct_off"/>
+          </SingleValue>
+          <!--UC500-30GM-->
+          <ValueRange lowerValue="70" upperValue="1000"/>
+          <!--UC2000-30GM-->
+          <!--<ValueRange lowerValue="170" upperValue="4000"/>-->
+          <!--UC4000-30GM-->
+          <!--<ValueRange lowerValue="340" upperValue="8000"/>-->
+          <!--UC6000-30GM-->
+          <!--<ValueRange lowerValue="600" upperValue="10000"/>-->
+        </Datatype>
+
+        <Datatype id="DT_Bool_State" xsi:type="BooleanT">
+          <SingleValue value="true">
+            <Name textId="TI_DT_Bool_State_active"/>
+          </SingleValue>
+          <SingleValue value="false">
+            <Name textId="TI_DT_Bool_State_inactive"/>
+          </SingleValue>
+        </Datatype>
+
+        <Datatype id="DT_Uint8_State" xsi:type="UIntegerT" bitLength="8">
+          <SingleValue value="1">
+            <Name textId="TI_DT_Bool_State_active"/>
+          </SingleValue>
+          <SingleValue value="0">
+            <Name textId="TI_DT_Bool_State_inactive"/>
+          </SingleValue>
+        </Datatype>
+
+        <Datatype id="DT_PDin_Dist14" xsi:type="UIntegerT" bitLength="14">
+          <ValueRange lowerValue="0" upperValue="16000"/>
+          <SingleValue value="16383">
+            <Name textId="TI_PDin_Dist_noecho"/>
+          </SingleValue>
+        </Datatype>
+
+      </DatatypeCollection>
+
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1"/>
+        <StdVariableRef id="V_DirectParameters_2"/>
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130"/>
+        </StdVariableRef>
+        <StdVariableRef id="V_VendorName" defaultValue="Pepperl+Fuchs GmbH"/>
+        <StdVariableRef id="V_VendorText"/>
+
+        <!--UCnnnn-30GM-series -->
+        <StdVariableRef id="V_ProductName" defaultValue="UC-30GM - IO-Link Series"/>
+        <StdVariableRef id="V_ProductID"/>
+        <StdVariableRef id="V_ProductText" defaultValue="Ultrasonic Distance Sensor"/>
+        <StdVariableRef id="V_SerialNumber"/>
+        <StdVariableRef id="V_HardwareRevision"/>
+        <StdVariableRef id="V_FirmwareRevision"/>
+        <StdVariableRef id="V_ProcessDataIn"/>
+        <StdVariableRef id="V_ApplicationSpecificName" fixedLengthRestriction="32"/>
+
+        <!-- device specific parameter -->
+
+        <Variable id="V_Feature" index="239" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="true">
+                  <Name textId="TI_DT_Bool_TrueFalse_true"/>
+                </SingleValue>
+                <SingleValue value="false">
+                  <Name textId="TI_DT_Bool_TrueFalse_false"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_Feature_AnalogOut"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="false"/>
+          <Name textId="TI_V_Feature"/>
+        </Variable>
+
+        <Variable id="V_BDC1_SPV" index="60" accessRights="rw">
+          <DatatypeRef datatypeId="DT_BDC_SPV"/>
+          <!--UC500-30GM-->
+          <RecordItemInfo subindex="1" defaultValue="50"/>
+          <RecordItemInfo subindex="2" defaultValue="500"/>
+          <!--UC2000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="120"/>
+          <RecordItemInfo subindex="2" defaultValue="2000"/>-->
+          <!--UC4000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="240"/>
+          <RecordItemInfo subindex="2" defaultValue="4000"/>-->
+          <!--UC6000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="400"/>
+          <RecordItemInfo subindex="2" defaultValue="6000"/>-->
+          <Name textId="TI_V_BDC1_SPV"/>
+        </Variable>
+
+        <Variable id="V_BDC1_SPC" index="61" accessRights="rw">
+          <DatatypeRef datatypeId="DT_BDC_SPC"/>
+          <RecordItemInfo subindex="1" defaultValue="0"/>
+          <RecordItemInfo subindex="2" defaultValue="2"/>
+          <RecordItemInfo subindex="3" defaultValue="1"/>
+          <Name textId="TI_V_BDC1_SPC"/>
+        </Variable>
+
+        <Variable id="V_BDC2_SPV" index="62" accessRights="rw">
+          <DatatypeRef datatypeId="DT_BDC_SPV"/>
+          <!--UC500-30GM-->
+          <RecordItemInfo subindex="1" defaultValue="100"/>
+          <RecordItemInfo subindex="2" defaultValue="250"/>
+          <!--UC2000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="120"/>
+          <RecordItemInfo subindex="2" defaultValue="1000"/>-->
+          <!--UC4000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="500"/>
+          <RecordItemInfo subindex="2" defaultValue="2000"/>-->
+          <!--UC6000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="500"/>
+          <RecordItemInfo subindex="2" defaultValue="3000"/>-->
+          <Name textId="TI_V_BDC2_SPV"/>
+        </Variable>
+
+        <Variable id="V_BDC2_SPC" index="63" accessRights="rw">
+          <DatatypeRef datatypeId="DT_BDC_SPC"/>
+          <RecordItemInfo subindex="1" defaultValue="0"/>
+          <RecordItemInfo subindex="2" defaultValue="2"/>
+          <RecordItemInfo subindex="3" defaultValue="1"/>
+          <Name textId="TI_V_BDC2_SPC"/>
+        </Variable>
+
+        <Variable id="V_BDC_SPBoff" index="64" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="16">
+            <RecordItem subindex="1" bitOffset="8">
+              <DatatypeRef datatypeId="DT_SPBarrierOffs"/>
+              <Name textId="TI_V_BDC_SPBoff"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <DatatypeRef datatypeId="DT_SPBarrierOffs"/>
+              <Name textId="TI_V_BDC_SPBoff"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="10"/>
+          <RecordItemInfo subindex="2" defaultValue="10"/>
+          <Name textId="TI_V_BDC_SPBoff"/>
+        </Variable>
+
+        <Variable id="V_BDC_Delay" index="65" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="32">
+            <RecordItem subindex="1" bitOffset="24">
+              <DatatypeRef datatypeId="DT_BDC_Delay"/>
+              <Name textId="TI_V_BDC_DelayOn"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="16">
+              <DatatypeRef datatypeId="DT_BDC_Delay"/>
+              <Name textId="TI_V_BDC_DelayOff"/>
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="8">
+              <DatatypeRef datatypeId="DT_BDC_Delay"/>
+              <Name textId="TI_V_BDC_DelayOn"/>
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="0">
+              <DatatypeRef datatypeId="DT_BDC_Delay"/>
+              <Name textId="TI_V_BDC_DelayOff"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0"/>
+          <RecordItemInfo subindex="2" defaultValue="0"/>
+          <RecordItemInfo subindex="3" defaultValue="0"/>
+          <RecordItemInfo subindex="4" defaultValue="0"/>
+          <Name textId="TI_V_BDC_Delay"/>
+        </Variable>
+
+        <Variable id="V_ADC1_SPV" index="66" accessRights="rw">
+          <DatatypeRef datatypeId="DT_ADC_SPV"/>
+          <!--UC500-30GM-->
+          <RecordItemInfo subindex="1" defaultValue="100"/>
+          <RecordItemInfo subindex="2" defaultValue="250"/>
+          <!--UC2000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="120"/>
+          <RecordItemInfo subindex="2" defaultValue="1000"/>-->
+          <!--UC4000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="500"/>
+          <RecordItemInfo subindex="2" defaultValue="2000"/>-->
+          <!--UC6000-30GM-->
+          <!--<RecordItemInfo subindex="1" defaultValue="500"/>
+          <RecordItemInfo subindex="2" defaultValue="3000"/>-->
+          <Name textId="TI_V_ADC1_SPV"/>
+        </Variable>
+
+        <Variable id="V_ADC1_SPC" index="67" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="32">
+            <RecordItem subindex="1" bitOffset="24">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_ADC1_SPCMode_rising"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_ADC1_SPCMode_falling"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_ADC1_SPCMode_linear"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_ADC1_SPCMode"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <DatatypeRef datatypeId="DT_SPCHys"/>
+              <Name textId="TI_V_ADC1_SPCHys"/>
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Uint8_State"/>
+              <Name textId="TI_V_ADC1_SPCReplaceVal"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0"/>
+          <RecordItemInfo subindex="2" defaultValue="1"/>
+          <RecordItemInfo subindex="3" defaultValue="0"/>
+          <Name textId="TI_V_ADC1_SPC"/>
+        </Variable>
+
+
+        <Variable id="V_MeasData" index="95" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="32">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                <ValueRange lowerValue="0" upperValue="16000"/>
+                <SingleValue value="16383">
+                  <Name textId="TI_V_MeasData_Dist_notarget"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_MeasData_Dist"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              </SimpleDatatype>
+              <Name textId="TI_V_MeasData_Amplitude"/>
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_MeasData_BDCStat_00"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_MeasData_BDCStat_01"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_MeasData_BDCStat_10"/>
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="TI_V_MeasData_BDCStat_11"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_MeasData_BDCStat"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_V_MeasData"/>
+        </Variable>
+
+        <Variable id="V_MeasMode" index="97" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="72">
+            <RecordItem subindex="1" bitOffset="64">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_MeasMode_Beamwidth_small"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_MeasMode_Beamwidth_middle"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_MeasMode_Beamwidth_wide"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_MeasMode_Beamwidth"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="56">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_MeasMode_Bursttime_auto"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_MeasMode_Bursttime_short"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_MeasMode_Bursttime_long"/>
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="TI_V_MeasMode_Bursttime_dirac"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_MeasMode_Bursttime"/>
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="40">
+              <DatatypeRef datatypeId="DT_MeasMode_Cycletime"/>
+              <Name textId="TI_V_MeasMode_Cycletime"/>
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="32">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_MeasMode_Detect_threshold"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_MeasMode_Detect_peak"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_MeasMode_Detect"/>
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="16">
+              <DatatypeRef datatypeId="DT_MeasMode_Blindrng"/>
+              <Name textId="TI_V_MeasMode_Blindrng"/>
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="0">
+              <DatatypeRef datatypeId="DT_MeasMode_Rangereduct"/>
+              <Name textId="TI_V_MeasMode_Rangereduct"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="2"/>
+          <RecordItemInfo subindex="2" defaultValue="0"/>
+          <RecordItemInfo subindex="3" defaultValue="0"/>
+          <RecordItemInfo subindex="4" defaultValue="0"/>
+          <RecordItemInfo subindex="5" defaultValue="0"/>
+          <RecordItemInfo subindex="6" defaultValue="0"/>
+          <Name textId="TI_V_MeasMode"/>
+        </Variable>
+
+        <Variable id="V_EvalMode" index="98" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="88">
+            <RecordItem subindex="1" bitOffset="80">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_EvalMode_Method_direct"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_EvalMode_Method_average"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_EvalMode_Method_lowpass"/>
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="TI_V_EvalMode_Method_adaptive"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_Method"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="72">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="32">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m2n0"/>
+                </SingleValue>
+                <SingleValue value="48">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m3n0"/>
+                </SingleValue>
+                <SingleValue value="49">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m3n1"/>
+                </SingleValue>
+                <SingleValue value="64">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m4n0"/>
+                </SingleValue>
+                <SingleValue value="65">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m4n1"/>
+                </SingleValue>
+                <SingleValue value="80">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m5n0"/>
+                </SingleValue>
+                <SingleValue value="81">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m5n1"/>
+                </SingleValue>
+                <SingleValue value="82">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m5n2"/>
+                </SingleValue>
+                <SingleValue value="96">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m6n0"/>
+                </SingleValue>
+                <SingleValue value="97">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m6n1"/>
+                </SingleValue>
+                <SingleValue value="98">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m6n2"/>
+                </SingleValue>
+                <SingleValue value="112">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m7n0"/>
+                </SingleValue>
+                <SingleValue value="113">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m7n1"/>
+                </SingleValue>
+                <SingleValue value="114">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m7n2"/>
+                </SingleValue>
+                <SingleValue value="115">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m7n3"/>
+                </SingleValue>
+                <SingleValue value="128">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m8n0"/>
+                </SingleValue>
+                <SingleValue value="129">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m8n1"/>
+                </SingleValue>
+                <SingleValue value="130">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m8n2"/>
+                </SingleValue>
+                <SingleValue value="131">
+                  <Name textId="TI_V_EvalMode_Arithmetic_m8n3"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_Arithmetic"/>
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="56">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                <ValueRange lowerValue="1" upperValue="1000"/>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_LPWeight"/>
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="48">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <ValueRange lowerValue="0" upperValue="15"/>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_LPDeviation"/>
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="40">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <ValueRange lowerValue="0" upperValue="15"/>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_LPSkipCnt"/>
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="32">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_EvalMode_AdaptiveMode_first"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_EvalMode_AdaptiveMode_max"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_AdaptiveMode"/>
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="24">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_EvalMode_AdaptiveWindow_narrow"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_EvalMode_AdaptiveWindow_normal"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_EvalMode_AdaptiveWindow_wide"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_AdaptiveWindow"/>
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_EvalMode_NoEcho_ignore"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_EvalMode_NoEcho_accept"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_EvalMode_NoEcho_error"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_NoEcho"/>
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="8">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <ValueRange lowerValue="0" upperValue="255"/>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_OnDelay"/>
+            </RecordItem>
+            <RecordItem subindex="10" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <ValueRange lowerValue="0" upperValue="255"/>
+              </SimpleDatatype>
+              <Name textId="TI_V_EvalMode_OffDelay"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="1"/>
+          <RecordItemInfo subindex="2" defaultValue="82"/>
+          <RecordItemInfo subindex="3" defaultValue="100"/>
+          <RecordItemInfo subindex="4" defaultValue="0"/>
+          <RecordItemInfo subindex="5" defaultValue="0"/>
+          <RecordItemInfo subindex="6" defaultValue="1"/>
+          <RecordItemInfo subindex="7" defaultValue="1"/>
+          <RecordItemInfo subindex="8" defaultValue="0"/>
+          <RecordItemInfo subindex="9" defaultValue="2"/>
+          <RecordItemInfo subindex="10" defaultValue="2"/>
+          <Name textId="TI_V_EvalMode"/>
+        </Variable>
+
+        <Variable id="V_ADC1_PDMode" index="99" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TI_V_ADC1_PDMode_absolute"/>
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TI_V_ADC1_PDMode_zprnorm"/>
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="TI_V_ADC1_PDMode_rrnorm"/>
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_V_ADC1_PDMode"/>
+        </Variable>
+
+        <Variable id="V_CtrlTemp" index="100" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_CtrlTemp_Compensation_disabled"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_CtrlTemp_Compensation_enabled"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_CtrlTemp_Compensation"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="8">
+                <ValueRange lowerValue="-50" upperValue="50"/>
+              </SimpleDatatype>
+              <Name textId="TI_V_CtrlTemp_Offset"/>
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="8">
+                <ValueRange lowerValue="-25" upperValue="70"/>
+              </SimpleDatatype>
+              <Name textId="TI_V_CtrlTemp_Fix"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="1"/>
+          <RecordItemInfo subindex="2" defaultValue="20"/>
+          <RecordItemInfo subindex="3" defaultValue="25"/>
+          <Name textId="TI_V_CtrlTemp"/>
+        </Variable>
+
+        <Variable id="V_CtrlSync" index="101" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="16">
+            <RecordItem subindex="1" bitOffset="8">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_CtrlSync_Mode_disabled"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_CtrlSync_Mode_cyclicquick"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_CtrlSync_Mode_cyclicstd"/>
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="TI_V_CtrlSync_Mode_external"/>
+                </SingleValue>
+                <SingleValue value="4">
+                  <Name textId="TI_V_CtrlSync_Mode_master"/>
+                </SingleValue>
+                <SingleValue value="5">
+                  <Name textId="TI_V_CtrlSync_Mode_slave"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_CtrlSync_Mode"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <ValueRange lowerValue="2" upperValue="10"/>
+              </SimpleDatatype>
+              <Name textId="TI_V_CtrlSync_NumDev"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="1"/>
+          <RecordItemInfo subindex="2" defaultValue="5"/>
+          <Name textId="TI_V_CtrlSync"/>
+        </Variable>
+
+        <Variable id="V_ConfError" index="102" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_ConfError_Type_ignore"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_ConfError_Type_warn"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_ConfError_Type_error"/>
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="TI_V_ConfError_Type_alarm"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_ConfError_Type"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_ConfError_QState_freeze"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_ConfError_QState_high"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_ConfError_QState_low"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_ConfError_Q1State"/>
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_ConfError_QState_freeze"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_ConfError_QState_high"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_ConfError_QState_low"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_ConfError_Q2State"/>
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_ConfError_AnalogState_freeze"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_ConfError_AnalogState_minval"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_ConfError_AnalogState_maxval"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_ConfError_AnalogState"/>
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Uint8_State"/>
+              <Name textId="TI_V_ConfError_OpenLoopDetect"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="1"/>
+          <RecordItemInfo subindex="2" defaultValue="0"/>
+          <RecordItemInfo subindex="3" defaultValue="0"/>
+          <RecordItemInfo subindex="4" defaultValue="0"/>
+          <RecordItemInfo subindex="5" defaultValue="0"/>
+          <Name textId="TI_V_ConfError"/>
+        </Variable>
+
+        <Variable id="V_CtrlAccess" index="103" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="TI_V_CtrlAccess_LocAdjust_disabled"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_CtrlAccess_LocAdjust_enabled"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_CtrlAccess_LocAdjust"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0"/>
+          <Name textId="TI_V_CtrlAccess"/>
+        </Variable>
+
+        <Variable id="V_OCF" index="112" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_OCF_QType_pp"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_OCF_Q1Type"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_OCF_QType_pp"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_OCF_QType_ls"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_OCF_QType_hs"/>
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="TI_V_OCF_QType_hz"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_OCF_Q2Type"/>
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_OCF_AOType_iout"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_OCF_AOType_vout"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_OCF_AOType_hz"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_OCF_AOType"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0"/>
+          <RecordItemInfo subindex="2" defaultValue="0"/>
+          <RecordItemInfo subindex="3" defaultValue="0"/>
+          <Name textId="TI_V_OCF"/>
+        </Variable>
+
+        <Variable id="V_LOC" index="113" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="TI_V_LOC_Set_unlocked"/>
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_V_LOC_Set_locked"/>
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_V_LOC_Set_timelocked"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_LOC_Set"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="2"/>
+          <Name textId="TI_V_LOC"/>
+        </Variable>
+
+        <Variable id="V_LIC" index="127" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="false">
+                  <Name textId="TI_V_LIC_Set_normal"/>
+                </SingleValue>
+                <SingleValue value="true">
+                  <Name textId="TI_V_LIC_Set_enable"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_LIC_Set"/>
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="false"/>
+          <Name textId="TI_V_LIC"/>
+        </Variable>
+
+        <Variable id="V_UT1" index="192" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="32"/>
+          <Name textId="TI_V_UT1"/>
+        </Variable>
+
+        <Variable id="V_UT2" index="193" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="16"/>
+          <Name textId="TI_V_UT2"/>
+        </Variable>
+
+        <Variable id="V_SysTime" index="224" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="UIntegerT" bitLength="32"/>
+          <Name textId="TI_V_SysTime"/>
+        </Variable>
+
+        <Variable id="V_OperTemp" index="225" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="IntegerT" bitLength="8"/>
+          <Name textId="TI_V_OperTemp"/>
+        </Variable>
+
+        <Variable id="V_DevChar" index="232" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="32">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+              </SimpleDatatype>
+              <Name textId="TI_V_DevChar_DistMin"/>
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+              </SimpleDatatype>
+              <Name textId="TI_V_DevChar_DistMax"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_V_DevChar"/>
+        </Variable>
+
+      </VariableCollection>
+
+      <ProcessDataCollection>
+        <ProcessData id="PD_ProcessData0">
+          <ProcessDataIn id="PD_DistBDC" bitLength="16">
+            <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="2">
+                <DatatypeRef datatypeId="DT_PDin_Dist14"/>
+                <Name textId="TI_PDin_Dist14"/>
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Bool_State"/>
+                <Name textId="TI_PDin_BDC1"/>
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="1">
+                <DatatypeRef datatypeId="DT_Bool_State"/>
+                <Name textId="TI_PDin_BDC2"/>
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PDin_DistBDC"/>
+          </ProcessDataIn>
+        </ProcessData>
+
+      </ProcessDataCollection>
+
+      <EventCollection>
+        <Event code="25424" type="Message" mode="SingleShot">
+          <!-- Hex= 0x6350-->
+          <Name textId="TI_EV_ParamChanged"/>
+          <Description textId="TI_EVd_ParamChanged"/>
+        </Event>
+        <Event code="36001" type="Error" mode="AppearDisappear">
+          <!-- Hex= 0x8CA1-->
+          <Name textId="TI_EV_Overtemperature"/>
+          <Description textId="TI_EVd_Overtemperature"/>
+        </Event>
+        <Event code="36004" type="Warning" mode="AppearDisappear">
+          <!-- Hex= 0x8CA4-->
+          <Name textId="TI_EV_NoEcho"/>
+          <Description textId="TI_EVd_NoEcho"/>
+        </Event>
+        <Event code="20496" type="Error" mode="AppearDisappear">
+          <!-- Hex= 0x5010-->
+          <Name textId="TI_EV_HardwareErr"/>
+          <Description textId="TI_EVd_HardwareErr"/>
+        </Event>
+      </EventCollection>
+
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_OR_Ident">
+            <Name textId="TI_ME_Ident"/>
+            <!-- top level menu -->
+            <MenuRef menuId="ME_Ident_Device"/>
+            <MenuRef menuId="ME_OR_Ident_User"/>
+          </Menu>
+
+          <Menu id="ME_MR_Ident">
+            <Name textId="TI_ME_Ident"/>
+            <!-- top level menu -->
+            <MenuRef menuId="ME_Ident_Device"/>
+            <MenuRef menuId="ME_MR_Ident_User"/>
+            <MenuRef menuId="ME_Ident_DeviceRev"/>
+          </Menu>
+
+          <Menu id="ME_SR_Ident">
+            <Name textId="TI_ME_Ident"/>
+            <!-- top level menu -->
+            <MenuRef menuId="ME_Ident_Device"/>
+            <MenuRef menuId="ME_MR_Ident_User"/>
+            <MenuRef menuId="ME_Ident_DeviceRev"/>
+          </Menu>
+
+          <Menu id="ME_Ident_Device">
+            <Name textId="TI_ME_Ident_Device"/>
+            <!-- level 2 menu -->
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro"/>
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro"/>
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro"/>
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro"/>
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro"/>
+            <VariableRef variableId="V_SerialNumber" accessRightRestriction="ro"/>
+          </Menu>
+
+          <Menu id="ME_OR_Ident_User">
+            <Name textId="TI_ME_Ident_User"/>
+            <!-- level 2 menu -->
+            <VariableRef variableId="V_ApplicationSpecificName" accessRightRestriction="ro"/>
+            <VariableRef variableId="V_UT1" accessRightRestriction="ro"/>
+            <VariableRef variableId="V_UT2" accessRightRestriction="ro"/>
+          </Menu>
+
+          <Menu id="ME_MR_Ident_User">
+            <Name textId="TI_ME_Ident_User"/>
+            <!-- level 2 menu -->
+            <VariableRef variableId="V_ApplicationSpecificName" accessRightRestriction="rw"/>
+            <VariableRef variableId="V_UT1" accessRightRestriction="rw"/>
+            <VariableRef variableId="V_UT2" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_Ident_DeviceRev">
+            <Name textId="TI_ME_Ident_DeviceRev"/>
+            <!-- level 2 menu -->
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro"/>
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro"/>
+          </Menu>
+
+          <Menu id="ME_OR_Observe">
+            <Name textId="TI_ME_Observe"/>
+            <!-- top level menu -->
+            <RecordItemRef variableId="V_MeasData" subindex="1" accessRightRestriction="ro" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+            <RecordItemRef variableId="V_MeasData" subindex="2" accessRightRestriction="ro" displayFormat="Dec" gradient="1.0" offset="0.0"/>
+            <RecordItemRef variableId="V_MeasData" subindex="3" accessRightRestriction="ro"/>
+          </Menu>
+
+          <Menu id="ME_MR_Observe">
+            <Name textId="TI_ME_Observe"/>
+            <!-- top level menu -->
+            <RecordItemRef variableId="V_MeasData" subindex="1" accessRightRestriction="ro" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+            <RecordItemRef variableId="V_MeasData" subindex="2" accessRightRestriction="ro" displayFormat="Dec" gradient="0.3922" offset="0.0" unitCode="1342"/>
+            <RecordItemRef variableId="V_MeasData" subindex="3" accessRightRestriction="ro"/>
+          </Menu>
+          <Menu id="ME_SR_Observe">
+            <Name textId="TI_ME_Observe"/>
+            <!-- top level menu -->
+            <MenuRef menuId="ME_MR_Observe"/>
+          </Menu>
+
+          <Menu id="ME_MR_Diag">
+            <Name textId="TI_ME_Diag"/>
+            <!-- top level menu -->
+            <MenuRef menuId="ME_MR_Diag_ServiceFunc"/>
+            <MenuRef menuId="ME_Diag_OperInfo"/>
+          </Menu>
+
+          <Menu id="ME_SR_Diag">
+            <Name textId="TI_ME_Diag"/>
+            <!-- top level menu -->
+            <MenuRef menuId="ME_SR_Diag_ServiceFunc"/>
+            <MenuRef menuId="ME_Diag_OperInfo"/>
+            <MenuRef menuId="ME_Diag_DevInfo"/>
+            <MenuRef menuId="ME_Diag_ComInfo"/>
+          </Menu>
+
+          <Menu id="ME_MR_Diag_ServiceFunc">
+            <Name textId="TI_ME_Diag_ServiceFunc"/>
+            <!-- level 2 menu -->
+            <RecordItemRef variableId="V_LIC" subindex="1" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_SR_Diag_ServiceFunc">
+            <Name textId="TI_ME_Diag_ServiceFunc"/>
+            <!-- level 2 menu -->
+            <RecordItemRef variableId="V_LIC" subindex="1" accessRightRestriction="rw"/>
+            <VariableRef variableId="V_SystemCommand" accessRightRestriction="wo" displayFormat="Button" buttonValue="130"/>
+          </Menu>
+
+          <Menu id="ME_Diag_OperInfo">
+            <Name textId="TI_ME_Diag_OperInfo"/>
+            <!-- level 2 menu -->
+            <!--<VariableRef variableId="V_SysTime" accessRightRestriction="ro" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1054"/>-->
+            <VariableRef variableId="V_OperTemp" accessRightRestriction="ro" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1001"/>
+          </Menu>
+
+          <Menu id="ME_Diag_DevInfo">
+            <Name textId="TI_ME_Diag_DevInfo"/>
+            <!-- level 2 menu -->
+            <RecordItemRef variableId="V_DevChar" subindex="1" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+            <RecordItemRef variableId="V_DevChar" subindex="2" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+          </Menu>
+
+          <Menu id="ME_Diag_ComInfo">
+            <Name textId="TI_ME_Diag_ComInfo"/>
+            <!-- level 2 menu -->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="3" displayFormat="MinCycleTime"/>
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="2" displayFormat="MasterCycleTime"/>
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="5" displayFormat="Hex"/>
+          </Menu>
+
+          <Menu id="ME_MR_Param">
+            <Name textId="TI_ME_Param"/>
+            <!-- top level menu -->
+            <MenuRef menuId="ME_Param_Oper"/>
+            <MenuRef menuId="ME_Param_ConfOper"/>
+            <MenuRef menuId="ME_Param_ConfSens"/>
+            <MenuRef menuId="ME_Param_ConfOutput_Q2">
+              <Condition variableId="V_Feature" subindex="1" value="0"/>
+            </MenuRef>
+            <MenuRef menuId="ME_Param_ConfOutput_AO">
+              <Condition variableId="V_Feature" subindex="1" value="1"/>
+            </MenuRef>
+            <MenuRef menuId="ME_Param_ConfUI"/>
+          </Menu>
+
+          <Menu id="ME_SR_Param">
+            <Name textId="TI_ME_Param"/>
+            <!-- top level menu -->
+            <MenuRef menuId="ME_Param_Oper"/>
+            <MenuRef menuId="ME_Param_ConfOper"/>
+            <MenuRef menuId="ME_Param_ConfSens"/>
+            <MenuRef menuId="ME_Param_ConfOutput_Q2">
+              <Condition variableId="V_Feature" subindex="1" value="0"/>
+            </MenuRef>
+            <MenuRef menuId="ME_Param_ConfOutput_AO">
+              <Condition variableId="V_Feature" subindex="1" value="1"/>
+            </MenuRef>
+            <MenuRef menuId="ME_Param_ConfUI"/>
+          </Menu>
+
+          <Menu id="ME_Param_Oper">
+            <Name textId="TI_ME_Param_Oper"/>
+            <!-- level 2 menu -->
+            <MenuRef menuId="ME_Param_OperBDC1"/>
+            <MenuRef menuId="ME_Param_OperBDC2"/>
+            <MenuRef menuId="ME_Param_OperADC"/>
+          </Menu>
+
+          <Menu id="ME_Param_OperBDC1">
+            <Name textId="TI_ME_Param_OperBDC1"/>
+            <!-- level 3 menu -->
+            <RecordItemRef variableId="V_BDC1_SPV" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+            <RecordItemRef variableId="V_BDC1_SPV" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+          </Menu>
+
+          <Menu id="ME_Param_OperBDC2">
+            <Name textId="TI_ME_Param_OperBDC2"/>
+            <!-- level 3 menu -->
+            <RecordItemRef variableId="V_BDC2_SPV" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+            <RecordItemRef variableId="V_BDC2_SPV" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+          </Menu>
+
+          <Menu id="ME_Param_OperADC">
+            <Name textId="TI_ME_Param_OperADC"/>
+            <!-- level 3 menu -->
+            <RecordItemRef variableId="V_ADC1_SPV" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+            <RecordItemRef variableId="V_ADC1_SPV" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfOper">
+            <Name textId="TI_ME_Param_ConfOper"/>
+            <!-- level 2 menu -->
+            <MenuRef menuId="ME_Param_ConfBDC1"/>
+            <MenuRef menuId="ME_Param_ConfBDC2"/>
+            <MenuRef menuId="ME_Param_ConfADC">
+              <Condition variableId="V_Feature" subindex="1" value="0"/>
+            </MenuRef>
+            <MenuRef menuId="ME_Param_ConfADC_AO">
+              <Condition variableId="V_Feature" subindex="1" value="1"/>
+            </MenuRef>
+          </Menu>
+
+          <Menu id="ME_Param_ConfBDC1">
+            <Name textId="TI_ME_Param_ConfBDC1"/>
+            <!-- level 3 menu -->
+            <RecordItemRef variableId="V_BDC1_SPC" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_BDC1_SPC" subindex="2" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_BDC1_SPC" subindex="3" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1342"/>
+            <RecordItemRef variableId="V_BDC_SPBoff" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1342"/>
+            <RecordItemRef variableId="V_BDC_Delay" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_BDC_Delay" subindex="2" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfBDC2">
+            <Name textId="TI_ME_Param_ConfBDC2"/>
+            <!-- level 3 menu -->
+            <RecordItemRef variableId="V_BDC2_SPC" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_BDC2_SPC" subindex="2" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_BDC2_SPC" subindex="3" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1342"/>
+            <RecordItemRef variableId="V_BDC_SPBoff" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1342"/>
+            <RecordItemRef variableId="V_BDC_Delay" subindex="3" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_BDC_Delay" subindex="4" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfADC">
+            <Name textId="TI_ME_Param_ConfADC"/>
+            <!-- level 3 menu -->
+            <VariableRef variableId="V_ADC1_PDMode" accessRightRestriction="rw"/>
+            <!--<RecordItemRef variableId="V_ADC1_SPC" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1342"/>
+            <RecordItemRef variableId="V_ADC1_SPC" subindex="3" accessRightRestriction="rw"/>-->
+          </Menu>
+
+          <Menu id="ME_Param_ConfADC_AO">
+            <Name textId="TI_ME_Param_ConfADC"/>
+            <!-- level 3 menu -->
+            <VariableRef variableId="V_ADC1_PDMode" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_ADC1_SPC" subindex="1" accessRightRestriction="rw"/>
+            <!--<RecordItemRef variableId="V_ADC1_SPC" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1342"/>
+            <RecordItemRef variableId="V_ADC1_SPC" subindex="3" accessRightRestriction="rw"/>-->
+          </Menu>
+
+          <Menu id="ME_Param_ConfSens">
+            <Name textId="TI_ME_Param_ConfSens"/>
+            <!-- level 2 menu -->
+            <MenuRef menuId="ME_Param_ConfMeas"/>
+            <MenuRef menuId="ME_Param_ConfEval"/>
+            <MenuRef menuId="ME_Param_ConfSync"/>
+            <MenuRef menuId="ME_Param_ConfError"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfMeas">
+            <Name textId="TI_ME_Param_ConfMeas"/>
+            <!-- level 3 menu -->
+            <RecordItemRef variableId="V_MeasMode" subindex="4" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_MeasMode" subindex="2" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_MeasMode" subindex="3" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1056"/>
+            <RecordItemRef variableId="V_MeasMode" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_MeasMode" subindex="5" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+            <RecordItemRef variableId="V_MeasMode" subindex="6" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1013"/>
+            <RecordItemRef variableId="V_CtrlTemp" subindex="1" accessRightRestriction="rw"/>
+            <!--RecordItemRef variableId="V_CtrlTemp" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1001"/>-->
+            <RecordItemRef variableId="V_CtrlTemp" subindex="3" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1001"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfEval">
+            <Name textId="TI_ME_Param_ConfEval"/>
+            <!-- level 3 menu -->
+            <RecordItemRef variableId="V_EvalMode" subindex="8" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="9" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="10" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="2" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="3" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="4" accessRightRestriction="rw" displayFormat="Dec" gradient="1.0" offset="0.0" unitCode="1342"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="5" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="6" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_EvalMode" subindex="7" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfSync">
+            <Name textId="TI_ME_Param_ConfSync"/>
+            <!-- level 3 menu -->
+            <RecordItemRef variableId="V_CtrlSync" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_CtrlSync" subindex="2" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfError">
+            <Name textId="TI_ME_Param_ConfError"/>
+            <!-- level 2 menu -->
+            <RecordItemRef variableId="V_ConfError" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_ConfError" subindex="2" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_ConfError" subindex="3" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_ConfError" subindex="4" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_ConfError" subindex="5" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfOutput_Q2">
+            <Name textId="TI_ME_Param_ConfOutput"/>
+            <!-- level 2 menu -->
+            <RecordItemRef variableId="V_OCF" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_OCF" subindex="2" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfOutput_AO">
+            <Name textId="TI_ME_Param_ConfOutput"/>
+            <!-- level 2 menu -->
+            <RecordItemRef variableId="V_OCF" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_OCF" subindex="3" accessRightRestriction="rw"/>
+          </Menu>
+
+          <Menu id="ME_Param_ConfUI">
+            <Name textId="TI_ME_Param_ConfUI"/>
+            <!-- level 2 menu -->
+            <RecordItemRef variableId="V_LOC" subindex="1" accessRightRestriction="rw"/>
+            <RecordItemRef variableId="V_CtrlAccess" subindex="1" accessRightRestriction="rw"/>
+          </Menu>
+
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_Ident"/>
+          <ObservationMenu menuId="ME_OR_Observe"/>
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_MR_Ident"/>
+          <ParameterMenu menuId="ME_MR_Param"/>
+          <ObservationMenu menuId="ME_MR_Observe"/>
+          <DiagnosisMenu menuId="ME_MR_Diag"/>
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_SR_Ident"/>
+          <ParameterMenu menuId="ME_SR_Param"/>
+          <ObservationMenu menuId="ME_SR_Observe"/>
+          <DiagnosisMenu menuId="ME_SR_Diag"/>
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <!--UC500-30GM-->
+      <PhysicalLayer physics="2" minCycleTime="13200" sioSupported="true" baudrate="COM2"/>
+      <!--UC2000-30GM-->
+      <!--<PhysicalLayer physics="2" minCycleTime="33600" sioSupported="true" baudrate="COM2"/>-->
+      <!--UC4000-30GM-->
+      <!--<PhysicalLayer physics="2" minCycleTime="59200" sioSupported="true" baudrate="COM2"/>-->
+      <!--UC6000-30GM-->
+      <!--<PhysicalLayer physics="2" minCycleTime="72000" sioSupported="true" baudrate="COM2"/>-->
+    </TransportLayers>
+  </CommNetworkProfile>
+
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <!-- device ids -->
+      <Text id="TI_VendorText" value="Pepperl+Fuchs"/>
+      <Text id="TI_VendorUrl" value="http://www.pepperl-fuchs.com/io-link"/>
+      <Text id="TI_DeviceFamily" value="Ultrasonic Distance Sensor"/>
+
+      <!--UC500-30GM-IUEP-->
+      <Text id="TI_191238_Name" value="UC500-30GM-IUEP-IO-V15"/>
+      <Text id="TI_191238_Text" value="Ultrasonic Distance Sensor, 500mm, analog output"/>
+      <!--UC500-30GM-2EP-->
+      <Text id="TI_191242_Name" value="UC500-30GM-2EP-IO-V15"/>
+      <Text id="TI_191242_Text" value="Ultrasonic Distance Sensor, 500mm"/>
+
+      <!-- process data ids -->
+      <Text id="TI_PDin_DistBDC" value="Process Data Input - Distance (14 bit), Switching Signals"/>
+      <Text id="TI_PDin_Dist14" value="Distance (14 bit)"/>
+      <Text id="TI_PDin_Dist_noecho" value="No Echo"/>
+      <Text id="TI_PDin_BDC1" value="Switching Signal 1"/>
+      <Text id="TI_PDin_BDC2" value="Switching Signal 2"/>
+
+      <!-- data type ids -->
+      <Text id="TI_DT_Bool_State_active" value="active"/>
+      <Text id="TI_DT_Bool_State_inactive" value="inactive"/>
+      <Text id="TI_DT_Bool_TrueFalse_true" value="true"/>
+      <Text id="TI_DT_Bool_TrueFalse_false" value="false"/>
+
+      <Text id="TI_DT_BDC_SP2" value="Threshold 1"/>
+      <Text id="TI_DT_BDC_SP1" value="Threshold 2"/>
+      <Text id="TI_DT_ADC_SP2" value="Limit 1"/>
+      <Text id="TI_DT_ADC_SP1" value="Limit 2"/>
+
+      <Text id="TI_DT_SPCLogic_notinv" value="Non Inverted"/>
+      <Text id="TI_DT_SPCLogic_inv" value="Inverted"/>
+      <Text id="TI_DT_SPCMode_singlepoint" value="Threshold"/>
+      <Text id="TI_DT_SPCMode_window" value="Window"/>
+      <Text id="TI_DT_SPCMode_twopoint" value="Hysteresis"/>
+      <Text id="TI_DT_SPCMode_barrier" value="Barrier"/>
+
+      <Text id="TI_DT_BDC_SPCLogic" value="Switching Signal Logic"/>
+      <Text id="TI_DT_BDC_SPCMode" value="Switching Signal Mode"/>
+      <Text id="TI_DT_BDC_SPCHys" value="Switching Signal Hysteresis"/>
+
+      <!-- variable and value text ids -->
+      <Text id="TI_V_BDC1_SPV" value="Switching Signal 1"/>
+      <Text id="TI_V_BDC1_SPC" value="Switching Signal 1 Configuration"/>
+      <Text id="TI_V_BDC2_SPV" value="Switching Signal 2"/>
+      <Text id="TI_V_BDC2_SPC" value="Switching Signal 2 Configuration"/>
+
+      <Text id="TI_V_BDC_SPBoff" value="Barrier Offset"/>
+
+      <Text id="TI_V_BDC_Delay" value="Switching Signal Delay"/>
+      <Text id="TI_V_BDC_DelayOn" value="On-Delay (cycles)"/>
+      <Text id="TI_V_BDC_DelayOff" value="Off-Delay (cycles)"/>
+
+      <Text id="TI_V_ADC1_SPV" value="Analog Signal"/>
+      <Text id="TI_V_ADC1_SPC" value="Analog Signal Configuration"/>
+      <Text id="TI_V_ADC1_SPCMode" value="Analog Output Mode"/>
+      <Text id="TI_V_ADC1_SPCMode_rising" value="Rising Ramp"/>
+      <Text id="TI_V_ADC1_SPCMode_falling" value="Falling Ramp"/>
+      <Text id="TI_V_ADC1_SPCMode_linear" value="Zero-Point Ramp"/>
+      <Text id="TI_V_ADC1_SPCHys" value="Set Point Hysteresis"/>
+      <Text id="TI_V_ADC1_SPCReplaceVal" value="Replacement Value"/>
+
+      <Text id="TI_V_OCF" value="Output Configuration"/>
+      <Text id="TI_V_OCF_Q1Type" value="Output Q1 Type"/>
+      <Text id="TI_V_OCF_Q2Type" value="Output Q2 Type"/>
+      <Text id="TI_V_OCF_QType_pp" value="Push-Pull"/>
+      <Text id="TI_V_OCF_QType_ls" value="Low-Side"/>
+      <Text id="TI_V_OCF_QType_hs" value="High-Side"/>
+      <Text id="TI_V_OCF_QType_hz" value="High Impedance"/>
+      <Text id="TI_V_OCF_AOType" value="Analog Output Type"/>
+      <Text id="TI_V_OCF_AOType_iout" value="Current Output"/>
+      <Text id="TI_V_OCF_AOType_vout" value="Voltage Output"/>
+      <Text id="TI_V_OCF_AOType_hz" value="High Impedance"/>
+
+      <Text id="TI_V_MeasData" value="Measurement Data"/>
+      <Text id="TI_V_MeasData_Dist" value="Distance"/>
+      <Text id="TI_V_MeasData_Dist_notarget" value="No Echo"/>
+      <Text id="TI_V_MeasData_Amplitude" value="Echo Amplitude"/>
+      <Text id="TI_V_MeasData_BDCStat" value="Switching Signals"/>
+      <Text id="TI_V_MeasData_BDCStat_00" value="Signal: 1 inactive / 2 inactive"/>
+      <Text id="TI_V_MeasData_BDCStat_01" value="Signal: 1 active   / 2 inactive"/>
+      <Text id="TI_V_MeasData_BDCStat_10" value="Signal: 1 inactive / 2 active"/>
+      <Text id="TI_V_MeasData_BDCStat_11" value="Signal: 1 active   / 2 active"/>
+
+      <Text id="TI_V_MeasMode" value="Measurement Mode"/>
+      <Text id="TI_V_MeasMode_Beamwidth" value="Beam Width"/>
+      <Text id="TI_V_MeasMode_Beamwidth_small" value="small"/>
+      <Text id="TI_V_MeasMode_Beamwidth_middle" value="middle"/>
+      <Text id="TI_V_MeasMode_Beamwidth_wide" value="wide"/>
+      <Text id="TI_V_MeasMode_Bursttime" value="Burst Time"/>
+      <Text id="TI_V_MeasMode_Bursttime_auto" value="automatic"/>
+      <Text id="TI_V_MeasMode_Bursttime_dirac" value="dirac"/>
+      <Text id="TI_V_MeasMode_Bursttime_short" value="short"/>
+      <Text id="TI_V_MeasMode_Bursttime_long" value="long"/>
+      <Text id="TI_V_MeasMode_Cycletime" value="Sensor Cycle Time"/>
+      <Text id="TI_V_MeasMode_Cycletime_off" value="off"/>
+      <Text id="TI_V_MeasMode_Detect" value="Echo Evaluation"/>
+      <Text id="TI_V_MeasMode_Detect_threshold" value="Threshold Detection"/>
+      <Text id="TI_V_MeasMode_Detect_peak" value="Peak Detection"/>
+      <Text id="TI_V_MeasMode_Blindrng" value="Blind Range"/>
+      <Text id="TI_V_MeasMode_Blindrng_off" value="off"/>
+      <Text id="TI_V_MeasMode_Rangereduct" value="Range Reduction"/>
+      <Text id="TI_V_MeasMode_Rangereduct_off" value="off"/>
+
+      <Text id="TI_V_EvalMode" value="Evaluation Mode"/>
+      <Text id="TI_V_EvalMode_Method" value="Filter Method"/>
+      <Text id="TI_V_EvalMode_Method_direct" value="Direct"/>
+      <Text id="TI_V_EvalMode_Method_average" value="Arithmethic Average"/>
+      <Text id="TI_V_EvalMode_Method_lowpass" value="Low Pass"/>
+      <Text id="TI_V_EvalMode_Method_adaptive" value="Adaptive"/>
+      <Text id="TI_V_EvalMode_Arithmetic" value="Arithmethic Filter Setting"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m2n0" value="measure 2 - skip 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m3n0" value="measure 3 - skip 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m3n1" value="measure 3 - skip 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m4n0" value="measure 4 - skip 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m4n1" value="measure 4 - skip 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m5n0" value="measure 5 - skip 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m5n1" value="measure 5 - skip 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m5n2" value="measure 5 - skip 2"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m6n0" value="measure 6 - skip 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m6n1" value="measure 6 - skip 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m6n2" value="measure 6 - skip 2"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m7n0" value="measure 7 - skip 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m7n1" value="measure 7 - skip 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m7n2" value="measure 7 - skip 2"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m7n3" value="measure 7 - skip 3"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m8n0" value="measure 8 - skip 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m8n1" value="measure 8 - skip 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m8n2" value="measure 8 - skip 2"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m8n3" value="measure 8 - skip 3"/>
+      <Text id="TI_V_EvalMode_LPWeight" value="Low Pass Weight"/>
+      <Text id="TI_V_EvalMode_LPDeviation" value="Low Pass Deviation"/>
+      <Text id="TI_V_EvalMode_LPSkipCnt" value="Low Pass Skip Count"/>
+      <Text id="TI_V_EvalMode_AdaptiveMode" value="Adaptive Filter Mode"/>
+      <Text id="TI_V_EvalMode_AdaptiveMode_first" value="First Echo"/>
+      <Text id="TI_V_EvalMode_AdaptiveMode_max" value="Maximum Echo"/>
+      <Text id="TI_V_EvalMode_AdaptiveWindow" value="Adaptive Filter Window"/>
+      <Text id="TI_V_EvalMode_AdaptiveWindow_narrow" value="Narrow"/>
+      <Text id="TI_V_EvalMode_AdaptiveWindow_normal" value="Normal"/>
+      <Text id="TI_V_EvalMode_AdaptiveWindow_wide" value="Wide"/>
+      <Text id="TI_V_EvalMode_NoEcho" value="No Echo Behavior"/>
+      <Text id="TI_V_EvalMode_NoEcho_ignore" value="Inactive"/>
+      <Text id="TI_V_EvalMode_NoEcho_accept" value="Accept with Delay"/>
+      <Text id="TI_V_EvalMode_NoEcho_error" value="Error with Delay"/>
+      <Text id="TI_V_EvalMode_OnDelay" value="On-Delay (cycles)"/>
+      <Text id="TI_V_EvalMode_OffDelay" value="Off-Delay (cycles)"/>
+
+      <Text id="TI_V_ADC1_PDMode" value="Analog Signal Mode - Process Data"/>
+      <Text id="TI_V_ADC1_PDMode_absolute" value="Absolute"/>
+      <Text id="TI_V_ADC1_PDMode_zprnorm" value="Zero-Point Ramp normalized to Setpoint 1"/>
+      <Text id="TI_V_ADC1_PDMode_rrnorm" value="Rising Ramp normalized"/>
+
+      <Text id="TI_V_CtrlTemp" value="Operating Temperature Configuration"/>
+      <Text id="TI_V_CtrlTemp_Compensation" value="Temperature Compensation"/>
+      <Text id="TI_V_CtrlTemp_Compensation_disabled" value="disabled - Fix Temperature"/>
+      <Text id="TI_V_CtrlTemp_Compensation_enabled" value="enabled"/>
+      <Text id="TI_V_CtrlTemp_Offset" value="Offset Temperature"/>
+      <Text id="TI_V_CtrlTemp_Fix" value="Fix Operating Temperature"/>
+
+      <Text id="TI_V_CtrlSync" value="Synchronization Configuration"/>
+      <Text id="TI_V_CtrlSync_Mode" value="Synchronization Mode"/>
+      <Text id="TI_V_CtrlSync_Mode_disabled" value="disabled"/>
+      <Text id="TI_V_CtrlSync_Mode_cyclicstd" value="Cyclic Standard"/>
+      <Text id="TI_V_CtrlSync_Mode_cyclicquick" value="Cyclic Quickstart"/>
+      <Text id="TI_V_CtrlSync_Mode_external" value="External"/>
+      <Text id="TI_V_CtrlSync_Mode_master" value="Master"/>
+      <Text id="TI_V_CtrlSync_Mode_slave" value="Slave"/>
+      <Text id="TI_V_CtrlSync_NumDev" value="Number of Devices"/>
+
+      <Text id="TI_V_ConfError" value="Error Behavior Configuration"/>
+      <Text id="TI_V_ConfError_Type" value="Error Type"/>
+      <Text id="TI_V_ConfError_Type_ignore" value="Ignore"/>
+      <Text id="TI_V_ConfError_Type_warn" value="Warning"/>
+      <Text id="TI_V_ConfError_Type_error" value="Error"/>
+      <Text id="TI_V_ConfError_Type_alarm" value="Alarm"/>
+      <Text id="TI_V_ConfError_Q1State" value="Switching Signal 1 Behavior"/>
+      <Text id="TI_V_ConfError_Q2State" value="Switching Signal 2 Behavior"/>
+      <Text id="TI_V_ConfError_QState_freeze" value="Freeze Output"/>
+      <Text id="TI_V_ConfError_QState_high" value="High Signal"/>
+      <Text id="TI_V_ConfError_QState_low" value="Low Signal"/>
+      <Text id="TI_V_ConfError_AnalogState" value="Analog Signal Behavior"/>
+      <Text id="TI_V_ConfError_AnalogState_freeze" value="Freeze Output"/>
+      <Text id="TI_V_ConfError_AnalogState_maxval" value="Maximum Value"/>
+      <Text id="TI_V_ConfError_AnalogState_minval" value="Minimum Value"/>
+      <Text id="TI_V_ConfError_OpenLoopDetect" value="Open Loop Detection"/>
+
+      <Text id="TI_V_CtrlAccess" value="Access Control"/>
+      <Text id="TI_V_CtrlAccess_LocAdjust" value="Local Adjustment"/>
+      <Text id="TI_V_CtrlAccess_LocAdjust_disabled" value="Disabled"/>
+      <Text id="TI_V_CtrlAccess_LocAdjust_enabled" value="Enabled"/>
+
+      <Text id="TI_V_LOC" value="Local Operation Control"/>
+      <Text id="TI_V_LOC_Set" value="Local Control Elemets"/>
+      <Text id="TI_V_LOC_Set_unlocked" value="Unlocked"/>
+      <Text id="TI_V_LOC_Set_locked" value="Locked"/>
+      <Text id="TI_V_LOC_Set_timelocked" value="Time Locked"/>
+
+      <Text id="TI_V_LIC" value="Locator Indication Control"/>
+      <Text id="TI_V_LIC_Set" value="Indication Setting"/>
+      <Text id="TI_V_LIC_Set_normal" value="Normal Indication"/>
+      <Text id="TI_V_LIC_Set_enable" value="Locator Indication"/>
+
+      <Text id="TI_V_UT1" value="User Tag 1"/>
+      <Text id="TI_V_UT2" value="User Tag 2"/>
+
+      <Text id="TI_V_SysTime" value="System Time"/>
+      <Text id="TI_V_OperTemp" value="Operating Temperature"/>
+
+      <Text id="TI_V_DevChar" value="Sensing Range"/>
+      <Text id="TI_V_DevChar_DistMin" value="Minimum Sensing Range"/>
+      <Text id="TI_V_DevChar_DistMax" value="Maximum Sensing Range"/>
+
+      <Text id="TI_V_Feature" value="Feature"/>
+      <Text id="TI_V_Feature_AnalogOut" value="Analog Output Support"/>
+
+      <!-- event text ids -->
+      <Text id="TI_EV_HardwareErr" value="Hardware Error"/>
+      <Text id="TI_EVd_HardwareErr" value="Severe Hardware Error"/>
+      <Text id="TI_EV_NoEcho" value="No Echoes detected"/>
+      <Text id="TI_EVd_NoEcho" value="Target is missing"/>
+      <Text id="TI_EV_Overtemperature" value="Overtemperature"/>
+      <Text id="TI_EVd_Overtemperature" value="Ambient temperature too high"/>
+      <Text id="TI_EV_ParamChanged" value="Parameter Changed"/>
+      <Text id="TI_EVd_ParamChanged" value="Local adjustment: Parameters have changed"/>
+
+      <!-- menu text ids -->
+      <Text id="TI_ME_Ident" value="Identification"/>
+      <Text id="TI_ME_Ident_Device" value="Device Information"/>
+      <Text id="TI_ME_Ident_User" value="User Specific Information"/>
+      <Text id="TI_ME_Ident_DeviceRev" value="Revision Information"/>
+
+      <Text id="TI_ME_Param" value="Parameter"/>
+      <Text id="TI_ME_Param_Oper" value="Operation Parameter"/>
+      <Text id="TI_ME_Param_OperBDC1" value="Switching Signal 1 Parameter"/>
+      <Text id="TI_ME_Param_OperBDC2" value="Switching Signal 2 Parameter"/>
+      <Text id="TI_ME_Param_OperADC" value="Analog Signal Parameter"/>
+      <Text id="TI_ME_Param_ConfOper" value="Operation Mode Configuration"/>
+      <Text id="TI_ME_Param_ConfBDC1" value="Switching Signal 1 Configuration"/>
+      <Text id="TI_ME_Param_ConfBDC2" value="Switching Signal 2 Configuration"/>
+      <Text id="TI_ME_Param_ConfADC" value="Analog Signal Configuration"/>
+      <Text id="TI_ME_Param_ConfSens" value="Sensor Configuration"/>
+      <Text id="TI_ME_Param_ConfMeas" value="Measurement Configuration"/>
+      <Text id="TI_ME_Param_ConfEval" value="Evaluation Configuration"/>
+      <Text id="TI_ME_Param_ConfSync" value="Synchronization Configuration"/>
+      <Text id="TI_ME_Param_ConfError" value="Error Handling Configuration"/>
+      <Text id="TI_ME_Param_ConfOutput" value="Output Configuration"/>
+      <Text id="TI_ME_Param_ConfUI" value="User Interface Configuration"/>
+
+      <Text id="TI_ME_Diag" value="Diagnosis"/>
+      <Text id="TI_ME_Diag_ServiceFunc" value="Service Function"/>
+      <Text id="TI_ME_Diag_OperInfo" value="Operation Information"/>
+      <Text id="TI_ME_Diag_ComInfo" value="Communication Characteristics"/>
+      <Text id="TI_ME_Diag_DevInfo" value="Device Characteristics"/>
+
+      <Text id="TI_ME_Observe" value="Observation"/>
+
+    </PrimaryLanguage>
+
+    <Language xml:lang="de">
+      <!-- device ids -->
+      <Text id="TI_VendorText" value="Pepperl+Fuchs"/>
+      <Text id="TI_VendorUrl" value="http://www.pepperl-fuchs.com/io-link"/>
+      <Text id="TI_DeviceFamily" value="Ultraschall Distanzsensor"/>
+
+      <!--UC500-30GM-IUEP-->
+      <Text id="TI_191238_Text" value="Ultraschall Distanzsensor, 500mm, Analogausgang"/>
+      <!--UC500-30GM-2EP-->
+      <Text id="TI_191242_Text" value="Ultraschall Distanzsensor, 500mm"/>
+
+      <!-- process data ids -->
+      <Text id="TI_PDin_DistBDC" value="Prozessdaten-Eingang - Distanz (14 bit), Schaltsignal"/>
+      <Text id="TI_PDin_Dist14" value="Distanz (14 bit)"/>
+      <Text id="TI_PDin_Dist_noecho" value="Kein Echo"/>
+      <Text id="TI_PDin_BDC1" value="Schaltsignal 1"/>
+      <Text id="TI_PDin_BDC2" value="Schaltsignal 2"/>
+
+      <!-- data type ids -->
+      <Text id="TI_DT_Bool_State_active" value="aktiv"/>
+      <Text id="TI_DT_Bool_State_inactive" value="inaktiv"/>
+      <Text id="TI_DT_Bool_TrueFalse_true" value="wahr"/>
+      <Text id="TI_DT_Bool_TrueFalse_false" value="falsch"/>
+
+      <Text id="TI_DT_BDC_SP2" value="Schaltpunkt 1"/>
+      <Text id="TI_DT_BDC_SP1" value="Schaltpunkt 2"/>
+      <Text id="TI_DT_ADC_SP2" value="Grenzwert 1"/>
+      <Text id="TI_DT_ADC_SP1" value="Grenzwert 2"/>
+
+      <Text id="TI_DT_SPCLogic_notinv" value="Nicht-Invertiert"/>
+      <Text id="TI_DT_SPCLogic_inv" value="Invertiert"/>
+      <Text id="TI_DT_SPCMode_singlepoint" value="Schaltschwelle"/>
+      <Text id="TI_DT_SPCMode_window" value="Fenster"/>
+      <Text id="TI_DT_SPCMode_twopoint" value="Hysterese"/>
+      <Text id="TI_DT_SPCMode_barrier" value="Schranke"/>
+
+      <Text id="TI_DT_BDC_SPCLogic" value="Schaltsignal-Logik"/>
+      <Text id="TI_DT_BDC_SPCMode" value="Schaltsignal-Modus"/>
+      <Text id="TI_DT_BDC_SPCHys" value="Schaltsignal-Hysteresis"/>
+
+      <!-- variable and value text ids -->
+      <Text id="TI_V_BDC1_SPV" value="Schaltsignal 1"/>
+      <Text id="TI_V_BDC1_SPC" value="Schaltsignal 1 Konfiguration"/>
+      <Text id="TI_V_BDC2_SPV" value="Schaltsignal 2"/>
+      <Text id="TI_V_BDC2_SPC" value="Schaltsignal 2 Konfiguration"/>
+
+      <Text id="TI_V_BDC_SPBoff" value="Offset Schrankenbetrieb"/>
+
+      <Text id="TI_V_BDC_Delay" value="Schaltsignal Zeitfunktion"/>
+      <Text id="TI_V_BDC_DelayOn" value="Einschaltverzögerung (Zyklen)"/>
+      <Text id="TI_V_BDC_DelayOff" value="Ausschaltverzögerung (Zyklen)"/>
+
+      <Text id="TI_V_ADC1_SPV" value="Analogsignal"/>
+      <Text id="TI_V_ADC1_SPC" value="Analogsignal Konfiguration"/>
+      <Text id="TI_V_ADC1_SPCMode" value="Analogausgangsmodus "/>
+      <Text id="TI_V_ADC1_SPCMode_rising" value="Steigende Rampe"/>
+      <Text id="TI_V_ADC1_SPCMode_falling" value="Fallende Rampe"/>
+      <Text id="TI_V_ADC1_SPCMode_linear" value="Nullpunkts-Gerade"/>
+      <Text id="TI_V_ADC1_SPCHys" value="Hysterese"/>
+      <Text id="TI_V_ADC1_SPCReplaceVal" value="Ersatzwerte"/>
+
+      <Text id="TI_V_OCF" value="Ausgangskonfiguration"/>
+      <Text id="TI_V_OCF_Q1Type" value="Ausgangstyp Q1"/>
+      <Text id="TI_V_OCF_Q2Type" value="Ausgangstyp Q2"/>
+      <Text id="TI_V_OCF_QType_pp" value="Gegentakt"/>
+      <Text id="TI_V_OCF_QType_ls" value="N-schaltend"/>
+      <Text id="TI_V_OCF_QType_hs" value="P-schaltend"/>
+      <Text id="TI_V_OCF_QType_hz" value="Hochohmig"/>
+      <Text id="TI_V_OCF_AOType" value="Analogausgangstyp"/>
+      <Text id="TI_V_OCF_AOType_iout" value="Stromausgang"/>
+      <Text id="TI_V_OCF_AOType_vout" value="Spannungsausgang"/>
+      <Text id="TI_V_OCF_AOType_hz" value="Hochohmig"/>
+
+      <Text id="TI_V_MeasData" value="Messdaten"/>
+      <Text id="TI_V_MeasData_Dist" value="Distanz"/>
+      <Text id="TI_V_MeasData_Dist_notarget" value="Kein Echo"/>
+      <Text id="TI_V_MeasData_Amplitude" value="Echoamplitude"/>
+      <Text id="TI_V_MeasData_BDCStat" value="Schaltsignale"/>
+      <Text id="TI_V_MeasData_BDCStat_00" value="Signal: 1 inaktiv / 2 inaktiv"/>
+      <Text id="TI_V_MeasData_BDCStat_01" value="Signal: 1 aktiv   / 2 inaktiv"/>
+      <Text id="TI_V_MeasData_BDCStat_10" value="Signal: 1 inaktiv / 2 aktiv"/>
+      <Text id="TI_V_MeasData_BDCStat_11" value="Signal: 1 aktiv   / 2 aktiv"/>
+
+      <Text id="TI_V_MeasMode" value="Messmodus"/>
+      <Text id="TI_V_MeasMode_Beamwidth" value="Strahlbreite"/>
+      <Text id="TI_V_MeasMode_Beamwidth_small" value="schmal"/>
+      <Text id="TI_V_MeasMode_Beamwidth_middle" value="mittel"/>
+      <Text id="TI_V_MeasMode_Beamwidth_wide" value="breit"/>
+      <Text id="TI_V_MeasMode_Bursttime" value="Burstdauer"/>
+      <Text id="TI_V_MeasMode_Bursttime_auto" value="automatisch"/>
+      <Text id="TI_V_MeasMode_Bursttime_dirac" value="dirac"/>
+      <Text id="TI_V_MeasMode_Bursttime_short" value="kurz"/>
+      <Text id="TI_V_MeasMode_Bursttime_long" value="lang"/>
+      <Text id="TI_V_MeasMode_Cycletime" value="Sensorzykluszeit"/>
+      <Text id="TI_V_MeasMode_Cycletime_off" value="ausgeschaltet"/>
+      <Text id="TI_V_MeasMode_Detect" value="Echoauswertung"/>
+      <Text id="TI_V_MeasMode_Detect_threshold" value="Schwellwertdetektion"/>
+      <Text id="TI_V_MeasMode_Detect_peak" value="Spitzenwertdetektion"/>
+      <Text id="TI_V_MeasMode_Blindrng" value="Blindbereich"/>
+      <Text id="TI_V_MeasMode_Blindrng_off" value="ausgeschaltet"/>
+      <Text id="TI_V_MeasMode_Rangereduct" value="Bereichsreduzierung"/>
+      <Text id="TI_V_MeasMode_Rangereduct_off" value="ausgeschaltet"/>
+
+      <Text id="TI_V_EvalMode" value="Auswertemodus"/>
+      <Text id="TI_V_EvalMode_Method" value="Filtermethode"/>
+      <Text id="TI_V_EvalMode_Method_direct" value="Direkt"/>
+      <Text id="TI_V_EvalMode_Method_average" value="Arithmetischer Mittelwert"/>
+      <Text id="TI_V_EvalMode_Method_lowpass" value="Tiefpass"/>
+      <Text id="TI_V_EvalMode_Method_adaptive" value="Adaptiv"/>
+      <Text id="TI_V_EvalMode_Arithmetic" value="Arithmethischer Filter"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m2n0" value="Mittelung 2 - Unterdrücken 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m3n0" value="Mittelung 3 - Unterdrücken 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m3n1" value="Mittelung 3 - Unterdrücken 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m4n0" value="Mittelung 4 - Unterdrücken 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m4n1" value="Mittelung 4 - Unterdrücken 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m5n0" value="Mittelung 5 - Unterdrücken 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m5n1" value="Mittelung 5 - Unterdrücken 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m5n2" value="Mittelung 5 - Unterdrücken 2"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m6n0" value="Mittelung 6 - Unterdrücken 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m6n1" value="Mittelung 6 - Unterdrücken 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m6n2" value="Mittelung 6 - Unterdrücken 2"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m7n0" value="Mittelung 7 - Unterdrücken 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m7n1" value="Mittelung 7 - Unterdrücken 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m7n2" value="Mittelung 7 - Unterdrücken 2"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m7n3" value="Mittelung 7 - Unterdrücken 3"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m8n0" value="Mittelung 8 - Unterdrücken 0"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m8n1" value="Mittelung 8 - Unterdrücken 1"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m8n2" value="Mittelung 8 - Unterdrücken 2"/>
+      <Text id="TI_V_EvalMode_Arithmetic_m8n3" value="Mittelung 8 - Unterdrücken 3"/>
+      <Text id="TI_V_EvalMode_LPWeight" value="Tiefpassgewichtung"/>
+      <Text id="TI_V_EvalMode_LPDeviation" value="Tiefpass Abweichung"/>
+      <Text id="TI_V_EvalMode_LPSkipCnt" value="Tiefpass Unterdrückung"/>
+      <Text id="TI_V_EvalMode_AdaptiveMode" value="Adaptiver Filter"/>
+      <Text id="TI_V_EvalMode_AdaptiveMode_first" value="Erstes Echo"/>
+      <Text id="TI_V_EvalMode_AdaptiveMode_max" value="Maximales Echo"/>
+      <Text id="TI_V_EvalMode_AdaptiveWindow" value="Adaptives Filterfenster"/>
+      <Text id="TI_V_EvalMode_AdaptiveWindow_narrow" value="Schmal"/>
+      <Text id="TI_V_EvalMode_AdaptiveWindow_normal" value="Normal"/>
+      <Text id="TI_V_EvalMode_AdaptiveWindow_wide" value="Breit"/>
+      <Text id="TI_V_EvalMode_NoEcho" value="Echoverlust Verhalten"/>
+      <Text id="TI_V_EvalMode_NoEcho_ignore" value="Ausgeschaltet"/>
+      <Text id="TI_V_EvalMode_NoEcho_accept" value="Annehmen nach Verzögerung"/>
+      <Text id="TI_V_EvalMode_NoEcho_error" value="Fehler nach Verzögerung"/>
+      <Text id="TI_V_EvalMode_OnDelay" value="Einschaltverzögerung (Zyklen)"/>
+      <Text id="TI_V_EvalMode_OffDelay" value="Auschaltverzögerung (Zyklen)"/>
+
+      <Text id="TI_V_ADC1_PDMode" value="Analogsignal - Prozessdaten"/>
+      <Text id="TI_V_ADC1_PDMode_absolute" value="Absolutwert"/>
+      <Text id="TI_V_ADC1_PDMode_zprnorm" value="Nullpunktgerade normalisiert"/>
+      <Text id="TI_V_ADC1_PDMode_rrnorm" value="Steigende Rampe normalisiert"/>
+
+      <Text id="TI_V_CtrlTemp" value="Beriebstemperatureinstellung"/>
+      <Text id="TI_V_CtrlTemp_Compensation" value="Temperaturkompensation"/>
+      <Text id="TI_V_CtrlTemp_Compensation_disabled" value="ausgeschaltet - feste Temperatur"/>
+      <Text id="TI_V_CtrlTemp_Compensation_enabled" value="eingeschaltet"/>
+      <Text id="TI_V_CtrlTemp_Offset" value="Temperaturoffset"/>
+      <Text id="TI_V_CtrlTemp_Fix" value="Feste Temperatur"/>
+
+      <Text id="TI_V_CtrlSync" value="Synchronisation"/>
+      <Text id="TI_V_CtrlSync_Mode" value="Synchronisationsart"/>
+      <Text id="TI_V_CtrlSync_Mode_disabled" value="Ausgeschaltet"/>
+      <Text id="TI_V_CtrlSync_Mode_cyclicstd" value="Standard freilaufend"/>
+      <Text id="TI_V_CtrlSync_Mode_cyclicquick" value="Standard synchronisiert"/>
+      <Text id="TI_V_CtrlSync_Mode_external" value="Extern synchronisiert"/>
+      <Text id="TI_V_CtrlSync_Mode_master" value="Master"/>
+      <Text id="TI_V_CtrlSync_Mode_slave" value="Slave"/>
+      <Text id="TI_V_CtrlSync_NumDev" value="Geräteanzahl"/>
+
+      <Text id="TI_V_ConfError" value="Fehlerverhalten"/>
+      <Text id="TI_V_ConfError_Type" value="Fehlertyp"/>
+      <Text id="TI_V_ConfError_Type_ignore" value="Ignorieren"/>
+      <Text id="TI_V_ConfError_Type_warn" value="Warnung"/>
+      <Text id="TI_V_ConfError_Type_error" value="Fehler"/>
+      <Text id="TI_V_ConfError_Type_alarm" value="Alarm"/>
+      <Text id="TI_V_ConfError_Q1State" value="Schaltsignal 1"/>
+      <Text id="TI_V_ConfError_Q2State" value="Schaltsignal 2"/>
+      <Text id="TI_V_ConfError_QState_freeze" value="Wert halten"/>
+      <Text id="TI_V_ConfError_QState_high" value="High Signal"/>
+      <Text id="TI_V_ConfError_QState_low" value="Low Signal"/>
+      <Text id="TI_V_ConfError_AnalogState" value="Analogsignal"/>
+      <Text id="TI_V_ConfError_AnalogState_freeze" value="Wert halten"/>
+      <Text id="TI_V_ConfError_AnalogState_maxval" value="Maximalwert"/>
+      <Text id="TI_V_ConfError_AnalogState_minval" value="Minimalwert"/>
+      <Text id="TI_V_ConfError_OpenLoopDetect" value="Drahtbrucherkennung"/>
+
+      <Text id="TI_V_CtrlAccess" value="Zugriffskontrolle"/>
+      <Text id="TI_V_CtrlAccess_LocAdjust" value="Lokale Bedienung"/>
+      <Text id="TI_V_CtrlAccess_LocAdjust_disabled" value="Abgeschaltet"/>
+      <Text id="TI_V_CtrlAccess_LocAdjust_enabled" value="Eingeschaltet"/>
+
+      <Text id="TI_V_LOC" value="Lokale Bedienung"/>
+      <Text id="TI_V_LOC_Set" value="Lokale Bedienelemente"/>
+      <Text id="TI_V_LOC_Set_unlocked" value="Entsperrt"/>
+      <Text id="TI_V_LOC_Set_locked" value="Gesperrt"/>
+      <Text id="TI_V_LOC_Set_timelocked" value="Zeitschloss gesichert"/>
+
+      <Text id="TI_V_LIC" value="Anzeigeelement Konfiguration"/>
+      <Text id="TI_V_LIC_Set" value="Anzeigeeinstellung"/>
+      <Text id="TI_V_LIC_Set_normal" value="Normale Anzeige"/>
+      <Text id="TI_V_LIC_Set_enable" value="Lokalisierungsanzeige"/>
+
+      <Text id="TI_V_UT1" value="Anwenderkennung 1"/>
+      <Text id="TI_V_UT2" value="Anwenderkennung 2"/>
+
+      <Text id="TI_V_SysTime" value="Systemzeit"/>
+      <Text id="TI_V_OperTemp" value="Betriebstemperatur"/>
+
+      <Text id="TI_V_DevChar" value="Messbereich"/>
+      <Text id="TI_V_DevChar_DistMin" value="Untere Messbereichsgrenze"/>
+      <Text id="TI_V_DevChar_DistMax" value="Obere Messbereichsgrenze"/>
+
+      <!-- event text ids -->
+      <Text id="TI_EV_HardwareErr" value="Hardwarefehler"/>
+      <Text id="TI_EVd_HardwareErr" value="Gerät austauschen"/>
+      <Text id="TI_EV_NoEcho" value="Kein Echo"/>
+      <Text id="TI_EVd_NoEcho" value="Objekt innerhalb Erfassungsbereich positionieren"/>
+      <Text id="TI_EV_Overtemperature" value="Übertemperatur"/>
+      <Text id="TI_EVd_Overtemperature" value="Umgebungstemperatur zu hoch"/>
+      <Text id="TI_EV_ParamChanged" value="Parameter geändert"/>
+      <Text id="TI_EVd_ParamChanged" value="Lokale Bedienung: Parameter wurden verändert"/>
+
+      <!-- menu text ids -->
+      <Text id="TI_ME_Ident" value="Identifikation"/>
+      <Text id="TI_ME_Ident_Device" value="Geräteinformation"/>
+      <Text id="TI_ME_Ident_User" value="Anwenderspezifische Information"/>
+      <Text id="TI_ME_Ident_DeviceRev" value="Versionsinformation"/>
+
+      <Text id="TI_ME_Param" value="Parameter"/>
+      <Text id="TI_ME_Param_Oper" value="Betriebsparameter"/>
+      <Text id="TI_ME_Param_OperBDC1" value="Schaltsignal 1 Parameter"/>
+      <Text id="TI_ME_Param_OperBDC2" value="Schaltsignal 2 Parameter"/>
+      <Text id="TI_ME_Param_OperADC" value="Analogsignal Parameter"/>
+      <Text id="TI_ME_Param_ConfOper" value="Betriebsartkonfiguration"/>
+      <Text id="TI_ME_Param_ConfBDC1" value="Schaltsignal 1 Konfiguration"/>
+      <Text id="TI_ME_Param_ConfBDC2" value="Schaltsignal 2 Konfiguration"/>
+      <Text id="TI_ME_Param_ConfADC" value="Analogsignal Konfiguration"/>
+      <Text id="TI_ME_Param_ConfSens" value="Sensorkonfiguration"/>
+      <Text id="TI_ME_Param_ConfMeas" value="Messkonfiguration"/>
+      <Text id="TI_ME_Param_ConfEval" value="Auswertung"/>
+      <Text id="TI_ME_Param_ConfSync" value="Synchronization"/>
+      <Text id="TI_ME_Param_ConfError" value="Fehlerbehandlung"/>
+      <Text id="TI_ME_Param_ConfOutput" value="Ausgangskonfiguration"/>
+      <Text id="TI_ME_Param_ConfUI" value="Bedienelementekonfiguration"/>
+
+      <Text id="TI_ME_Diag" value="Diagnose"/>
+      <Text id="TI_ME_Diag_ServiceFunc" value="Servicefunktion"/>
+      <Text id="TI_ME_Diag_OperInfo" value="Betriebsinformation"/>
+      <Text id="TI_ME_Diag_DevInfo" value="Geräteeigenschaften"/>
+      <Text id="TI_ME_Diag_ComInfo" value="Kommunikationseigenschaften"/>
+
+      <Text id="TI_ME_Observe" value="Beobachtung"/>
+
+    </Language>
+  </ExternalTextCollection>
+  <Stamp crc="33847897"><Checker name="IODD-Checker V1.0.9" version="V1.0.9.0"/></Stamp>
+</IODevice>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

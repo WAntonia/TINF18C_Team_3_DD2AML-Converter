@@ -1,0 +1,1135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V01.2000" releaseDate="2014-07-28" copyright="© 2013, Werner Turck GmbH  Co. &amp; KG" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="317" vendorName="Turck" deviceId="139266">
+      <VendorText textId="T_VendorText" />
+      <VendorUrl textId="T_VendorUrl" />
+      <VendorLogo name="Turck-logo.png" />
+      <DeviceName textId="T_deviceName" />
+      <DeviceFamily textId="T_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="9910620" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910620_Name" />
+          <Description textId="T_9910620_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910621" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910621_Name" />
+          <Description textId="T_9910621_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910622" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910622_Name" />
+          <Description textId="T_9910622_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910623" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910623_Name" />
+          <Description textId="T_9910623_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910624" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910624_Name" />
+          <Description textId="T_9910624_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910625" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910625_Name" />
+          <Description textId="T_9910625_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910626" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910626_Name" />
+          <Description textId="T_9910626_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910627" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910627_Name" />
+          <Description textId="T_9910627_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910628" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910628_Name" />
+          <Description textId="T_9910628_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910629" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910629_Name" />
+          <Description textId="T_9910629_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910630" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910630_Name" />
+          <Description textId="T_9910630_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910631" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910631_Name" />
+          <Description textId="T_9910631_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910632" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910632_Name" />
+          <Description textId="T_9910632_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910633" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910633_Name" />
+          <Description textId="T_9910633_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910650" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910650_Name" />
+          <Description textId="T_9910650_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910651" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910651_Name" />
+          <Description textId="T_9910651_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910652" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910652_Name" />
+          <Description textId="T_9910652_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910653" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910653_Name" />
+          <Description textId="T_9910653_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910654" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910654_Name" />
+          <Description textId="T_9910654_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910655" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910655_Name" />
+          <Description textId="T_9910655_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910656" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910656_Name" />
+          <Description textId="T_9910656_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910657" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910657_Name" />
+          <Description textId="T_9910657_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910658" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910658_Name" />
+          <Description textId="T_9910658_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910659" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910659_Name" />
+          <Description textId="T_9910659_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910660" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910660_Name" />
+          <Description textId="T_9910660_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910661" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910661_Name" />
+          <Description textId="T_9910661_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910662" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910662_Name" />
+          <Description textId="T_9910662_Text" />
+        </DeviceVariant>
+        <DeviceVariant productId="9910663" deviceSymbol="Turck-TTM-pic.png" deviceIcon="Turck-TTM-icon.png">
+          <Name textId="T_9910663_Name" />
+          <Description textId="T_9910663_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true" profileCharacteristic="1 32768 32769 32770 32771">
+        <SupportedAccessLocks dataStorage="true" parameter="true" localParameterization="false" localUserInterface="false" />
+      </Features>
+      <DatatypeCollection>
+        <Datatype xsi:type="RecordT" id="DT_ProcessValue" subindexAccessSupported="false" bitLength="16">
+          <RecordItem subindex="1" bitOffset="1">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="15">
+              <SingleValue value="0">
+                <Name textId="T_SV_ProcessErr" />
+              </SingleValue>
+              <ValueRange lowerValue="1" upperValue="2559">
+                <Name textId="T_SV_ProcessValue_Underrun" />
+              </ValueRange>
+              <ValueRange lowerValue="2560" upperValue="30207" />
+              <ValueRange lowerValue="30208" upperValue="32767">
+                <Name textId="T_SV_ProcessValue_Overrun" />
+              </ValueRange>
+            </SimpleDatatype>
+            <Name textId="T_ProcessData_ProcessValue" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="true">
+                <Name textId="T_SV_SwitchActive" />
+              </SingleValue>
+              <SingleValue value="false">
+                <Name textId="T_SV_SwitchNotActive" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="T_ProcessData_Switch1" />
+          </RecordItem>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_VendorName" defaultValue="TURCK" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.turck.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="TTM-...LIUPN..." />
+        <StdVariableRef id="V_ProductID" />
+        <StdVariableRef id="V_ProductText" />
+        <StdVariableRef id="V_SerialNumber" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ProcessDataInput" />
+        <StdVariableRef id="V_ApplicationSpecificTag" fixedLengthRestriction="32" />
+        <StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="6" />
+        <StdVariableRef id="V_DeviceStatus" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="128" />
+          <StdSingleValueRef value="130" />
+          <SingleValue value="160">
+            <Name textId="T_testEventAppear" />
+          </SingleValue>
+          <SingleValue value="161">
+            <Name textId="T_testEventDisAppear" />
+          </SingleValue>
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks" />
+        <Variable id="V_unit" index="84" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="T_C" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="T_F" />
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="T_K" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="T_unit" />
+          <Description textId="T_unit_Descr" />
+        </Variable>
+        <Variable id="V_pn" index="83" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="T_PNP" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="T_NPN" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="T_pn" />
+          <Description textId="T_pn_Descr" />
+        </Variable>
+        <Variable id="V_analogOutputMode" index="82" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="T_4_20" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="T_20_4" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="T_analogOutputMode" />
+          <Description textId="T_analogOutputMode_Descr" />
+        </Variable>
+        <Variable id="V_errorSwitch" index="86" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="T_open" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="T_closed" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="T_errorSwitch" />
+          <Description textId="T_errorSwitch_Descr" />
+        </Variable>
+        <Variable id="V_errorAnalog" index="87" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="T_3_5" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="T_21_1" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="T_errorAnalog" />
+          <Description textId="T_errorAnalog_Descr" />
+        </Variable>
+        <Variable id="V_analogRange" index="98" accessRights="rw">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="32">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="15">
+                <ValueRange lowerValue="2560" upperValue="29564" />
+              </SimpleDatatype>
+              <Name textId="T_SV_AnalogStartPoint" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="15">
+                <ValueRange lowerValue="3203" upperValue="30207" />
+              </SimpleDatatype>
+              <Name textId="T_SV_AnalogEndPoint" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="2560" />
+          <RecordItemInfo subindex="2" defaultValue="30207" />
+          <Name textId="T_analogRange" />
+          <Description textId="T_analogRange_Descr" />
+        </Variable>
+        <Variable id="V_BDC" index="60" accessRights="rw">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="15">
+                <ValueRange lowerValue="2592" upperValue="30207" />
+              </SimpleDatatype>
+              <Name textId="T_SP1" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="15">
+                <ValueRange lowerValue="2560" upperValue="30175" />
+              </SimpleDatatype>
+              <Name textId="T_SP2" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="11883" />
+          <RecordItemInfo subindex="2" defaultValue="11561" />
+          <Name textId="T_BDC" />
+          <Description textId="T_BDC_Descr" />
+        </Variable>
+        <Variable id="V_BDC_config" index="61" accessRights="rw">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32">
+            <RecordItem subindex="1" bitOffset="24">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="T_logicNormal" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="T_logicInverted" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="T_logic" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="T_modeDeactivated" />
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="T_modeWindow" />
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="T_modeTwoPoint" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="T_mode" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                <SingleValue value="0">
+                  <Name textId="T_hysteresis" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="T_hysteresis" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="3" />
+          <RecordItemInfo subindex="3" defaultValue="0" />
+          <Name textId="T_BDC_config" />
+          <Description textId="T_BDC_config_Descr" />
+        </Variable>
+        <Variable id="V_userResistance" index="104" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="IntegerT" bitLength="8">
+            <ValueRange lowerValue="-100" upperValue="100" />
+          </Datatype>
+          <Name textId="T_userResistance" />
+          <Description textId="T_userResistance_Descr" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="PD_ProcessData">
+          <ProcessDataIn id="PD_ProcessDataIn" bitLength="16">
+            <DatatypeRef datatypeId="DT_ProcessValue" />
+            <Name textId="T_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <ErrorTypeCollection>
+        <StdErrorTypeRef code="128" additionalCode="0" />
+        <StdErrorTypeRef code="128" additionalCode="65" />
+        <StdErrorTypeRef code="128" additionalCode="53" />
+        <StdErrorTypeRef code="128" additionalCode="18" />
+        <StdErrorTypeRef code="128" additionalCode="54" />
+        <StdErrorTypeRef code="128" additionalCode="48" />
+        <StdErrorTypeRef code="128" additionalCode="51" />
+        <StdErrorTypeRef code="128" additionalCode="52" />
+        <StdErrorTypeRef code="128" additionalCode="17" />
+        <StdErrorTypeRef code="128" additionalCode="35" />
+        <StdErrorTypeRef code="128" additionalCode="64" />
+      </ErrorTypeCollection>
+      <EventCollection>
+        <StdEventRef code="35872" />
+        <Event code="36008" type="Error">
+          <Name textId="T_EV_PT100CON" />
+          <Description textId="T_EvDescr_PT100CON" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="M_RW_Diag">
+            <Name textId="T_Diag" />
+            <MenuRef menuId="M_RW_me2deviceStatus" />
+          </Menu>
+          <Menu id="M_OR_Diag">
+            <Name textId="T_Diag" />
+            <MenuRef menuId="M_OR_me2deviceStatus" />
+          </Menu>
+          <Menu id="M_RW_me2device">
+            <Name textId="T_me2device" />
+            <VariableRef variableId="V_DeviceAccessLocks" accessRightRestriction="rw" />
+            <VariableRef variableId="V_unit" accessRightRestriction="rw" />
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="128" />
+            </VariableRef>
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130" />
+            </VariableRef>
+          </Menu>
+          <Menu id="M_OR_me2device">
+            <Name textId="T_me2device" />
+            <VariableRef variableId="V_DeviceAccessLocks" accessRightRestriction="ro" />
+            <VariableRef variableId="V_unit" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="M_RW_me2switch_C">
+            <Name textId="T_me2switch" />
+            <VariableRef variableId="V_pn" accessRightRestriction="rw" />
+            <VariableRef variableId="V_errorSwitch" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_BDC" subindex="1" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+            <RecordItemRef variableId="V_BDC" subindex="2" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+            <RecordItemRef variableId="V_BDC_config" subindex="1" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_BDC_config" subindex="2" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="M_OR_me2switch_C">
+            <Name textId="T_me2switch" />
+            <VariableRef variableId="V_pn" accessRightRestriction="ro" />
+            <VariableRef variableId="V_errorSwitch" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_BDC" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+            <RecordItemRef variableId="V_BDC" subindex="2" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+            <RecordItemRef variableId="V_BDC_config" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_BDC_config" subindex="2" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="M_RW_me2switch_F">
+            <Name textId="T_me2switch" />
+            <VariableRef variableId="V_pn" accessRightRestriction="rw" />
+            <VariableRef variableId="V_errorSwitch" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_BDC" subindex="1" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+            <RecordItemRef variableId="V_BDC" subindex="2" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+            <RecordItemRef variableId="V_BDC_config" subindex="1" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_BDC_config" subindex="2" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="M_OR_me2switch_F">
+            <Name textId="T_me2switch" />
+            <VariableRef variableId="V_pn" accessRightRestriction="ro" />
+            <VariableRef variableId="V_errorSwitch" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_BDC" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+            <RecordItemRef variableId="V_BDC" subindex="2" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+            <RecordItemRef variableId="V_BDC_config" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_BDC_config" subindex="2" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="M_RW_me2switch_K">
+            <Name textId="T_me2switch" />
+            <VariableRef variableId="V_pn" accessRightRestriction="rw" />
+            <VariableRef variableId="V_errorSwitch" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_BDC" subindex="1" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+            <RecordItemRef variableId="V_BDC" subindex="2" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+            <RecordItemRef variableId="V_BDC_config" subindex="1" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_BDC_config" subindex="2" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="M_OR_me2switch_K">
+            <Name textId="T_me2switch" />
+            <VariableRef variableId="V_pn" accessRightRestriction="ro" />
+            <VariableRef variableId="V_errorSwitch" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_BDC" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+            <RecordItemRef variableId="V_BDC" subindex="2" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+            <RecordItemRef variableId="V_BDC_config" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_BDC_config" subindex="2" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="M_RW_me2analog_C">
+            <Name textId="T_me2analog" />
+            <VariableRef variableId="V_analogOutputMode" accessRightRestriction="rw" />
+            <VariableRef variableId="V_errorAnalog" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_analogRange" subindex="1" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+            <RecordItemRef variableId="V_analogRange" subindex="2" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+          </Menu>
+          <Menu id="M_OR_me2analog_C">
+            <Name textId="T_me2analog" />
+            <VariableRef variableId="V_analogOutputMode" accessRightRestriction="ro" />
+            <VariableRef variableId="V_errorAnalog" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_analogRange" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+            <RecordItemRef variableId="V_analogRange" subindex="2" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+          </Menu>
+          <Menu id="M_RW_me2analog_F">
+            <Name textId="T_me2analog" />
+            <VariableRef variableId="V_analogOutputMode" accessRightRestriction="rw" />
+            <VariableRef variableId="V_errorAnalog" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_analogRange" subindex="1" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+            <RecordItemRef variableId="V_analogRange" subindex="2" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+          </Menu>
+          <Menu id="M_OR_me2analog_F">
+            <Name textId="T_me2analog" />
+            <VariableRef variableId="V_analogOutputMode" accessRightRestriction="ro" />
+            <VariableRef variableId="V_errorAnalog" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_analogRange" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+            <RecordItemRef variableId="V_analogRange" subindex="2" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+          </Menu>
+          <Menu id="M_RW_me2analog_K">
+            <Name textId="T_me2analog" />
+            <VariableRef variableId="V_analogOutputMode" accessRightRestriction="rw" />
+            <VariableRef variableId="V_errorAnalog" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_analogRange" subindex="1" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+            <RecordItemRef variableId="V_analogRange" subindex="2" accessRightRestriction="rw" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+          </Menu>
+          <Menu id="M_OR_me2analog_K">
+            <Name textId="T_me2analog" />
+            <VariableRef variableId="V_analogOutputMode" accessRightRestriction="ro" />
+            <VariableRef variableId="V_errorAnalog" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_analogRange" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+            <RecordItemRef variableId="V_analogRange" subindex="2" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+          </Menu>
+          <Menu id="M_RW_Ident">
+            <Name textId="T_Ident" />
+            <MenuRef menuId="M_RW_me2Ident" />
+          </Menu>
+          <Menu id="M_OR_Ident">
+            <Name textId="T_Ident" />
+            <MenuRef menuId="M_OR_me2Ident" />
+          </Menu>
+          <Menu id="M_RW_Param">
+            <Name textId="T_Param" />
+            <MenuRef menuId="M_RW_me2device" />
+            <MenuRef menuId="M_RW_me2switch_C">
+              <Condition variableId="V_unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="M_RW_me2switch_F">
+              <Condition variableId="V_unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="M_RW_me2switch_K">
+              <Condition variableId="V_unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="M_RW_me2analog_C">
+              <Condition variableId="V_unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="M_RW_me2analog_F">
+              <Condition variableId="V_unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="M_RW_me2analog_K">
+              <Condition variableId="V_unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="M_RW_me2Cal" />
+          </Menu>
+          <Menu id="M_OR_Param">
+            <Name textId="T_Param" />
+            <MenuRef menuId="M_OR_me2device" />
+            <MenuRef menuId="M_OR_me2switch_C">
+              <Condition variableId="V_unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="M_OR_me2switch_F">
+              <Condition variableId="V_unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="M_OR_me2switch_K">
+              <Condition variableId="V_unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="M_OR_me2analog_C">
+              <Condition variableId="V_unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="M_OR_me2analog_F">
+              <Condition variableId="V_unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="M_OR_me2analog_K">
+              <Condition variableId="V_unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="M_OR_me2Cal" />
+          </Menu>
+          <Menu id="M_RW_me2observe_C">
+            <Name textId="T_me2observe" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="2" accessRightRestriction="ro" displayFormat="Bin" />
+          </Menu>
+          <Menu id="M_OR_me2observe_C">
+            <Name textId="T_me2observe" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-289.6325099" unitCode="1001" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="2" accessRightRestriction="ro" displayFormat="Bin" />
+          </Menu>
+          <Menu id="M_RW_me2observe_F">
+            <Name textId="T_me2observe" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="2" accessRightRestriction="ro" displayFormat="Bin" />
+          </Menu>
+          <Menu id="M_OR_me2observe_F">
+            <Name textId="T_me2observe" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.05599160849" offset="-489.3385177" unitCode="1002" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="2" accessRightRestriction="ro" displayFormat="Bin" />
+          </Menu>
+          <Menu id="M_RW_me2observe_K">
+            <Name textId="T_me2observe" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="2" accessRightRestriction="ro" displayFormat="Bin" />
+          </Menu>
+          <Menu id="M_OR_me2observe_K">
+            <Name textId="T_me2observe" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="1" accessRightRestriction="ro" displayFormat="Dec.1" gradient="0.03110644916" offset="-16.48250986" unitCode="1000" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="2" accessRightRestriction="ro" displayFormat="Bin" />
+          </Menu>
+          <Menu id="M_RW_Observe">
+            <Name textId="T_Observe" />
+            <MenuRef menuId="M_RW_me2observe_C">
+              <Condition variableId="V_unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="M_RW_me2observe_F">
+              <Condition variableId="V_unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="M_RW_me2observe_K">
+              <Condition variableId="V_unit" value="2" />
+            </MenuRef>
+          </Menu>
+          <Menu id="M_OR_Observe">
+            <Name textId="T_Observe" />
+            <MenuRef menuId="M_OR_me2observe_C">
+              <Condition variableId="V_unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="M_OR_me2observe_F">
+              <Condition variableId="V_unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="M_OR_me2observe_K">
+              <Condition variableId="V_unit" value="2" />
+            </MenuRef>
+          </Menu>
+          <Menu id="M_RW_me2deviceStatus">
+            <Name textId="T_me2deviceStatus" />
+            <VariableRef variableId="V_DetailedDeviceStatus" accessRightRestriction="ro" />
+            <VariableRef variableId="V_DeviceStatus" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="M_OR_me2deviceStatus">
+            <Name textId="T_me2deviceStatus" />
+            <VariableRef variableId="V_DetailedDeviceStatus" accessRightRestriction="ro" />
+            <VariableRef variableId="V_DeviceStatus" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="M_RW_me2Ident">
+            <Name textId="T_me2Ident" />
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_SerialNumber" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="M_OR_me2Ident">
+            <Name textId="T_me2Ident" />
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_SerialNumber" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="M_RW_me2Cal">
+            <Name textId="T_me2Cal" />
+            <VariableRef variableId="V_userResistance" accessRightRestriction="rw" displayFormat="Dec.2" gradient="0.01" offset="100" />
+          </Menu>
+          <Menu id="M_OR_me2Cal">
+            <Name textId="T_me2Cal" />
+            <VariableRef variableId="V_userResistance" accessRightRestriction="ro" displayFormat="Dec.2" gradient="0.01" offset="100" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+          <ObservationMenu menuId="M_OR_Observe" />
+          <DiagnosisMenu menuId="M_OR_Diag" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_RW_Ident" />
+          <ParameterMenu menuId="M_RW_Param" />
+          <ObservationMenu menuId="M_RW_Observe" />
+          <DiagnosisMenu menuId="M_RW_Diag" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_RW_Ident" />
+          <ParameterMenu menuId="M_RW_Param" />
+          <ObservationMenu menuId="M_RW_Observe" />
+          <DiagnosisMenu menuId="M_RW_Diag" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1" compatibleWith="V1.0">
+    <TransportLayers>
+      <PhysicalLayer bitrate="COM2" mSequenceCapability="63" minCycleTime="131200" sioSupported="true">
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910620" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910621" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910622" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910623" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910624" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910625" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910626" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910627" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910628" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910629" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910630" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910631" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910632" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910633" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910650" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910651" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910652" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910653" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910654" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910655" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910656" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910657" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910658" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910659" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910660" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910661" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910662" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="TURCK-TTM-con-pic.png">
+          <ProductRef productId="9910663" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="Other" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="84" testValue="0x00" />
+      <Config2 index="300" testValue="0x01" />
+      <Config3 index="20" testValue="0x69,0x6E,0x74,0x65,0x6C,0x6C,0x69,0x67,0x65,0x6E,0x74,0x20,0x74,0x65,0x6D,0x70,0x65,0x72,0x61,0x74,0x75,0x72,0x65,0x20,0x73,0x65,0x6E,0x73,0x6F,0x72" />
+      <Config7 index="2">
+        <EventTrigger appearValue="160" disappearValue="161" />
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="T_9910620_Name" value="TTM-203A-CF-LIUPN-H1140-L100" />
+      <Text id="T_9910621_Name" value="TTM-203A-CF-LIUPN-H1140-L100/S713" />
+      <Text id="T_9910622_Name" value="TTM-203A-CF-LIUPN-H1140-L150" />
+      <Text id="T_9910623_Name" value="TTM-203A-CF-LIUPN-H1140-L150/S713" />
+      <Text id="T_9910624_Name" value="TTM-206A-CF-LIUPN-H1140-L100" />
+      <Text id="T_9910625_Name" value="TTM-206A-CF-LIUPN-H1140-L100/S713" />
+      <Text id="T_9910626_Name" value="TTM-206A-CF-LIUPN-H1140-L150" />
+      <Text id="T_9910627_Name" value="TTM-206A-CF-LIUPN-H1140-L150/S713" />
+      <Text id="T_9910628_Name" value="TTM-103A-G1/8-LIUPN-H1140-L013" />
+      <Text id="T_9910629_Name" value="TTM-103A-G1/8-LIUPN-H1140-L013/S713" />
+      <Text id="T_9910630_Name" value="TTM-103A-G1/8-LIUPN-H1140-L024" />
+      <Text id="T_9910631_Name" value="TTM-103A-G1/8-LIUPN-H1140-L024/S713" />
+      <Text id="T_9910632_Name" value="TTM-100-LIUPN-H1140" />
+      <Text id="T_9910633_Name" value="TTM-100-LIUPN-H1140/S713" />
+      <Text id="T_9910650_Name" value="TTMS-103A-G1/8-LIUPN-H1140-L013" />
+      <Text id="T_9910651_Name" value="TTMS-103A-G1/8-LIUPN-H1140-L013/S713" />
+      <Text id="T_9910652_Name" value="TTMS-103A-G1/8-LIUPN-H1140-L024" />
+      <Text id="T_9910653_Name" value="TTMS-103A-G1/8-LIUPN-H1140-L024/S713" />
+      <Text id="T_9910654_Name" value="TTMS-100-LIUPN-H1140"></Text>
+      <Text id="T_9910655_Name" value="TTMS-100-LIUPN-H1140/S713" />
+      <Text id="T_9910656_Name" value="TTMS-203A-CF-LIUPN-H1140-L100" />
+      <Text id="T_9910657_Name" value="TTMS-203A-CF-LIUPN-H1140-L100/S713" />
+      <Text id="T_9910658_Name" value="TTMS-203A-CF-LIUPN-H1140-L150" />
+      <Text id="T_9910659_Name" value="TTMS-203A-CF-LIUPN-H1140-L150/S713" />
+      <Text id="T_9910660_Name" value="TTMS-206A-CF-LIUPN-H1140-L100" />
+      <Text id="T_9910661_Name" value="TTMS-206A-CF-LIUPN-H1140-L100/S713" />
+      <Text id="T_9910662_Name" value="TTMS-206A-CF-LIUPN-H1140-L150" />
+      <Text id="T_9910663_Name" value="TTMS-206A-CF-LIUPN-H1140-L150/S713" />
+      <Text id="T_9910620_Text" value="Design: rod-type probe / 3 mm accuracy Class A process connection: Via compression fitting immersion depth: 100 mm" />
+      <Text id="T_9910621_Text" value="Design: rod-type probe / 3 mm accuracy Class A process connection: Via compression fitting immersion depth: 100 mm customized switchpoint or analog start and end point&#xD;&#xA;" />
+      <Text id="T_9910622_Text" value="Design: rod-type probe / 3 mm accuracy Class A process connection: Via compression fitting immersion depth: 150 mm" />
+      <Text id="T_9910623_Text" value="Design: rod-type probe / 3 mm accuracy Class A process connection: Via compression fitting immersion depth: 150 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910624_Text" value="Design: 206A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 100 mm" />
+      <Text id="T_9910625_Text" value="Design: 206A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 100 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910626_Text" value="Design: 206A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 150 mm" />
+      <Text id="T_9910627_Text" value="Design: 206A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 150 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910628_Text" value="Design: 103A rod-type probe / 3 mm accuracy: Class A process connection: With screw-in thread immersion depth: 13 mm" />
+      <Text id="T_9910629_Text" value="Design: 103A rod-type probe / 3 mm accuracy: Class A process connection: With screw-in thread immersion depth: 13 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910630_Text" value="Design: 103A rod-type probe / 3 mm accuracy: Class A process connection: With screw-in thread immersion depth: 24 mm" />
+      <Text id="T_9910631_Text" value="Design: 103A rod-type probe / 3 mm accuracy: Class A process connection: With screw-in thread immersion depth: 24 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910632_Text" value="Process connection: With screw-in thread" />
+      <Text id="T_9910633_Text" value="Process connection: With screw-in thread customized switchpoint or analog start and end point" />
+      <Text id="T_9910650_Text" value="Design: 103A rod-type probe / 3 mm accuracy: Class A process connection: With screw-in thread immersion depth: 13 mm" />
+      <Text id="T_9910651_Text" value="Design: 103A rod-type probe / 3 mm accuracy: Class A process connection: With screw-in thread immersion depth: 13 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910652_Text" value="Design: 103A rod-type probe / 3 mm accuracy: Class A process connection: With screw-in thread immersion depth: 24 mm" />
+      <Text id="T_9910653_Text" value="Design: 103A rod-type probe / 3 mm accuracy: Class A process connection: With screw-in thread immersion depth: 24 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910654_Text" value="Process connection: With screw-in thread" />
+      <Text id="T_9910655_Text" value="Process connection: With screw-in thread customized switchpoint or analog start and end point" />
+      <Text id="T_9910656_Text" value="Design: 203A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 100 mm" />
+      <Text id="T_9910657_Text" value="Design: 203A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 100 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910658_Text" value="Design: 203A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 150 mm"></Text>
+      <Text id="T_9910659_Text" value="Design: 203A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 150 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910660_Text" value="Design: 206A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 100 mm" />
+      <Text id="T_9910661_Text" value="Design: 206A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 100 mm customized switchpoint or analog start and end point" />
+      <Text id="T_9910662_Text" value="Design: 206A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 150 mm"></Text>
+      <Text id="T_9910663_Text" value="Design: 206A rod-type probe / 3 mm accuracy: Class A process connection: Via compression fitting immersion depth: 150 mm customized switchpoint or analog start and end point" />
+      <Text id="T_SV_ProcessErr" value="See events for more details" />
+      <Text id="T_SV_ProcessValue_Underrun" value="Undershoot" />
+      <Text id="T_SV_ProcessValue_Overrun" value="Overshoot" />
+      <Text id="T_analogOutputMode" value="Function" />
+      <Text id="T_pn" value="Switching output mode" />
+      <Text id="T_userResistance" value="Correction value in Ohm" />
+      <Text id="T_unit" value="Unit" />
+      <Text id="T_SV_AnalogStartPoint" value="Start point of the analog signal" />
+      <Text id="T_SV_AnalogEndPoint" value="End point of th analog signal" />
+      <Text id="T_errorSwitch" value="Error behavior" />
+      <Text id="T_errorAnalog" value="Error behavior" />
+      <Text id="T_analogRange" value="Start/end point of the analog signal" />
+      <Text id="T_BDC" value="Switch/release point/ window" />
+      <Text id="T_BDC_config" value="Switching output settings" />
+      <Text id="T_errorSwitch_Descr" value="The error behavior can be parametrized: Select &quot;on&quot; for setting and &quot;off&quot; for resetting the switching output." />
+      <Text id="T_errorAnalog_Descr" value="The error behavior can be parametrized: The selected error current driven by the output. " />
+      <Text id="T_analogRange_Descr" value="Start and end values of the analog signal are programmable." />
+      <Text id="T_BDC_Descr" value="The switch and release point (hystersis mode) resp. upper and lower switchpoint (window mode) are programmable" />
+      <Text id="T_BDC_config_Descr" value="Switching output settings" />
+      <Text id="T_pn_Descr" value="PNP/NPN configuration of switching outputs. In connected state, PNP outputs are related to the operating voltage, NPN outputs to the ground." />
+      <Text id="T_userResistance_Descr" value="Assign the error value of the temperature probe here." />
+      <Text id="T_unit_Descr" value="Measured values can be displayed in different units." />
+      <Text id="T_analogOutputMode_Descr" value="The range of the current output can be set here." />
+      <Text id="T_me2device" value="General settings" />
+      <Text id="T_me2switch" value="Switching output settings" />
+      <Text id="T_me2analog" value="Analog output settings" />
+      <Text id="T_me2observe" value="Current output settings" />
+      <Text id="T_me2deviceStatus" value="Device Status" />
+      <Text id="T_me2Ident" value="Identification" />
+      <Text id="T_me2Cal" value="User Resistance Calibration" />
+      <Text id="T_Param" value="Parameters" />
+      <Text id="T_Ident" value="Identification" />
+      <Text id="T_Diag" value="Diagnostics" />
+      <Text id="T_Observe" value="Monitoring" />
+      <Text id="T_ProcessData_Switch1" value="Switch" />
+      <Text id="T_PD_ProcessDataIn" value="Process value" />
+      <Text id="T_ProcessData_ProcessValue" value="Process value" />
+      <Text id="T_SV_SwitchActive" value="On" />
+      <Text id="T_SV_SwitchNotActive" value="Off" />
+      <Text id="T_EV_PT100CON" value="Temperature probe connection" />
+      <Text id="T_EvDescr_PT100CON" value="This Event is active when the temperature probe is not connected properly. Please check the connection." />
+      <Text id="T_testEventAppear" value="Test event appear" />
+      <Text id="T_testEventDisAppear" value="Test event disappear" />
+      <Text id="T_deviceName" value="TTM" />
+      <Text id="T_VendorText" value="TURCK" />
+      <Text id="T_VendorUrl" value="http://www.turck.com" />
+      <Text id="T_DeviceFamily" value="TTM… series" />
+      <Text id="T_hysteresis" value="Hysteresis N/A" />
+      <Text id="T_SP1" value="Switchpoint/ upper limit value" />
+      <Text id="T_SP2" value="Release point/ lower limit value" />
+      <Text id="T_logic" value="Logic" />
+      <Text id="T_logicNormal" value="normally open" />
+      <Text id="T_logicInverted" value="normally closed" />
+      <Text id="T_mode" value="Function" />
+      <Text id="T_modeTwoPoint" value="Hysteresis function" />
+      <Text id="T_modeWindow" value="Window function" />
+      <Text id="T_modeDeactivated" value="Deactivted" />
+      <Text id="T_4_20" value="4-20 mA linear increase" />
+      <Text id="T_20_4" value="20-4 mA linear decrease" />
+      <Text id="T_PNP" value="PNP" />
+      <Text id="T_NPN" value="NPN" />
+      <Text id="T_C" value="°C" />
+      <Text id="T_F" value="°F" />
+      <Text id="T_K" value="K" />
+      <Text id="T_open" value="Off" />
+      <Text id="T_closed" value="On" />
+      <Text id="T_3_5" value="3.5 mA" />
+      <Text id="T_21_1" value="21.1 mA" />
+    </PrimaryLanguage>
+    <Language xml:lang="de">
+      <Text id="T_9910620_Name" value="TTM-203A-CF-LIUPN-H1140-L100" />
+      <Text id="T_9910621_Name" value="TTM-203A-CF-LIUPN-H1140-L100/S713" />
+      <Text id="T_9910622_Name" value="TTM-203A-CF-LIUPN-H1140-L150" />
+      <Text id="T_9910623_Name" value="TTM-203A-CF-LIUPN-H1140-L150/S713" />
+      <Text id="T_9910624_Name" value="TTM-206A-CF-LIUPN-H1140-L100" />
+      <Text id="T_9910625_Name" value="TTM-206A-CF-LIUPN-H1140-L100/S713" />
+      <Text id="T_9910626_Name" value="TTM-206A-CF-LIUPN-H1140-L150" />
+      <Text id="T_9910627_Name" value="TTM-206A-CF-LIUPN-H1140-L150/S713" />
+      <Text id="T_9910628_Name" value="TTM-103A-G1/8-LIUPN-H1140-L013" />
+      <Text id="T_9910629_Name" value="TTM-103A-G1/8-LIUPN-H1140-L013/S713" />
+      <Text id="T_9910630_Name" value="TTM-103A-G1/8-LIUPN-H1140-L024" />
+      <Text id="T_9910631_Name" value="TTM-103A-G1/8-LIUPN-H1140-L024/S713" />
+      <Text id="T_9910632_Name" value="TTM-100-LIUPN-H1140" />
+      <Text id="T_9910633_Name" value="TTM-100-LIUPN-H1140/S713"></Text>
+      <Text id="T_9910650_Name" value="TTMS-103A-G1/8-LIUPN-H1140-L013"></Text>
+      <Text id="T_9910651_Name" value="TTMS-103A-G1/8-LIUPN-H1140-L013/S713"></Text>
+      <Text id="T_9910652_Name" value="TTMS-103A-G1/8-LIUPN-H1140-L024"></Text>
+      <Text id="T_9910653_Name" value="TTMS-103A-G1/8-LIUPN-H1140-L024/S713"></Text>
+      <Text id="T_9910654_Name" value="TTMS-100-LIUPN-H1140"></Text>
+      <Text id="T_9910655_Name" value="TTMS-100-LIUPN-H1140/S713"></Text>
+      <Text id="T_9910656_Name" value="TTMS-203A-CF-LIUPN-H1140-L100"></Text>
+      <Text id="T_9910657_Name" value="TTMS-203A-CF-LIUPN-H1140-L100/S713"></Text>
+      <Text id="T_9910658_Name" value="TTMS-203A-CF-LIUPN-H1140-L150"></Text>
+      <Text id="T_9910659_Name" value="TTMS-203A-CF-LIUPN-H1140-L150/S713"></Text>
+      <Text id="T_9910660_Name" value="TTMS-206A-CF-LIUPN-H1140-L100"></Text>
+      <Text id="T_9910661_Name" value="TTMS-206A-CF-LIUPN-H1140-L100/S713"></Text>
+      <Text id="T_9910662_Name" value="TTMS-206A-CF-LIUPN-H1140-L150"></Text>
+      <Text id="T_9910663_Name" value="TTMS-206A-CF-LIUPN-H1140-L150/S713"></Text>
+      <Text id="T_9910620_Text" value="Bauform: 203A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 100 mm" />
+      <Text id="T_9910621_Text" value="Bauform: 203A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 100 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910622_Text" value="Bauform: 203A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 150 mm" />
+      <Text id="T_9910623_Text" value="Bauform: 203A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 150 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910624_Text" value="Bauform: 206A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 100 mm" />
+      <Text id="T_9910625_Text" value="Bauform: 206A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 100 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910626_Text" value="Bauform: 206A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 150 mm" />
+      <Text id="T_9910627_Text" value="Bauform: 206A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 150 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910628_Text" value="Bauform: 103A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Mit Einschraubgewinde Eintauchtiefe: 13 mm" />
+      <Text id="T_9910629_Text" value="Bauform: 103A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Mit Einschraubgewinde Eintauchtiefe: 13 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910630_Text" value="Bauform: 103A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Mit Einschraubgewinde Eintauchtiefe: 24 mm" />
+      <Text id="T_9910631_Text" value="Bauform: 103A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Mit Einschraubgewinde Eintauchtiefe: 24 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910632_Text" value="Prozessanschluss: Mit Einschraubgewinde" />
+      <Text id="T_9910633_Text" value="Prozessanschluss: Mit Einschraubgewinde kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt"></Text>
+      <Text id="T_9910650_Text" value="Bauform: 103A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Mit Einschraubgewinde Eintauchtiefe: 13 mm" />
+      <Text id="T_9910651_Text" value="Bauform: 103A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Mit Einschraubgewinde Eintauchtiefe: 13 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910652_Text" value="Bauform: 103A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Mit Einschraubgewinde Eintauchtiefe: 24 mm" />
+      <Text id="T_9910653_Text" value="Bauform: 103A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Mit Einschraubgewinde Eintauchtiefe: 24 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910654_Text" value="Prozessanschluss: Mit Einschraubgewinde" />
+      <Text id="T_9910655_Text" value="Prozessanschluss: Mit Einschraubgewinde kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910656_Text" value="Bauform: 203A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 100 mm" />
+      <Text id="T_9910657_Text" value="Bauform: 203A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 100 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910658_Text" value="Bauform: 203A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 150 mm" />
+      <Text id="T_9910659_Text" value="Bauform: 203A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 150 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910660_Text" value="Bauform: 206A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 100 mm" />
+      <Text id="T_9910661_Text" value="Bauform: 206A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 100 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_9910662_Text" value="Bauform: 206A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 150 mm" />
+      <Text id="T_9910663_Text" value="Bauform: 206A Stabfühler/ 3mm Fühlergenauigkeit: Klasse A Prozessanschluss: Über Klemmringverschraubung Eintauchtiefe: 150 mm kundenspezifischer Schaltpunkt oder Analoger Start und Endpunkt" />
+      <Text id="T_SV_ProcessErr" value="Bitte Ereignisse für mehr Informationen betrachten" />
+      <Text id="T_SV_ProcessValue_Underrun" value="Unterlauf" />
+      <Text id="T_SV_ProcessValue_Overrun" value="Überlauf" />
+      <Text id="T_analogOutputMode" value="Funktion" />
+      <Text id="T_pn" value="Verhalten des Schaltausgangs" />
+      <Text id="T_userResistance" value="Korrekturwert in Ohm" />
+      <Text id="T_unit" value="Einheit" />
+      <Text id="T_SV_AnalogStartPoint" value="Startpunkt des Analogsignals" />
+      <Text id="T_SV_AnalogEndPoint" value="Endpunkt des Analogsignals" />
+      <Text id="T_errorSwitch" value="Verhalten im Fehlerfall" />
+      <Text id="T_errorAnalog" value="Verhalten im Fehlerfall" />
+      <Text id="T_analogRange" value="Start-/Endpunkt des Analogsignals" />
+      <Text id="T_BDC" value="Schalt- und Rückschaltpunkt/Fenstergrenzen" />
+      <Text id="T_BDC_config" value="Konfiguration des Schaltausgangs" />
+      <Text id="T_errorSwitch_Descr" value="Das Verhalten des Ausgangs im Fehlerfall kann eingestellt werden: Wird &quot;ein&quot; gewählt, dann schaltet der Schaltausgang ein. Wird &quot;aus&quot; gewählt, dann schaltet der Schaltausgang aus." />
+      <Text id="T_errorAnalog_Descr" value="Das Verhalten des Ausgangs im Fehlerfall kann eingestellt werden: Der eingestellte Fehlerstrom wird ausgegeben. " />
+      <Text id="T_analogRange_Descr" value="Werte, bei denen das Analogsignal beginnt und endet, können eingestellt werden." />
+      <Text id="T_BDC_Descr" value="Der Schalt- und Rückschaltpunkt (Hysterese-Modus) bzw. die Grenzen des Fensters (Fenster-Modus), an denen der Ausgang seinen Schaltzustand ändert, können eingestellt werden." />
+      <Text id="T_BDC_config_Descr" value="Konfiguration des Schaltausgangs" />
+      <Text id="T_pn_Descr" value="Schaltausgänge können als &quot;pnp&quot; oder &quot;npn&quot; konfiguriert werden. Im geschalteten Zustand wird der Ausgang mit der Einstellung &quot;pnp&quot; zur Betriebsspannung geschaltet, mit der Einstellung &quot;npn&quot; zur Masse." />
+      <Text id="T_userResistance_Descr" value="Bitte tragen Sie hier den Fehlerwert des Temperaturfühlers ein." />
+      <Text id="T_unit_Descr" value="Die Werte können in verschiedenen Einheiten dargestellt werden." />
+      <Text id="T_analogOutputMode_Descr" value="Der Bereich des Stromsignals kann hier eingestellt werden." />
+      <Text id="T_me2device" value="Allgemeine Einstellungen" />
+      <Text id="T_me2switch" value="Konfiguration des Schaltausgang" />
+      <Text id="T_me2analog" value="Konfiguration des Analogausgangs" />
+      <Text id="T_me2observe" value="Konfigurations des Stromausgangs" />
+      <Text id="T_me2deviceStatus" value="Gerätestatus" />
+      <Text id="T_me2Ident" value="Identifikation" />
+      <Text id="T_me2Cal" value="Benutzer-Widerstandskalibrierung" />
+      <Text id="T_Param" value="Parameter " />
+      <Text id="T_Ident" value="Identifikation" />
+      <Text id="T_Diag" value="Diagnose" />
+      <Text id="T_Observe" value="Überwachung" />
+      <Text id="T_ProcessData_Switch1" value="Schaltausgang" />
+      <Text id="T_PD_ProcessDataIn" value="Prozesswert" />
+      <Text id="T_ProcessData_ProcessValue" value="Prozesswert" />
+      <Text id="T_SV_SwitchActive" value="Ein" />
+      <Text id="T_SV_SwitchNotActive" value="Aus" />
+      <Text id="T_EV_PT100CON" value="Temperaturfühler-Anschluss" />
+      <Text id="T_EvDescr_PT100CON" value="Dieses Ereignis wird ausgelöst, wenn der Temperaturfühler nicht korrekt angeschlossen ist. Bitte überprüfen Sie den Anschluss. " />
+      <Text id="T_testEventAppear" value="Test-Ereignis ein" />
+      <Text id="T_testEventDisAppear" value="Test-Ereignis aus" />
+      <Text id="T_deviceName" value="TTM" />
+      <Text id="T_VendorText" value="TURCK" />
+      <Text id="T_VendorUrl" value="http://www.turck.com" />
+      <Text id="T_DeviceFamily" value="TTM-Serie" />
+      <Text id="T_hysteresis" value="Hysterese nicht verfügbar" />
+      <Text id="T_SP1" value="Schaltpunkt/obere Fenstergrenze" />
+      <Text id="T_SP2" value="Rückschaltpunkt/untere Fenstergrenze" />
+      <Text id="T_logic" value="Logik" />
+      <Text id="T_logicNormal" value="Schließer" />
+      <Text id="T_logicInverted" value="Öffner" />
+      <Text id="T_mode" value="Funktion" />
+      <Text id="T_modeTwoPoint" value="Hysteresefunktion" />
+      <Text id="T_modeWindow" value="Fensterfunktion" />
+      <Text id="T_modeDeactivated" value="Deaktiviert" />
+      <Text id="T_4_20" value="4-20 mA ansteigende Gerade" />
+      <Text id="T_20_4" value="20-4 mA fallende Gerade" />
+      <Text id="T_PNP" value="pnp" />
+      <Text id="T_NPN" value="npn" />
+      <Text id="T_C" value="°C" />
+      <Text id="T_F" value="°F" />
+      <Text id="T_K" value="K" />
+      <Text id="T_open" value="Aus" />
+      <Text id="T_closed" value="Ein" />
+      <Text id="T_3_5" value="3,5 mA" />
+      <Text id="T_21_1" value="21,1 mA" />
+    </Language>
+  </ExternalTextCollection>
+  <Stamp crc="883590354"><Checker name="IODD-Checker V1.1.0 Beta 8" version="V1.1.0.8"/></Stamp>
+</IODevice>
