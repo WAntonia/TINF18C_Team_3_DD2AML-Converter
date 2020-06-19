@@ -357,8 +357,7 @@ namespace Dd2Aml.Lib
             while (preLastnode.HasAttribute("visited"))
             {
                 var tempNode = preLastnode.NextSibling;
-
-                while(tempNode.Name == "#comment')
+                while (tempNode.Name == "#comment")
                 {
                     tempNode = tempNode.NextSibling;
                 }
