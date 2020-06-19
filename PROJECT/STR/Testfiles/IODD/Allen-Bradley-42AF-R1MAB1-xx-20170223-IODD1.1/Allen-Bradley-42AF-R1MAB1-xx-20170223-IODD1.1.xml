@@ -1,0 +1,1080 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.0" releaseDate="2017-02-23" copyright="Copyright 2017, Allen-Bradley" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="2" vendorName="Allen-Bradley" deviceId="209">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Allen-Bradley-logo.png" />
+      <DeviceName textId="TI_DeviceName" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="42AF-R1MAB1-F4 Series A" deviceSymbol="Allen-Bradley-42AF-xxMAB1-x4-pic.png" deviceIcon="Allen-Bradley-42AF-xxMAB1-x4-icon.png">
+          <Name textId="TI_SPI_Name_42AF-R1MAB1-F4" />
+          <Description textId="TI_SPI_Text_42AF-R1MAB1-F4" />
+        </DeviceVariant>
+        <DeviceVariant productId="42AF-R1MAB1-D4 Series A" deviceSymbol="Allen-Bradley-42AF-xxMAB1-x4-pic.png" deviceIcon="Allen-Bradley-42AF-xxMAB1-x4-icon.png">
+          <Name textId="TI_SPI_Name_42AF-R1MAB1-D4" />
+          <Description textId="TI_SPI_Text_42AF-R1MAB1-D4" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true" profileCharacteristic="6 48 49">
+        <SupportedAccessLocks parameter="true" dataStorage="true" localParameterization="true" localUserInterface="false" />
+      </Features>
+      <DatatypeCollection>
+        <Datatype id="DT_Trigger" xsi:type="BooleanT">
+          <SingleValue value="false">
+            <Name textId="TI_TriggerOff" />
+          </SingleValue>
+          <SingleValue value="true">
+            <Name textId="TI_TriggerOn" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_MarginLowAlarm" xsi:type="BooleanT">
+          <SingleValue value="false">
+            <Name textId="TI_MarginLowAlarmOff" />
+          </SingleValue>
+          <SingleValue value="true">
+            <Name textId="TI_MarginLowAlarmOn" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_ProximityAlarm" xsi:type="BooleanT">
+          <SingleValue value="false">
+            <Name textId="TI_ProximityAlarmOff" />
+          </SingleValue>
+          <SingleValue value="true">
+            <Name textId="TI_ProximityAlarmOn" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_PD_ExcessGain" xsi:type="UIntegerT" bitLength="8">
+          <ValueRange lowerValue="0" upperValue="255">
+            <Name textId="TI_ExcessGain" />
+          </ValueRange>
+        </Datatype>
+        <Datatype id="DT_Contrast" xsi:type="UIntegerT" bitLength="8">
+          <ValueRange lowerValue="0" upperValue="255">
+            <Name textId="TI_ContrastLevel" />
+          </ValueRange>
+        </Datatype>
+        <Datatype id="DT_PD_RxSignalStrength" xsi:type="UIntegerT" bitLength="16">
+          <ValueRange lowerValue="0" upperValue="65535">
+            <Name textId="TI_RxSignalStrength" />
+          </ValueRange>
+        </Datatype>
+        <Datatype id="DT_PD_Temperature" xsi:type="IntegerT" bitLength="8">
+          <ValueRange lowerValue="-40" upperValue="125">
+            <Name textId="TI_Temperature" />
+          </ValueRange>
+        </Datatype>
+        <Datatype id="DT_PD_TimeOn" xsi:type="UIntegerT" bitLength="12">
+          <ValueRange lowerValue="0" upperValue="4095">
+            <Name textId="TI_TimerValueOn" />
+          </ValueRange>
+        </Datatype>
+        <Datatype id="DT_PD_TimeOff" xsi:type="UIntegerT" bitLength="12">
+          <ValueRange lowerValue="0" upperValue="4095">
+            <Name textId="TI_TimerValueOff" />
+          </ValueRange>
+        </Datatype>
+        <Datatype id="DT_PD_Counter" xsi:type="UIntegerT" bitLength="16">
+          <ValueRange lowerValue="0" upperValue="65535">
+            <Name textId="TI_CounterValue" />
+          </ValueRange>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_SetPointValueBDC" bitLength="32" subindexAccessSupported="false">
+          <RecordItem subindex="1" bitOffset="16">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+              <ValueRange lowerValue="1000" upperValue="65535" />
+            </SimpleDatatype>
+            <Name textId="TI_SetPointValueBDC_SP1" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+              <ValueRange lowerValue="0" upperValue="65535" />
+            </SimpleDatatype>
+            <Name textId="TI_SetPointValueBDC_SP2" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_SwitchPointConfigurationBDC" bitLength="32" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="24">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_normally_open" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_normally_closed" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_switchpoint_logic" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="16" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="1">
+                <Name textId="TI_SwitchpointModeSinglePoint" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_switchpoint_mode" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="0" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16"></SimpleDatatype>
+            <Name textId="TI_switchpoint_hysteresis" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_ProcessDataInMode" bitLength="8" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_pdin_mode0" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_pdin_mode1" />
+              </SingleValue>
+              <SingleValue value="2">
+                <Name textId="TI_pdin_mode2" />
+              </SingleValue>
+              <SingleValue value="3">
+                <Name textId="TI_pdin_mode3" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_mode" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_MarginMultiplier" bitLength="16" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="8">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="5">
+                <Name textId="TN_Float05" />
+              </SingleValue>
+              <SingleValue value="6">
+                <Name textId="TN_Float06" />
+              </SingleValue>
+              <SingleValue value="7">
+                <Name textId="TN_Float07" />
+              </SingleValue>
+              <SingleValue value="8">
+                <Name textId="TN_Float08" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_MarginMultiplierLow" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="10">
+                <Name textId="TN_Float10" />
+              </SingleValue>
+              <SingleValue value="15">
+                <Name textId="TN_Float15" />
+              </SingleValue>
+              <SingleValue value="20">
+                <Name textId="TN_Float20" />
+              </SingleValue>
+              <SingleValue value="50">
+                <Name textId="TN_Float50" />
+              </SingleValue>
+              <SingleValue value="100">
+                <Name textId="TN_Float100" />
+              </SingleValue>
+              <SingleValue value="150">
+                <Name textId="TN_Float150" />
+              </SingleValue>
+              <SingleValue value="200">
+                <Name textId="TN_Float200" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_MarginMultiplierHigh" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_ExcessGain" bitLength="16" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="8" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <ValueRange lowerValue="0" upperValue="255" />
+            </SimpleDatatype>
+            <Name textId="TI_ExcessGain" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="1">
+                <Name textId="TI_1xResolution" />
+              </SingleValue>
+              <SingleValue value="10">
+                <Name textId="TI_10xResolution" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_ExcessGainResolution" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_LEDControl" bitLength="16" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="8">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_Disabled" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_Enabled" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_LocatorLED" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_Disabled" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_Enabled" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_LEDEnable" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_RxSignalStrength" bitLength="32" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="16" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_RxSignalOn" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_RxSignalOff" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_OperatingHours" bitLength="64" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="32" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+            <Name textId="TI_OperatingHoursLifetime" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+            <Name textId="TI_OperatingHoursSession" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_Temperature" bitLength="40" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="32">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+            <Name textId="TI_CurrentTemperature" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="24">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+            <Name textId="TI_MaximumTemperatureSession" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="16">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+            <Name textId="TI_MaximumTemperatureLifetime" />
+          </RecordItem>
+          <RecordItem subindex="4" bitOffset="8">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+            <Name textId="TI_MinimumTemperatureSession" />
+          </RecordItem>
+          <RecordItem subindex="5" bitOffset="0">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+            <Name textId="TI_MinimumTemperatureLifetime" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_TimerControl" bitLength="48" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="40">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_Disabled" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_Enabled" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_TimerControlMode" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="32" accessRightRestriction="wo">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="1">
+                <Name textId="TI_Reset" />
+              </SingleValue>
+              <SingleValue value="0">
+                <Name textId="TI_NoReset" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_Reset" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="16" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_TimerValueOn" />
+          </RecordItem>
+          <RecordItem subindex="4" bitOffset="0" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_TimerValueOff" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_Counter" bitLength="32" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="24" accessRightRestriction="rw">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_Disabled" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_Enabled" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_CounterControlMode" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="16" accessRightRestriction="wo">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="1">
+                <Name textId="TI_Reset" />
+              </SingleValue>
+              <SingleValue value="0">
+                <Name textId="TI_NoReset" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_Reset" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="0" accessRightRestriction="ro">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_CounterValue" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_SystemFeatureRev" bitLength="32" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="16">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_SystemFeatureRev_Major" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_SystemFeatureRev_Minor" />
+          </RecordItem>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="128" />
+          <StdSingleValueRef value="130" />
+          <SingleValue value="80">
+            <Name textId="TN_SystemCommand_BM_UNLOCK_S" />
+          </SingleValue>
+          <SingleValue value="81">
+            <Name textId="TN_SystemCommand_BM_UNLOCK_F" />
+          </SingleValue>
+          <SingleValue value="82">
+            <Name textId="TN_SystemCommand_BM_UNLOCK_T" />
+          </SingleValue>
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks">
+          <!-- Supported - Parameter (Write) Access Lock -->
+          <StdRecordItemRef subindex="1" defaultValue="0" />
+          <!-- Supported - Data Storage Lock -->
+          <StdRecordItemRef subindex="2" defaultValue="0" />
+          <!-- Supported - Local Parameterization Lock -->
+          <StdRecordItemRef subindex="3" defaultValue="0" />
+        </StdVariableRef>
+        <StdVariableRef id="V_VendorName" defaultValue="Allen-Bradley" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.ab.com/sensors" />
+        <StdVariableRef id="V_ProductName" />
+        <StdVariableRef id="V_ProductID" />
+        <StdVariableRef id="V_ProductText" />
+        <StdVariableRef id="V_SerialNumber" />
+        <StdVariableRef id="V_HardwareRevision" defaultValue="A" />
+        <StdVariableRef id="V_FirmwareRevision" defaultValue="1.001" />
+        <StdVariableRef id="V_ApplicationSpecificTag" defaultValue="" excludedFromDataStorage="false" />
+        <StdVariableRef id="V_ErrorCount" />
+        <StdVariableRef id="V_DeviceStatus" />
+        <StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="7" />
+        <!-- Device Specific Parameters *********************************************************** -->
+        <Variable id="V_SetPointValueBDC1" index="60" accessRights="rw" excludedFromDataStorage="false">
+          <DatatypeRef datatypeId="DT_SetPointValueBDC" />
+          <RecordItemInfo subindex="1" defaultValue="1000" />
+          <RecordItemInfo subindex="2" defaultValue="0" />
+          <Name textId="TI_SetPointValueBDC1" />
+        </Variable>
+        <Variable id="V_SwitchPointConfigurationBDC1" index="61" accessRights="rw" excludedFromDataStorage="false">
+          <DatatypeRef datatypeId="DT_SwitchPointConfigurationBDC" />
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="1" />
+          <Name textId="TI_SwitchPointConfigurationBDC1" />
+        </Variable>
+        <Variable id="V_ProcessDataInMode" index="80" accessRights="rw" excludedFromDataStorage="false">
+          <DatatypeRef datatypeId="DT_ProcessDataInMode" />
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <Name textId="TI_ProcessDataInMode" />
+        </Variable>
+        <Variable id="V_RxSignalStrength" index="86" accessRights="ro">
+          <DatatypeRef datatypeId="DT_RxSignalStrength" />
+          <Name textId="TI_RxSignalStrength" />
+        </Variable>
+        <Variable id="V_ContrastLevel" index="87" accessRights="ro">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <ValueRange lowerValue="0" upperValue="255"></ValueRange>
+          </Datatype>
+          <Name textId="TI_ContrastLevel" />
+        </Variable>
+        <Variable id="V_MarginMultiplier" index="88" accessRights="rw" excludedFromDataStorage="false">
+          <DatatypeRef datatypeId="DT_MarginMultiplier" />
+          <RecordItemInfo subindex="1" defaultValue="8" />
+          <RecordItemInfo subindex="2" defaultValue="15" />
+          <Name textId="TI_MarginMultiplier" />
+        </Variable>
+        <Variable id="V_ExcessGain" index="89" accessRights="rw">
+          <DatatypeRef datatypeId="DT_ExcessGain" />
+          <RecordItemInfo subindex="2" defaultValue="1" />
+          <Name textId="TI_ExcessGain2" />
+        </Variable>
+        <Variable id="V_Temperature" index="90" accessRights="ro">
+          <DatatypeRef datatypeId="DT_Temperature" />
+          <Name textId="TI_Temperature" />
+        </Variable>
+        <Variable id="V_OperatingHours" index="91" accessRights="ro">
+          <DatatypeRef datatypeId="DT_OperatingHours" />
+          <Name textId="TI_OperatingHours" />
+        </Variable>
+        <Variable id="V_TimerControl" index="92" accessRights="rw" excludedFromDataStorage="false">
+          <DatatypeRef datatypeId="DT_TimerControl" />
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="1" />
+          <RecordItemInfo subindex="3" defaultValue="0" />
+          <RecordItemInfo subindex="4" defaultValue="0" />
+          <Name textId="TI_TimerControl" />
+        </Variable>
+        <Variable id="V_Counter" index="93" accessRights="rw" excludedFromDataStorage="false">
+          <DatatypeRef datatypeId="DT_Counter" />
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="1" />
+          <RecordItemInfo subindex="3" defaultValue="0" />
+          <Name textId="TI_CounterControl" />
+        </Variable>
+        <Variable id="V_LEDControl" index="94" accessRights="rw">
+          <DatatypeRef datatypeId="DT_LEDControl" />
+          <RecordItemInfo subindex="1" defaultValue="0" excludedFromDataStorage="true" />
+          <RecordItemInfo subindex="2" defaultValue="1" excludedFromDataStorage="false" />
+          <Name textId="TI_LEDControl" />
+        </Variable>
+        <Variable id="V_AlignmentMode" index="95" accessRights="rw" defaultValue="0" excludedFromDataStorage="true">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TI_Disabled" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TI_Enabled" />
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="TI_EnabledFor120Sec" />
+            </SingleValue>
+            <SingleValue value="3">
+              <Name textId="TI_EnabledFor240Sec" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_AlignmentMode" />
+        </Variable>
+        <Variable id="V_Pin2Mode" index="96" accessRights="rw" defaultValue="0" excludedFromDataStorage="false">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TI_Disabled" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TI_LightOperate" />
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="TI_DarkOperate" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_Pin2Mode" />
+        </Variable>
+        <Variable id="V_UserTag1" index="192" accessRights="rw" defaultValue="" excludedFromDataStorage="false">
+          <Datatype xsi:type="StringT" fixedLength="16" encoding="UTF-8"></Datatype>
+          <Name textId="TI_UserTag1" />
+        </Variable>
+        <Variable id="V_UserTag2" index="193" accessRights="rw" defaultValue="" excludedFromDataStorage="false">
+          <Datatype xsi:type="StringT" fixedLength="16" encoding="UTF-8"></Datatype>
+          <Name textId="TI_UserTag2" />
+        </Variable>
+        <Variable id="V_LastEvent" index="110" accessRights="ro" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange lowerValue="0" upperValue="65535"></ValueRange>
+          </Datatype>
+          <Name textId="TI_LastEvent" />
+        </Variable>
+        <Variable id="V_PhyMode" index="97" accessRights="rw" defaultValue="2">
+          <Datatype xsi:type="UIntegerT" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <SingleValue value="0">
+              <Name textId="TI_PhyModePNP" />
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="TI_PhyModeAutoDetect" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_PhyMode" />
+        </Variable>
+        <Variable id="V_BLOB_ID" index="49" accessRights="ro">
+          <Datatype xsi:type="IntegerT" bitLength="16">
+            <SingleValue value="1">
+              <Name textId="TN_BLOB_ID_Manufacturer_FW" />
+            </SingleValue>
+            <SingleValue value="-4098">
+              <Name textId="TN_BLOB_ID_Manufacturer_IODD" />
+            </SingleValue>
+            <SingleValue value="0">
+              <Name textId="TN_BLOB_ID_Idle" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TN_BLOB_ID" />
+        </Variable>        
+        <Variable id="V_HW_ID_Key" index="17342" accessRights="ro">
+          <Datatype xsi:type="StringT" encoding="UTF-8" fixedLength="16" />
+          <Name textId="TN_HW_ID_Key" />
+        </Variable>
+        <Variable id="V_BootmodeStatus" index="17343" accessRights="ro">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TN_BootmodeStatus_Inactive" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TN_BootmodeStatus_Active" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TN_BootmodeStatus" />
+        </Variable>
+        <Variable id="V_SystemFeatureRev" index="211" accessRights="ro">
+          <DatatypeRef datatypeId="DT_SystemFeatureRev" />
+          <RecordItemInfo subindex="1" defaultValue="2"></RecordItemInfo>
+          <RecordItemInfo subindex="2" defaultValue="1" />
+          <Name textId="TI_SystemFeatureRev" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="PD_ProcessData0">
+          <Condition variableId="V_ProcessDataInMode" subindex="1" value="0" />
+          <ProcessDataIn id="PD_ProcessDataInMode0" bitLength="32">
+            <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="16">
+                <DatatypeRef datatypeId="DT_PD_RxSignalStrength" />
+                <Name textId="TI_RxSignalStrength2" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="8">
+                <DatatypeRef datatypeId="DT_PD_ExcessGain" />
+                <Name textId="TI_ExcessGain" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_ProximityAlarm" />
+                <Name textId="TI_ProximityAlarm2" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="1">
+                <DatatypeRef datatypeId="DT_MarginLowAlarm" />
+                <Name textId="TI_MarginLowAlarm2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Trigger" />
+                <Name textId="TI_Triggered" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+        <ProcessData id="PD_ProcessData1">
+          <Condition variableId="V_ProcessDataInMode" subindex="1" value="1" />
+          <ProcessDataIn id="PD_ProcessDataInMode1" bitLength="32">
+            <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="24">
+                <DatatypeRef datatypeId="DT_PD_Temperature" />
+                <Name textId="TI_Temperature2" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="16">
+                <DatatypeRef datatypeId="DT_Contrast" />
+                <Name textId="TI_ContrastLevel" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="8">
+                <DatatypeRef datatypeId="DT_PD_ExcessGain" />
+                <Name textId="TI_ExcessGain" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="2">
+                <DatatypeRef datatypeId="DT_ProximityAlarm" />
+                <Name textId="TI_ProximityAlarm2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="1">
+                <DatatypeRef datatypeId="DT_MarginLowAlarm" />
+                <Name textId="TI_MarginLowAlarm2" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Trigger" />
+                <Name textId="TI_Triggered" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+        <ProcessData id="PD_ProcessData2">
+          <Condition variableId="V_ProcessDataInMode" subindex="1" value="2" />
+          <ProcessDataIn id="PD_ProcessDataInMode2" bitLength="32">
+            <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="16">
+                <DatatypeRef datatypeId="DT_PD_Counter" />
+                <Name textId="TI_CounterValue" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="8">
+                <DatatypeRef datatypeId="DT_PD_ExcessGain" />
+                <Name textId="TI_ExcessGain" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_ProximityAlarm" />
+                <Name textId="TI_ProximityAlarm2" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="1">
+                <DatatypeRef datatypeId="DT_MarginLowAlarm" />
+                <Name textId="TI_MarginLowAlarm2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Trigger" />
+                <Name textId="TI_Triggered" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+        <ProcessData id="PD_ProcessData3">
+          <Condition variableId="V_ProcessDataInMode" subindex="1" value="3" />
+          <ProcessDataIn id="PD_ProcessDataInMode3" bitLength="32">
+            <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="20">
+                <DatatypeRef datatypeId="DT_PD_TimeOn" />
+                <Name textId="TI_TimerValueOn" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="8">
+                <DatatypeRef datatypeId="DT_PD_TimeOff" />
+                <Name textId="TI_TimerValueOff" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_ProximityAlarm" />
+                <Name textId="TI_ProximityAlarm2" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="1">
+                <DatatypeRef datatypeId="DT_MarginLowAlarm" />
+                <Name textId="TI_MarginLowAlarm2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Trigger" />
+                <Name textId="TI_Triggered" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <!-- Supported Events *********************************************************************** -->
+      <EventCollection>
+        <StdEventRef code="0" />
+        <StdEventRef code="16384" />
+        <StdEventRef code="16912" />
+        <StdEventRef code="16928" />
+        <StdEventRef code="20480" />
+        <StdEventRef code="20753" />
+        <StdEventRef code="25424" />
+        <StdEventRef code="30480" />
+        <Event code="36032" type="Notification">
+          <Name textId="TI_Configuration_Change" />
+          <Description textId="TI_Configuration_Change_Description" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <!-- Identification Tab ***************************************************** -->
+          <!-- Observer / Operator -->
+          <Menu id="ME_OR_Ident">
+            <Name textId="TI_ME_Ident" />
+            <MenuRef menuId="ME_Ident_Device" />
+            <MenuRef menuId="ME_OR_Ident_User" />
+            <MenuRef menuId="ME_Ident_DeviceRev" />
+          </Menu>
+          <!-- Maintenance / Specialist -->
+          <Menu id="ME_MR_SR_Ident">
+            <Name textId="TI_ME_Ident" />
+            <MenuRef menuId="ME_Ident_Device" />
+            <MenuRef menuId="ME_MR_SR_Ident_User" />
+            <MenuRef menuId="ME_Ident_DeviceRev" />
+          </Menu>
+          <Menu id="ME_Ident_Device">
+            <Name textId="TI_ME_Ident_Device" />
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_SerialNumber" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_OR_Ident_User">
+            <Name textId="TI_ME_Ident_User" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+            <VariableRef variableId="V_UserTag1" accessRightRestriction="ro" />
+            <VariableRef variableId="V_UserTag2" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_SR_Ident_User">
+            <Name textId="TI_ME_Ident_User" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+            <VariableRef variableId="V_UserTag1" accessRightRestriction="rw" />
+            <VariableRef variableId="V_UserTag2" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="ME_Ident_DeviceRev">
+            <Name textId="TI_ME_Ident_DeviceRev" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro"></VariableRef>
+            <VariableRef variableId="V_SystemFeatureRev" accessRightRestriction="ro" />
+          </Menu>
+          <!-- Observation Tab ***************************************************** -->
+          <!-- Observer / Operator -->
+          <Menu id="ME_OR_Observe">
+            <Name textId="TI_ME_Observe" />
+            <MenuRef menuId="ME_OR_Observe_Device_Monitoring" />
+            <RecordItemRef variableId="V_ProcessDataInMode" subindex="1" accessRightRestriction="rw" />
+          </Menu>
+          <!-- Maintenance / Specialist -->
+          <Menu id="ME_MR_SR_Observe">
+            <Name textId="TI_ME_Observe" />
+            <MenuRef menuId="ME_MR_SR_Observe_Device_Monitoring" />
+          </Menu>
+          <Menu id="ME_OR_Observe_Device_Monitoring">
+            <Name textId="TI_ME_Observe_Device_Monitoring" />
+            <VariableRef variableId="V_RxSignalStrength" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ContrastLevel" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ExcessGain" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_SR_Observe_Device_Monitoring">
+            <Name textId="TI_ME_Observe_Device_Monitoring" />
+            <VariableRef variableId="V_RxSignalStrength" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ContrastLevel" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_ExcessGain" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_ExcessGain" subindex="2" accessRightRestriction="rw" />
+          </Menu>
+          <!-- Parameters Tab ***************************************************** -->
+          <Menu id="ME_MR_SR_Param">
+            <Name textId="TI_ME_Param" />
+            <MenuRef menuId="ME_Param_ConfOutput" />
+            <MenuRef menuId="ME_Param_ConfSens" />
+            <MenuRef menuId="ME_Param_Operation_TC" />
+            <MenuRef menuId="ME_Param_ConfPD" />
+          </Menu>
+          <Menu id="ME_Param_ConfOutput">
+            <Name textId="TI_ME_Param_ConfOutput" />
+            <MenuRef menuId="ME_Param_ConfOutput_Trig" />
+          </Menu>
+          <Menu id="ME_Param_ConfOutput_Trig">
+            <Name textId="TI_ME_Param_ConfOutput_Trig" />
+            <RecordItemRef variableId="V_SetPointValueBDC1" subindex="1" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="1" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="3" accessRightRestriction="ro" />
+            <VariableRef variableId="V_Pin2Mode" />
+            <VariableRef variableId="V_PhyMode" />
+          </Menu>
+          <Menu id="ME_Param_ConfSens">
+            <Name textId="TI_ME_Param_ConfSens" />
+            <VariableRef variableId="V_MarginMultiplier" />
+          </Menu>
+          <Menu id="ME_Param_Operation_TC">
+            <Name textId="TI_ME_Param_Operation_TC" />
+            <MenuRef menuId="ME_Param_Operation_Counter" />
+            <MenuRef menuId="ME_Param_Operation_Timer" />
+          </Menu>
+          <Menu id="ME_Param_Operation_Counter">
+            <Name textId="TI_ME_Param_Operation_Counter" />
+            <RecordItemRef variableId="V_Counter" subindex="1" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_Counter" subindex="2" accessRightRestriction="wo">
+              <Button buttonValue="1" />
+            </RecordItemRef>
+            <RecordItemRef variableId="V_Counter" subindex="3" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_Param_Operation_Timer">
+            <Name textId="TI_ME_Param_Operation_Timer" />
+            <RecordItemRef variableId="V_TimerControl" subindex="1" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_TimerControl" subindex="2" accessRightRestriction="wo">
+              <Button buttonValue="1" />
+            </RecordItemRef>
+            <RecordItemRef variableId="V_TimerControl" subindex="3" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TimerControl" subindex="4" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_Param_ConfPD">
+            <Name textId="TI_ME_Param_ConfPD" />
+            <RecordItemRef variableId="V_ProcessDataInMode" subindex="1" accessRightRestriction="rw" />
+          </Menu>
+          <!-- Diagnosis Tab ***************************************************** -->
+          <!-- Maintainence -->
+          <Menu id="ME_MR_Diag">
+            <Name textId="TI_ME_Diag" />
+            <MenuRef menuId="ME_MR_Param_ConfUI_Lock" />
+            <MenuRef menuId="ME_Diag_ServiceFunc" />
+            <VariableRef variableId="V_ErrorCount" accessRightRestriction="ro" />
+            <VariableRef variableId="V_DeviceStatus" accessRightRestriction="ro" />
+            <VariableRef variableId="V_LastEvent" accessRightRestriction="ro" />
+            <MenuRef menuId="ME_Diag_OpInfo" />
+            <MenuRef menuId="ME_Diag_OpInfo_Temp" />
+            <MenuRef menuId="ME_Diag_ComInfo" />
+          </Menu>
+          <!-- Specialist -->
+          <Menu id="ME_SR_Diag">
+            <Name textId="TI_ME_Diag" />
+            <MenuRef menuId="ME_SR_Param_ConfUI_Lock" />
+            <MenuRef menuId="ME_Diag_ServiceFunc" />
+            <VariableRef variableId="V_ErrorCount" accessRightRestriction="ro" />
+            <VariableRef variableId="V_DeviceStatus" accessRightRestriction="ro" />
+            <VariableRef variableId="V_LastEvent" accessRightRestriction="ro" />
+            <MenuRef menuId="ME_Diag_OpInfo" />
+            <MenuRef menuId="ME_Diag_OpInfo_Temp" />
+            <MenuRef menuId="ME_Diag_ComInfo" />
+          </Menu>
+          <!-- Device Access Locks - Maintenance Mode -->
+          <Menu id="ME_MR_Param_ConfUI_Lock">
+            <Name textId="TI_ME_Param_ConfUI_Lock" />
+            <!-- Supported - Parameter (Write) Access Lock -->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="1" accessRightRestriction="rw" />
+            <!-- Supported - Data Storage Lock -->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="2" accessRightRestriction="rw" />
+            <!-- Supported - Local Parameterization Lock -->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="3" accessRightRestriction="rw" />
+          </Menu>
+          <!-- Device Access Locks - Specialist Mode -->
+          <Menu id="ME_SR_Param_ConfUI_Lock">
+            <Name textId="TI_ME_Param_ConfUI_Lock" />
+            <!-- Supported - Parameter (Write) Access Lock -->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="1" accessRightRestriction="ro" />
+            <!-- Supported - Data Storage Lock -->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="2" accessRightRestriction="ro" />
+            <!-- Supported - Local Parameterization Lock -->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="3" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="ME_Diag_ServiceFunc">
+            <Name textId="TI_ME_Diag_ServiceFunc" />
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_ResetDefaults" />
+              </Button>
+            </VariableRef>
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="128">
+                <Description textId="TD_SystemReset" />
+                <ActionStartedMessage textId="T_CmdSent" />
+              </Button>
+            </VariableRef>
+            <VariableRef variableId="V_LEDControl" />
+            <VariableRef variableId="V_AlignmentMode" />
+          </Menu>
+          <Menu id="ME_Diag_OpInfo">
+            <Name textId="TI_ME_Diag_OpInfo" />
+            <RecordItemRef variableId="V_OperatingHours" subindex="1" accessRightRestriction="ro" unitCode="1059" />
+            <RecordItemRef variableId="V_OperatingHours" subindex="2" accessRightRestriction="ro" unitCode="1059" />
+          </Menu>
+          <Menu id="ME_Diag_OpInfo_Temp">
+            <Name textId="TI_ME_Diag_OpInfo_Temp" />
+            <RecordItemRef variableId="V_Temperature" subindex="1" accessRightRestriction="ro" unitCode="1001" />
+            <RecordItemRef variableId="V_Temperature" subindex="2" accessRightRestriction="ro" unitCode="1001" />
+            <RecordItemRef variableId="V_Temperature" subindex="3" accessRightRestriction="ro" unitCode="1001" />
+            <RecordItemRef variableId="V_Temperature" subindex="4" accessRightRestriction="ro" unitCode="1001" />
+            <RecordItemRef variableId="V_Temperature" subindex="5" accessRightRestriction="ro" unitCode="1001" />
+          </Menu>
+          <Menu id="ME_Diag_ComInfo">
+            <Name textId="TI_ME_Diag_ComInfo" />
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="3" displayFormat="Dec" />
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="2" displayFormat="Dec" />
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="5" displayFormat="Hex" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_Ident" />
+          <ObservationMenu menuId="ME_OR_Observe" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_MR_SR_Ident" />
+          <ParameterMenu menuId="ME_MR_SR_Param" />
+          <ObservationMenu menuId="ME_MR_SR_Observe" />
+          <DiagnosisMenu menuId="ME_MR_Diag" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_MR_SR_Ident" />
+          <ParameterMenu menuId="ME_MR_SR_Param" />
+          <ObservationMenu menuId="ME_MR_SR_Observe" />
+          <DiagnosisMenu menuId="ME_SR_Diag" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="2000" sioSupported="true" bitrate="COM3" mSequenceCapability="9">
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="42AF-R1MAB1-F4 Series A" />
+          <Wire1 />
+          <Wire2 function="Other" />
+          <Wire3 />
+          <Wire4 />
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="42AF-R1MAB1-D4 Series A" />
+          <Wire1 />
+          <Wire2 function="Other" />
+          <Wire3 />
+          <Wire4 />
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="254" testValue="0x01"></Config1>
+      <Config2 index="16382" testValue="0x02" />
+      <Config3 index="24" testValue="0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02" />
+      <Config7 index="16383">
+        <EventTrigger appearValue="1" disappearValue="0" />
+        <EventTrigger appearValue="3" disappearValue="2" />
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="www.ab.com/sensors" />
+      <Text id="TI_VendorUrl" value="www.ab.com/sensors" />
+      <Text id="TI_DeviceFamily" value="Photoelectric Sensor - 42AF" />
+      <Text id="TI_DeviceName" value="42AF-R1MAB1-xx" />
+      <Text id="TI_SPI_Name_42AF-R1MAB1-F4" value="42AF-R1MAB1-F4" />
+      <Text id="TI_SPI_Text_42AF-R1MAB1-F4" value="Photo Sensor, Transmitted Beam Receiver,  Infrared LED,  Complementary Light or Dark Operate, Auto PNP or NPN Output with IO-Link, No Physical Adjustment, 80 m Sensing Range,  Integral 4-pin M12 QD" />
+      <Text id="TI_SPI_Name_42AF-R1MAB1-D4" value="42AF-R1MAB1-D4" />
+      <Text id="TI_SPI_Text_42AF-R1MAB1-D4" value="Photo Sensor, Transmitted Beam Receiver, Infrared LED,  Complementary Light or Dark Operate, Auto PNP or NPN Output, No Physical Adjustment, 80 m Sensing Range,  4-pin M12 QD on a 150 mm (6 in.) Pigtail" />
+      <!-- Identification Menu -->
+      <Text id="TI_ME_Ident" value="Identification" />
+      <Text id="TI_ME_Ident_Device" value="Device Information" />
+      <Text id="TI_ME_Ident_User" value="User Specific Information" />
+      <Text id="TI_ME_Ident_DeviceRev" value="Revision Information" />
+      <!-- Parameter Menu -->
+      <Text id="TI_ME_Param" value="Parameter" />
+      <Text id="TI_ME_Param_ConfUI_Lock" value="Device Access Locks" />
+      <Text id="TI_ME_Param_ConfOutput" value="Operation Configuration" />
+      <Text id="TI_ME_Param_ConfOutput_Trig" value="Triggered" />
+      <Text id="TI_ME_Param_ConfSens" value="Sensor Configuration" />
+      <Text id="TI_ME_Param_Operation_TC" value="Counter / Timer" />
+      <Text id="TI_ME_Param_Operation_Counter" value="Counter" />
+      <Text id="TI_ME_Param_Operation_Timer" value="Timer" />
+      <Text id="TI_ME_Param_ConfPD" value="Data Mapping Configuration" />
+      <!-- Observation Menu -->
+      <Text id="TI_ME_Observe" value="Observation" />
+      <Text id="TI_ME_Observe_Device_Monitoring" value="Device Monitoring" />
+      <!-- Diagnosis Menu -->
+      <Text id="TI_ME_Diag" value="Diagnosis" />
+      <Text id="TI_ME_Diag_ServiceFunc" value="Service Function" />
+      <Text id="TI_ME_Diag_OpInfo" value="Operation Information" />
+      <Text id="TI_ME_Diag_OpInfo_Temp" value="Temperature" />
+      <Text id="TI_ME_Diag_ComInfo" value="Communication Characteristics" />
+      <Text id="TI_SetPointValueBDC1" value="" />
+      <Text id="TI_SwitchPointConfigurationBDC1" value="" />
+      <Text id="TI_PD_ProcessDataIn" value="Process Data" />
+      <Text id="TI_Triggered" value="Triggered" />
+      <Text id="TI_TriggerOff" value="Off" />
+      <Text id="TI_TriggerOn" value="On" />
+      <Text id="TI_MarginLowAlarmOff" value="Off" />
+      <Text id="TI_MarginLowAlarmOn" value="On" />
+      <Text id="TI_MarginLowAlarm2" value="MarginLowAlarm" />
+      <Text id="TI_ProximityAlarm2" value="ProximityAlarm" />
+      <Text id="TI_ProximityAlarmOff" value="Off" />
+      <Text id="TI_ProximityAlarmOn" value="On" />
+      <Text id="TI_SetPointValueBDC_SP1" value="Set Point - Threshold" />
+      <Text id="TI_SetPointValueBDC_SP2" value="Set Point - Condition 2" />
+      <Text id="TI_switchpoint_logic" value="Polarity" />
+      <Text id="TI_normally_open" value="Not Inverted" />
+      <Text id="TI_normally_closed" value="Inverted" />
+      <Text id="TI_switchpoint_mode" value="Mode" />
+      <Text id="TI_SwitchpointModeSinglePoint" value="Single Point" />
+      <Text id="TI_switchpoint_hysteresis" value="Hysteresis" />
+      <Text id="TI_ProcessDataInMode" value="" />
+      <!-- Mode 0 - Triggered_MarginLowAlarm_ProximityAlarm_Gain_SignalStrength -->
+      <Text id="TI_pdin_mode0" value="Triggered,Margin,Proximity,Gain,Signal" />
+      <!-- Mode 1 - Triggered_MarginLowAlarm_ProximityAlarm_Gain_Contrast_TemperatureInternal -->
+      <Text id="TI_pdin_mode1" value="Triggered,Margin,Proximity,Gain,Contrast,Temp" />
+      <!-- Mode 2 - Triggered_MarginLowAlarm_ProximityAlarm_Gain_Count" -->
+      <Text id="TI_pdin_mode2" value="Triggered,Margin,Proximity,Gain,Count" />
+      <!-- Mode 3 - Triggered_MarginLowAlarm_ProximityAlarm_DurationTriggered_DurationNotTriggered -->
+      <Text id="TI_pdin_mode3" value="Triggered,Margin,Proximity,Duration" />
+      <Text id="TI_mode" value="Mode" />
+      <Text id="TI_MarginMultiplier" value="" />
+      <Text id="TI_MarginMultiplierLow" value="MarginLevel - Low Multiplier " />
+      <Text id="TI_MarginMultiplierHigh" value="MarginLevel - High Multiplier" />
+      <Text id="TN_Float05" value="0.5" />
+      <Text id="TN_Float06" value="0.6" />
+      <Text id="TN_Float07" value="0.7" />
+      <Text id="TN_Float08" value="0.8" />
+      <Text id="TN_Float10" value="1.0" />
+      <Text id="TN_Float15" value="1.5" />
+      <Text id="TN_Float20" value="2.0" />
+      <Text id="TN_Float50" value="5.0" />
+      <Text id="TN_Float100" value="10.0" />
+      <Text id="TN_Float150" value="15.0" />
+      <Text id="TN_Float200" value="20.0" />
+      <Text id="TI_RxSignalStrength" value="" />
+      <Text id="TI_RxSignalStrength2" value="SignalStrength" />
+      <Text id="TI_RxSignalOn" value="SignalStrength On" />
+      <Text id="TI_RxSignalOff" value="SignalStrength Off" />
+      <Text id="TI_ExcessGain" value="Gain" />
+      <Text id="TI_ExcessGain2" value="" />
+      <Text id="TI_ExcessGainResolution" value="Excess Gain Resolution" />
+      <Text id="TI_1xResolution" value="1x Resolution" />
+      <Text id="TI_10xResolution" value="10x Resolution" />
+      <Text id="TI_ContrastLevel" value="Contrast" />
+      <Text id="TI_LEDControl" value="" />
+      <Text id="TI_LocatorLED" value="Locator Indicator" />
+      <Text id="TI_LEDEnable" value="LEDs Enable" />
+      <Text id="TI_OperatingHours" value="" />
+      <Text id="TI_OperatingHoursSession" value="Operating Hours - Since Power Up" />
+      <Text id="TI_OperatingHoursLifetime" value="Operating Hours - Since Inception" />
+      <Text id="TI_Temperature" value="" />
+      <Text id="TI_Temperature2" value="TemperatureInternal" />
+      <Text id="TI_MaximumTemperatureSession" value="Maximum - Since Power Up" />
+      <Text id="TI_MaximumTemperatureLifetime" value="Maximum - Since Inception" />
+      <Text id="TI_MinimumTemperatureSession" value="Minimum - Since Power Up" />
+      <Text id="TI_MinimumTemperatureLifetime" value="Minimum - Since Inception" />
+      <Text id="TI_CurrentTemperature" value="Actual - Since Power Up" />
+      <Text id="TI_TimerControl" value="" />
+      <Text id="TI_TimerControlMode" value="Mode" />
+      <Text id="TI_TimerValueOn" value="DurationTriggered" />
+      <Text id="TI_TimerValueOff" value="DurationNotTriggered" />
+      <Text id="TI_CounterControl" value="" />
+      <Text id="TI_CounterControlMode" value="Mode" />
+      <Text id="TI_CounterValue" value="Counter" />
+      <Text id="TI_UserTag1" value="User Tag 1" />
+      <Text id="TI_UserTag2" value="User Tag 2" />
+      <Text id="TI_LastEvent" value="Last Event" />
+      <Text id="TI_EnabledFor120Sec" value="Enabled for 120s" />
+      <Text id="TI_EnabledFor240Sec" value="Enabled for 240s" />
+      <Text id="TI_AlignmentMode" value="Alignment Mode" />
+      <Text id="TI_Disabled" value="Disabled" />
+      <Text id="TI_Enabled" value="Enabled" />
+      <Text id="TI_Reset" value="Reset"></Text>
+      <Text id="TI_NoReset" value="No Reset" />
+      <Text id="TI_Pin2Mode" value="Pin 2 Mode" />
+      <Text id="TI_LightOperate" value="Light Operate" />
+      <Text id="TI_DarkOperate" value="Dark Operate" />
+      <Text id="TD_ResetDefaults" value="Restore Factory Defaults" />
+      <Text id="TD_SystemReset" value="Variant ID" />
+      <Text id="T_CmdSent" value="Command Sent" />
+      <Text id="TI_PhyMode" value="Phy Mode" />
+      <Text id="TI_PhyModeAutoDetect" value="Auto Detect"></Text>
+      <Text id="TI_PhyModePNP" value="PNP"></Text>
+      <Text id="TN_BLOB_ID" value="ID of the BLOB that is currently transferred" />
+      <Text id="TN_BLOB_ID_Idle" value="Idle, no BLOB transfer active" />
+      <Text id="TN_BLOB_ID_Manufacturer_FW" value="Firmware Upgrade (write)" />
+      <Text id="TN_BLOB_ID_Manufacturer_IODD" value="Embedded IODD (read)" />
+      <Text id="TN_SystemCommand_BM_UNLOCK_S" value="Start unlocking sequence" />
+      <Text id="TN_SystemCommand_BM_UNLOCK_F" value="Unlocking command 1" />
+      <Text id="TN_SystemCommand_BM_UNLOCK_T" value="Unlocking command 2" />
+      <Text id="TN_HW_ID_Key" value="Hardware Identification Key" />
+      <Text id="TN_BootmodeStatus" value="Bootmode status" />
+      <Text id="TN_BootmodeStatus_Inactive" value="Bootloader is inactive" />
+      <Text id="TN_BootmodeStatus_Active" value="Bootloader is active" />
+      <Text id="TI_SystemFeatureRev" value=""></Text>
+      <Text id="TI_SystemFeatureRev_Major" value="System Feature Major Revision"></Text>
+      <Text id="TI_SystemFeatureRev_Minor" value="System Feature Minor Revision"></Text>      
+      <Text id="TI_Configuration_Change" value="Configuration Change"></Text>
+      <Text id="TI_Configuration_Change_Description" value="Writeable configuration parameter has changed" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="246203171"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>
+

@@ -129,14 +129,17 @@ namespace Dd2Aml.Lib
                 using (var ac = new Aml.Engine.AmlObjects.AutomationMLContainer(destination))
                 {
                     var root = ac.AddRoot(sourceAml, new Uri("/" + Path.GetFileName(sourceAml), UriKind.Relative));
-
+                    List<string> fileNames = new List<string>();
                     foreach (var resource in resources)
                     {
                         var fileName = Path.GetFileName(resource);
+                        if (fileNames.Contains(fileName)) continue;
+                        fileNames.Add(fileName);
                         if (string.IsNullOrEmpty(fileName)) continue;
                         var fileTmpPath = Path.Combine(Path.GetTempPath(), Dd2AmlName, fileName);
                         if (!File.Exists(fileTmpPath)) continue;
                         var fileUri = new Uri("/" + fileName, UriKind.Relative);
+
                         ac.AddAnyContent(root, fileTmpPath, fileUri);
                     }
                     ac.Close();
