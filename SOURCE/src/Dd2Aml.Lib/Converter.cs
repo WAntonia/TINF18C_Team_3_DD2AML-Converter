@@ -356,14 +356,13 @@ namespace Dd2Aml.Lib
 
             while (preLastnode.HasAttribute("visited"))
             {
-                if (preLastnode.NextSibling.Name != "#comment")
+                var tempNode = preLastnode.NextSibling;
+
+                while(tempNode.Name == "#comment')
                 {
-                    preLastnode = (XmlElement)preLastnode.NextSibling;
+                    tempNode = tempNode.NextSibling;
                 }
-                else
-                {
-                    preLastnode = (XmlElement)preLastnode.NextSibling.NextSibling;
-                }
+                preLastnode = (XmlElement)tempNode;
             }
 
             var (ruleReplacement, _, refList) = Util.GetInformationFromRule(translationRule);
