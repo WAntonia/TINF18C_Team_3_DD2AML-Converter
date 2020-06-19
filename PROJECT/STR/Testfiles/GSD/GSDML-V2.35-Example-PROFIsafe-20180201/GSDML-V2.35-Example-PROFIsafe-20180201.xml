@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Small example for PROFIsafe V2.6.1 -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.35.xsd">
+	<!-- ProfileHeader definition as defined in ISO 15745-1. Please do not change the content. -->
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0xFFFF" DeviceID="0x00A3">
+			<InfoText TextId="IDT_INFO_Device"/>
+			<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="I/O" ProductFamily="PNO GSDML V2.35 Examples"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.35" PhysicalSlots="0..1" ModuleIdentNumber="0x00000001" MinDeviceInterval="64" DNS_CompatibleName="pno-example-dap" FixedInSlots="0" ObjectUUID_LocalIndex="0" MultipleWriteSupported="true" RequiredSchemaVersion="V2.1" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="2">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DAP1"/>
+						<InfoText TextId="IDT_INFO_DAP1"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-00A3"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="A" ApplicationClass="" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="1" TextId="IDT_SUBSLOT_1"/>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="24" MaxOutputLength="24" MaxDataLength="40"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_1" AllowedInSlots="1"/>
+						<ModuleItemRef ModuleItemTarget="IDM_2" AllowedInSlots="1"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_V1" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS1"/>
+								<InfoText TextId="IDT_INFO_VS1"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_I" SubmoduleIdentNumber="0x00000002" SubslotNumber="32768" TextId="IDT_NAME_IS" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+							<ApplicationRelations StartupMode="Advanced">
+								<TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P1" SubmoduleIdentNumber="0x00000003" SubslotNumber="32769" TextId="IDT_NAME_PS1" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P2" SubmoduleIdentNumber="0x00000003" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<ModuleItem ID="IDM_1" ModuleIdentNumber="0x00000002" RequiredSchemaVersion="V2.31">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M1"/>
+						<InfoText TextId="IDT_INFO_M1"/>
+						<OrderNumber Value="12345-00A3-M1"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_Safe261" SubmoduleIdentNumber="0x00000023" PROFIsafeSupported="true" MayIssueProcessAlarm="false">
+							<IOData F_IO_StructureDescCRC="65432">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_Input_DataItem_PS_DI0"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_Input_DataItem_PS_DI1"/>
+									<DataItem DataType="Integer16" TextId="IDT_Input_DataItem_PS_AI"/>
+									<DataItem DataType="F_MessageTrailer5Byte" TextId="IDT_Input_DataItem_PS_Safety"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="F_MessageTrailer5Byte" TextId="IDT_Output_DataItem_PS_Safety"/>
+								</Output>
+							</IOData>
+							<RecordDataList>
+								<F_ParameterRecordDataItem Index="1" F_ParamDescCRC="56313">
+									<F_Check_iPar/>
+									<F_SIL DefaultValue="SIL3" AllowedValues="SIL1 SIL2 SIL3"/>
+									<F_CRC_Length DefaultValue="4-Byte-CRC" AllowedValues="4-Byte-CRC" Visible="true"/>
+									<F_CRC_Seed/>
+									<F_Passivation DefaultValue="Device/Module" AllowedValues="Device/Module"/>
+									<F_Block_ID DefaultValue="0" AllowedValues="0" Changeable="false"/>
+									<F_Par_Version/>
+									<F_Source_Add/>
+									<F_Dest_Add/>
+									<F_WD_Time DefaultValue="500" AllowedValues="10..2000"/>
+									<F_Par_CRC DefaultValue="21211"/>
+								</F_ParameterRecordDataItem>
+							</RecordDataList>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_Safe261"/>
+								<InfoText TextId="IDT_INFO_Safe261"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="IDM_2" ModuleIdentNumber="0x00000002">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M2"/>
+						<InfoText TextId="IDT_INFO_M2"/>
+						<OrderNumber Value="12345-00A3-M2"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_Safe24" SubmoduleIdentNumber="0x00000024" PROFIsafeSupported="true" MayIssueProcessAlarm="false">
+							<IOData F_IO_StructureDescCRC="11938">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_Input_DataItem_PS_DI0"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_Input_DataItem_PS_DI1"/>
+									<DataItem DataType="Integer16" TextId="IDT_Input_DataItem_PS_AI"/>
+									<DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_Input_DataItem_PS_Safety"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_Output_DataItem_PS_Safety"/>
+								</Output>
+							</IOData>
+							<RecordDataList>
+								<F_ParameterRecordDataItem Index="1" F_ParamDescCRC="16249">
+									<F_Check_iPar/>
+									<F_SIL DefaultValue="SIL3" AllowedValues="SIL1 SIL2 SIL3"/>
+									<F_CRC_Length DefaultValue="3-Byte-CRC" AllowedValues="3-Byte-CRC" Visible="true"/>
+									<F_Block_ID DefaultValue="0" AllowedValues="0" Changeable="false"/>
+									<F_Par_Version/>
+									<F_Source_Add/>
+									<F_Dest_Add/>
+									<F_WD_Time DefaultValue="500" AllowedValues="10..2000"/>
+									<F_Par_CRC DefaultValue="65369"/>
+								</F_ParameterRecordDataItem>
+							</RecordDataList>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_Safe24"/>
+								<InfoText TextId="IDT_INFO_Safe24"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Examples"/>
+					<Text TextId="IDT_NAME_DAP1" Value="PROFIsafe V2.6.1"/>
+					<Text TextId="IDT_INFO_DAP1" Value="This DAP shows the use of the new PROFIsafe V2.6.1 F-Parameters"/>
+					<Text TextId="IDT_SUBSLOT_1" Value="Subslot 1"/>
+					<Text TextId="IDT_SUBSLOT_Interface" Value="Interface"/>
+					<Text TextId="IDT_SUBSLOT_Port1" Value="Port 1"/>
+					<Text TextId="IDT_SUBSLOT_Port2" Value="Port 2"/>
+					<Text TextId="IDT_NAME_VS1" Value="Submodule V1"/>
+					<Text TextId="IDT_INFO_VS1" Value="Description of submodule V1"/>
+					<Text TextId="IDT_Input_DataItem_PS_DI0" Value="Input 8 x DI, first byte"/>
+					<Text TextId="IDT_Input_DataItem_PS_DI1" Value="Input 8 x DI, second byte"/>
+					<Text TextId="IDT_Input_DataItem_PS_AI" Value="Input 1 word AI"/>
+					<Text TextId="IDT_Input_DataItem_PS_Safety" Value="Input 4 bytes Safety"/>
+					<Text TextId="IDT_Output_DataItem_PS_Safety" Value="Output 4 bytes Safety"/>
+					<Text TextId="IDT_NAME_IS" Value="I"/>
+					<Text TextId="IDT_NAME_PS1" Value="P1"/>
+					<Text TextId="IDT_NAME_PS2" Value="P2"/>
+					<Text TextId="IDT_NAME_M1" Value="Safety Module 2.6.1"/>
+					<Text TextId="IDT_INFO_M1" Value="PROFIsafe V2.6.1 module"/>
+					<Text TextId="IDT_NAME_M2" Value="Safety Module 2.6.1 compatible"/>
+					<Text TextId="IDT_INFO_M2" Value="PROFIsafe V2.6.1 module, compatible to V2.4"/>
+					<Text TextId="IDT_NAME_Safe261" Value="Safety submodule"/>
+					<Text TextId="IDT_INFO_Safe261" Value="A PROFIsafe V2.6.1 safety module"/>
+					<Text TextId="IDT_NAME_Safe24" Value="Safety submodule, compatible"/>
+					<Text TextId="IDT_INFO_Safe24" Value="A PROFIsafe V2.6.1 safety module, in backward compatibility mode to V2.4"/>
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

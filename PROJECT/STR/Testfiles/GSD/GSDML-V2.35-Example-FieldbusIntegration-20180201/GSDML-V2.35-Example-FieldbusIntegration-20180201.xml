@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- This example shows how to describe fieldbus integration according to the Fieldbus Integration Guideline V2.1. -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.35.xsd">
+	<!-- ProfileHeader definition as defined in ISO 15745-1. Please do not change the content. -->
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0xFFFF" DeviceID="0x009B">
+			<InfoText TextId="IDT_INFO_Device"/>
+			<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="I/O" ProductFamily="PNO GSDML V2.35 Examples"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<!-- ========================================= -->
+			<!-- A simple linking device, using only explicit plugging rules. -->
+			<!-- ========================================= -->
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.35" PhysicalSlots="0..33" ModuleIdentNumber="0x00010001" MinDeviceInterval="64" DNS_CompatibleName="pno-example-dap" FixedInSlots="0" ObjectUUID_LocalIndex="0" MultipleWriteSupported="true" RequiredSchemaVersion="V2.0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="2">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DAP1"/>
+						<InfoText TextId="IDT_INFO_DAP1"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009B-D1"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="A" ApplicationClass="" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="1" TextId="IDT_SUBSLOT_1"/>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="24" MaxOutputLength="24" MaxDataLength="40"/>
+					<UseableModules>
+						<!-- The linking modules -->
+						<ModuleItemRef ModuleItemTarget="IDM_1" FixedInSlots="1"/> <!-- Fieldbus specific type A, with corresponding fieldbus integration slots 2-33 -->
+						<!-- FBI modules with fieldbus specific type A -->
+						<ModuleItemRef ModuleItemTarget="IDM_10" AllowedInSlots="2..33"/>
+						<ModuleItemRef ModuleItemTarget="IDM_11" AllowedInSlots="2..33"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_V1" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS1"/>
+								<InfoText TextId="IDT_INFO_VS1"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_I1" SubmoduleIdentNumber="0x00000002" SubslotNumber="32768" TextId="IDT_NAME_IS" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+							<ApplicationRelations StartupMode="Advanced">
+								<TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P11" SubmoduleIdentNumber="0x00000003" SubslotNumber="32769" TextId="IDT_NAME_PS1" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P12" SubmoduleIdentNumber="0x00000003" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+			<!-- ========================================= -->
+			<!-- A complex linking device, using slot clusters, and in parallel explicit plugging rules for older engineering tools. -->
+			<!-- ========================================= -->
+				<DeviceAccessPointItem ID="IDD_2" PNIO_Version="V2.35" PhysicalSlots="0..95" ModuleIdentNumber="0x00010002" MinDeviceInterval="64" DNS_CompatibleName="pno-example-dap" FixedInSlots="0" ObjectUUID_LocalIndex="0" MultipleWriteSupported="true" RequiredSchemaVersion="V2.0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="2">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DAP2"/>
+						<InfoText TextId="IDT_INFO_DAP2"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009B-D2"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="A" ApplicationClass="" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="1" TextId="IDT_SUBSLOT_1"/>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="24" MaxOutputLength="24" MaxDataLength="40"/>
+					<UseableModules>
+						<!-- The linking modules -->
+						<ModuleItemRef ModuleItemTarget="IDM_2" FixedInSlots="1"/> <!-- Fieldbus specific type A, with corresponding fieldbus integration slots 32-63 -->
+						<ModuleItemRef ModuleItemTarget="IDM_3" FixedInSlots="2"/> <!-- Fieldbus specific type B, with corresponding fieldbus integration slots 64-95 -->
+						<!-- other pluggable modules would be referenced here, with slots 3-31 -->
+						<!-- FBI modules with fieldbus specific type A -->
+						<ModuleItemRef ModuleItemTarget="IDM_10" AllowedInSlots="32..63"/>
+						<ModuleItemRef ModuleItemTarget="IDM_11" AllowedInSlots="32..63"/>
+						<!-- FBI modules with fieldbus specific type B -->
+						<ModuleItemRef ModuleItemTarget="IDM_12" AllowedInSlots="64..95"/>
+						<ModuleItemRef ModuleItemTarget="IDM_13" AllowedInSlots="64..95"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_V2" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS2"/>
+								<InfoText TextId="IDT_INFO_VS2"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_I2" SubmoduleIdentNumber="0x00000002" SubslotNumber="32768" TextId="IDT_NAME_IS" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+							<ApplicationRelations StartupMode="Advanced">
+								<TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P21" SubmoduleIdentNumber="0x00000003" SubslotNumber="32769" TextId="IDT_NAME_PS1" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P22" SubmoduleIdentNumber="0x00000003" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<!-- The FieldbusIntegrationSlots element tells the engineering tool that the DAP supports slot clusters. -->
+					<FieldbusIntegrationSlots MaxSupported="64" Range="100..399"/>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<!-- ========================================= -->
+				<!-- A linking module, carrying a FAP with fieldbus specific type A -->
+				<!-- ========================================= -->
+				<ModuleItem ID="IDM_1" ModuleIdentNumber="0x00000001">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M1"/>
+						<InfoText TextId="IDT_INFO_M1"/>
+						<OrderNumber Value="12345-009B-M1"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<!-- API 17920 (0x4600) designates this submodule as a FAP (fieldbus access point; master of a subordinated fieldbus line) -->
+						<VirtualSubmoduleItem ID="IDS_FAP1" SubmoduleIdentNumber="0x00000001" API="17920" FixedInSubslots="1" MayIssueProcessAlarm="false">
+							<IOData/>
+							<!-- The SlotCluster record is present, but read-only and therefore not described here. -->
+							<!-- The corresponding fieldbus integration slots are fixed 2-33. -->
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_FAP1"/>
+								<InfoText TextId="IDT_INFO_FAP1"/>
+							</ModuleInfo>
+							<!-- There is no SlutCluster element, therefore the fieldbus specific type of the FAP is not directly known. -->
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!-- ========================================= -->
+				<!-- A linking module, carrying a FAP with fieldbus specific type A, with SlotCluster -->
+				<!-- ========================================= -->
+				<ModuleItem ID="IDM_2" ModuleIdentNumber="0x00000002">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M2"/>
+						<InfoText TextId="IDT_INFO_M2"/>
+						<OrderNumber Value="12345-009B-M2"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<!-- API 17920 (0x4600) designates this submodule as a FAP (fieldbus access point; master of a subordinated fieldbus line) -->
+						<VirtualSubmoduleItem ID="IDS_FAP2" SubmoduleIdentNumber="0x00000001" API="17920" FixedInSubslots="1" MayIssueProcessAlarm="false">
+							<IOData/>
+							<RecordDataList>
+								<!-- The SlotCluster record (index 0xB000) is writeable. It is described with fixed values to ensure a fixed slot layout.
+									Engineering tools which use slot cluster will ignore this definition and create the SlotCluster record themselves. -->
+								<ParameterRecordDataItem Index="45056" Length="8">
+									<Name TextId="IDT_RECORD_NAME_SlotCluster"/>
+									<!-- BlockVersionHigh = 1, BlockVersionLow = 0, ProfileSpecificType = 254 (fictive type A), SlotClusterBegin = 32, Length = 32 -->
+									<Const Data="0x01,0x00,0x00,0xFE,0x00,0x20,0x00,0x20"/>
+									<!-- There could optionally be Ref elements here with attribute Changeable="false" just to show the settings to the user. -->
+								</ParameterRecordDataItem>
+							</RecordDataList>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_FAP2"/>
+								<InfoText TextId="IDT_INFO_FAP2"/>
+							</ModuleInfo>
+							<!-- The SlotCluster element tells the engineering tool that the FAP supports slot clusters, and it tells the fieldbus specific type A -->
+							<SlotCluster FieldbusType="254" Count="32"/>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!-- ========================================= -->
+				<!-- A linking module, carrying a FAP with fieldbus specific type B, with SlotCluster -->
+				<!-- ========================================= -->
+				<ModuleItem ID="IDM_3" ModuleIdentNumber="0x00000003">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M3"/>
+						<InfoText TextId="IDT_INFO_M3"/>
+						<OrderNumber Value="12345-009B-M3"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<!-- API 17920 (0x4600) designates this submodule as a FAP (fieldbus access point; master of a subordinated fieldbus line) -->
+						<VirtualSubmoduleItem ID="IDS_FAP3" SubmoduleIdentNumber="0x00000001" API="17920" FixedInSubslots="1" MayIssueProcessAlarm="false">
+							<IOData/>
+							<RecordDataList>
+								<!-- The SlotCluster record (index 0xB000) is writeable. It is described with fixed values to ensure a fixed slot layout.
+									Engineering tools which use slot cluster will ignore this definition and create the SlotCluster record themselves. -->
+								<ParameterRecordDataItem Index="45056" Length="8">
+									<Name TextId="IDT_RECORD_NAME_SlotCluster"/>
+									<!-- BlockVersionHigh = 1, BlockVersionLow = 0, ProfileSpecificType = 255 (fictive type B), SlotClusterBegin = 64, Length = 32 -->
+									<Const Data="0x01,0x00,0x00,0xFF,0x00,0x40,0x00,0x20"/>
+									<!-- There could optionally be Ref elements here with attribute Changeable="false" just to show the settings to the user. -->
+								</ParameterRecordDataItem>
+							</RecordDataList>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_FAP3"/>
+								<InfoText TextId="IDT_INFO_FAP3"/>
+							</ModuleInfo>
+							<!-- The SlotCluster element tells the engineering tool that the FAP supports slot clusters, and it tells the fieldbus specific type B -->
+							<SlotCluster FieldbusType="255" Count="32"/>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!-- ========================================= -->
+				<!-- A fieldbus integration module of fieldbus specific type A -->
+				<!-- If slot clusters are supported and used, plugged according to matching fieldbus specific type, else fall-back to explicit plugging rules.  -->
+				<!-- ========================================= -->
+				<!-- The FieldbusType attribute designates this module as fieldbus integration module and it tells the fieldbus specific type A -->
+				<ModuleItem ID="IDM_10" ModuleIdentNumber="0x00000010" FieldbusType="254">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M10"/>
+						<InfoText TextId="IDT_INFO_M10"/>
+						<OrderNumber Value="12345-009B-M10"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<!-- The API is typcially 0x46nn to indicate fieldbus specific type nn (here:A = 254). -->
+						<!-- But it could also be outside the range 0x46nn to indicate adherence to another profile. -->
+						<VirtualSubmoduleItem ID="IDS_M10" API="18174" SubmoduleIdentNumber="0x00000001" FixedInSubslots="1" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_S10"/>
+								<InfoText TextId="IDT_INFO_S10"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!-- another example of the same type of module -->
+				<ModuleItem ID="IDM_11" ModuleIdentNumber="0x00000011" FieldbusType="254">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M11"/>
+						<InfoText TextId="IDT_INFO_M11"/>
+						<OrderNumber Value="12345-009B-M11"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_M11" API="18174" SubmoduleIdentNumber="0x00000001" FixedInSubslots="1" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_S11"/>
+								<InfoText TextId="IDT_INFO_S11"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!-- ========================================= -->
+				<!-- A fieldbus integration module of fieldbus specific type B -->
+				<!-- If slot clusters are supported and used, plugged according to matching fieldbus specific type, else fall-back to explicit plugging rules.  -->
+				<!-- ========================================= -->
+				<!-- The FieldbusType attribute designates this module as fieldbus integration module and it tells the fieldbus specific type B -->
+				<ModuleItem ID="IDM_12" ModuleIdentNumber="0x00000012" FieldbusType="255">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M12"/>
+						<InfoText TextId="IDT_INFO_M12"/>
+						<OrderNumber Value="12345-009B-M12"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<!-- The API is typcially 0x46nn to indicate fieldbus specific type nn (here:B = 255). -->
+						<!-- But it could also be outside the range 0x46nn to indicate adherence to another profile. -->
+						<VirtualSubmoduleItem ID="IDS_M12" API="18175" SubmoduleIdentNumber="0x00000001" FixedInSubslots="1" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_S12"/>
+								<InfoText TextId="IDT_INFO_S12"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!-- another example of the same type of module -->
+				<ModuleItem ID="IDM_13" ModuleIdentNumber="0x00000013" FieldbusType="255">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M13"/>
+						<InfoText TextId="IDT_INFO_M13"/>
+						<OrderNumber Value="12345-009B-M13"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_M13" API="18175" SubmoduleIdentNumber="0x00000001" FixedInSubslots="1" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_S13"/>
+								<InfoText TextId="IDT_INFO_S13"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Examples"/>
+					<Text TextId="IDT_NAME_DAP1" Value="DAP for a simple fieldbus integration device"/>
+					<Text TextId="IDT_INFO_DAP1" Value="Fieldbus integration V2.1 DAP without slot cluster"/>
+					<Text TextId="IDT_NAME_DAP2" Value="DAP for a complex fieldbus integration device"/>
+					<Text TextId="IDT_INFO_DAP2" Value="Fieldbus integration V2.1 DAP with slot cluster"/>
+					<Text TextId="IDT_SUBSLOT_1" Value="Subslot 1"/>
+					<Text TextId="IDT_SUBSLOT_Interface" Value="Interface"/>
+					<Text TextId="IDT_SUBSLOT_Port1" Value="Port 1"/>
+					<Text TextId="IDT_SUBSLOT_Port2" Value="Port 2"/>
+					<Text TextId="IDT_NAME_VS1" Value="Submodule V1"/>
+					<Text TextId="IDT_INFO_VS1" Value="Description of submodule V1"/>
+					<Text TextId="IDT_NAME_VS2" Value="Submodule V2"/>
+					<Text TextId="IDT_INFO_VS2" Value="Description of submodule V2"/>
+					<Text TextId="IDT_NAME_IS" Value="I"/>
+					<Text TextId="IDT_NAME_PS1" Value="P1"/>
+					<Text TextId="IDT_NAME_PS2" Value="P2"/>
+					<Text TextId="IDT_NAME_M1" Value="Linking module (simple)"/>
+					<Text TextId="IDT_INFO_M1" Value="Linking module for simple linking device"/>
+					<Text TextId="IDT_NAME_FAP1" Value="FAP (simple) type A"/>
+					<Text TextId="IDT_INFO_FAP1" Value="FAP for simple linking device for fictive fieldbus specific type A"/>
+					<Text TextId="IDT_NAME_M2" Value="Linking module A (complex)"/>
+					<Text TextId="IDT_INFO_M2" Value="Linking module for complex linking device, type A"/>
+					<Text TextId="IDT_NAME_FAP2" Value="FAP (complex) type A"/>
+					<Text TextId="IDT_INFO_FAP2" Value="FAP for complex linking device for fictive fieldbus specific type A"/>
+					<Text TextId="IDT_NAME_M3" Value="Linking module B (complex)"/>
+					<Text TextId="IDT_INFO_M3" Value="Linking module for complex linking device, type B"/>
+					<Text TextId="IDT_NAME_FAP3" Value="FAP (complex) type B"/>
+					<Text TextId="IDT_INFO_FAP3" Value="FAP for complex linking device for fictive fieldbus specific type B"/>
+					<Text TextId="IDT_NAME_M10" Value="1. FBI module A"/>
+					<Text TextId="IDT_INFO_M10" Value="First fieldbus integration module of fieldbus specific type A"/>
+					<Text TextId="IDT_NAME_S10" Value="Submodule of 1. FBI module A"/>
+					<Text TextId="IDT_INFO_S10" Value="Submodule of first fieldbus integration module A"/>
+					<Text TextId="IDT_NAME_M11" Value="2. FBI module A"/>
+					<Text TextId="IDT_INFO_M11" Value="Second fieldbus integration module of fieldbus specific type A"/>
+					<Text TextId="IDT_NAME_S11" Value="Submodule of 2. FBI module A"/>
+					<Text TextId="IDT_INFO_S11" Value="Submodule of second fieldbus integration module A"/>
+					<Text TextId="IDT_NAME_M12" Value="1. FBI module B"/>
+					<Text TextId="IDT_INFO_M12" Value="First fieldbus integration module of fieldbus specific type B"/>
+					<Text TextId="IDT_NAME_S12" Value="Submodule of 1. FBI module B"/>
+					<Text TextId="IDT_INFO_S12" Value="Submodule of first fieldbus integration module B"/>
+					<Text TextId="IDT_NAME_M13" Value="2. FBI module B"/>
+					<Text TextId="IDT_INFO_M13" Value="Second fieldbus integration module of fieldbus specific type B"/>
+					<Text TextId="IDT_NAME_S13" Value="Submodule of 2. FBI module B"/>
+					<Text TextId="IDT_INFO_S13" Value="Submodule of second fieldbus integration module B"/>
+					<Text TextId="IDT_RECORD_NAME_SlotCluster" Value="Parameters of the FAP"/>
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

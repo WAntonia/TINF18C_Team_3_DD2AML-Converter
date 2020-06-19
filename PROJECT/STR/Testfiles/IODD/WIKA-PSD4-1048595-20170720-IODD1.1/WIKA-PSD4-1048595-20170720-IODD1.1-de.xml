@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD-Primitives1.1.xsd">
+	<DocumentInfo copyright="Copyright 2017, WIKA Alexander Wiegand SE &amp; Co. KG" releaseDate="2017-07-20" version="V1.0"/>
+	<Language xml:lang="de">
+		<Text id="T_VendorText" value="WIKA"/>
+		<Text id="T_VendorUrl" value="www.wika.com"/>
+		<Text id="T_DeviceFamily" value="Druckschalter"/>
+		<Text id="T_DeviceName" value="PSD-4"/>
+		<Text id="TN_PSD4_Name" value="PSD-4, 0...1 bar; 1xPNP/NPN + 4...20mA/0...10V"/>
+		<Text id="TD_PSD4_Descr" value="PSD-4 - Druckschalter mit Display, 0...1 bar; 1xPNP/NPN + 4...20mA/0...10V"/>
+		<Text id="TD_Connection_Master" value="Pin2 entspricht Analogausgang"/>
+		<Text id="TN_PDin" value="Messwert"/>
+		<Text id="TN_PDI_Pressure" value="Druck"/>
+		<Text id="TN_PDI_SP1" value="OU1"/>
+		<Text id="TN_PDI_SP_True" value="OU an"/>
+		<Text id="TN_PDI_SP_False" value="OU aus"/>
+		<Text id="TN_PDI_SP2" value="OU2"/>
+		<Text id="TN_V_UnitProcessData" value="Einheit Messwert"/>
+		<Text id="TN_V_UnitProcessData_0" value="bar"/>
+		<Text id="TN_V_UnitProcessData_1" value="mbar"/>
+		<Text id="TN_V_UnitProcessData_2" value="MPa"/>
+		<Text id="TN_V_UnitProcessData_3" value="kPa"/>
+		<Text id="TN_V_UnitProcessData_4" value="psi"/>
+		<Text id="TN_V_UnitProcessData_5" value="kg/cm²"/>
+		<Text id="TN_V_UnitProcessData_6" value="%"/>
+		<Text id="TN_V_SystemCommand_ResetHighPressure" value="Reset Max. Druck"/>
+		<Text id="TN_V_SystemCommand_ResetLowPressure" value="Reset Min. Druck"/>
+		<Text id="TN_V_SystemCommand_ResetPressureOverloadCounter" value="Reset Überlastzähler"/>
+		<Text id="TN_V_SystemCommand_ResetHighTemperature" value="Reset Max. Temperatur"/>
+		<Text id="TN_V_SystemCommand_ResetLowTemperature" value="Reset Min. Temperatur"/>
+		<Text id="TN_V_SystemCommand_AdjustZeroPoint" value="Nullpunktabgleich"/>
+		<Text id="TN_V_OrderNumber" value="Artikelnummer"/>
+		<Text id="TN_V_Gradient" value="Gradient"/>
+		<Text id="TD_V_Gradient" value="Gradient zur Messwertberechnung aus den Roh-Prozessdaten"/>
+		<Text id="TN_V_Out1" value="OU1 - Schaltfunktion Schaltausgang 1"/>
+		<Text id="TN_V_Out_0" value="HNO - Hysteresefunktion / Normally Open"/>
+		<Text id="TN_V_Out_1" value="HNC - Hysteresefunktion / Normally Closed"/>
+		<Text id="TN_V_Out_2" value="FNO - Fensterfunktion / Normally Open"/>
+		<Text id="TN_V_Out_3" value="FNC - Fensterfunktion / Normally Closed"/>
+		<Text id="TN_V_DS1" value="DS1 - Schaltverzögerungszeit Schaltpunkt 1"/>
+		<Text id="TN_V_DR1" value="DR1 - Rückschaltverzögerungszeit Schaltpunkt 1"/>
+		<Text id="TN_V_DampingOU1" value="Dämpfung OU1"/>
+		<Text id="TN_V_PolarityOU1" value="Polarität OU1 - Schaltlogik Schaltausgang 1"/>
+		<Text id="TN_V_Polarity_0" value="PNP"/>
+		<Text id="TN_V_Polarity_1" value="NPN"/>
+		<Text id="TN_V_Out2" value="OU2 - Schaltfunktion Schaltausgang 2"/>
+		<Text id="TN_V_DS2" value="DS2 - Schaltverzögerungszeit Schaltpunkt 2"/>
+		<Text id="TN_V_DR2" value="DR2 - Rückschaltverzögerungszeit Schaltpunkt 2"/>
+		<Text id="TN_V_DampingOU2" value="Dämpfung OU2"/>
+		<Text id="TN_V_AnalogOutputStartValue_bar" value="Analogausgang Messbereichsanfang /bar"/>
+		<Text id="TN_V_AnalogOutputEndValue_bar" value="Analogausgang Messbereichsende /bar"/>
+		<Text id="TN_V_AnalogOutputStartValue_mbar" value="Analogausgang Messbereichsanfang /mbar"/>
+		<Text id="TN_V_AnalogOutputEndValue_mbar" value="Analogausgang Messbereichsende /mbar"/>
+		<Text id="TN_V_AnalogOutputStartValue_MPa" value="Analogausgang Messbereichsanfang /MPa"/>
+		<Text id="TN_V_AnalogOutputEndValue_MPa" value="Analogausgang Messbereichsende /MPa"/>
+		<Text id="TN_V_AnalogOutputStartValue_kPa" value="Analogausgang Messbereichsanfang /kPa"/>
+		<Text id="TN_V_AnalogOutputEndValue_kPa" value="Analogausgang Messbereichsende /kPa"/>
+		<Text id="TN_V_AnalogOutputStartValue_psi" value="Analogausgang Messbereichsanfange /PSI"/>
+		<Text id="TN_V_AnalogOutputEndValue_psi" value="Analogausgang Messbereichsende /PSI"/>
+		<Text id="TN_V_AnalogOutputStartValue_kgcm2" value="Analogausgang Messbereichsanfang /kg/cm²"/>
+		<Text id="TN_V_AnalogOutputEndValue_kgcm2" value="Analogausgang Messbereichsende /kg/cm²"/>
+		<Text id="TN_V_AnalogOutputStartValue_Percent" value="Analogausgang Messbereichsanfang /%"/>
+		<Text id="TN_V_AnalogOutputEndValue_Percent" value="Analogausgang Messbereichsende /%"/>
+		<Text id="TN_V_AnalogOutputDamping" value="Analogausgang Dämpfung"/>
+		<Text id="TN_V_DISPLAYROTATION_Regular" value="Standard"/>
+		<Text id="TN_V_DISPLAYROTATION_UpsideDown" value="180° gedreht"/>
+		<Text id="TN_V_UnitDisplay" value="Display Einheit"/>
+		<Text id="TD_V_DisplayRotation" value="Displayanzeige um 180° drehen"/>
+		<Text id="TN_V_DisplayRotation" value="Displayanzeige Drehbarkeit"/>
+		<Text id="TN_V_DISPLAYMODE_Act" value="Act"/>
+		<Text id="TN_V_DISPLAYMODE_Hi" value="Hi"/>
+		<Text id="TN_V_DISPLAYMODE_Lo" value="Lo"/>
+		<Text id="TN_V_DISPLAYMODE_SP1" value="SP1"/>
+		<Text id="TN_V_DISPLAYMODE_RP1" value="RP1"/>
+		<Text id="TN_V_DISPLAYMODE_SP2" value="SP2"/>
+		<Text id="TN_V_DISPLAYMODE_RP2" value="RP2"/>
+		<Text id="TN_V_DISPLAYMODE_Off" value="Off"/>
+		<Text id="TD_DisplayMode" value="Wahl des angezeigten Wertes"/>
+		<Text id="TN_DisplayMode" value="Display-Modus"/>
+		<Text id="TD_DisplayPassword" value=""/>
+		<Text id="TN_DisplayPassword" value="Display-Passwort"/>
+		<Text id="TN_V_DisplayDamping" value="Display-Dämpfung"/>
+		<Text id="TN_V_DisplayUpdate" value="Display-Aktualisierungsrate"/>
+		<Text id="TN_V_DISP_1Hz" value="1Hz"/>
+		<Text id="TN_V_DISP_2Hz" value="2Hz"/>
+		<Text id="TN_V_DISP_5Hz" value="5Hz"/>
+		<Text id="TN_V_DISP_10Hz" value="10Hz"/>
+		<Text id="TN_V_DisplayResolution" value="Displayauflösung"/>
+		<Text id="TN_V_DISP_RES_OPT" value="Optimiert"/>
+		<Text id="TN_V_DISP_RES_FULL" value="Maximal"/>
+		<Text id="TN_V_LocateMe" value="Lokalisator"/>
+		<Text id="TN_Off" value="off"/>
+		<Text id="TN_On" value="on"/>
+		<Text id="TN_V_PressureOverloadCounter" value="Überlastzahler"/>
+		<Text id="TN_V_TemperatureUnit" value="Temperatureinheit"/>
+		<Text id="TN_V_TemperatureUnit_0" value="°C "/>
+		<Text id="TN_V_TemperatureUnit_1" value="°F"/>
+		<Text id="TN_V_TemperatureCurrent" value="Aktuelle Elektroniktemperatur"/>
+		<Text id="TN_V_TemperatureHigh" value="Max. Temperatur"/>
+		<Text id="TN_V_TemperatureLow" value="Min. Temperatur"/>
+		<Text id="TN_V_TemperatureHighPowerUp" value="Max. Temperatur seit Neustart"/>
+		<Text id="TN_V_TemperatureLowPowerUp" value="Min. Temperatur seit Neustart"/>
+		<Text id="TN_V_OperatingHoursTotal" value="Betriebsstundenzähler"/>
+		<Text id="TN_V_OperatingHoursPowerUp" value="Betriebsstundenzähler seit Neustart"/>
+		<Text id="TN_ok" value="ok"/>
+		<Text id="TN_detected" value="detektiert"/>
+		<Text id="TN_V_Status" value="Sensor Status"/>
+		<Text id="TN_V_Status_SensorStatusDefect" value="Sensor ist defekt"/>
+		<Text id="TN_V_Status_OverPressure" value="Überdruck"/>
+		<Text id="TN_V_Status_UnderPressure" value="Unterdruck"/>
+		<Text id="TN_V_Status_OverTemperature" value="Übertemperatur"/>
+		<Text id="TN_V_Status_UnderTemperature" value="Untertemperatur"/>
+		<Text id="TN_V_AnalogOutput" value="OU3 - Umschaltung Ausgangssignal"/>
+		<Text id="TN_V_AnalogOutput_0" value="I: 4..20mA"/>
+		<Text id="TN_V_AnalogOutput_1" value="U: 0..10V"/>
+		<Text id="TN_ME_Parameter_PD_bar" value="Prozessdateneinstellung /bar"/>
+		<Text id="TN_ME_Parameter_PD_mbar" value="Prozessdateneinstellung /mbar"/>
+		<Text id="TN_ME_Parameter_PD_MPa" value="Prozessdateneinstellung /MPa"/>
+		<Text id="TN_ME_Parameter_PD_kPa" value="Prozessdateneinstellung /kPa"/>
+		<Text id="TN_ME_Parameter_PD_psi" value="Prozessdateneinstellung /psi"/>
+		<Text id="TN_ME_Parameter_PD_kgcm2" value="Prozessdateneinstellung /kg/cm²"/>
+		<Text id="TN_ME_Parameter_PD_Percent" value="Prozessdateneinstellung /%"/>
+		<Text id="TN_ME_Parameter_DisplayConfiguration" value="Displaykonfiguration"/>
+		<Text id="TN_ME_Parameter_OutAnalog_bar" value="Analogausgang OU3 /bar"/>
+		<Text id="TN_ME_Parameter_OutAnalog_mbar" value="Analogausgang OU3 /mbar"/>
+		<Text id="TN_ME_Parameter_OutAnalog_MPa" value="Analogausgang OU3 /MPa"/>
+		<Text id="TN_ME_Parameter_OutAnalog_kPa" value="Analogausgang OU3 /kPa"/>
+		<Text id="TN_ME_Parameter_OutAnalog_psi" value="Analogausgang OU3 /psi"/>
+		<Text id="TN_ME_Parameter_OutAnalog_kgcm2" value="Analogausgang OU3 /kg/cm²"/>
+		<Text id="TN_ME_Parameter_OutAnalog_Percent" value="Analogausgang OU3 /%"/>
+		<Text id="TN_ME_Parameter_OU1_bar" value="Schaltausgang OU1 /bar"/>
+		<Text id="TN_ME_Parameter_OU1_mbar" value="Schaltausgang OU1 /mbar"/>
+		<Text id="TN_ME_Parameter_OU1_MPa" value="Schaltausgang OU1 /MPa"/>
+		<Text id="TN_ME_Parameter_OU1_kPa" value="Schaltausgang OU1 /kPa"/>
+		<Text id="TN_ME_Parameter_OU1_psi" value="Schaltausgang OU1 /psi"/>
+		<Text id="TN_ME_Parameter_OU1_kgcm2" value="Schaltausgang OU1 /kg/cm²"/>
+		<Text id="TN_ME_Parameter_OU1_Percent" value="Schaltausgang OU1 /%"/>
+		<Text id="TN_ME_Parameter_OU2_bar" value="Schaltausgang OU2 /bar"/>
+		<Text id="TN_ME_Parameter_OU2_mbar" value="Schaltausgang OU2 /mbar"/>
+		<Text id="TN_ME_Parameter_OU2_MPa" value="Schaltausgang OU2 /MPa"/>
+		<Text id="TN_ME_Parameter_OU2_kPa" value="Schaltausgang OU2 /kPa"/>
+		<Text id="TN_ME_Parameter_OU2_psi" value="Schaltausgang OU2 /psi"/>
+		<Text id="TN_ME_Parameter_OU2_kgcm2" value="Schaltausgang OU2 /kg/cm²"/>
+		<Text id="TN_ME_Parameter_OU2_Percent" value="Schaltausgang OU2 /%"/>
+		<Text id="TN_ME_Parameter_AccessLocks" value="Access Locks"/>
+		<Text id="TN_ME_Observation_bar" value="Druck /bar"/>
+		<Text id="TN_ME_Observation_mbar" value="Druck /mbar"/>
+		<Text id="TN_ME_Observation_MPa" value="Druck /MPa"/>
+		<Text id="TN_ME_Observation_kPa" value="Druck  /kPa"/>
+		<Text id="TN_ME_Observation_psi" value="Druck /psi"/>
+		<Text id="TN_ME_Observation_kgcm2" value="Druck /kg/cm²"/>
+		<Text id="TN_ME_Observation_Percent" value="Druck  /%"/>
+		<Text id="TN_ME_Observation_Temperatur_C" value="Temperatur /°C"/>
+		<Text id="TN_ME_Observation_Temperatur_F" value="Temperatur /°F"/>
+		<Text id="TN_ME_Observation_Time" value="Zeit"/>
+		<Text id="TN_ME_Observation_PD_bar" value="Prozesseingangsdaten /bar"/>
+		<Text id="TN_ME_Observation_PD_mbar" value="Prozesseingangsdaten /mbar"/>
+		<Text id="TN_ME_Observation_PD_MPa" value="Prozesseingangsdaten /MPa"/>
+		<Text id="TN_ME_Observation_PD_kPa" value="Prozesseingangsdaten /kPa"/>
+		<Text id="TN_ME_Observation_PD_psi" value="Prozesseingangsdaten /psi"/>
+		<Text id="TN_ME_Observation_PD_kgcm2" value="Prozesseingangsdaten /kg/cm²"/>
+		<Text id="TN_ME_Observation_PD_Percent" value="Prozesseingangsdaten /%"/>
+		<Text id="TN_ME_Diagnosis_Service" value="Servicefunktionen"/>
+		<Text id="TN_ME_Diagnosis_Sensor" value="Sensor Health"/>
+		<Text id="TN_ME_Diagnosis_DetailedDeviceStatus" value="Detailed Device Status"/>
+		<Text id="TN_V_StartMeasuringRange" value="Messbereichsanfang"/>
+		<Text id="TN_V_EndMeasuringRange" value="Messbereichsende"/>
+		<Text id="TN_V_SP1" value="SP1 / FH1 - Schaltpunkt/Fenster High - Schaltausgang 1"/>
+		<Text id="TN_V_RP1" value="RP1 / FL1 - Rückschaltpunkt/Fenster Low - Schaltausgang 1"/>
+		<Text id="TN_V_SP2" value="SP2 / FH2 - Schaltpunkt/Fenster High - Schaltausgang 2"/>
+		<Text id="TN_V_RP2" value="RP2 / FL2 - Rückschaltpunkt/Fenster Low - Schaltausgang 2"/>
+		<Text id="TN_V_HighPressure" value="Max. Druck"/>
+		<Text id="TN_V_LowPressure" value="Min. Druck"/>
+		<Text id="TN_V_HighPressurePowerUp" value="Max. Druck seit Neustart"/>
+		<Text id="TN_V_LowPressurePowerUp" value="Min. Druck seit Neustart"/>
+		<Text id="TN_Event1" value="Test Event 1"/>
+		<Text id="TN_Event1_Descr" value="Event Appears at index 128 and value 1 and disappears by value 2"/>
+		<Text id="TN_Event2" value="Test Event 2"/>
+		<Text id="TN_Event2_Descr" value="Event Appears at index 128 and value 3 and disappears by value 4"/>
+	</Language>
+	<Stamp crc="415756290"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</ExternalTextDocument>

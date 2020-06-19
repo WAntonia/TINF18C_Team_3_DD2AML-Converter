@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- This example shows how to describe the structure of cyclic IO data of an IO Device. 
+In this case the structure is described for the submodule with ID "IDS_2" -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.35.xsd">
+	<!-- ProfileHeader definition as defined in ISO 15745-1. Please do not change the content. -->
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0xFFFF" DeviceID="0x009D">
+			<InfoText TextId="IDT_INFO_Device"/>
+			<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="I/O" ProductFamily="PNO GSDML V2.35 Examples"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.35" PhysicalSlots="0..10" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" DNS_CompatibleName="pno-example-dap" FixedInSlots="0" ObjectUUID_LocalIndex="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" MultipleWriteSupported="true" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="2">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_DAP1"/>
+						<InfoText TextId="IDT_INFO_DAP1"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009D"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="A" ApplicationClass="" NetloadClass="I"/>
+					<IOConfigData MaxInputLength="244" MaxOutputLength="244"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_1" AllowedInSlots="1..10"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_1" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS1"/>
+								<InfoText TextId="IDT_INFO_VS1"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_I" SubmoduleIdentNumber="0x00000002" SubslotNumber="32768" TextId="IDT_NAME_IS" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+							<ApplicationRelations StartupMode="Advanced">
+								<TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P1" SubmoduleIdentNumber="0x00000003" SubslotNumber="32769" TextId="IDT_NAME_PS1" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P2" SubmoduleIdentNumber="0x00000003" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<ModuleItem ID="IDM_1" ModuleIdentNumber="0x00000002">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_Module1"/>
+						<InfoText TextId="IDT_INFO_Module1"/>
+						<OrderNumber Value="12345-009D-M"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_2" SubmoduleIdentNumber="0x00000010" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_Status"/>
+									<DataItem DataType="Float32" TextId="IDT_DATAITEM_Value"/>
+								</Input>
+								<Output Consistency="Item consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_Digital Outputs"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_Digital Outputs"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS2"/>
+								<InfoText TextId="IDT_INFO_VS2"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Examples"/>
+					<Text TextId="IDT_MODULE_NAME_DAP1" Value="PNO Example DAP - IOData"/>
+					<Text TextId="IDT_INFO_DAP1" Value="This example shows the description of cyclic data (IO Data)"/>
+					<Text TextId="IDT_NAME_IS" Value="I"/>
+					<Text TextId="IDT_NAME_PS1" Value="P1"/>
+					<Text TextId="IDT_NAME_PS2" Value="P2"/>
+					<Text TextId="IDT_MODULE_NAME_Module1" Value="Input/output module"/>
+					<Text TextId="IDT_INFO_Module1" Value="Details of input/output module"/>
+					<Text TextId="IDT_DATAITEM_Status" Value="Status"/>
+					<Text TextId="IDT_DATAITEM_Value" Value="Value"/>
+					<Text TextId="IDT_DATAITEM_Digital Outputs" Value="Digital outputs"/>
+					<Text TextId="IDT_NAME_VS1" Value="Submodule 1"/>
+					<Text TextId="IDT_INFO_VS1" Value="Description of submodule 1"/>
+					<Text TextId="IDT_NAME_VS2" Value="Submodule 2"/>
+					<Text TextId="IDT_INFO_VS2" Value="Description of submodule 2"/>
+				</PrimaryLanguage>
+				<Language xml:lang="de">
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Beispiele"/>
+					<Text TextId="IDT_MODULE_NAME_DAP1" Value="PNO Beispiel DAP - EA Daten"/>
+					<Text TextId="IDT_INFO_DAP1" Value="Dieses Beispiel zeigt die Beschreibung zyklischer Daten (IO Daten)"/>
+					<Text TextId="IDT_NAME_IS" Value="I"/>
+					<Text TextId="IDT_NAME_PS1" Value="P1"/>
+					<Text TextId="IDT_NAME_PS2" Value="P2"/>
+					<Text TextId="IDT_MODULE_NAME_Module1" Value="Ein/Ausgabemodul"/>
+					<Text TextId="IDT_INFO_Module1" Value="Beschreibung des Ein/Ausgabemoduls"/>
+					<Text TextId="IDT_DATAITEM_Status" Value="Status"/>
+					<Text TextId="IDT_DATAITEM_Value" Value="Messwert"/>
+					<Text TextId="IDT_DATAITEM_Digital Outputs" Value="Binäre Ausgänge"/>
+					<Text TextId="IDT_NAME_VS1" Value="Submodul 1"/>
+					<Text TextId="IDT_INFO_VS1" Value="Beschreibung des Submoduls 1"/>
+					<Text TextId="IDT_NAME_VS2" Value="Submodul 2"/>
+					<Text TextId="IDT_INFO_VS2" Value="Beschreibung des Submoduls 2"/>
+				</Language>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

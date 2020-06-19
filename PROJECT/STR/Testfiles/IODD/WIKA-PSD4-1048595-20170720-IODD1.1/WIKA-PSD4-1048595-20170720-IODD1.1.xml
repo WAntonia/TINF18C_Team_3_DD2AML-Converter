@@ -1,0 +1,1682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+	<DocumentInfo copyright="Copyright 2017, WIKA Alexander Wiegand SE &amp; Co. KG" releaseDate="2017-07-20" version="V1.0"/>
+	<ProfileHeader>
+		<ProfileIdentification>IO Device Profile</ProfileIdentification>
+		<ProfileRevision>1.1</ProfileRevision>
+		<ProfileName>Device Profile for IO Devices</ProfileName>
+		<ProfileSource>IO-Link Consortium</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>1</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>IODD</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity deviceId="1048595" vendorId="1189" vendorName="WIKA Alexander Wiegand SE &amp; Co. KG">
+			<VendorText textId="T_VendorText"/>
+			<VendorUrl textId="T_VendorUrl"/>
+			<VendorLogo name="WIKA-logo.png"/>
+			<DeviceName textId="T_DeviceName"/>
+			<DeviceFamily textId="T_DeviceFamily"/>
+			<DeviceVariantCollection>
+				<DeviceVariant deviceIcon="WIKA-PSD4-icon.png" deviceSymbol="WIKA-PSD4-pic.png" productId="1048595">
+					<Name textId="TN_PSD4_Name"/>
+					<Description textId="TD_PSD4_Descr"/>
+				</DeviceVariant>
+			</DeviceVariantCollection>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Features blockParameter="true" dataStorage="true" profileCharacteristic="1 32768 32770 32771">
+				<SupportedAccessLocks dataStorage="true" localParameterization="true" localUserInterface="true" parameter="true"/>
+			</Features>
+			<VariableCollection>
+				<StdVariableRef id="V_DirectParameters_1"/>
+				<StdVariableRef id="V_DirectParameters_2"/>
+				<StdVariableRef id="V_SystemCommand">
+					<StdSingleValueRef value="128"/>
+					<StdSingleValueRef value="130"/>
+					<SingleValue value="160"><Name textId="TN_V_SystemCommand_ResetHighPressure"/></SingleValue>
+					<SingleValue value="161"><Name textId="TN_V_SystemCommand_ResetLowPressure"/></SingleValue>
+					<SingleValue value="162"><Name textId="TN_V_SystemCommand_ResetPressureOverloadCounter"/></SingleValue>
+					<SingleValue value="163"><Name textId="TN_V_SystemCommand_ResetHighTemperature"/></SingleValue>
+					<SingleValue value="164"><Name textId="TN_V_SystemCommand_ResetLowTemperature"/></SingleValue>
+					<SingleValue value="165"><Name textId="TN_V_SystemCommand_AdjustZeroPoint"/></SingleValue>
+				</StdVariableRef>
+				<StdVariableRef id="V_DeviceAccessLocks">
+					<StdRecordItemRef subindex="1" defaultValue="false"/>
+					<StdRecordItemRef subindex="2" defaultValue="false"/>
+					<StdRecordItemRef subindex="3" defaultValue="false"/>
+					<StdRecordItemRef subindex="4" defaultValue="false"/>
+				</StdVariableRef>
+				<StdVariableRef id="V_VendorName" defaultValue="WIKA Alexander Wiegand SE &amp; Co. KG"/>
+				<StdVariableRef id="V_VendorText" defaultValue="www.wika.com"/>
+				<StdVariableRef id="V_ProductName" defaultValue=""/>
+				<StdVariableRef id="V_ProductID" defaultValue=""/>
+				<StdVariableRef id="V_ProductText" defaultValue=""/>
+				<StdVariableRef id="V_SerialNumber" defaultValue=""/>
+				<StdVariableRef id="V_HardwareRevision" defaultValue=""/>
+				<StdVariableRef id="V_FirmwareRevision" defaultValue=""/>
+				<StdVariableRef id="V_ApplicationSpecificTag" fixedLengthRestriction="32" defaultValue=""/>
+				<StdVariableRef id="V_ErrorCount"/>
+				<StdVariableRef id="V_DeviceStatus"/>
+				<StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="8"/>
+				<StdVariableRef id="V_ProcessDataInput"/>
+				<Variable accessRights="ro" id="V_OrderNumber" index="64">
+					<Datatype xsi:type="StringT" fixedLength="16" encoding="UTF-8"/>
+					<Name textId="TN_V_OrderNumber"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_UnitProcessData" index="66" defaultValue="0" modifiesOtherVariables="true">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_UnitProcessData_0"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_UnitProcessData_1"/>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TN_V_UnitProcessData_2"/>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TN_V_UnitProcessData_3"/>
+						</SingleValue>
+						<SingleValue value="4">
+							<Name textId="TN_V_UnitProcessData_4"/>
+						</SingleValue>
+						<SingleValue value="5">
+							<Name textId="TN_V_UnitProcessData_5"/>
+						</SingleValue>
+						<SingleValue value="6">
+							<Name textId="TN_V_UnitProcessData_6"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_UnitProcessData"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_Gradient" index="67">
+					<Datatype xsi:type="Float32T"/>
+					<Name textId="TN_V_Gradient"/>
+					<Description textId="TD_V_Gradient"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_StartMeasuringRange" index="68">
+					<Datatype xsi:type="IntegerT" bitLength="16"/>
+					<Name textId="TN_V_StartMeasuringRange"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_EndMeasuringRange" index="69">
+					<Datatype xsi:type="IntegerT" bitLength="16"/>
+					<Name textId="TN_V_EndMeasuringRange"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_Out1" index="70">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_Out_0"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_Out_1"/>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TN_V_Out_2"/>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TN_V_Out_3"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_Out1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_DS1" index="71">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65000"/>
+					</Datatype>
+					<Name textId="TN_V_DS1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_DR1" index="72">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65000"/>
+					</Datatype>
+					<Name textId="TN_V_DR1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_DampingOU1" index="73">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65000"/>
+					</Datatype>
+					<Name textId="TN_V_DampingOU1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_PolarityOU1" index="74">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_Polarity_0"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_Polarity_1"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_PolarityOU1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_Out2" index="80">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_Out_0"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_Out_1"/>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TN_V_Out_2"/>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TN_V_Out_3"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_Out2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_DS2" index="81">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65000"/>
+					</Datatype>
+					<Name textId="TN_V_DS2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_DR2" index="82">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65000"/>
+					</Datatype>
+					<Name textId="TN_V_DR2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_DampingOU2" index="83">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65000"/>
+					</Datatype>
+					<Name textId="TN_V_DampingOU2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutput" index="90">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_AnalogOutput_0"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_AnalogOutput_1"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutput"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputDamping" index="91">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputDamping"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_UnitDisplay" index="100">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_UnitProcessData_0"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_UnitProcessData_1"/>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TN_V_UnitProcessData_2"/>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TN_V_UnitProcessData_3"/>
+						</SingleValue>
+						<SingleValue value="4">
+							<Name textId="TN_V_UnitProcessData_4"/>
+						</SingleValue>
+						<SingleValue value="5">
+							<Name textId="TN_V_UnitProcessData_5"/>
+						</SingleValue>
+						<SingleValue value="6">
+							<Name textId="TN_V_UnitProcessData_6"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_UnitDisplay"/>
+				</Variable>
+				<Variable id="V_DisplayRotation" accessRights="rw" index="101">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_DISPLAYROTATION_Regular"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_DISPLAYROTATION_UpsideDown"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_DisplayRotation"/>
+					<Description textId="TD_V_DisplayRotation"/>
+				</Variable>
+				<Variable id="V_DisplayMode" accessRights="rw" index="102">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_DISPLAYMODE_Act"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_DISPLAYMODE_Hi"/>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TN_V_DISPLAYMODE_Lo"/>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TN_V_DISPLAYMODE_Off"/>
+						</SingleValue>
+						<SingleValue value="4">
+							<Name textId="TN_V_DISPLAYMODE_SP1"/>
+						</SingleValue>
+						<SingleValue value="5">
+							<Name textId="TN_V_DISPLAYMODE_RP1"/>
+						</SingleValue>
+						<SingleValue value="6">
+							<Name textId="TN_V_DISPLAYMODE_SP2"/>
+						</SingleValue>
+						<SingleValue value="7">
+							<Name textId="TN_V_DISPLAYMODE_RP2"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_DisplayMode"/>
+					<Description textId="TD_DisplayMode"/>
+				</Variable>
+				<Variable id="V_DisplayPassword" accessRights="rw" index="103">
+					<Datatype xsi:type="StringT" fixedLength="4" encoding="UTF-8"/>
+					<Name textId="TN_DisplayPassword"/>
+					<Description textId="TD_DisplayPassword"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_DisplayDamping" index="104">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="65000"/>
+					</Datatype>
+					<Name textId="TN_V_DisplayDamping"/>
+				</Variable>
+				<Variable id="V_DisplayUpdate" accessRights="rw" index="105">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_DISP_1Hz"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_DISP_2Hz"/>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TN_V_DISP_5Hz"/>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TN_V_DISP_10Hz"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_DisplayUpdate"/>
+				</Variable>
+				<Variable id="V_DisplayResolution" accessRights="rw" index="107">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_DISP_RES_OPT"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_DISP_RES_FULL"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_DisplayResolution"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_LocateMe" index="106">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_Off"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_On"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_LocateMe"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_TemperatureUnit" index="110" defaultValue="0" modifiesOtherVariables="true">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_V_TemperatureUnit_0"/>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_V_TemperatureUnit_1"/>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_TemperatureUnit"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_TemperatureCurrent" index="111">
+					<Datatype xsi:type="Float32T"/>
+					<Name textId="TN_V_TemperatureCurrent"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_TemperatureLow" index="112">
+					<Datatype xsi:type="Float32T"/>
+					<Name textId="TN_V_TemperatureLow"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_TemperatureHigh" index="113">
+					<Datatype xsi:type="Float32T"/>
+					<Name textId="TN_V_TemperatureHigh"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_TemperatureLowPowerUp" index="114">
+					<Datatype xsi:type="Float32T"/>
+					<Name textId="TN_V_TemperatureLowPowerUp"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_TemperatureHighPowerUp" index="115">
+					<Datatype xsi:type="Float32T"/>
+					<Name textId="TN_V_TemperatureHighPowerUp"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_PressureOverloadCounter" index="120">
+					<Datatype xsi:type="UIntegerT" bitLength="32"/>
+					<Name textId="TN_V_PressureOverloadCounter"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_OperatingHoursTotal" index="121">
+					<Datatype xsi:type="UIntegerT" bitLength="32"/>
+					<Name textId="TN_V_OperatingHoursTotal"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_OperatingHoursPowerUp" index="122">
+					<Datatype xsi:type="UIntegerT" bitLength="32"/>
+					<Name textId="TN_V_OperatingHoursPowerUp"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_Status" index="123">
+					<Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+						<RecordItem subindex="2" bitOffset="0">
+							<SimpleDatatype xsi:type="BooleanT">
+								<SingleValue value="false">
+									<Name textId="TN_ok"/>
+								</SingleValue>
+								<SingleValue value="true">
+									<Name textId="TN_detected"/>
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_V_Status_SensorStatusDefect"/>
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="1">
+							<SimpleDatatype xsi:type="BooleanT">
+								<SingleValue value="false">
+									<Name textId="TN_ok"/>
+								</SingleValue>
+								<SingleValue value="true">
+									<Name textId="TN_detected"/>
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_V_Status_OverPressure"/>
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="2">
+							<SimpleDatatype xsi:type="BooleanT">
+								<SingleValue value="false">
+									<Name textId="TN_ok"/>
+								</SingleValue>
+								<SingleValue value="true">
+									<Name textId="TN_detected"/>
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_V_Status_UnderPressure"/>
+						</RecordItem>
+						<RecordItem subindex="5" bitOffset="3">
+							<SimpleDatatype xsi:type="BooleanT">
+								<SingleValue value="false">
+									<Name textId="TN_ok"/>
+								</SingleValue>
+								<SingleValue value="true">
+									<Name textId="TN_detected"/>
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_V_Status_OverTemperature"/>
+						</RecordItem>
+						<RecordItem subindex="6" bitOffset="4">
+							<SimpleDatatype xsi:type="BooleanT">
+								<SingleValue value="false">
+									<Name textId="TN_ok"/>
+								</SingleValue>
+								<SingleValue value="true">
+									<Name textId="TN_detected"/>
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_V_Status_UnderTemperature"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TN_V_Status"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_LowPressure" index="124">
+					<Datatype xsi:type="IntegerT" bitLength="16"/>
+					<Name textId="TN_V_LowPressure"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_HighPressure" index="125">
+					<Datatype xsi:type="IntegerT" bitLength="16"/>
+					<Name textId="TN_V_HighPressure"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_LowPressurePowerUp" index="126">
+					<Datatype xsi:type="IntegerT" bitLength="16"/>
+					<Name textId="TN_V_LowPressurePowerUp"/>
+				</Variable>
+				<Variable accessRights="ro" id="V_HighPressurePowerUp" index="127">
+					<Datatype xsi:type="IntegerT" bitLength="16"/>
+					<Name textId="TN_V_HighPressurePowerUp"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputStartValue_bar" index="140">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputStartValue_bar"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputEndValue_bar" index="141">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputEndValue_bar"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP1_bar" index="142" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP1_bar" index="143" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP2_bar" index="144" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP2_bar" index="145" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputStartValue_mbar" index="155">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputStartValue_mbar"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputEndValue_mbar" index="156">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputEndValue_mbar"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP1_mbar" index="157" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP1_mbar" index="158" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP2_mbar" index="159" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP2_mbar" index="160" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputStartValue_MPa" index="170">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputStartValue_MPa"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputEndValue_MPa" index="171">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputEndValue_MPa"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP1_MPa" index="172" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP1_MPa" index="173" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP2_MPa" index="174" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP2_MPa" index="175" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputStartValue_kPa" index="185">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputStartValue_kPa"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputEndValue_kPa" index="186">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputEndValue_kPa"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP1_kPa" index="187" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP1_kPa" index="188" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP2_kPa" index="189" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP2_kPa" index="190" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputStartValue_psi" index="200">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1450"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputStartValue_psi"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputEndValue_psi" index="201">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1450"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputEndValue_psi"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP1_psi" index="202" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="3" upperValue="1450"/>
+					</Datatype>
+					<Name textId="TN_V_SP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP1_psi" index="203" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1447"/>
+					</Datatype>
+					<Name textId="TN_V_RP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP2_psi" index="204" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="3" upperValue="1450"/>
+					</Datatype>
+					<Name textId="TN_V_SP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP2_psi" index="205" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1447"/>
+					</Datatype>
+					<Name textId="TN_V_RP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputStartValue_kgcm2" index="215">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1020"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputStartValue_kgcm2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputEndValue_kgcm2" index="216">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1020"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputEndValue_kgcm2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP1_kgcm2" index="217" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1020"/>
+					</Datatype>
+					<Name textId="TN_V_SP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP1_kgcm2" index="218" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1018"/>
+					</Datatype>
+					<Name textId="TN_V_RP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP2_kgcm2" index="219" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1020"/>
+					</Datatype>
+					<Name textId="TN_V_SP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP2_kgcm2" index="220" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1018"/>
+					</Datatype>
+					<Name textId="TN_V_RP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputStartValue_Percent" index="230">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputStartValue_Percent"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_AnalogOutputEndValue_Percent" index="231">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_AnalogOutputEndValue_Percent"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP1_Percent" index="232" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP1_Percent" index="233" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP1"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SP2_Percent" index="234" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="2" upperValue="1000"/>
+					</Datatype>
+					<Name textId="TN_V_SP2"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_RP2_Percent" index="235" modifiesOtherVariables="true">
+					<Datatype xsi:type="IntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="998"/>
+					</Datatype>
+					<Name textId="TN_V_RP2"/>
+				</Variable>
+			</VariableCollection>
+			<ProcessDataCollection>
+				<ProcessData id="PD1">
+					<Condition variableId="V_UnitProcessData" value="0"/>
+					<ProcessDataIn id="PD1in" bitLength="16">
+						<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+							<RecordItem subindex="1" bitOffset="2">
+								<SimpleDatatype xsi:type="IntegerT" bitLength="14"/>
+								<Name textId="TN_PDI_Pressure"/>
+							</RecordItem>
+							<RecordItem subindex="2" bitOffset="0">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP1"/>
+							</RecordItem>
+							<RecordItem subindex="3" bitOffset="1">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP2"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TN_PDin"/>
+					</ProcessDataIn>
+				</ProcessData>
+				<ProcessData id="PD2">
+					<Condition variableId="V_UnitProcessData" value="1"/>
+					<ProcessDataIn id="PD2in" bitLength="16">
+						<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+							<RecordItem subindex="1" bitOffset="2">
+								<SimpleDatatype xsi:type="IntegerT" bitLength="14"/>
+								<Name textId="TN_PDI_Pressure"/>
+							</RecordItem>
+							<RecordItem subindex="2" bitOffset="0">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP1"/>
+							</RecordItem>
+							<RecordItem subindex="3" bitOffset="1">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP2"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TN_PDin"/>
+					</ProcessDataIn>
+				</ProcessData>
+				<ProcessData id="PD3">
+					<Condition variableId="V_UnitProcessData" value="2"/>
+					<ProcessDataIn id="PD3in" bitLength="16">
+						<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+							<RecordItem subindex="1" bitOffset="2">
+								<SimpleDatatype xsi:type="IntegerT" bitLength="14"/>
+								<Name textId="TN_PDI_Pressure"/>
+							</RecordItem>
+							<RecordItem subindex="2" bitOffset="0">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP1"/>
+							</RecordItem>
+							<RecordItem subindex="3" bitOffset="1">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP2"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TN_PDin"/>
+					</ProcessDataIn>
+				</ProcessData>
+				<ProcessData id="PD4">
+					<Condition variableId="V_UnitProcessData" value="3"/>
+					<ProcessDataIn id="PD4in" bitLength="16">
+						<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+							<RecordItem subindex="1" bitOffset="2">
+								<SimpleDatatype xsi:type="IntegerT" bitLength="14"/>
+								<Name textId="TN_PDI_Pressure"/>
+							</RecordItem>
+							<RecordItem subindex="2" bitOffset="0">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP1"/>
+							</RecordItem>
+							<RecordItem subindex="3" bitOffset="1">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP2"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TN_PDin"/>
+					</ProcessDataIn>
+				</ProcessData>
+				<ProcessData id="PD5">
+					<Condition variableId="V_UnitProcessData" value="4"/>
+					<ProcessDataIn id="PD5in" bitLength="16">
+						<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+							<RecordItem subindex="1" bitOffset="2">
+								<SimpleDatatype xsi:type="IntegerT" bitLength="14"/>
+								<Name textId="TN_PDI_Pressure"/>
+							</RecordItem>
+							<RecordItem subindex="2" bitOffset="0">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP1"/>
+							</RecordItem>
+							<RecordItem subindex="3" bitOffset="1">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP2"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TN_PDin"/>
+					</ProcessDataIn>
+				</ProcessData>
+				<ProcessData id="PD6">
+					<Condition variableId="V_UnitProcessData" value="5"/>
+					<ProcessDataIn id="PD6in" bitLength="16">
+						<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+							<RecordItem subindex="1" bitOffset="2">
+								<SimpleDatatype xsi:type="IntegerT" bitLength="14"/>
+								<Name textId="TN_PDI_Pressure"/>
+							</RecordItem>
+							<RecordItem subindex="2" bitOffset="0">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP1"/>
+							</RecordItem>
+							<RecordItem subindex="3" bitOffset="1">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP2"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TN_PDin"/>
+					</ProcessDataIn>
+				</ProcessData>
+				<ProcessData id="PD7">
+					<Condition variableId="V_UnitProcessData" value="6"/>
+					<ProcessDataIn id="PD7in" bitLength="16">
+						<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+							<RecordItem subindex="1" bitOffset="2">
+								<SimpleDatatype xsi:type="IntegerT" bitLength="14"/>
+								<Name textId="TN_PDI_Pressure"/>
+							</RecordItem>
+							<RecordItem subindex="2" bitOffset="0">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP1"/>
+							</RecordItem>
+							<RecordItem subindex="3" bitOffset="1">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="true">
+										<Name textId="TN_PDI_SP_True"/>
+									</SingleValue>
+									<SingleValue value="false">
+										<Name textId="TN_PDI_SP_False"/>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TN_PDI_SP2"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TN_PDin"/>
+					</ProcessDataIn>
+				</ProcessData>
+			</ProcessDataCollection>
+			<EventCollection>
+				<StdEventRef code="4096"/>
+				<StdEventRef code="16912"/>
+				<StdEventRef code="16928"/>
+				<StdEventRef code="20480"/>
+				<StdEventRef code="25376"/>
+				<StdEventRef code="35840"/>
+				<StdEventRef code="35856"/>
+				<StdEventRef code="35888"/>
+				<Event code="6200" type="Error">
+					<Name textId="TN_Event1"/>
+					<Description textId="TN_Event1_Descr"/>
+				</Event>
+				<Event code="6201" type="Error">
+					<Name textId="TN_Event2"/>
+					<Description textId="TN_Event2_Descr"/>
+				</Event>
+			</EventCollection>
+			<UserInterface>
+				<ProcessDataRefCollection>
+					<ProcessDataRef processDataId="PD1in">
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Dec.3" offset="0" gradient="0.001" unitCode="1137"/>
+					</ProcessDataRef>
+					<ProcessDataRef processDataId="PD2in">
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Dec" offset="0" gradient="1" unitCode="1138"/>
+					</ProcessDataRef>
+					<ProcessDataRef processDataId="PD3in">
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Dec.4" offset="0" gradient="0.0001" unitCode="1132"/>
+					</ProcessDataRef>
+					<ProcessDataRef processDataId="PD4in">
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Dec.1" offset="0" gradient="0.1" unitCode="1133"/>
+					</ProcessDataRef>
+					<ProcessDataRef processDataId="PD5in">
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Dec.2" offset="0" gradient="0.01" unitCode="1141"/>
+					</ProcessDataRef>
+					<ProcessDataRef processDataId="PD6in">
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Dec.3" offset="0" gradient="0.001" unitCode="1145"/>
+					</ProcessDataRef>
+					<ProcessDataRef processDataId="PD7in">
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Dec.1" offset="0" gradient="0.1" unitCode="1342"/>
+					</ProcessDataRef>
+				</ProcessDataRefCollection>
+				<MenuCollection>
+					<Menu id="ME_Identification">
+						<VariableRef variableId="V_VendorName"/>
+						<VariableRef variableId="V_VendorText"/>
+						<VariableRef variableId="V_ProductName"/>
+						<VariableRef variableId="V_ProductText"/>
+						<VariableRef variableId="V_ProductID"/>
+						<VariableRef variableId="V_OrderNumber"/>
+						<VariableRef variableId="V_SerialNumber"/>
+						<VariableRef variableId="V_FirmwareRevision"/>
+						<VariableRef variableId="V_HardwareRevision"/>
+						<VariableRef variableId="V_ApplicationSpecificTag"/>
+					</Menu>
+					<Menu id="ME_Parameter">
+						<MenuRef menuId="ME_Parameter_Service"/>
+						<MenuRef menuId="ME_Parameter_PD_bar"><Condition variableId="V_UnitProcessData" value="0"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_PD_mbar"><Condition variableId="V_UnitProcessData" value="1"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_PD_MPa"><Condition variableId="V_UnitProcessData" value="2"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_PD_kPa"><Condition variableId="V_UnitProcessData" value="3"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_PD_psi"><Condition variableId="V_UnitProcessData" value="4"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_PD_kgcm2"><Condition variableId="V_UnitProcessData" value="5"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_PD_Percent"><Condition variableId="V_UnitProcessData" value="6"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU1_bar"><Condition variableId="V_UnitProcessData" value="0"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU1_mbar"><Condition variableId="V_UnitProcessData" value="1"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU1_MPa"><Condition variableId="V_UnitProcessData" value="2"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU1_kPa"><Condition variableId="V_UnitProcessData" value="3"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU1_psi"><Condition variableId="V_UnitProcessData" value="4"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU1_kgcm2"><Condition variableId="V_UnitProcessData" value="5"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU1_Percent"><Condition variableId="V_UnitProcessData" value="6"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU2_bar"><Condition variableId="V_UnitProcessData" value="0"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU2_mbar"><Condition variableId="V_UnitProcessData" value="1"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU2_MPa"><Condition variableId="V_UnitProcessData" value="2"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU2_kPa"><Condition variableId="V_UnitProcessData" value="3"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU2_psi"><Condition variableId="V_UnitProcessData" value="4"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU2_kgcm2"><Condition variableId="V_UnitProcessData" value="5"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OU2_Percent"><Condition variableId="V_UnitProcessData" value="6"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OutAnalog_bar"><Condition variableId="V_UnitProcessData" value="0"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OutAnalog_mbar"><Condition variableId="V_UnitProcessData" value="1"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OutAnalog_MPa"><Condition variableId="V_UnitProcessData" value="2"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OutAnalog_kPa"><Condition variableId="V_UnitProcessData" value="3"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OutAnalog_psi"><Condition variableId="V_UnitProcessData" value="4"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OutAnalog_kgcm2"><Condition variableId="V_UnitProcessData" value="5"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_OutAnalog_Percent"><Condition variableId="V_UnitProcessData" value="6"/></MenuRef>
+						<MenuRef menuId="ME_Parameter_DisplayConfiguration"/>
+						<MenuRef menuId="ME_Parameter_AccessLocks"/>
+					</Menu>
+					<Menu id="ME_Parameter_Service">
+						<Name textId="TN_ME_Diagnosis_Service"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="128"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="130"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="165"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Parameter_PD_bar">
+						<Name textId="TN_ME_Parameter_PD_bar"/>
+						<VariableRef variableId="V_UnitProcessData"/>
+						<VariableRef variableId="V_Gradient" displayFormat="Dec.4"/>
+						<VariableRef variableId="V_StartMeasuringRange" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_EndMeasuringRange" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+					</Menu>
+					<Menu id="ME_Parameter_PD_mbar">
+						<Name textId="TN_ME_Parameter_PD_mbar"/>
+						<VariableRef variableId="V_UnitProcessData"/>
+						<VariableRef variableId="V_Gradient" displayFormat="Dec.4"/>
+						<VariableRef variableId="V_StartMeasuringRange" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_EndMeasuringRange" displayFormat="Dec" gradient="1" unitCode="1138"/>
+					</Menu>
+					<Menu id="ME_Parameter_PD_MPa">
+						<Name textId="TN_ME_Parameter_PD_MPa"/>
+						<VariableRef variableId="V_UnitProcessData"/>
+						<VariableRef variableId="V_Gradient" displayFormat="Dec.4"/>
+						<VariableRef variableId="V_StartMeasuringRange" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_EndMeasuringRange" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+					</Menu>
+					<Menu id="ME_Parameter_PD_kPa">
+						<Name textId="TN_ME_Parameter_PD_kPa"/>
+						<VariableRef variableId="V_UnitProcessData"/>
+						<VariableRef variableId="V_Gradient" displayFormat="Dec.4"/>
+						<VariableRef variableId="V_StartMeasuringRange" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_EndMeasuringRange" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+					</Menu>
+					<Menu id="ME_Parameter_PD_psi">
+						<Name textId="TN_ME_Parameter_PD_psi"/>
+						<VariableRef variableId="V_UnitProcessData"/>
+						<VariableRef variableId="V_Gradient" displayFormat="Dec.4"/>
+						<VariableRef variableId="V_StartMeasuringRange" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_EndMeasuringRange" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+					</Menu>
+					<Menu id="ME_Parameter_PD_kgcm2">
+						<Name textId="TN_ME_Parameter_PD_kgcm2"/>
+						<VariableRef variableId="V_UnitProcessData"/>
+						<VariableRef variableId="V_Gradient" displayFormat="Dec.4"/>
+						<VariableRef variableId="V_StartMeasuringRange" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_EndMeasuringRange" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+					</Menu>
+					<Menu id="ME_Parameter_PD_Percent">
+						<Name textId="TN_ME_Parameter_PD_Percent"/>
+						<VariableRef variableId="V_UnitProcessData"/>
+						<VariableRef variableId="V_Gradient" displayFormat="Dec.4"/>
+						<VariableRef variableId="V_StartMeasuringRange" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_EndMeasuringRange" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU1_bar">
+						<Name textId="TN_ME_Parameter_OU1_bar"/>
+						<VariableRef variableId="V_SP1_bar" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_RP1_bar" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_Out1"/>
+						<VariableRef variableId="V_DS1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU1" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_PolarityOU1"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU1_mbar">
+						<Name textId="TN_ME_Parameter_OU1_mbar"/>
+						<VariableRef variableId="V_SP1_mbar" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_RP1_mbar" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_Out1"/>
+						<VariableRef variableId="V_DS1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU1" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_PolarityOU1"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU1_MPa">
+						<Name textId="TN_ME_Parameter_OU1_MPa"/>
+						<VariableRef variableId="V_SP1_MPa" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_RP1_MPa" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_Out1"/>
+						<VariableRef variableId="V_DS1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU1" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_PolarityOU1"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU1_kPa">
+						<Name textId="TN_ME_Parameter_OU1_kPa"/>
+						<VariableRef variableId="V_SP1_kPa" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_RP1_kPa" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_Out1"/>
+						<VariableRef variableId="V_DS1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU1" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_PolarityOU1"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU1_psi">
+						<Name textId="TN_ME_Parameter_OU1_psi"/>
+						<VariableRef variableId="V_SP1_psi" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_RP1_psi" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_Out1"/>
+						<VariableRef variableId="V_DS1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU1" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_PolarityOU1"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU1_kgcm2">
+						<Name textId="TN_ME_Parameter_OU1_kgcm2"/>
+						<VariableRef variableId="V_SP1_kgcm2" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_RP1_kgcm2" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_Out1"/>
+						<VariableRef variableId="V_DS1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU1" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_PolarityOU1"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU1_Percent">
+						<Name textId="TN_ME_Parameter_OU1_Percent"/>
+						<VariableRef variableId="V_SP1_Percent" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_RP1_Percent" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_Out1"/>
+						<VariableRef variableId="V_DS1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR1" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU1" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_PolarityOU1"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU2_bar">
+						<Name textId="TN_ME_Parameter_OU2_bar"/>
+						<VariableRef variableId="V_SP2_bar" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_RP2_bar" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_Out2"/>
+						<VariableRef variableId="V_DS2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU2" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU2_mbar">
+						<Name textId="TN_ME_Parameter_OU2_mbar"/>
+						<VariableRef variableId="V_SP2_mbar" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_RP2_mbar" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_Out2"/>
+						<VariableRef variableId="V_DS2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU2" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU2_MPa">
+						<Name textId="TN_ME_Parameter_OU2_MPa"/>
+						<VariableRef variableId="V_SP2_MPa" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_RP2_MPa" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_Out2"/>
+						<VariableRef variableId="V_DS2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU2" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU2_kPa">
+						<Name textId="TN_ME_Parameter_OU2_kPa"/>
+						<VariableRef variableId="V_SP2_kPa" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_RP2_kPa" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_Out2"/>
+						<VariableRef variableId="V_DS2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU2" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU2_psi">
+						<Name textId="TN_ME_Parameter_OU2_psi"/>
+						<VariableRef variableId="V_SP2_psi" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_RP2_psi" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_Out2"/>
+						<VariableRef variableId="V_DS2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU2" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU2_kgcm2">
+						<Name textId="TN_ME_Parameter_OU2_kgcm2"/>
+						<VariableRef variableId="V_SP2_kgcm2" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_RP2_kgcm2" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_Out2"/>
+						<VariableRef variableId="V_DS2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU2" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OU2_Percent">
+						<Name textId="TN_ME_Parameter_OU2_Percent"/>
+						<VariableRef variableId="V_SP2_Percent" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_RP2_Percent" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_Out2"/>
+						<VariableRef variableId="V_DS2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DR2" displayFormat="Dec.2" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DampingOU2" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OutAnalog_bar">
+						<Name textId="TN_ME_Parameter_OutAnalog_bar"/>
+						<VariableRef variableId="V_AnalogOutput"/>
+						<VariableRef variableId="V_AnalogOutputStartValue_bar" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_AnalogOutputEndValue_bar" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_AnalogOutputDamping" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OutAnalog_mbar">
+						<Name textId="TN_ME_Parameter_OutAnalog_mbar"/>
+						<VariableRef variableId="V_AnalogOutput"/>
+						<VariableRef variableId="V_AnalogOutputStartValue_mbar" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_AnalogOutputEndValue_mbar" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_AnalogOutputDamping" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OutAnalog_MPa">
+						<Name textId="TN_ME_Parameter_OutAnalog_MPa"/>
+						<VariableRef variableId="V_AnalogOutput"/>
+						<VariableRef variableId="V_AnalogOutputStartValue_MPa" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_AnalogOutputEndValue_MPa" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_AnalogOutputDamping" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OutAnalog_kPa">
+						<Name textId="TN_ME_Parameter_OutAnalog_kPa"/>
+						<VariableRef variableId="V_AnalogOutput"/>
+						<VariableRef variableId="V_AnalogOutputStartValue_kPa" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_AnalogOutputEndValue_kPa" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_AnalogOutputDamping" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OutAnalog_psi">
+						<Name textId="TN_ME_Parameter_OutAnalog_psi"/>
+						<VariableRef variableId="V_AnalogOutput"/>
+						<VariableRef variableId="V_AnalogOutputStartValue_psi" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_AnalogOutputEndValue_psi" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_AnalogOutputDamping" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OutAnalog_kgcm2">
+						<Name textId="TN_ME_Parameter_OutAnalog_kgcm2"/>
+						<VariableRef variableId="V_AnalogOutput"/>
+						<VariableRef variableId="V_AnalogOutputStartValue_kgcm2" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_AnalogOutputEndValue_kgcm2" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_AnalogOutputDamping" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_OutAnalog_Percent">
+						<Name textId="TN_ME_Parameter_OutAnalog_Percent"/>
+						<VariableRef variableId="V_AnalogOutput"/>
+						<VariableRef variableId="V_AnalogOutputStartValue_Percent" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_AnalogOutputEndValue_Percent" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_AnalogOutputDamping" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+					</Menu>
+					<Menu id="ME_Parameter_DisplayConfiguration">
+						<Name textId="TN_ME_Parameter_DisplayConfiguration"/>
+						<VariableRef variableId="V_UnitDisplay"/>
+						<VariableRef variableId="V_DisplayRotation"/>
+						<VariableRef variableId="V_DisplayMode"/>
+						<VariableRef variableId="V_DisplayPassword"/>
+						<VariableRef variableId="V_DisplayDamping" displayFormat="Dec.1" gradient="0.001" unitCode="1054"/>
+						<VariableRef variableId="V_DisplayUpdate"/>
+						<VariableRef variableId="V_DisplayResolution"/>
+						<VariableRef variableId="V_LocateMe"/>
+					</Menu>
+					<Menu id="ME_Parameter_AccessLocks">
+						<Name textId="TN_ME_Parameter_AccessLocks"/>
+						<RecordItemRef variableId="V_DeviceAccessLocks" subindex="3"/>
+						<RecordItemRef variableId="V_DeviceAccessLocks" subindex="4"/>
+					</Menu>
+					<Menu id="ME_Observation">
+						<MenuRef menuId="ME_Observation_bar"><Condition variableId="V_UnitProcessData" value="0"/></MenuRef>
+						<MenuRef menuId="ME_Observation_mbar"><Condition variableId="V_UnitProcessData" value="1"/></MenuRef>
+						<MenuRef menuId="ME_Observation_MPa"><Condition variableId="V_UnitProcessData" value="2"/></MenuRef>
+						<MenuRef menuId="ME_Observation_kPa"><Condition variableId="V_UnitProcessData" value="3"/></MenuRef>
+						<MenuRef menuId="ME_Observation_psi"><Condition variableId="V_UnitProcessData" value="4"/></MenuRef>
+						<MenuRef menuId="ME_Observation_kgcm2"><Condition variableId="V_UnitProcessData" value="5"/></MenuRef>
+						<MenuRef menuId="ME_Observation_Percent"><Condition variableId="V_UnitProcessData" value="6"/></MenuRef>
+						<MenuRef menuId="ME_Observation_Temperatur_C"><Condition variableId="V_TemperatureUnit" value="0"/></MenuRef>
+						<MenuRef menuId="ME_Observation_Temperatur_F"><Condition variableId="V_TemperatureUnit" value="1"/></MenuRef>
+						<MenuRef menuId="ME_Observation_Time"/>
+						<MenuRef menuId="ME_Observation_PD_bar"><Condition variableId="V_UnitProcessData" value="0"/></MenuRef>
+						<MenuRef menuId="ME_Observation_PD_mbar"><Condition variableId="V_UnitProcessData" value="1"/></MenuRef>
+						<MenuRef menuId="ME_Observation_PD_MPa"><Condition variableId="V_UnitProcessData" value="2"/></MenuRef>
+						<MenuRef menuId="ME_Observation_PD_kPa"><Condition variableId="V_UnitProcessData" value="3"/></MenuRef>
+						<MenuRef menuId="ME_Observation_PD_psi"><Condition variableId="V_UnitProcessData" value="4"/></MenuRef>
+						<MenuRef menuId="ME_Observation_PD_kgcm2"><Condition variableId="V_UnitProcessData" value="5"/></MenuRef>
+						<MenuRef menuId="ME_Observation_PD_Percent"><Condition variableId="V_UnitProcessData" value="6"/></MenuRef>
+					</Menu>
+					<Menu id="ME_Observation_bar">
+						<Name textId="TN_ME_Observation_bar"/>
+						<VariableRef variableId="V_HighPressure" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_LowPressure" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_HighPressurePowerUp" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_LowPressurePowerUp" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<VariableRef variableId="V_PressureOverloadCounter" unitCode="1054"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="160"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="161"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="162"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_mbar">
+						<Name textId="TN_ME_Observation_mbar"/>
+						<VariableRef variableId="V_HighPressure" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_LowPressure" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_HighPressurePowerUp" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_LowPressurePowerUp" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<VariableRef variableId="V_PressureOverloadCounter" unitCode="1054"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="160"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="161"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="162"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_MPa">
+						<Name textId="TN_ME_Observation_MPa"/>
+						<VariableRef variableId="V_HighPressure" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_LowPressure" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_HighPressurePowerUp" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_LowPressurePowerUp" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<VariableRef variableId="V_PressureOverloadCounter" unitCode="1054"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="160"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="161"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="162"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_kPa">
+						<Name textId="TN_ME_Observation_kPa"/>
+						<VariableRef variableId="V_HighPressure" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_LowPressure" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_HighPressurePowerUp" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_LowPressurePowerUp" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<VariableRef variableId="V_PressureOverloadCounter" unitCode="1054"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="160"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="161"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="162"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_psi">
+						<Name textId="TN_ME_Observation_psi"/>
+						<VariableRef variableId="V_HighPressure" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_LowPressure" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_HighPressurePowerUp" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_LowPressurePowerUp" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<VariableRef variableId="V_PressureOverloadCounter" unitCode="1054"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="160"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="161"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="162"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_kgcm2">
+						<Name textId="TN_ME_Observation_kgcm2"/>
+						<VariableRef variableId="V_HighPressure" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_LowPressure" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_HighPressurePowerUp" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_LowPressurePowerUp" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<VariableRef variableId="V_PressureOverloadCounter" unitCode="1054"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="160"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="161"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="162"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_Percent">
+						<Name textId="TN_ME_Observation_Percent"/>
+						<VariableRef variableId="V_HighPressure" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_LowPressure" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_HighPressurePowerUp" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_LowPressurePowerUp" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<VariableRef variableId="V_PressureOverloadCounter" unitCode="1054"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="160"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="161"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="162"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_Temperatur_C">
+						<Name textId="TN_ME_Observation_Temperatur_C"/>
+						<VariableRef variableId="V_TemperatureUnit"/>
+						<VariableRef variableId="V_TemperatureCurrent" displayFormat="Dec.1" unitCode="1001"/>
+						<VariableRef variableId="V_TemperatureHigh" displayFormat="Dec.1" unitCode="1001"/>
+						<VariableRef variableId="V_TemperatureLow" displayFormat="Dec.1" unitCode="1001"/>
+						<VariableRef variableId="V_TemperatureHighPowerUp" displayFormat="Dec.1" unitCode="1001"/>
+						<VariableRef variableId="V_TemperatureLowPowerUp" displayFormat="Dec.1" unitCode="1001"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="163"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="164"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_Temperatur_F">
+						<Name textId="TN_ME_Observation_Temperatur_F"/>
+						<VariableRef variableId="V_TemperatureUnit"/>
+						<VariableRef variableId="V_TemperatureCurrent" displayFormat="Dec.1" unitCode="1002"/>
+						<VariableRef variableId="V_TemperatureLow" displayFormat="Dec.1" unitCode="1002"/>
+						<VariableRef variableId="V_TemperatureHigh" displayFormat="Dec.1" unitCode="1002"/>
+						<VariableRef variableId="V_TemperatureLowPowerUp" displayFormat="Dec.1" unitCode="1002"/>
+						<VariableRef variableId="V_TemperatureHighPowerUp" displayFormat="Dec.1" unitCode="1002"/>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="163"/></VariableRef>
+						<VariableRef accessRightRestriction="wo" variableId="V_SystemCommand"><Button buttonValue="164"/></VariableRef>
+					</Menu>
+					<Menu id="ME_Observation_Time">
+						<Name textId="TN_ME_Observation_Time"/>
+						<VariableRef variableId="V_OperatingHoursTotal" unitCode="1059"/>
+						<VariableRef variableId="V_OperatingHoursPowerUp" unitCode="1059"/>
+					</Menu>
+					<Menu id="ME_Observation_PD_bar">
+						<Name textId="TN_ME_Observation_PD_bar"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="1" displayFormat="Dec.3" gradient="0.001" unitCode="1137"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="2"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="3"/>
+					</Menu>
+					<Menu id="ME_Observation_PD_mbar">
+						<Name textId="TN_ME_Observation_PD_mbar"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="1" displayFormat="Dec" gradient="1" unitCode="1138"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="2"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="3"/>
+					</Menu>
+					<Menu id="ME_Observation_PD_MPa">
+						<Name textId="TN_ME_Observation_PD_MPa"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="1" displayFormat="Dec.4" gradient="0.0001" unitCode="1132"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="2"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="3"/>
+					</Menu>
+					<Menu id="ME_Observation_PD_kPa">
+						<Name textId="TN_ME_Observation_PD_kPa"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="1" displayFormat="Dec.1" gradient="0.1" unitCode="1133"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="2"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="3"/>
+					</Menu>
+					<Menu id="ME_Observation_PD_psi">
+						<Name textId="TN_ME_Observation_PD_psi"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="1" displayFormat="Dec.2" gradient="0.01" unitCode="1141"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="2"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="3"/>
+					</Menu>
+					<Menu id="ME_Observation_PD_kgcm2">
+						<Name textId="TN_ME_Observation_PD_kgcm2"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="1" displayFormat="Dec.3" gradient="0.001" unitCode="1145"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="2"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="3"/>
+					</Menu>
+					<Menu id="ME_Observation_PD_Percent">
+						<Name textId="TN_ME_Observation_PD_Percent"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="1" displayFormat="Dec.1" gradient="0.1" unitCode="1342"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="2"/>
+						<RecordItemRef variableId="V_ProcessDataInput" subindex="3"/>
+					</Menu>
+					<Menu id="ME_Diagnosis">
+						<MenuRef menuId="ME_Diagnosis_Sensor"/>
+						<MenuRef menuId="ME_Diagnosis_DetailedDeviceStatus"/>
+					</Menu>
+					<Menu id="ME_Diagnosis_Sensor">
+						<Name textId="TN_ME_Diagnosis_Sensor"/>
+						<VariableRef variableId="V_Status"/>
+						<VariableRef variableId="V_DeviceStatus"/>
+						<VariableRef variableId="V_ErrorCount"/>
+					</Menu>
+					<Menu id="ME_Diagnosis_DetailedDeviceStatus">
+						<Name textId="TN_ME_Diagnosis_DetailedDeviceStatus"/>
+						<VariableRef variableId="V_DetailedDeviceStatus"/>
+					</Menu>
+				</MenuCollection>
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="ME_Identification"/>
+					<ParameterMenu menuId="ME_Parameter"/>
+					<ObservationMenu menuId="ME_Observation"/>
+					<DiagnosisMenu menuId="ME_Diagnosis"/>
+				</ObserverRoleMenuSet>
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="ME_Identification"/>
+					<ParameterMenu menuId="ME_Parameter"/>
+					<ObservationMenu menuId="ME_Observation"/>
+					<DiagnosisMenu menuId="ME_Diagnosis"/>
+				</MaintenanceRoleMenuSet>
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="ME_Identification"/>
+					<ParameterMenu menuId="ME_Parameter"/>
+					<ObservationMenu menuId="ME_Observation"/>
+					<DiagnosisMenu menuId="ME_Diagnosis"/>
+				</SpecialistRoleMenuSet>
+			</UserInterface>
+		</DeviceFunction>
+	</ProfileBody>
+	<CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1" compatibleWith="V1.0">
+		<TransportLayers>
+			<PhysicalLayer bitrate="COM2" minCycleTime="2300" mSequenceCapability="33" sioSupported="true">
+				<Connection xsi:type="M12-4ConnectionT" connectionSymbol="WIKA-PSD4-4plg-con-pic.png">
+					<ProductRef productId="1048595"/>
+					<Description textId="TD_Connection_Master"/>
+					<Wire1 function="L+" color="BN"/>
+					<Wire2 function="Other" color="WH"/>
+					<Wire3 function="L-" color="BU"/>
+					<Wire4 function="C/Q" color="BK"/>
+				</Connection>
+			</PhysicalLayer>
+		</TransportLayers>
+		<Test>
+			<Config1 index="71" testValue="0x00,0x00"/>
+			<Config2 index="1000" testValue="0x00"/>
+			<Config3 index="24" testValue="0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20"/>
+			<Config7 index="128">
+				<EventTrigger disappearValue="2" appearValue="1"/>
+				<EventTrigger disappearValue="4" appearValue="3"/>
+			</Config7>
+		</Test>
+	</CommNetworkProfile>
+	<ExternalTextCollection>
+		<PrimaryLanguage xml:lang="en">
+			<Text id="T_VendorText" value="WIKA"/>
+			<Text id="T_VendorUrl" value="www.wika.com"/>
+			<Text id="T_DeviceFamily" value="Pressure Switches"/>
+			<Text id="T_DeviceName" value="PSD-4"/>
+			<Text id="TN_PSD4_Name" value="PSD-4, 0...1 bar; 1xPNP/NPN + 4...20mA/0...10V"/>
+			<Text id="TD_PSD4_Descr" value="PSD-4 - Pressure Switch with Display, 0...1 bar; 1xPNP/NPN + 4...20mA/0...10V"/>
+			<Text id="TD_Connection_Master" value="Pin2 is Analogue Output"/>
+			<Text id="TN_PDin" value="Process Input Data"/>
+			<Text id="TN_PDI_Pressure" value="Pressure"/>
+			<Text id="TN_PDI_SP1" value="OU1"/>
+			<Text id="TN_PDI_SP_True" value="OU on"/>
+			<Text id="TN_PDI_SP_False" value="OU off"/>
+			<Text id="TN_PDI_SP2" value="OU2"/>
+			<Text id="TN_V_UnitProcessData" value="Unit Process Data"/>
+			<Text id="TN_V_UnitProcessData_0" value="bar"/>
+			<Text id="TN_V_UnitProcessData_1" value="mbar"/>
+			<Text id="TN_V_UnitProcessData_2" value="MPa"/>
+			<Text id="TN_V_UnitProcessData_3" value="kPa"/>
+			<Text id="TN_V_UnitProcessData_4" value="psi"/>
+			<Text id="TN_V_UnitProcessData_5" value="kg/cm²"/>
+			<Text id="TN_V_UnitProcessData_6" value="%"/>
+			<Text id="TN_V_SystemCommand_ResetHighPressure" value="Reset High Pressure"/>
+			<Text id="TN_V_SystemCommand_ResetLowPressure" value="Reset Low Pressure"/>
+			<Text id="TN_V_SystemCommand_ResetPressureOverloadCounter" value="Reset Pressure Overload Counter"/>
+			<Text id="TN_V_SystemCommand_ResetHighTemperature" value="Reset High Temperature"/>
+			<Text id="TN_V_SystemCommand_ResetLowTemperature" value="Reset Low Temperature"/>
+			<Text id="TN_V_SystemCommand_AdjustZeroPoint" value="Adjust Zero Point"/>
+			<Text id="TN_V_OrderNumber" value="Order Number"/>
+			<Text id="TN_V_Gradient" value="Gradient"/>
+			<Text id="TD_V_Gradient" value="Gradient for process data calculation from raw data"/>
+			<Text id="TN_V_Out1" value="OU1 - Switching Function Output 1"/>
+			<Text id="TN_V_Out_0" value="HNO - Hysteresis Function / Normally Open"/>
+			<Text id="TN_V_Out_1" value="HNC - Hysteresis Function / Normally Closed"/>
+			<Text id="TN_V_Out_2" value="FNO - Window Function / Normally Open"/>
+			<Text id="TN_V_Out_3" value="FNC - Window Function / Normally Closed"/>
+			<Text id="TN_V_DS1" value="DS1 - Switch Delay Time Output 1"/>
+			<Text id="TN_V_DR1" value="DR1 - Reset Delay Time Output 1"/>
+			<Text id="TN_V_DampingOU1" value="Damping OU1"/>
+			<Text id="TN_V_PolarityOU1" value="Polarity OU1 - Output Logic Output 1"/>
+			<Text id="TN_V_Polarity_0" value="PNP"/>
+			<Text id="TN_V_Polarity_1" value="NPN"/>
+			<Text id="TN_V_Out2" value="OU2 - Switching Function Output 2"/>
+			<Text id="TN_V_DS2" value="DS2 - Switch Delay Time Output 2"/>
+			<Text id="TN_V_DR2" value="DR2 - Reset Delay Time Output 2"/>
+			<Text id="TN_V_DampingOU2" value="Damping OU2"/>
+			<Text id="TN_V_AnalogOutputStartValue_bar" value="Analogue Output Start Value /bar"/>
+			<Text id="TN_V_AnalogOutputEndValue_bar" value="Analogue Output End Value /bar"/>
+			<Text id="TN_V_AnalogOutputStartValue_mbar" value="Analogue Output Start Value /mbar"/>
+			<Text id="TN_V_AnalogOutputEndValue_mbar" value="Analogue Output End Value /mbar"/>
+			<Text id="TN_V_AnalogOutputStartValue_MPa" value="Analogue Output Start Value /MPa"/>
+			<Text id="TN_V_AnalogOutputEndValue_MPa" value="Analogue Output End Value /MPa"/>
+			<Text id="TN_V_AnalogOutputStartValue_kPa" value="Analogue Output Start Value /kPa"/>
+			<Text id="TN_V_AnalogOutputEndValue_kPa" value="Analogue Output End Value /kPa"/>
+			<Text id="TN_V_AnalogOutputStartValue_psi" value="Analogue Output Start Value /PSI"/>
+			<Text id="TN_V_AnalogOutputEndValue_psi" value="Analogue Output End Value /PSI"/>
+			<Text id="TN_V_AnalogOutputStartValue_kgcm2" value="Analogue Output Start Value /kg/cm²"/>
+			<Text id="TN_V_AnalogOutputEndValue_kgcm2" value="Analogue Output End Value /kg/cm²"/>
+			<Text id="TN_V_AnalogOutputStartValue_Percent" value="Analogue Output Start Value /%"/>
+			<Text id="TN_V_AnalogOutputEndValue_Percent" value="Analogue Output End Value /%"/>
+			<Text id="TN_V_AnalogOutputDamping" value="Analogue Output Damping"/>
+			<Text id="TN_V_DISPLAYROTATION_Regular" value="Regular"/>
+			<Text id="TN_V_DISPLAYROTATION_UpsideDown" value="Upside-Down"/>
+			<Text id="TN_V_UnitDisplay" value="Display Unit"/>
+			<Text id="TD_V_DisplayRotation" value="Rotation of display"/>
+			<Text id="TN_V_DisplayRotation" value="Display Rotation"/>
+			<Text id="TN_V_DISPLAYMODE_Act" value="Act"/>
+			<Text id="TN_V_DISPLAYMODE_Hi" value="Hi"/>
+			<Text id="TN_V_DISPLAYMODE_Lo" value="Lo"/>
+			<Text id="TN_V_DISPLAYMODE_SP1" value="SP1"/>
+			<Text id="TN_V_DISPLAYMODE_RP1" value="RP1"/>
+			<Text id="TN_V_DISPLAYMODE_SP2" value="SP2"/>
+			<Text id="TN_V_DISPLAYMODE_RP2" value="RP2"/>
+			<Text id="TN_V_DISPLAYMODE_Off" value="Off"/>
+			<Text id="TD_DisplayMode" value="Choice of displayed value"/>
+			<Text id="TN_DisplayMode" value="Display Mode"/>
+			<Text id="TD_DisplayPassword" value=""/>
+			<Text id="TN_DisplayPassword" value="Display Password"/>
+			<Text id="TN_V_DisplayDamping" value="Display Damping"/>
+			<Text id="TN_V_DisplayUpdate" value="Display Update Frequency"/>
+			<Text id="TN_V_DISP_1Hz" value="1Hz"/>
+			<Text id="TN_V_DISP_2Hz" value="2Hz"/>
+			<Text id="TN_V_DISP_5Hz" value="5Hz"/>
+			<Text id="TN_V_DISP_10Hz" value="10Hz"/>
+			<Text id="TN_V_DisplayResolution" value="Display Resolution"/>
+			<Text id="TN_V_DISP_RES_OPT" value="Optimised"/>
+			<Text id="TN_V_DISP_RES_FULL" value="FULL"/>
+			<Text id="TN_V_LocateMe" value="Locate Me"/>
+			<Text id="TN_Off" value="off"/>
+			<Text id="TN_On" value="on"/>
+			<Text id="TN_V_PressureOverloadCounter" value="Pressure Overload Counter"/>
+			<Text id="TN_V_TemperatureUnit" value="Temperature Unit"/>
+			<Text id="TN_V_TemperatureUnit_0" value="°C "/>
+			<Text id="TN_V_TemperatureUnit_1" value="°F"/>
+			<Text id="TN_V_TemperatureCurrent" value="Actual Temperature"/>
+			<Text id="TN_V_TemperatureHigh" value="Temperature High"/>
+			<Text id="TN_V_TemperatureLow" value="Temperature Low"/>
+			<Text id="TN_V_TemperatureHighPowerUp" value="Temperature High since Power Up"/>
+			<Text id="TN_V_TemperatureLowPowerUp" value="Temperature Low since Power Up"/>
+			<Text id="TN_V_OperatingHoursTotal" value="Operating Hours Total"/>
+			<Text id="TN_V_OperatingHoursPowerUp" value="Operating Hours since Power Up"/>
+			<Text id="TN_ok" value="ok"/>
+			<Text id="TN_detected" value="detected"/>
+			<Text id="TN_V_Status" value="Sensor Status"/>
+			<Text id="TN_V_Status_SensorStatusDefect" value="Sensor is defect"/>
+			<Text id="TN_V_Status_OverPressure" value="Overpressure"/>
+			<Text id="TN_V_Status_UnderPressure" value="Underpressure"/>
+			<Text id="TN_V_Status_OverTemperature" value="Overtemperature"/>
+			<Text id="TN_V_Status_UnderTemperature" value="Undertemperature"/>
+			<Text id="TN_V_AnalogOutput" value="OU3 - Analogue Output Mode"/>
+			<Text id="TN_V_AnalogOutput_0" value="I: 4..20mA"/>
+			<Text id="TN_V_AnalogOutput_1" value="U: 0..10V"/>
+			<Text id="TN_ME_Parameter_PD_bar" value="Process Data Settings /bar"/>
+			<Text id="TN_ME_Parameter_PD_mbar" value="Process Data Settings /mbar"/>
+			<Text id="TN_ME_Parameter_PD_MPa" value="Process Data Settings /MPa"/>
+			<Text id="TN_ME_Parameter_PD_kPa" value="Process Data Settings /kPa"/>
+			<Text id="TN_ME_Parameter_PD_psi" value="Process Data Settings /psi"/>
+			<Text id="TN_ME_Parameter_PD_kgcm2" value="Process Data Settings /kg/cm²"/>
+			<Text id="TN_ME_Parameter_PD_Percent" value="Process Data Settings /%"/>
+			<Text id="TN_ME_Parameter_DisplayConfiguration" value="Display Configuration"/>
+			<Text id="TN_ME_Parameter_OutAnalog_bar" value="Analogue Output OU3 /bar"/>
+			<Text id="TN_ME_Parameter_OutAnalog_mbar" value="Analogue Output OU3 /mbar"/>
+			<Text id="TN_ME_Parameter_OutAnalog_MPa" value="Analogue Output OU3 /MPa"/>
+			<Text id="TN_ME_Parameter_OutAnalog_kPa" value="Analogue Output OU3 /kPa"/>
+			<Text id="TN_ME_Parameter_OutAnalog_psi" value="Analogue Output OU3 /psi"/>
+			<Text id="TN_ME_Parameter_OutAnalog_kgcm2" value="Analogue Output OU3 /kg/cm²"/>
+			<Text id="TN_ME_Parameter_OutAnalog_Percent" value="Analogue Output OU3 /%"/>
+			<Text id="TN_ME_Parameter_OU1_bar" value="Switching Output OU1 /bar"/>
+			<Text id="TN_ME_Parameter_OU1_mbar" value="Switching Output OU1 /mbar"/>
+			<Text id="TN_ME_Parameter_OU1_MPa" value="Switching Output OU1 /MPa"/>
+			<Text id="TN_ME_Parameter_OU1_kPa" value="Switching Output OU1 /kPa"/>
+			<Text id="TN_ME_Parameter_OU1_psi" value="Switching Output OU1 /psi"/>
+			<Text id="TN_ME_Parameter_OU1_kgcm2" value="Switching Output OU1 /kg/cm²"/>
+			<Text id="TN_ME_Parameter_OU1_Percent" value="Switching Output OU1 /%"/>
+			<Text id="TN_ME_Parameter_OU2_bar" value="Switching Output OU2 /bar"/>
+			<Text id="TN_ME_Parameter_OU2_mbar" value="Switching Output OU2 /mbar"/>
+			<Text id="TN_ME_Parameter_OU2_MPa" value="Switching Output OU2 /MPa"/>
+			<Text id="TN_ME_Parameter_OU2_kPa" value="Switching Output OU2 /kPa"/>
+			<Text id="TN_ME_Parameter_OU2_psi" value="Switching Output OU2 /psi"/>
+			<Text id="TN_ME_Parameter_OU2_kgcm2" value="Switching Output OU2 /kg/cm²"/>
+			<Text id="TN_ME_Parameter_OU2_Percent" value="Switching Output OU2 /%"/>
+			<Text id="TN_ME_Parameter_AccessLocks" value="Access Locks"/>
+			<Text id="TN_ME_Observation_bar" value="Pressure /bar"/>
+			<Text id="TN_ME_Observation_mbar" value="Pressure /mbar"/>
+			<Text id="TN_ME_Observation_MPa" value="Pressure /MPa"/>
+			<Text id="TN_ME_Observation_kPa" value="Pressure /kPa"/>
+			<Text id="TN_ME_Observation_psi" value="Pressure /psi"/>
+			<Text id="TN_ME_Observation_kgcm2" value="Pressure /kg/cm²"/>
+			<Text id="TN_ME_Observation_Percent" value="Pressure /%"/>
+			<Text id="TN_ME_Observation_Temperatur_C" value="Temperature /°C"/>
+			<Text id="TN_ME_Observation_Temperatur_F" value="Temperature /°F"/>
+			<Text id="TN_ME_Observation_Time" value="Time"/>
+			<Text id="TN_ME_Observation_PD_bar" value="Process Input Data /bar"/>
+			<Text id="TN_ME_Observation_PD_mbar" value="Process Input Data /mbar"/>
+			<Text id="TN_ME_Observation_PD_MPa" value="Process Input Data /MPa"/>
+			<Text id="TN_ME_Observation_PD_kPa" value="Process Input Data /kPa"/>
+			<Text id="TN_ME_Observation_PD_psi" value="Process Input Data /psi"/>
+			<Text id="TN_ME_Observation_PD_kgcm2" value="Process Input Data /kg/cm²"/>
+			<Text id="TN_ME_Observation_PD_Percent" value="Process Input Data /%"/>
+			<Text id="TN_ME_Diagnosis_Service" value="Service Functions"/>
+			<Text id="TN_ME_Diagnosis_Sensor" value="Sensor Health"/>
+			<Text id="TN_ME_Diagnosis_DetailedDeviceStatus" value="Detailed Device Status"/>
+			<Text id="TN_V_StartMeasuringRange" value="Start of Measuring Range"/>
+			<Text id="TN_V_EndMeasuringRange" value="End of Measuring Range"/>
+			<Text id="TN_V_SP1" value="SP1 / FH1 - Switching point (or window high) value – Output 1"/>
+			<Text id="TN_V_RP1" value="RP1 / FL1 - Reset point (or window low) value – Output 1"/>
+			<Text id="TN_V_SP2" value="SP2 / FH2 - Switching point (or window high) value – Output 2"/>
+			<Text id="TN_V_RP2" value="RP2 / FL2 - Reset point (or window low) value – Output 2"/>
+			<Text id="TN_V_HighPressure" value="High Pressure"/>
+			<Text id="TN_V_LowPressure" value="Low Pressure"/>
+			<Text id="TN_V_HighPressurePowerUp" value="High Pressure since Power Up"/>
+			<Text id="TN_V_LowPressurePowerUp" value="Low Pressure since Power Up"/>
+			<Text id="TN_Event1" value="Test Event 1"/>
+			<Text id="TN_Event1_Descr" value="Event Appears at index 128 and value 1 and disappears by value 2"/>
+			<Text id="TN_Event2" value="Test Event 2"/>
+			<Text id="TN_Event2_Descr" value="Event Appears at index 128 and value 3 and disappears by value 4"/>
+		</PrimaryLanguage>
+	</ExternalTextCollection>
+	<Stamp crc="792187222"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

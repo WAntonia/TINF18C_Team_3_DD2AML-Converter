@@ -1,0 +1,1801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--IODD V 1.0.1-->
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.6" releaseDate="2016-06-02" copyright="Copyright 2015, Siemens AG" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="42" vendorName="Siemens AG" deviceId="591953">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Siemens-logo.png" />
+      <DeviceName textId="TI_VendorText" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="3UG4841-*CA40" deviceSymbol="Siemens-3UG4841-pic.png" deviceIcon="Siemens-3UG4841-icon.png">
+          <Name textId="TI_Device_Name" />
+          <Description textId="TI_Device_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true">
+        <SupportedAccessLocks parameter="true" dataStorage="true" localParameterization="true" localUserInterface="true" />
+      </Features>
+      <DatatypeCollection>
+        <Datatype id="DT_BitState" xsi:type="BooleanT">
+          <SingleValue value="false">
+            <Name textId="TI_BitState_Off" />
+          </SingleValue>
+          <SingleValue value="true">
+            <Name textId="TI_BitState_On" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_AnalogIndex" xsi:type="UIntegerT" bitLength="8">
+          <SingleValue value="28">
+            <Name textId="TI_Index_Ires" />
+          </SingleValue>
+          <SingleValue value="43">
+            <Name textId="TI_Index_Cos" />
+          </SingleValue>
+          <SingleValue value="16">
+            <Name textId="TI_Index_Is" />
+          </SingleValue>
+          <SingleValue value="44">
+            <Name textId="TI_Index_Ures" />
+          </SingleValue>
+          <SingleValue value="40">
+            <Name textId="TI_Index_Pw" />
+          </SingleValue>
+          <!--
+          <SingleValue value="41">
+            <Name textId="TI_Index_Pvar" />
+          </SingleValue>
+          <SingleValue value="42">
+            <Name textId="TI_Index_Pva" />
+          </SingleValue>
+		  -->
+        </Datatype>
+        <Datatype id="DT_DS131_OperationPrincip" xsi:type="UIntegerT" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_DS131_NC" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_DS131_NO" />
+          </SingleValue>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="128" />
+          <StdSingleValueRef value="130" />
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks" />
+        <StdVariableRef id="V_VendorName" defaultValue="Siemens AG" />
+        <StdVariableRef id="V_VendorText" defaultValue="http://support.automation.siemens.com/WW/view/de/37432258/133200" />
+        <StdVariableRef id="V_ProductName" defaultValue="SIRIUS 3UG4841 Power Factor/Current Monitoring Relay for IO-Link" />
+        <StdVariableRef id="V_ProductID" defaultValue="3UG4841-*CA40" />
+        <!--        <StdVariableRef id="V_ProductText" />-->
+        <StdVariableRef id="V_SerialNumber" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificTag" />
+        <StdVariableRef id="V_ProcessDataOutput" />
+        <StdVariableRef id="V_ProcessDataInput" />
+        <Variable id="V_DS67" index="67" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="48" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+              <Name textId="TI_DS_Header" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <!-- Start OnDelay time -->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS67_OnDel" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="11">
+              <!-- Reset -->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS67_Reset" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+              <Name textId="TI_Byte" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="false" />
+          <RecordItemInfo subindex="3" defaultValue="false" />
+          <RecordItemInfo subindex="4" defaultValue="0" />
+          <Name textId="TI_DS67" />
+        </Variable>
+        <Variable id="V_DS69" index="69" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="64" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="32">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+              <Name textId="TI_DS_Header" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS69_Ready" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="26">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS69_Error" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="27">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS69_Warning" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="28">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS69_K1" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="29">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS69_K2" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="16">
+              <DatatypeRef datatypeId="DT_AnalogIndex" />
+              <Name textId="TI_DS69_Index" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="0">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="32767">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-32768" upperValue="32766" />
+              </SimpleDatatype>
+              <Name textId="TI_DS69_Value" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="false" />
+          <RecordItemInfo subindex="3" defaultValue="false" />
+          <RecordItemInfo subindex="4" defaultValue="false" />
+          <RecordItemInfo subindex="5" defaultValue="false" />
+          <RecordItemInfo subindex="6" defaultValue="false" />
+          <RecordItemInfo subindex="7" defaultValue="43" />
+          <RecordItemInfo subindex="8" defaultValue="32767" />
+          <Name textId="TI_DS69" />
+        </Variable>
+        <Variable accessRights="ro" id="V_DS92" index="92" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="240" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="208">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+              <Name textId="TI_DS_Header" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="104">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Ready" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="105">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Error" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="106">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Warning" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="107">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Prewarning" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="109">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Setting" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="110">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_WrongParam" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="111">
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_InternalError" />
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="80">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+              <Name textId="TI_DS92_WrongParamNo" />
+            </RecordItem>
+            <RecordItem subindex="10" bitOffset="24">
+              <!--OnDelay Time Running-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_OnDel" />
+            </RecordItem>
+            <RecordItem subindex="11" bitOffset="25">
+              <!--Delay Time 1 Running-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Del1" />
+            </RecordItem>
+            <RecordItem subindex="12" bitOffset="26">
+              <!--Delay Time 2 Running-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Del2" />
+            </RecordItem>
+            <RecordItem subindex="13" bitOffset="27">
+              <!--Delay Time 3 Running-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Del3" />
+            </RecordItem>
+            <RecordItem subindex="14" bitOffset="28">
+              <!--Delay Time 4 Running-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Del4" />
+            </RecordItem>
+            <RecordItem subindex="15" bitOffset="16">
+              <!--Limit 1 exceeded-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Limit1" />
+            </RecordItem>
+            <RecordItem subindex="16" bitOffset="17">
+              <!--Limit 2 exceeded-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Limit2" />
+            </RecordItem>
+            <RecordItem subindex="17" bitOffset="18">
+              <!--Limit 3 exceeded-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Limit3" />
+            </RecordItem>
+            <RecordItem subindex="18" bitOffset="19">
+              <!--Limit 4 exceeded-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Limit4" />
+            </RecordItem>
+            <RecordItem subindex="19" bitOffset="20">
+              <!--Warnlimit 1 exceeded-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Warn1" />
+            </RecordItem>
+            <RecordItem subindex="20" bitOffset="21">
+              <!--Warnlimit 2 exceeded-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Warn2" />
+            </RecordItem>
+            <RecordItem subindex="21" bitOffset="22">
+              <!--Warnlimit 3 exceeded-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Warn3" />
+            </RecordItem>
+            <RecordItem subindex="22" bitOffset="23">
+              <!--Warnlimit 4 exceeded-->
+              <DatatypeRef datatypeId="DT_BitState" />
+              <Name textId="TI_DS92_Warn4" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="false" />
+          <RecordItemInfo subindex="3" defaultValue="false" />
+          <RecordItemInfo subindex="4" defaultValue="false" />
+          <RecordItemInfo subindex="5" defaultValue="false" />
+          <RecordItemInfo subindex="6" defaultValue="false" />
+          <RecordItemInfo subindex="7" defaultValue="false" />
+          <RecordItemInfo subindex="8" defaultValue="false" />
+          <RecordItemInfo subindex="9" defaultValue="0" />
+          <RecordItemInfo subindex="10" defaultValue="false" />
+          <RecordItemInfo subindex="11" defaultValue="false" />
+          <RecordItemInfo subindex="12" defaultValue="false" />
+          <RecordItemInfo subindex="13" defaultValue="false" />
+          <RecordItemInfo subindex="14" defaultValue="false" />
+          <RecordItemInfo subindex="15" defaultValue="false" />
+          <RecordItemInfo subindex="16" defaultValue="false" />
+          <RecordItemInfo subindex="17" defaultValue="false" />
+          <RecordItemInfo subindex="18" defaultValue="false" />
+          <RecordItemInfo subindex="19" defaultValue="false" />
+          <RecordItemInfo subindex="20" defaultValue="false" />
+          <RecordItemInfo subindex="21" defaultValue="false" />
+          <RecordItemInfo subindex="22" defaultValue="false" />
+          <Name textId="TI_DS92" />
+        </Variable>
+        <Variable accessRights="ro" id="V_DS94" index="94" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="400" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="368">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+              <Name textId="TI_DS_Header" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="256">
+              <!-- cos value -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="32767">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-32768" upperValue="32766" />
+              </SimpleDatatype>
+              <Name textId="TI_DS94_Cos" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="240">
+              <!-- Ires (A) -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="32767">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-32768" upperValue="32766" />
+              </SimpleDatatype>
+              <Name textId="TI_DS94_Ires" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="224">
+              <!-- Is (A) -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="32767">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-32768" upperValue="32766" />
+              </SimpleDatatype>
+              <Name textId="TI_DS94_Is" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="208">
+              <!-- Uw (V) -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="32767">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-32768" upperValue="32766" />
+              </SimpleDatatype>
+              <Name textId="TI_DS94_Uw" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="192">
+              <!-- Pw (W) -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="32767">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-32768" upperValue="32766" />
+              </SimpleDatatype>
+              <Name textId="TI_DS94_Pw" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="128">
+              <!-- Ires (A) -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="32">
+                <SingleValue value="2147483647">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-2147483648" upperValue="2147483646" />
+              </SimpleDatatype>
+              <Name textId="TI_DS94_Ires_long" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="96">
+              <!-- Is (A) -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="32">
+                <SingleValue value="2147483647">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-2147483648" upperValue="2147483646" />
+              </SimpleDatatype>
+              <Name textId="TI_DS94_Is_long" />
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="64">
+              <!-- Pw (W) -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="32">
+                <SingleValue value="2147483647">
+                  <Name textId="TI_Value_Error" />
+                </SingleValue>
+                <ValueRange lowerValue="-2147483648" upperValue="2147483646" />
+              </SimpleDatatype>
+              <Name textId="TI_DS94_Pw_long" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="32767" />
+          <RecordItemInfo subindex="2" defaultValue="32767" />
+          <RecordItemInfo subindex="3" defaultValue="32767" />
+          <RecordItemInfo subindex="4" defaultValue="32767" />
+          <RecordItemInfo subindex="5" defaultValue="32767" />
+          <RecordItemInfo subindex="6" defaultValue="32767" />
+          <RecordItemInfo subindex="7" defaultValue="2147483647" />
+          <RecordItemInfo subindex="8" defaultValue="2147483647" />
+          <RecordItemInfo subindex="9" defaultValue="2147483647" />
+          <Name textId="TI_DS94" />
+        </Variable>
+        <Variable accessRights="rw" id="V_DS131" index="131">
+          <Datatype xsi:type="RecordT" bitLength="592" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="560">
+              <!--Header-->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+              <Name textId="TI_DS_Header" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="456">
+              <!-- Common Diagnostic -->
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="false">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="true">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_DiagComm" />
+              <Description textId="TI_DS131_DiagComm_Descr" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="457">
+              <!-- Common Error Diagnostic -->
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="false">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="true">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_DiagCommError" />
+              <Description textId="TI_DS131_DiagCommError_Descr" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="458">
+              <!-- Common Warning Diagnostic -->
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="false">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="true">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_DiagCommWarning" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="460">
+              <!-- Local Value Adjustment -->
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="false">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="true">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_LocalAdj" />
+              <Description textId="TI_DS131_LocalAdj_Descr" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="461">
+              <!-- Local Parameter Setting -->
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="false">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="true">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_LocalSet" />
+              <Description textId="TI_DS131_LocalSet_Descr" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="462">
+              <!-- Local Reset -->
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="false">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="true">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_LocalReset" />
+              <Description textId="TI_DS131_LocalReset_Descr" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="463">
+              <!-- nonVolatile Error Saving -->
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="false">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="true">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_ErrorSave" />
+              <Description textId="TI_DS131_ErrorSave_Descr" />
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="448">
+              <!-- Index of Analog value -->
+              <DatatypeRef datatypeId="DT_AnalogIndex" />
+              <Name textId="TI_DS131_IndexOfValue" />
+              <Description textId="TI_DS131_IndexOfValue_Descr" />
+            </RecordItem>
+            <RecordItem subindex="10" bitOffset="392">
+              <!-- Memory -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_ResManual" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_DS131_ResAuto" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Memory" />
+              <Description textId="TI_DS131_Memory_Descr" />
+            </RecordItem>
+            <RecordItem subindex="11" bitOffset="384">
+              <!-- OnDelay time on Power-On -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_onDelPON" />
+              <Description textId="TI_DS131_OnDelPON_Descr" />
+            </RecordItem>
+            <RecordItem subindex="12" bitOffset="386">
+              <!-- OnDelay time on Reset -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_onDelReset" />
+              <Description textId="TI_DS131_OnDelReset_Descr" />
+            </RecordItem>
+            <RecordItem subindex="13" bitOffset="388">
+              <!-- OnDelay time on Restart -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Dis" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_DS131_En" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_DS131_onDelRestart" />
+              <Description textId="TI_DS131_OnDelRestart_Descr" />
+            </RecordItem>
+            <RecordItem subindex="14" bitOffset="368">
+              <!-- OnDelay time -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange lowerValue="0" upperValue="9999" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_onDel" />
+              <Description textId="TI_DS131_OnDel_Descr" />
+            </RecordItem>
+            <RecordItem subindex="15" bitOffset="352">
+              <!-- Delay time 1 -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange lowerValue="0" upperValue="9999" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Del1" />
+              <Description textId="TI_DS131_Del1_Descr" />
+            </RecordItem>
+            <RecordItem subindex="16" bitOffset="336">
+              <!-- Delay time 2 -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange lowerValue="0" upperValue="9999" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Del2" />
+              <Description textId="TI_DS131_Del2_Descr" />
+            </RecordItem>
+            <RecordItem subindex="17" bitOffset="320">
+              <!-- Delay time 3 -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange lowerValue="0" upperValue="9999" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Del3" />
+              <Description textId="TI_DS131_Del3_Descr" />
+            </RecordItem>
+            <RecordItem subindex="18" bitOffset="304">
+              <!-- Delay time 4 -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange lowerValue="0" upperValue="9999" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Del4" />
+              <Description textId="TI_DS131_Del4_Descr" />
+            </RecordItem>
+            <RecordItem subindex="19" bitOffset="296">
+              <!-- Limit 1 -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="99" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Limit1" />
+              <Description textId="TI_DS131_Limit1_Descr" />
+            </RecordItem>
+            <RecordItem subindex="20" bitOffset="288">
+              <!-- Limit 2 -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="99" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Limit2" />
+              <Description textId="TI_DS131_Limit2_Descr" />
+            </RecordItem>
+            <RecordItem subindex="21" bitOffset="256">
+              <!-- Limit 3 -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="32">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="1000" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Limit3" />
+              <Description textId="TI_DS131_Limit3_Descr" />
+            </RecordItem>
+            <RecordItem subindex="22" bitOffset="224">
+              <!-- Limit 4 -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="32">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="1000" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Limit4" />
+              <Description textId="TI_DS131_Limit4_Descr" />
+            </RecordItem>
+            <RecordItem subindex="23" bitOffset="216">
+              <!-- Warning 1 -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="99" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Warn1" />
+              <Description textId="TI_DS131_Warn1_Descr" />
+            </RecordItem>
+            <RecordItem subindex="24" bitOffset="208">
+              <!-- Warning 2 -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="99" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Warn2" />
+              <Description textId="TI_DS131_Warn2_Descr" />
+            </RecordItem>
+            <RecordItem subindex="25" bitOffset="176">
+              <!-- Warning 3  *160-->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="32">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="1000" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Warn3" />
+              <Description textId="TI_DS131_Warn3_Descr" />
+            </RecordItem>
+            <RecordItem subindex="26" bitOffset="144">
+              <!-- Warning 4 *128-->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="32">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="1000" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Warn4" />
+              <Description textId="TI_DS131_Warn4_Descr" />
+            </RecordItem>
+            <RecordItem subindex="27" bitOffset="56">
+              <!-- Hysterese cos -->
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="10" upperValue="20" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Hyst_Cos" />
+              <Description textId="TI_DS131_Hyst_Cos_Descr" />
+            </RecordItem>
+            <RecordItem subindex="28" bitOffset="16">
+              <!-- Hysterese Ires -->
+              <SimpleDatatype xsi:type="IntegerT" bitLength="32">
+                <SingleValue value="0">
+                  <Name textId="TI_DS131_Limit_Off" />
+                </SingleValue>
+                <ValueRange lowerValue="1" upperValue="300" />
+              </SimpleDatatype>
+              <Name textId="TI_DS131_Hyst_Ires" />
+              <Description textId="TI_DS131_Hyst_Ires_Descr" />
+            </RecordItem>
+            <RecordItem subindex="29" bitOffset="8">
+              <!-- Operation princip for limits -->
+              <DatatypeRef datatypeId="DT_DS131_OperationPrincip" />
+              <Name textId="TI_DS131_OperationPrincip" />
+              <Description textId="TI_DS131_OperationPrincip_Descr" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="true" />
+          <RecordItemInfo subindex="3" defaultValue="true" />
+          <RecordItemInfo subindex="4" defaultValue="true" />
+          <RecordItemInfo subindex="5" defaultValue="true" />
+          <RecordItemInfo subindex="6" defaultValue="true" />
+          <RecordItemInfo subindex="7" defaultValue="true" />
+          <RecordItemInfo subindex="8" defaultValue="false" />
+          <RecordItemInfo subindex="9" defaultValue="43" />
+          <RecordItemInfo subindex="10" defaultValue="1" />
+          <RecordItemInfo subindex="11" defaultValue="1" />
+          <RecordItemInfo subindex="12" defaultValue="1" />
+          <RecordItemInfo subindex="13" defaultValue="0" />
+          <RecordItemInfo subindex="14" defaultValue="0" />
+          <RecordItemInfo subindex="15" defaultValue="0" />
+          <RecordItemInfo subindex="16" defaultValue="0" />
+          <RecordItemInfo subindex="17" defaultValue="0" />
+          <RecordItemInfo subindex="18" defaultValue="0" />
+          <RecordItemInfo subindex="19" defaultValue="50" />
+          <RecordItemInfo subindex="20" defaultValue="20" />
+          <RecordItemInfo subindex="21" defaultValue="300" />
+          <RecordItemInfo subindex="22" defaultValue="100" />
+          <RecordItemInfo subindex="23" defaultValue="50" />
+          <RecordItemInfo subindex="24" defaultValue="20" />
+          <RecordItemInfo subindex="25" defaultValue="300" />
+          <RecordItemInfo subindex="26" defaultValue="100" />
+          <RecordItemInfo subindex="27" defaultValue="10" />
+          <RecordItemInfo subindex="28" defaultValue="50" />
+          <RecordItemInfo subindex="29" defaultValue="0" />
+          <Name textId="TI_DS131" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="PD_Collection">
+          <ProcessDataIn id="PD_Input" bitLength="32">
+            <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="24">
+                <DatatypeRef datatypeId="DT_BitState" />
+                <Name textId="TI_PaeReady" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="26">
+                <DatatypeRef datatypeId="DT_BitState" />
+                <Name textId="TI_PaeFault" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="27">
+                <DatatypeRef datatypeId="DT_BitState" />
+                <Name textId="TI_PaeWarning" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="28">
+                <DatatypeRef datatypeId="DT_BitState" />
+                <Name textId="TI_PaeRelay_K1" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="29">
+                <DatatypeRef datatypeId="DT_BitState" />
+                <Name textId="TI_PaeRelay_K2" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="16">
+                <DatatypeRef datatypeId="DT_AnalogIndex" />
+                <Name textId="TI_PaeValueIndex" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="0">
+                <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                  <SingleValue value="32767">
+                    <Name textId="TI_Value_Error" />
+                  </SingleValue>
+                  <ValueRange lowerValue="-32768" upperValue="32766" />
+                </SimpleDatatype>
+                <Name textId="TI_PaeValue" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_Pae" />
+          </ProcessDataIn>
+          <ProcessDataOut id="PD_Output" bitLength="16">
+            <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="8">
+                <DatatypeRef datatypeId="DT_BitState" />
+                <Name textId="TI_PaaStartOnDel" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="11">
+                <DatatypeRef datatypeId="DT_BitState" />
+                <Name textId="TI_PaaDeviceReset" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_Paa" />
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <StdEventRef code="20480" />
+        <StdEventRef code="25376" />
+        <StdEventRef code="35856" />
+        <StdEventRef code="35872" />
+        <StdEventRef code="35888" />
+        <Event code="36029" type="Error">
+          <!-- 0x8CBD -->
+          <Name textId="TI_EV_Sensor" />
+          <Description textId="TI_EvDescr_Sensor" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_System_Command">
+            <Name textId="TI_ME_SystemCommand" />
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="128" />
+            </VariableRef>
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130" />
+            </VariableRef>
+          </Menu>
+          <Menu id="ME_Device_Access">
+            <Name textId="TI_ME_DeviceAccess" />
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="1" />
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="2" />
+          </Menu>
+          <Menu id="ME_OR_Ident">
+            <Name textId="TI_ME_Ident" />
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_ProductName" />
+            <!--            <VariableRef variableId="V_SerialNumber" /> -->
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+          </Menu>
+          <Menu id="ME_MSR_Ident">
+            <Name textId="TI_ME_Ident" />
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_SerialNumber" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+          </Menu>
+          <Menu id="ME_MSR_DS67">
+            <Name textId="TI_ME_MSR_DS67" />
+            <RecordItemRef variableId="V_DS67" subindex="2" />
+            <RecordItemRef variableId="V_DS67" subindex="3" />
+          </Menu>
+          <Menu id="ME_MSR_DS69">
+            <Name textId="TI_ME_MSR_DS69" />
+            <RecordItemRef variableId="V_DS69" subindex="2" />
+            <RecordItemRef variableId="V_DS69" subindex="3" />
+            <RecordItemRef variableId="V_DS69" subindex="4" />
+            <RecordItemRef variableId="V_DS69" subindex="5" />
+            <RecordItemRef variableId="V_DS69" subindex="6" />
+            <RecordItemRef variableId="V_DS69" subindex="7" gradient="0.1" />
+          </Menu>
+          <Menu id="ME_MSR_DS92_Common">
+            <Name textId="TI_ME_MSR_DS92_Common" />
+            <RecordItemRef variableId="V_DS92" subindex="2" />
+            <RecordItemRef variableId="V_DS92" subindex="3" />
+            <RecordItemRef variableId="V_DS92" subindex="4" />
+            <RecordItemRef variableId="V_DS92" subindex="6" />
+            <RecordItemRef variableId="V_DS92" subindex="7" />
+            <RecordItemRef variableId="V_DS92" subindex="8" />
+            <RecordItemRef variableId="V_DS92" subindex="9" />
+          </Menu>
+          <Menu id="ME_MSR_DS92_Diag">
+            <Name textId="TI_ME_MSR_DS92_Diag"></Name>
+            <RecordItemRef variableId="V_DS92" subindex="10" />
+            <!--OnDelay time running-->
+            <RecordItemRef variableId="V_DS92" subindex="11" />
+            <!--Delay time 1 running-->
+            <RecordItemRef variableId="V_DS92" subindex="12" />
+            <!--Delay time 2 running-->
+            <RecordItemRef variableId="V_DS92" subindex="13" />
+            <!--Delay time 3 running-->
+            <RecordItemRef variableId="V_DS92" subindex="14" />
+            <!--Delay time 4 running-->
+            <RecordItemRef variableId="V_DS92" subindex="15" />
+            <!--Limit 1 exceeded-->
+            <RecordItemRef variableId="V_DS92" subindex="16" />
+            <!--Limit 2 exceeded-->
+            <RecordItemRef variableId="V_DS92" subindex="17" />
+            <!--Limit 3 exceeded-->
+            <RecordItemRef variableId="V_DS92" subindex="18" />
+            <!--Limit 4 exceeded-->
+            <RecordItemRef variableId="V_DS92" subindex="19" />
+            <!--Warning 1 exceeded-->
+            <RecordItemRef variableId="V_DS92" subindex="20" />
+            <!--Warning 2 exceeded-->
+            <RecordItemRef variableId="V_DS92" subindex="21" />
+            <!--Warning 3 exceeded-->
+            <RecordItemRef variableId="V_DS92" subindex="22" />
+            <!--Warning 4 exceeded-->
+          </Menu>
+          <Menu id="ME_MSR_DS94">
+            <Name textId="TI_ME_MSR_DS94" />
+            <RecordItemRef variableId="V_DS94" subindex="2" displayFormat="Dec" gradient="0.01" />
+            <RecordItemRef variableId="V_DS94" subindex="3" displayFormat="Dec" gradient="0.01" unitCode="1209" />
+            <RecordItemRef variableId="V_DS94" subindex="4" displayFormat="Dec" gradient="0.01" unitCode="1209" />
+            <RecordItemRef variableId="V_DS94" subindex="5" displayFormat="Dec" gradient="0.10" unitCode="1240" />
+            <RecordItemRef variableId="V_DS94" subindex="6" displayFormat="Dec" gradient="1.00" unitCode="1186" />
+            <!--
+            <RecordItemRef variableId="V_DS94" subindex="7" displayFormat="Dec" gradient="0.01" unitCode="1209" />
+            <RecordItemRef variableId="V_DS94" subindex="8" displayFormat="Dec" gradient="0.01" unitCode="1209" />
+            <RecordItemRef variableId="V_DS94" subindex="9" displayFormat="Dec" gradient="1.00" unitCode="1186" />
+			-->
+          </Menu>
+          <Menu id="ME_MSR_DS131_General">
+            <Name textId="TI_ME_MSR_DS131_General" />
+            <RecordItemRef variableId="V_DS131" subindex="2" />
+            <!-- Common Diagnostic -->
+            <RecordItemRef variableId="V_DS131" subindex="3" />
+            <!--            <RecordItemRef variableId="V_DS131" subindex="4" /> -->
+            <RecordItemRef variableId="V_DS131" subindex="5" />
+            <RecordItemRef variableId="V_DS131" subindex="6" />
+            <RecordItemRef variableId="V_DS131" subindex="7" />
+            <RecordItemRef variableId="V_DS131" subindex="8" />
+            <RecordItemRef variableId="V_DS131" subindex="9" />
+          </Menu>
+          <Menu id="ME_MSR_DS131_Device">
+            <Name textId="TI_ME_MSR_DS131_Device" />
+            <RecordItemRef variableId="V_DS131" subindex="10" />
+            <!-- Memory -->
+            <RecordItemRef variableId="V_DS131" subindex="11" />
+            <RecordItemRef variableId="V_DS131" subindex="12" />
+            <RecordItemRef variableId="V_DS131" subindex="13" />
+            <RecordItemRef variableId="V_DS131" subindex="14" gradient="0.10" unitCode="1054" />
+            <!-- OnDelay time -->
+            <RecordItemRef variableId="V_DS131" subindex="15" gradient="0.10" unitCode="1054" />
+            <!-- Delay time 1 -->
+            <RecordItemRef variableId="V_DS131" subindex="16" gradient="0.10" unitCode="1054" />
+            <!-- Delay time 2 -->
+            <RecordItemRef variableId="V_DS131" subindex="17" gradient="0.10" unitCode="1054" />
+            <!-- Delay time 3 -->
+            <RecordItemRef variableId="V_DS131" subindex="18" gradient="0.10" unitCode="1054" />
+            <!-- Delay time 4 -->
+            <RecordItemRef variableId="V_DS131" subindex="27" gradient="0.010" />
+            <!-- Hysterese  cos -->
+            <RecordItemRef variableId="V_DS131" subindex="28" gradient="0.010" unitCode="1209" />
+            <!-- Hysterese2 Ires -->
+            <RecordItemRef variableId="V_DS131" subindex="29" />
+            <!-- Operation princip for limits -->
+          </Menu>
+          <Menu id="ME_MSR_DS131_Limits">
+            <Name textId="TI_ME_MSR_DS131_Limits" />
+            <RecordItemRef variableId="V_DS131" subindex="19" gradient="0.010" />
+            <!-- Limit 1 -->
+            <RecordItemRef variableId="V_DS131" subindex="20" gradient="0.010" />
+            <!-- Limit 2 -->
+            <RecordItemRef variableId="V_DS131" subindex="21" gradient="0.010" unitCode="1209" />
+            <!-- Limit 3 -->
+            <RecordItemRef variableId="V_DS131" subindex="22" gradient="0.010" unitCode="1209" />
+            <!-- Limit 4 -->
+            <RecordItemRef variableId="V_DS131" subindex="23" gradient="0.010" />
+            <!-- Warning 1 -->
+            <RecordItemRef variableId="V_DS131" subindex="24" gradient="0.010" />
+            <!-- Warning 2 -->
+            <RecordItemRef variableId="V_DS131" subindex="25" gradient="0.010" unitCode="1209" />
+            <!-- Warning 3 -->
+            <RecordItemRef variableId="V_DS131" subindex="26" gradient="0.010" unitCode="1209" />
+            <!-- Warning 4 -->
+          </Menu>
+          <Menu id="ME_MSR_Diag">
+            <Name textId="TI_ME_Diag" />
+            <MenuRef menuId="ME_MSR_DS92_Common" />
+            <MenuRef menuId="ME_MSR_DS92_Diag" />
+            <MenuRef menuId="ME_MSR_DS94" />
+          </Menu>
+          <Menu id="ME_MSR_Param">
+            <Name textId="TI_ME_Param" />
+            <MenuRef menuId="ME_System_Command" />
+            <MenuRef menuId="ME_Device_Access" />
+            <MenuRef menuId="ME_MSR_DS131_General" />
+            <MenuRef menuId="ME_MSR_DS131_Device" />
+            <MenuRef menuId="ME_MSR_DS131_Limits" />
+          </Menu>
+          <Menu id="ME_Observe">
+            <Name textId="TI_ME_Observe" />
+            <MenuRef menuId="ME_MSR_DS69" />
+            <MenuRef menuId="ME_MSR_DS67" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_Ident" />
+          <ObservationMenu menuId="ME_Observe" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_MSR_Ident" />
+          <ParameterMenu menuId="ME_MSR_Param" />
+          <ObservationMenu menuId="ME_Observe" />
+          <DiagnosisMenu menuId="ME_MSR_Diag" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_MSR_Ident" />
+          <ParameterMenu menuId="ME_MSR_Param" />
+          <ObservationMenu menuId="ME_Observe" />
+          <DiagnosisMenu menuId="ME_MSR_Diag" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1" compatibleWith="V1.0">
+    <TransportLayers>
+      <PhysicalLayer bitrate="COM2" minCycleTime="10000" sioSupported="true" mSequenceCapability="17">
+        <Connection xsi:type="CableConnectionT" connectionSymbol="Siemens-3UG4841-con-pic.png">
+          <ProductRef productId="3UG4841-*CA40" />
+          <Description textId="TI_Connection_Descr" />
+          <Wire1 function="L+" color="BN">
+            <Name textId="TI_CableWire1" />
+          </Wire1>
+          <Wire2 function="C/Q" color="BK">
+            <Name textId="TI_CableWire2" />
+          </Wire2>
+          <Wire3 function="L-" color="BU">
+            <Name textId="TI_CableWire3" />
+          </Wire3>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="68" testValue="0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x4A" />
+      <Config2 index="280" testValue="0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x4A" />
+      <Config3 index="24" testValue="0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x4A,0x4B,0x4C,0x4D,0x4E,0x4F,0x50,0x51,0x52,0x53,0x54,0x55,0x56,0x57,0x58,0x59,0x5A" />
+      <Config7 index="65">
+        <EventTrigger appearValue="21" disappearValue="41" />
+        <EventTrigger appearValue="22" disappearValue="42" />
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.com/io-link" />
+      <Text id="TI_DeviceFamily" value="SIRIUS Monitoring Relay" />
+      <Text id="TI_Device_Name" value="SIRIUS 3UG4841 Power Factor / Active Current Monitoring Relay for IO-Link" />
+      <Text id="TI_Device_Text" value="Digital Monitoring Relay, Cos-phi and Current monitoring, for IO-Link, 90 to 690V AC, 0.2 to 10A, Overshoot and Undershoot, On-delay time, Tripping delay time, Hysteresis 0.1 to 3.0A, 2 Change-over contacts, 1CA40 Screw terminal, 2CA40 Spring-loaded terminal" />
+      <Text id="TI_BitState_On" value="   X" />
+      <Text id="TI_BitState_Off" value=" " />
+      <Text id="TI_DS_Header" value="DS Header" />
+      <Text id="TI_Byte" value="" />
+      <Text id="TI_Pae" value="PII" />
+      <Text id="TI_PaeReady" value="Ready" />
+      <Text id="TI_PaeFault" value="Group error" />
+      <Text id="TI_PaeWarning" value="General warning" />
+      <Text id="TI_PaeRelay_K1" value="Status output relay K1" />
+      <Text id="TI_PaeRelay_K2" value="Status output relay K2" />
+      <Text id="TI_PaeValueIndex" value="Analog value coding" />
+      <Text id="TI_PaeValue" value="Analog value" />
+      <Text id="TI_DS67" value="PIQ" />
+      <Text id="TI_DS67_OnDel" value="Start ON-delay time" />
+      <Text id="TI_DS67_Reset" value="Reset" />
+      <Text id="TI_DS69" value="PII" />
+      <Text id="TI_DS69_Ready" value="Ready" />
+      <Text id="TI_DS69_Error" value="Group error" />
+      <Text id="TI_DS69_Warning" value="General warning" />
+      <Text id="TI_DS69_K1" value="Status output relay K1" />
+      <Text id="TI_DS69_K2" value="Status output relay K2" />
+      <Text id="TI_DS69_Index" value="Analog value coding" />
+      <Text id="TI_DS69_Value" value="Analog value" />
+      <Text id="TI_Paa" value="PIQ" />
+      <Text id="TI_PaaStartOnDel" value="Start ON-delay time" />
+      <Text id="TI_PaaDeviceReset" value="Reset" />
+      <Text id="TI_DS92" value="index92" />
+      <Text id="TI_DS92_Ready" value="Ready"></Text>
+      <Text id="TI_DS92_Error" value="Group error"></Text>
+      <Text id="TI_DS92_Warning" value="Group warning"></Text>
+      <Text id="TI_DS92_Prewarning" value="Group prewarning"></Text>
+      <Text id="TI_DS92_Setting" value="Parameter assignment active"></Text>
+      <Text id="TI_DS92_WrongParam" value="Invalid parameter"></Text>
+      <Text id="TI_DS92_InternalError" value="Self-test error / internal Error"></Text>
+      <Text id="TI_DS92_WrongParamNo" value="Parameter error number"></Text>
+      <Text id="TI_DS92_OnDel" value="ON-delay time running"></Text>
+      <Text id="TI_DS92_Del1" value="Tripping delay time running (threshold for overshoot: cos phi value)"></Text>
+      <Text id="TI_DS92_Del2" value="Tripping delay time running (threshold for undershoot: cos phi value)"></Text>
+      <Text id="TI_DS92_Del3" value="Tripping delay time running (threshold for overshoot: active current value)"></Text>
+      <Text id="TI_DS92_Del4" value="Tripping delay time running (threshold for undershoot: active current value)"></Text>
+      <Text id="TI_DS92_Limit1" value="Threshold value for overshoot exceeded (cos phi value)"></Text>
+      <Text id="TI_DS92_Limit2" value="Threshold value for undershoot violated (cos phi value)"></Text>
+      <Text id="TI_DS92_Limit3" value="Threshold for overshoot exceeded (active current value)"></Text>
+      <Text id="TI_DS92_Limit4" value="Threshold for undershoot violated (active current value)"></Text>
+      <Text id="TI_DS92_Warn1" value="Warning threshold for overshoot exceeded (cos phi value)"></Text>
+      <Text id="TI_DS92_Warn2" value="Warning threshold for undershoot violated (cos phi value)"></Text>
+      <Text id="TI_DS92_Warn3" value="Warning threshold for overshoot exceeded (active current value)"></Text>
+      <Text id="TI_DS92_Warn4" value="Warning threshold for undershoot violated (active current value)"></Text>
+      <Text id="TI_DS94" value="index94" />
+      <Text id="TI_DS94_Cos" value="Cos phi value" />
+      <Text id="TI_DS94_Ires" value="Active current Ir" />
+      <Text id="TI_DS94_Is" value="Apparent current Is" />
+      <Text id="TI_DS94_Uw" value="Voltage U" />
+      <Text id="TI_DS94_Pw" value="Active power P" />
+      <Text id="TI_DS94_Ires_long" value="Active current Ir" />
+      <Text id="TI_DS94_Is_long" value="Apparent current Is" />
+      <Text id="TI_DS94_Pw_long" value="Active power P" />
+      <Text id="TI_Value_Error" value="Out of range" />
+      <Text id="TI_DS131" value="index131" />
+      <Text id="TI_DS131_Dis" value="disabled" />
+      <Text id="TI_DS131_En" value="enabled" />
+      <Text id="TI_DS131_NC" value="Closed-circuit principle (NC)" />
+      <Text id="TI_DS131_NO" value="Open-circuit principle (NO)" />
+      <Text id="TI_DS131_DiagComm" value="Group diagnostics" />
+      <Text id="TI_DS131_DiagCommError" value="Group error diagnostics" />
+      <Text id="TI_DS131_DiagCommWarning" value="Group warning diagnostics" />
+      <Text id="TI_DS131_LocalAdj" value="Local threshold change" />
+      <Text id="TI_DS131_LocalSet" value="Local parameter change" />
+      <Text id="TI_DS131_LocalReset" value="Local reset" />
+      <Text id="TI_DS131_ErrorSave" value="Retentive error memory" />
+      <Text id="TI_DS131_Memory" value="Reset response" />
+      <Text id="TI_DS131_onDelPON" value="ON-delay time (at Power ON)" />
+      <Text id="TI_DS131_onDelReset" value="ON-delay time (at manual reset)" />
+      <Text id="TI_DS131_onDelRestart" value="ON-delay time (at restart)" />
+      <Text id="TI_DS131_IndexOfValue" value="Analog value coding" />
+      <Text id="TI_DS131_onDel" value="ON-delay time" />
+      <Text id="TI_DS131_Del1" value="Tripping delay time (in the case of overshoot of the cos phi value)" />
+      <Text id="TI_DS131_Del2" value="Tripping delay time (in the case of undershoot of the cos phi value)" />
+      <Text id="TI_DS131_Del3" value="Tripping delay time (in the case of active current overshoot)" />
+      <Text id="TI_DS131_Del4" value="Tripping delay time (in the case of active current undershoot)" />
+      <Text id="TI_DS131_Limit1" value="Threshold for overshoot of the cos phi value" />
+      <Text id="TI_DS131_Limit2" value="Threshold for undershoot of the cos phi value" />
+      <Text id="TI_DS131_Limit3" value="Threshold for overshoot of the active current value" />
+      <Text id="TI_DS131_Limit4" value="Threshold for undershoot of the active current value" />
+      <Text id="TI_DS131_Warn1" value="Warning threshold for overshoot of the cos phi value" />
+      <Text id="TI_DS131_Warn2" value="Warning threshold for undershoot of the cos phi value" />
+      <Text id="TI_DS131_Warn3" value="Warning threshold for overshoot of the active current value" />
+      <Text id="TI_DS131_Warn4" value="Warning threshold for undershoot of the active current value" />
+      <Text id="TI_DS131_Hyst_Cos" value="Hysteresis cos phi" />
+      <Text id="TI_DS131_Hyst_Ires" value="Hysteresis active current" />
+      <Text id="TI_DS131_OperationPrincip" value="Relay switching response" />
+      <Text id="TI_DS131_Limit_Off" value="disabled" />
+      <Text id="TI_DS131_ResManual" value="manual" />
+      <Text id="TI_DS131_ResAuto" value="automatic" />
+      <Text id="TI_Index_Ires" value="Ir (28)" />
+      <Text id="TI_Index_Cos" value="CosPhi (43)" />
+      <Text id="TI_Index_Is" value="Is (16)" />
+      <Text id="TI_Index_Ures" value="U (44)" />
+      <Text id="TI_Index_Pw" value="P (40)" />
+      <Text id="TI_ME_MSR_DS67" value="Process image output" />
+      <Text id="TI_ME_MSR_DS69" value="Process image input" />
+      <Text id="TI_ME_MSR_DS92_Common" value="Operating system functions"></Text>
+      <Text id="TI_ME_MSR_DS92_Diag" value="Cos phi and active current monitoring" />
+      <Text id="TI_ME_MSR_DS94" value="Measured values" />
+      <Text id="TI_ME_MSR_DS131_General" value="Operating system functions" />
+      <Text id="TI_ME_MSR_DS131_Device" value="Cos phi and active current monitoring" />
+      <Text id="TI_ME_MSR_DS131_Limits" value="Thresholds" />
+      <Text id="TI_ME_Ident" value="Identification Data" />
+      <Text id="TI_ME_Param" value="Parameter Data" />
+      <Text id="TI_ME_Observe" value="Process Data" />
+      <Text id="TI_ME_Diag" value="Diagnostic Data" />
+      <Text id="TI_ME_SystemCommand" value="System command" />
+      <Text id="TI_ME_DeviceAccess" value="Device access locks" />
+      <Text id="TI_EV_Sensor" value="Sensor error" />
+      <Text id="TI_EvDescr_Sensor" value="Sensor error" />
+      <Text id="TI_DS131_DiagComm_Descr" value="enable/disable automatic signaling to PLC" />
+      <Text id="TI_DS131_DiagCommError_Descr" value="enable/disable automatic signaling of error messages to PLC" />
+      <Text id="TI_DS131_LocalAdj_Descr" value="enable/disable local threshold changing via buttons" />
+      <Text id="TI_DS131_LocalSet_Descr" value="enable/disable local parameter changing via buttons" />
+      <Text id="TI_DS131_LocalReset_Descr" value="enable/disable local reset via buttons" />
+      <Text id="TI_DS131_ErrorSave_Descr" value="enable/disable remanent saving of error messages in the event of a power failure" />
+      <Text id="TI_DS131_IndexOfValue_Descr" value="choose the analog value trasmitted cyclically in the process image" />
+      <Text id="TI_DS131_Memory_Descr" value="choose reset response after triggering due to alarm" />
+      <Text id="TI_DS131_OnDelPON_Descr" value="enable/disable starting of delay time for motor ramp up at Power-ON" />
+      <Text id="TI_DS131_OnDelReset_Descr" value="enable/disable starting of delay time for motor ramp up at manual reset of the device" />
+      <Text id="TI_DS131_OnDelRestart_Descr" value="enable/disable starting of delay time for motor ramp up when measurable signal is detected" />
+      <Text id="TI_DS131_OnDel_Descr" value="set the value of ON-delay time for motor ramp up" />
+      <Text id="TI_DS131_Del1_Descr" value="set the value of tripping delay time (cos phi overshoot)" />
+      <Text id="TI_DS131_Del2_Descr" value="set the value of tripping delay time (cos phi undershoot)" />
+      <Text id="TI_DS131_Del3_Descr" value="set the value of tripping delay time (active current overshoot)" />
+      <Text id="TI_DS131_Del4_Descr" value="set the value of tripping delay time (active current undershoot)" />
+      <Text id="TI_DS131_Limit1_Descr" value="set threshold for tripping due to a value overshoot" />
+      <Text id="TI_DS131_Limit2_Descr" value="set threshold for tripping due to a value undershoot" />
+      <Text id="TI_DS131_Limit3_Descr" value="set threshold for tripping due to a value overshoot" />
+      <Text id="TI_DS131_Limit4_Descr" value="set threshold for tripping due to a value undershoot" />
+      <Text id="TI_DS131_Warn1_Descr" value="set warning threshold for tripping due to a value overshoot" />
+      <Text id="TI_DS131_Warn2_Descr" value="set warning threshold for tripping due to a value undershoot" />
+      <Text id="TI_DS131_Warn3_Descr" value="set warning threshold for tripping due to a value overshoot" />
+      <Text id="TI_DS131_Warn4_Descr" value="set warning threshold for tripping due to a value undershoot" />
+      <Text id="TI_DS131_Hyst_Cos_Descr" value="set the value of hysteresis for automatic reset after overshoot or undershoot " />
+      <Text id="TI_DS131_Hyst_Ires_Descr" value="set the value of hysteresis for automatic reset after overshoot or undershoot " />
+      <Text id="TI_DS131_OperationPrincip_Descr" value="set the value of tripping delay time (voltage asymmetry)" />
+      <Text id="TI_Connection_Descr" value="Connection Description" />
+      <Text id="TI_CableWire1" value="L+" />
+      <Text id="TI_CableWire2" value="C/Q" />
+      <Text id="TI_CableWire3" value="L-" />
+    </PrimaryLanguage>
+    <Language xml:lang="de">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.de/io-link" />
+      <Text id="TI_DeviceFamily" value="SIRIUS Überwachungsrelais" />
+      <Text id="TI_Device_Name" value="SIRIUS Cos phi-/Wirkstromüberwachungsrelais für IO-Link 3UG4841" />
+      <Text id="TI_Device_Text" value="Digitales Überwachungsrelais, Cos-phi u. Wirkstromüberwachung für IO-Link, 90 bis 690V AC, 0,2 bis 10A, Über- und Unterschreitung, Anlaufverzögerungszeit, Auslöseverzögerungszeit, Hysterese 0,1 bis 3,0A, 2 Wechsler, 1CA40 Schraubanschluss, 2CA40 Federzugkleme" />
+      <Text id="TI_BitState_On" value="   X" />
+      <Text id="TI_BitState_Off" value=" " />
+      <Text id="TI_DS_Header" value="DS Header" />
+      <Text id="TI_Byte" value="" />
+      <Text id="TI_Pae" value="PAE" />
+      <Text id="TI_PaeReady" value="Bereit" />
+      <Text id="TI_PaeFault" value="Sammelfehler" />
+      <Text id="TI_PaeWarning" value="Sammelwarnung" />
+      <Text id="TI_PaeRelay_K1" value="Status Ausgangsrelais K1" />
+      <Text id="TI_PaeRelay_K2" value="Status Ausgangsrelais K2" />
+      <Text id="TI_PaeValueIndex" value="Analogwertcodierung" />
+      <Text id="TI_PaeValue" value="Analogwert" />
+      <Text id="TI_DS67" value="PAA" />
+      <Text id="TI_DS67_OnDel" value="Starte Anlaufverzögerungszeit" />
+      <Text id="TI_DS67_Reset" value="Reset" />
+      <Text id="TI_DS69" value="PAE" />
+      <Text id="TI_DS69_Ready" value="Bereit" />
+      <Text id="TI_DS69_Error" value="Sammelfehler" />
+      <Text id="TI_DS69_Warning" value="Sammelwarnung" />
+      <Text id="TI_DS69_K1" value="Status Ausgangsrelais K1" />
+      <Text id="TI_DS69_K2" value="Status Ausgangsrelais K2" />
+      <Text id="TI_DS69_Index" value="Analogwertcodierung" />
+      <Text id="TI_DS69_Value" value="Analogwert" />
+      <Text id="TI_Paa" value="PAA" />
+      <Text id="TI_PaaStartOnDel" value="Starte Anlaufverzögerungszeit" />
+      <Text id="TI_PaaDeviceReset" value="Reset" />
+      <Text id="TI_DS92" value="DS92" />
+      <Text id="TI_DS92_Ready" value="Bereit"></Text>
+      <Text id="TI_DS92_Error" value="Sammelfehler"></Text>
+      <Text id="TI_DS92_Warning" value="Sammelwarnung"></Text>
+      <Text id="TI_DS92_Prewarning" value="Sammelprewarnung"></Text>
+      <Text id="TI_DS92_Setting" value="Parametrierung aktiv"></Text>
+      <Text id="TI_DS92_WrongParam" value="Ungültiger Parameter"></Text>
+      <Text id="TI_DS92_InternalError" value="Fehler bei Selbsttest / Interner Fehler"></Text>
+      <Text id="TI_DS92_WrongParamNo" value="Fehlerbehaftete Parameternummer"></Text>
+      <Text id="TI_DS92_OnDel" value="Anlaufverzögerungszeit läuft"></Text>
+      <Text id="TI_DS92_Del1" value="Auslöseverzögerungszeit läuft (Grenzwert für Überschreitung: Cos Phi-Wert)"></Text>
+      <Text id="TI_DS92_Del2" value="Auslöseverzögerungszeit läuft (Grenzwert für Unterschreitung: Cos Phi-Wert)"></Text>
+      <Text id="TI_DS92_Del3" value="Auslöseverzögerungszeit läuft (Grenzwert für Überschreitung: Wirkstromwert)"></Text>
+      <Text id="TI_DS92_Del4" value="Auslöseverzögerungszeit läuft (Grenzwert für Unterschreitung: Wirkstromwert)"></Text>
+      <Text id="TI_DS92_Limit1" value="Grenzwert für Überschreitung überschritten (Cos Phi-Wert)"></Text>
+      <Text id="TI_DS92_Limit2" value="Grenzwert für Unterschreitung unterschritten (Cos Phi-Wert)"></Text>
+      <Text id="TI_DS92_Limit3" value="Grenzwert für Überschreitung überschritten (Wirkstromwert)"></Text>
+      <Text id="TI_DS92_Limit4" value="Grenzwert für Unterschreitung unterschritten (Wirkstromwert)"></Text>
+      <Text id="TI_DS92_Warn1" value="Warngrenzwert für Überschreitung überschritten (Cos Phi-Wert)"></Text>
+      <Text id="TI_DS92_Warn2" value="Warngrenzwert für Unterschreitung unterschritten (Cos Phi-Wert)"></Text>
+      <Text id="TI_DS92_Warn3" value="Warngrenzwert für Überschreitung überschritten (Wirkstromwert)"></Text>
+      <Text id="TI_DS92_Warn4" value="Warngrenzwert für Unterschreitung unterschritten (Wirkstromwert)"></Text>
+      <Text id="TI_DS94" value="DS94" />
+      <Text id="TI_DS94_Cos" value="CosPhi" />
+      <Text id="TI_DS94_Ires" value="Wirkstrom Ir" />
+      <Text id="TI_DS94_Is" value="Scheinstrom Is" />
+      <Text id="TI_DS94_Uw" value="Spannung U" />
+      <Text id="TI_DS94_Pw" value="Wirkleistung P" />
+      <Text id="TI_DS94_Ires_long" value="Wirkstrom Ir" />
+      <Text id="TI_DS94_Is_long" value="Scheinstrom Is" />
+      <Text id="TI_DS94_Pw_long" value="Wirkleistung P" />
+      <Text id="TI_Value_Error" value="Messbereichsüberschreitung" />
+      <Text id="TI_DS131" value="DS131" />
+      <Text id="TI_DS131_Dis" value="gesperrt" />
+      <Text id="TI_DS131_En" value="freigegeben" />
+      <Text id="TI_DS131_NC" value="Ruhestromprinzip (NC)" />
+      <Text id="TI_DS131_NO" value="Arbeitstromprinzip (NO)" />
+      <Text id="TI_DS131_DiagComm" value="Sammeldiagnose" />
+      <Text id="TI_DS131_DiagCommError" value="Sammelfehlerdiagnose" />
+      <Text id="TI_DS131_DiagCommWarning" value="Sammelwarnungdiagnose" />
+      <Text id="TI_DS131_LocalAdj" value="Lokale Grenzwertänderung" />
+      <Text id="TI_DS131_LocalSet" value="Lokale Parameteränderung" />
+      <Text id="TI_DS131_LocalReset" value="Lokaler Reset" />
+      <Text id="TI_DS131_ErrorSave" value="Remanenter Fehlerspeicher" />
+      <Text id="TI_DS131_Memory" value="Reset-Verhalten" />
+      <Text id="TI_DS131_onDelPON" value="Anlaufverzögerungszeit bei Power-On" />
+      <Text id="TI_DS131_onDelReset" value="Anlaufverzögerungszeit bei manuellem Reset" />
+      <Text id="TI_DS131_onDelRestart" value="Anlaufverzögerungszeit bei Wiederanlauf" />
+      <Text id="TI_DS131_IndexOfValue" value="Analogwertcodierung" />
+      <Text id="TI_DS131_onDel" value="Anlaufverzögerungszeit" />
+      <Text id="TI_DS131_Del1" value="Auslöseverzögerungszeit bei Überschreitung des Cos Phi-Wertes" />
+      <Text id="TI_DS131_Del2" value="Auslöseverzögerungszeit bei Unterschreitung des Cos Phi-Wertes" />
+      <Text id="TI_DS131_Del3" value="Auslöseverzögerungszeit bei Wirkstromüberschreitung" />
+      <Text id="TI_DS131_Del4" value="Auslöseverzögerungszeit bei Wirkstromunterschreitung" />
+      <Text id="TI_DS131_Limit1" value="Grenzwert für Überschreitung des Cos Phi-Wertes" />
+      <Text id="TI_DS131_Limit2" value="Grenzwert für Unterschreitung des Cos Phi-Wertes" />
+      <Text id="TI_DS131_Limit3" value="Grenzwert für Überschreitung des Wirkstromwertes" />
+      <Text id="TI_DS131_Limit4" value="Grenzwert für Unterschreitung des Wirkstromwertes" />
+      <Text id="TI_DS131_Warn1" value="Warngrenzwert für Überschreitung des Cos Phi-Wertes" />
+      <Text id="TI_DS131_Warn2" value="Warngrenzwert für Unterschreitung des Cos Phi-Wertes" />
+      <Text id="TI_DS131_Warn3" value="Warngrenzwert für Überschreitung des Wirkstromwertes" />
+      <Text id="TI_DS131_Warn4" value="Warngrenzwert für Unterschreitung des Wirkstromwertes" />
+      <Text id="TI_DS131_Hyst_Cos" value="Hysterese CosPhi" />
+      <Text id="TI_DS131_Hyst_Ires" value="Hysterese Wirkstrom" />
+      <Text id="TI_DS131_OperationPrincip" value="Relais-Schaltverhalten" />
+      <Text id="TI_DS131_Limit_Off" value="gesperrt" />
+      <Text id="TI_DS131_ResManual" value="manuell" />
+      <Text id="TI_DS131_ResAuto" value="automatisch" />
+      <Text id="TI_Index_Ires" value="Ir (28)" />
+      <Text id="TI_Index_Cos" value="CosPhi (43)" />
+      <Text id="TI_Index_Is" value="Is (16)" />
+      <Text id="TI_Index_Ures" value="U (44)" />
+      <Text id="TI_Index_Pw" value="P (40)" />
+      <Text id="TI_ME_MSR_DS67" value="Prozessabbild der Ausgänge" />
+      <Text id="TI_ME_MSR_DS69" value="Prozessabbild der Eingänge" />
+      <Text id="TI_ME_MSR_DS92_Common" value="Betriebssystemfunktionen"></Text>
+      <Text id="TI_ME_MSR_DS92_Diag" value="Cos Phi- und Wirkstromüberwachung" />
+      <Text id="TI_ME_MSR_DS94" value="Messwerte" />
+      <Text id="TI_ME_MSR_DS131_General" value="Betriebssystemfunktionen" />
+      <Text id="TI_ME_MSR_DS131_Device" value="Cos Phi- und Wirkstromüberwachung" />
+      <Text id="TI_ME_MSR_DS131_Limits" value="Grenzwerte" />
+      <Text id="TI_ME_Ident" value="Identifikationsdaten" />
+      <Text id="TI_ME_Param" value="Parameterdaten" />
+      <Text id="TI_ME_Observe" value="Prozessdaten" />
+      <Text id="TI_ME_Diag" value="Diagnosedaten" />
+      <Text id="TI_ME_SystemCommand" value="Systemkommandos" />
+      <Text id="TI_ME_DeviceAccess" value="Gerätezugriff gesperrt" />
+      <Text id="TI_EV_Sensor" value="Sensorfehler" />
+      <Text id="TI_EvDescr_Sensor" value="Sensorfehler" />
+      <Text id="TI_DS131_DiagComm_Descr" value="automatisches Melden an Steuerung freigeben/sperren" />
+      <Text id="TI_DS131_DiagCommError_Descr" value="automatisches Melden aller Fehlermeldungen an Steuerung freigeben/sperren" />
+      <Text id="TI_DS131_LocalAdj_Descr" value="Grenzwert- und Warngrenzwertänderungen lokal am Gerät freigeben/sperren" />
+      <Text id="TI_DS131_LocalSet_Descr" value="Parameteränderungen lokal am Gerät durchführen freigeben/sperren" />
+      <Text id="TI_DS131_LocalReset_Descr" value="quittieren anstehender Fehlermeldungen lokal am Gerät freigeben/sperren" />
+      <Text id="TI_DS131_ErrorSave_Descr" value="Fehlermeldungen bei Spannungsausfall im Gerät speichern freigeben/sperren" />
+      <Text id="TI_DS131_IndexOfValue_Descr" value="Auswahl des Analogmesswertes welcher zyklisch im Prozessabbild übertragen wird" />
+      <Text id="TI_DS131_Memory_Descr" value="Auswahl des Reset-Verhaltens nach Auslösung im Fehlerfall" />
+      <Text id="TI_DS131_OnDelPON_Descr" value="Verzögerungszeit für Motoranlauf bei Wiederanlegen der Versorgungsspannung starten freigeben/sperren" />
+      <Text id="TI_DS131_OnDelReset_Descr" value="Verzögerungszeit für Motoranlauf bei manuellem Reset starten freigeben/sperren" />
+      <Text id="TI_DS131_OnDelRestart_Descr" value="Verzögerungszeit für Motoranlauf bei Überschreiten der unteren Messbereichsgrenze starten freigeben/sperren" />
+      <Text id="TI_DS131_OnDel_Descr" value="Eingabe der Verzögerungszeit für den Motoranlauf" />
+      <Text id="TI_DS131_Del1_Descr" value="Eingabe der Auslöseverzögerungszeit bei Überschreitung des cos phi-Wertes" />
+      <Text id="TI_DS131_Del2_Descr" value="Eingabe der Auslöseverzögerungszeit bei Unterschreitung des cos phi-Wertes" />
+      <Text id="TI_DS131_Del3_Descr" value="Eingabe der Auslöseverzögerungszeit bei Wirkstromüberschreitung" />
+      <Text id="TI_DS131_Del4_Descr" value="Eingabe der Auslöseverzögerungszeit bei Wirkstromunterschreitung" />
+      <Text id="TI_DS131_Limit1_Descr" value="Eingabe des Grenzwertes für Überschreitung" />
+      <Text id="TI_DS131_Limit2_Descr" value="Eingabe des Grenzwertes für Unterschreitung" />
+      <Text id="TI_DS131_Limit3_Descr" value="Eingabe des Grenzwertes für Überschreitung" />
+      <Text id="TI_DS131_Limit4_Descr" value="Eingabe des Grenzwertes für Unterschreitung" />
+      <Text id="TI_DS131_Warn1_Descr" value="Eingabe des Warngrenzwertes für Überschreitung" />
+      <Text id="TI_DS131_Warn2_Descr" value="Eingabe des Warngrenzwertes für Unterschreitung" />
+      <Text id="TI_DS131_Warn3_Descr" value="Eingabe des Warngrenzwertes für Überschreitung" />
+      <Text id="TI_DS131_Warn4_Descr" value="Eingabe des Warngrenzwertes für Unterschreitung" />
+      <Text id="TI_DS131_Hyst_Cos_Descr" value="Eingabe des Hystereswertes bei automatischen Reset nach Über- oder Unterschreitung" />
+      <Text id="TI_DS131_Hyst_Ires_Descr" value="Eingabe des Hystereswertes bei automatischen Reset nach Über- oder Unterschreitung" />
+      <Text id="TI_DS131_OperationPrincip_Descr" value="Eingabe der Auslöseverzögerungszeit bei Spannungsasymmetrie" />
+      <Text id="TI_Connection_Descr" value="Connection Description" />
+      <Text id="TI_CableWire1" value="L+" />
+      <Text id="TI_CableWire2" value="C/Q" />
+      <Text id="TI_CableWire3" value="L-" />
+    </Language>
+    <Language xml:lang="fr">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.com/io-link" />
+      <Text id="TI_DeviceFamily" value="SIRIUS Relais de surveillance" />
+      <Text id="TI_Device_Name" value="SIRIUS Relais de surveillance du Cos phi et du courant actif pour IO-Link 3UG4841" />
+      <Text id="TI_Device_Text" value="Relais de surveillance numérique, surveillance du Cos phi et surveillance du courant actif pour IO-Link, 90 à 690 V CA, 0,2 à 10A, dépassement par le haut et par le bas, temporisation au démarrage, temporisation à la coupure, hystérésis 0,1 à 3,0 A, 2 contacts inverseurs, bornes à vis 1CA40, bornes à ressort 2CA40" />
+      <Text id="TI_BitState_On" value="   X" />
+      <Text id="TI_BitState_Off" value=" " />
+      <Text id="TI_DS_Header" value="DS Header" />
+      <Text id="TI_Byte" value="" />
+      <Text id="TI_Pae" value="MIE" />
+      <Text id="TI_PaeReady" value="Prêt" />
+      <Text id="TI_PaeFault" value="Signalisation groupée de défaut" />
+      <Text id="TI_PaeWarning" value="Signalisation groupée d'alarme" />
+      <Text id="TI_PaeRelay_K1" value="Etat du relais de sortie K1" />
+      <Text id="TI_PaeRelay_K2" value="Etat du relais de sortie K2" />
+      <Text id="TI_PaeValueIndex" value="Codage de valeur analogique" />
+      <Text id="TI_PaeValue" value="Valeur analogique" />
+      <Text id="TI_DS67" value="MIS" />
+      <Text id="TI_DS67_OnDel" value="Démarrer la temporisation au démarrage" />
+      <Text id="TI_DS67_Reset" value="Réarmement" />
+      <Text id="TI_DS69" value="MIE" />
+      <Text id="TI_DS69_Ready" value="Prêt" />
+      <Text id="TI_DS69_Error" value="Signalisation groupée de défaut" />
+      <Text id="TI_DS69_Warning" value="Signalisation groupée d'alarme" />
+      <Text id="TI_DS69_K1" value="Etat du relais de sortie K1" />
+      <Text id="TI_DS69_K2" value="Etat du relais de sortie K2" />
+      <Text id="TI_DS69_Index" value="Codage de valeur analogique" />
+      <Text id="TI_DS69_Value" value="Valeur analogique" />
+      <Text id="TI_Paa" value="MIS" />
+      <Text id="TI_PaaStartOnDel" value="Démarrer la temporisation au démarrage" />
+      <Text id="TI_PaaDeviceReset" value="Réarmement" />
+      <Text id="TI_DS92" value="index92" />
+      <Text id="TI_DS92_Ready" value="Prêt"></Text>
+      <Text id="TI_DS92_Error" value="Signalisation groupée de défaut"></Text>
+      <Text id="TI_DS92_Warning" value="Signalisation groupée d'alarme"></Text>
+      <Text id="TI_DS92_Prewarning" value="Group prewarning"></Text>
+      <Text id="TI_DS92_Setting" value="Paramétrage activé"></Text>
+      <Text id="TI_DS92_WrongParam" value="Paramètre invalide"></Text>
+      <Text id="TI_DS92_InternalError" value="Erreur à l'autotest / Défaut interne"></Text>
+      <Text id="TI_DS92_WrongParamNo" value="Numéro de paramètre incorrect"></Text>
+      <Text id="TI_DS92_OnDel" value="Temporisation au démarrage en cours"></Text>
+      <Text id="TI_DS92_Del1" value="Temporisation au déclenchement en cours (valeur limite pour dépassement en valeur supérieure : de la valeur de cos phi)"></Text>
+      <Text id="TI_DS92_Del2" value="Temporisation au déclenchement en cours (valeur limite pour dépassement en valeur inférieure : de la valeur de cos phi)"></Text>
+      <Text id="TI_DS92_Del3" value="Temporisation au déclenchement en cours (valeur limite pour dépassement en valeur supérieure : de la valeur de courant actif)"></Text>
+      <Text id="TI_DS92_Del4" value="Temporisation au déclenchement en cours (valeur limite pour dépassement en valeur inférieure : de la valeur de courant actif)"></Text>
+      <Text id="TI_DS92_Limit1" value="Dépassement en valeur supérieure de la valeur limite (valeur de cos phi)"></Text>
+      <Text id="TI_DS92_Limit2" value="Dépassement en valeur inférieure de la valeur limite (valeur de cos phi)"></Text>
+      <Text id="TI_DS92_Limit3" value="Dépassement en valeur supérieure de la valeur limite (valeur de courant actif)"></Text>
+      <Text id="TI_DS92_Limit4" value="Dépassement en valeur inférieure de la valeur limite (valeur de courant actif)"></Text>
+      <Text id="TI_DS92_Warn1" value="Dépassement en valeur supérieure du seuil d'alerte (valeur de cos phi)"></Text>
+      <Text id="TI_DS92_Warn2" value="Dépassement en valeur inférieure du seuil d'alerte (valeur de cos phi)"></Text>
+      <Text id="TI_DS92_Warn3" value="Dépassement en valeur supérieure du seuil d'alerte (valeur de courant actif)"></Text>
+      <Text id="TI_DS92_Warn4" value="Dépassement en valeur inférieure du seuil d'alerte (valeur de courant actif)"></Text>
+      <Text id="TI_DS94" value="index94" />
+      <Text id="TI_DS94_Cos" value="Valeur cos phi" />
+      <Text id="TI_DS94_Ires" value="Courant actif Ir" />
+      <Text id="TI_DS94_Is" value="Courant apparent Is" />
+      <Text id="TI_DS94_Uw" value="Tension active U" />
+      <Text id="TI_DS94_Pw" value="Puissance active P" />
+      <Text id="TI_DS94_Ires_long" value="Courant actif Ir" />
+      <Text id="TI_DS94_Is_long" value="Courant apparent Is" />
+      <Text id="TI_DS94_Pw_long" value="Puissance active P" />
+      <Text id="TI_Value_Error" value="Hors plage" />
+      <Text id="TI_DS131" value="index131" />
+      <Text id="TI_DS131_Dis" value="Bloqué" />
+      <Text id="TI_DS131_En" value="Debloqué" />
+      <Text id="TI_DS131_NC" value="Principe du courant de repos (NC)" />
+      <Text id="TI_DS131_NO" value="Principe du courant de travail (NO)" />
+      <Text id="TI_DS131_DiagComm" value="Diagnostic groupé" />
+      <Text id="TI_DS131_DiagCommError" value="Diagnostic Signalisation groupée de défaut" />
+      <Text id="TI_DS131_DiagCommWarning" value="Group warning diagnostics" />
+      <Text id="TI_DS131_LocalAdj" value="Modification locale de valeur limite" />
+      <Text id="TI_DS131_LocalSet" value="Modification locale des paramètres" />
+      <Text id="TI_DS131_LocalReset" value="Réarmement local" />
+      <Text id="TI_DS131_ErrorSave" value="Mémoire de défauts rémanente" />
+      <Text id="TI_DS131_Memory" value="Comportement réarmement" />
+      <Text id="TI_DS131_onDelPON" value="Temporisation au démarrage (pour Power-On)" />
+      <Text id="TI_DS131_onDelReset" value="Temporisation au démarrage (pour Réarmement manuel)" />
+      <Text id="TI_DS131_onDelRestart" value="Temporisation au démarrage (pour redémarrage)" />
+      <Text id="TI_DS131_IndexOfValue" value="Codage de valeur analogique" />
+      <Text id="TI_DS131_onDel" value="Temporisation au démarrage" />
+      <Text id="TI_DS131_Del1" value="Temporisation au déclenchement (pour dépassement en valeur supérieure de la valeur de cos phi)" />
+      <Text id="TI_DS131_Del2" value="Temporisation au déclenchement (pour dépassement en valeur inférieure de la valeur de cos phi)" />
+      <Text id="TI_DS131_Del3" value="Temporisation au déclenchement (pour dépassement en valeur supérieure du courant actif)" />
+      <Text id="TI_DS131_Del4" value="Temporisation au déclenchement (pour dépassement en valeur inférieure du courant actif)" />
+      <Text id="TI_DS131_Limit1" value="Valeur limite pour dépassement en valeur supérieure de la valeur de cos phi" />
+      <Text id="TI_DS131_Limit2" value="Valeur limite pour dépassement en valeur inférieure de la valeur de cos phi" />
+      <Text id="TI_DS131_Limit3" value="Valeur limite pour dépassement en valeur supérieure du courant actif" />
+      <Text id="TI_DS131_Limit4" value="Valeur limite pour dépassement en valeur inférieure du courant actif" />
+      <Text id="TI_DS131_Warn1" value="Seuil d'alerte pour dépassement en valeur supérieure de la valeur de cos phi" />
+      <Text id="TI_DS131_Warn2" value="Seuil d'alerte pour dépassement en valeur inférieure de la valeur de cos phi" />
+      <Text id="TI_DS131_Warn3" value="Seuil d'alerte pour dépassement en valeur supérieure du courant actif" />
+      <Text id="TI_DS131_Warn4" value="Seuil d'alerte pour dépassement en valeur inférieure du courant actif" />
+      <Text id="TI_DS131_Hyst_Cos" value="Hystérésis (cos phi)" />
+      <Text id="TI_DS131_Hyst_Ires" value="Hystérésis (courant actif)" />
+      <Text id="TI_DS131_OperationPrincip" value="Comportement du relais" />
+      <Text id="TI_DS131_Limit_Off" value="Bloqué" />
+      <Text id="TI_DS131_ResManual" value="Manuel" />
+      <Text id="TI_DS131_ResAuto" value="Automatique" />
+      <Text id="TI_Index_Ires" value="Ir (28)" />
+      <Text id="TI_Index_Cos" value="CosPhi (43)" />
+      <Text id="TI_Index_Is" value="Is (16)" />
+      <Text id="TI_Index_Ures" value="U (44)" />
+      <Text id="TI_Index_Pw" value="P (40)" />
+      <Text id="TI_ME_MSR_DS67" value="Mémoire image des sorties" />
+      <Text id="TI_ME_MSR_DS69" value="Mémoire image des entrées" />
+      <Text id="TI_ME_MSR_DS92_Common" value="Fonctions de système d'exploitation"></Text>
+      <Text id="TI_ME_MSR_DS92_Diag" value="Surveillance du cos phi et surveillance du courant actif" />
+      <Text id="TI_ME_MSR_DS94" value="Valeurs de mesure" />
+      <Text id="TI_ME_MSR_DS131_General" value="Fonctions de système d'exploitation" />
+      <Text id="TI_ME_MSR_DS131_Device" value="Surveillance du cos phi et surveillance du courant actif" />
+      <Text id="TI_ME_MSR_DS131_Limits" value="Valeurs limites" />
+      <Text id="TI_ME_Ident" value="Données d'identification" />
+      <Text id="TI_ME_Param" value="Données de paramétrage" />
+      <Text id="TI_ME_Observe" value="Données processus" />
+      <Text id="TI_ME_Diag" value="Données de diagnostic" />
+      <Text id="TI_ME_SystemCommand" value="Commandes système" />
+      <Text id="TI_ME_DeviceAccess" value="Verrouillage d'accès" />
+      <Text id="TI_EV_Sensor" value="Défaut codeur" />
+      <Text id="TI_EvDescr_Sensor" value="Défaut codeur" />
+      <Text id="TI_DS131_DiagComm_Descr" value="" />
+      <Text id="TI_DS131_DiagCommError_Descr" value="" />
+      <Text id="TI_DS131_LocalAdj_Descr" value="" />
+      <Text id="TI_DS131_LocalSet_Descr" value="" />
+      <Text id="TI_DS131_LocalReset_Descr" value="" />
+      <Text id="TI_DS131_ErrorSave_Descr" value="" />
+      <Text id="TI_DS131_IndexOfValue_Descr" value="" />
+      <Text id="TI_DS131_Memory_Descr" value="" />
+      <Text id="TI_DS131_OnDelPON_Descr" value="" />
+      <Text id="TI_DS131_OnDelReset_Descr" value="" />
+      <Text id="TI_DS131_OnDelRestart_Descr" value="" />
+      <Text id="TI_DS131_OnDel_Descr" value="" />
+      <Text id="TI_DS131_Del1_Descr" value="" />
+      <Text id="TI_DS131_Del2_Descr" value="" />
+      <Text id="TI_DS131_Del3_Descr" value="" />
+      <Text id="TI_DS131_Del4_Descr" value="" />
+      <Text id="TI_DS131_Limit1_Descr" value="" />
+      <Text id="TI_DS131_Limit2_Descr" value="" />
+      <Text id="TI_DS131_Limit3_Descr" value="" />
+      <Text id="TI_DS131_Limit4_Descr" value="" />
+      <Text id="TI_DS131_Warn1_Descr" value="" />
+      <Text id="TI_DS131_Warn2_Descr" value="" />
+      <Text id="TI_DS131_Warn3_Descr" value="" />
+      <Text id="TI_DS131_Warn4_Descr" value="" />
+      <Text id="TI_DS131_Hyst_Cos_Descr" value="" />
+      <Text id="TI_DS131_Hyst_Ires_Descr" value="" />
+      <Text id="TI_DS131_OperationPrincip_Descr" value="" />
+      <Text id="TI_Connection_Descr" value="Connection Description" />
+      <Text id="TI_CableWire1" value="L+" />
+      <Text id="TI_CableWire2" value="C/Q" />
+      <Text id="TI_CableWire3" value="L-" />
+    </Language>
+    <Language xml:lang="es">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.com/io-link" />
+      <Text id="TI_DeviceFamily" value="Relés de monitoreo SIRIUS" />
+      <Text id="TI_Device_Name" value="Relé de monitoreo de cos phi/corriente activa para IO-Link SIRIUS 3UG4841" />
+      <Text id="TI_Device_Text" value="Relé digital de monitoreo, monitoreo de cos phi/corriente activa para IO-Link, 90 a 690V AC, 0,2 a 10A, límites superior e inferior, retardo de arranque, retardo de disparo, histéresis 0,1 a 3,0A, 2 c. conmutados, 1CA40 bornes de tornillo, 2CA40 bornes de resorte" />
+      <Text id="TI_BitState_On" value="   X" />
+      <Text id="TI_BitState_Off" value=" " />
+      <Text id="TI_DS_Header" value="DS Header" />
+      <Text id="TI_Byte" value="" />
+      <Text id="TI_Pae" value="PAE" />
+      <Text id="TI_PaeReady" value="Listo" />
+      <Text id="TI_PaeFault" value="Falla agrupada" />
+      <Text id="TI_PaeWarning" value="Advertencia agrupada" />
+      <Text id="TI_PaeRelay_K1" value="Estado del relé de salida K1" />
+      <Text id="TI_PaeRelay_K2" value="Estado del relé de salida K2" />
+      <Text id="TI_PaeValueIndex" value="Codificación del valor analógico" />
+      <Text id="TI_PaeValue" value="Valor analógico" />
+      <Text id="TI_DS67" value="PAA" />
+      <Text id="TI_DS67_OnDel" value="Iniciar retardo de arranque" />
+      <Text id="TI_DS67_Reset" value="Rearme/Reset" />
+      <Text id="TI_DS69" value="PAE" />
+      <Text id="TI_DS69_Ready" value="Listo" />
+      <Text id="TI_DS69_Error" value="Falla agrupada" />
+      <Text id="TI_DS69_Warning" value="Advertencia agrupada" />
+      <Text id="TI_DS69_K1" value="Estado del relé de salida K1" />
+      <Text id="TI_DS69_K2" value="Estado del relé de salida K2" />
+      <Text id="TI_DS69_Index" value="Codificación del valor analógico" />
+      <Text id="TI_DS69_Value" value="Valor analógico" />
+      <Text id="TI_Paa" value="PAA" />
+      <Text id="TI_PaaStartOnDel" value="Iniciar retardo de arranque" />
+      <Text id="TI_PaaDeviceReset" value="Rearme/Reset" />
+      <Text id="TI_DS92" value="index92" />
+      <Text id="TI_DS92_Ready" value="Listo"></Text>
+      <Text id="TI_DS92_Error" value="Falla agrupada"></Text>
+      <Text id="TI_DS92_Warning" value="Advertencia agrupada"></Text>
+      <Text id="TI_DS92_Prewarning" value="Group prewarning"></Text>
+      <Text id="TI_DS92_Setting" value="Parametrización activa"></Text>
+      <Text id="TI_DS92_WrongParam" value="Parámetro no válido"></Text>
+      <Text id="TI_DS92_InternalError" value="Falla en autotest / falla interna"></Text>
+      <Text id="TI_DS92_WrongParamNo" value="Número de parámetro defectuoso"></Text>
+      <Text id="TI_DS92_OnDel" value="Retardo de arranque en curso"></Text>
+      <Text id="TI_DS92_Del1" value="Retardo de disparo en curso (límite de rebase por exceso: valor de cos phi)"></Text>
+      <Text id="TI_DS92_Del2" value="Retardo de disparo en curso (límite de rebase por defecto: valor de cos phi)"></Text>
+      <Text id="TI_DS92_Del3" value="Retardo de disparo en curso (límite de rebase por exceso: valor de corriente activa)"></Text>
+      <Text id="TI_DS92_Del4" value="Retardo de disparo en curso (límite de rebase por defecto: valor de corriente activa)"></Text>
+      <Text id="TI_DS92_Limit1" value="Límite de rebase por exceso infringido (valor de cos phi)"></Text>
+      <Text id="TI_DS92_Limit2" value="Límite de rebase por defecto infringido (valor de cos phi)"></Text>
+      <Text id="TI_DS92_Limit3" value="Límite de rebase por exceso infringido (valor de corriente activa)"></Text>
+      <Text id="TI_DS92_Limit4" value="Límite de rebase por defecto infringido (valor de corriente activa)"></Text>
+      <Text id="TI_DS92_Warn1" value="Límite de aviso de rebase por exceso infringido (valor de cos phi)"></Text>
+      <Text id="TI_DS92_Warn2" value="Límite de aviso de rebase por defecto infringido (valor de cos phi)"></Text>
+      <Text id="TI_DS92_Warn3" value="Límite de aviso de rebase por exceso infringido (valor de corriente activa)"></Text>
+      <Text id="TI_DS92_Warn4" value="Límite de aviso de rebase por defecto infringido (valor de corriente activa)"></Text>
+      <Text id="TI_DS94" value="index94" />
+      <Text id="TI_DS94_Cos" value="Valor de cos phi" />
+      <Text id="TI_DS94_Ires" value="Corriente activa Ir" />
+      <Text id="TI_DS94_Is" value="Corriente aparente Is" />
+      <Text id="TI_DS94_Uw" value="Tensión activa U" />
+      <Text id="TI_DS94_Pw" value="Potencia activa P" />
+      <Text id="TI_DS94_Ires_long" value="Corriente activa Ir" />
+      <Text id="TI_DS94_Is_long" value="Corriente aparente Is" />
+      <Text id="TI_DS94_Pw_long" value="Potencia activa P" />
+      <Text id="TI_Value_Error" value="Fuera de rango" />
+      <Text id="TI_DS131" value="index131" />
+      <Text id="TI_DS131_Dis" value="Bloqueado" />
+      <Text id="TI_DS131_En" value="Habilitado" />
+      <Text id="TI_DS131_NC" value="Normalmente cerrado (NC)" />
+      <Text id="TI_DS131_NO" value="Normalmente abierto (NO)" />
+      <Text id="TI_DS131_DiagComm" value="Diagnóstico agrupado" />
+      <Text id="TI_DS131_DiagCommError" value="Diagnóstico de falla agrupada" />
+      <Text id="TI_DS131_DiagCommWarning" value="Group warning diagnostics" />
+      <Text id="TI_DS131_LocalAdj" value="Modificación local de límites" />
+      <Text id="TI_DS131_LocalSet" value="Modificación local de parámetros" />
+      <Text id="TI_DS131_LocalReset" value="Rearme local" />
+      <Text id="TI_DS131_ErrorSave" value="Memoria remanente de fallas" />
+      <Text id="TI_DS131_Memory" value="Comportamiento de rearme" />
+      <Text id="TI_DS131_onDelPON" value="Retardo de arranque (en caso de Power On)" />
+      <Text id="TI_DS131_onDelReset" value="Retardo de arranque (en caso de rearme manual)" />
+      <Text id="TI_DS131_onDelRestart" value="Retardo de arranque (en caso de rearranque)" />
+      <Text id="TI_DS131_IndexOfValue" value="Codificación del valor analógico" />
+      <Text id="TI_DS131_onDel" value="Retardo de arranque" />
+      <Text id="TI_DS131_Del1" value="Retardo de disparo (en caso de rebase por exceso del valor de cos phi)" />
+      <Text id="TI_DS131_Del2" value="Retardo de disparo (en caso de rebase por defecto del valor de cos phi)" />
+      <Text id="TI_DS131_Del3" value="Retardo de disparo (en caso de rebase por exceso de la corriente activa)" />
+      <Text id="TI_DS131_Del4" value="Retardo de disparo (en caso de rebase por defecto de la corriente activa)" />
+      <Text id="TI_DS131_Limit1" value="Límite de rebase por exceso del valor de cos phi" />
+      <Text id="TI_DS131_Limit2" value="Límite de rebase por defecto del valor de cos phi" />
+      <Text id="TI_DS131_Limit3" value="Límite de rebase por exceso del valor de corriente activa" />
+      <Text id="TI_DS131_Limit4" value="Límite de rebase por defecto del valor de corriente activa" />
+      <Text id="TI_DS131_Warn1" value="Límite de aviso de rebase por exceso del valor de cos phi" />
+      <Text id="TI_DS131_Warn2" value="Límite de aviso de rebase por defecto del valor de cos phi" />
+      <Text id="TI_DS131_Warn3" value="Límite de aviso de rebase por exceso del valor de corriente activa" />
+      <Text id="TI_DS131_Warn4" value="Límite de aviso de rebase por defecto del valor de corriente activa" />
+      <Text id="TI_DS131_Hyst_Cos" value="Histéresis (cos phi)" />
+      <Text id="TI_DS131_Hyst_Ires" value="Histéresis (corriente activa)" />
+      <Text id="TI_DS131_OperationPrincip" value="Comportamiento de conmutación de relé" />
+      <Text id="TI_DS131_Limit_Off" value="Bloqueado" />
+      <Text id="TI_DS131_ResManual" value="Manual" />
+      <Text id="TI_DS131_ResAuto" value="Automático" />
+      <Text id="TI_Index_Ires" value="Ir (28)" />
+      <Text id="TI_Index_Cos" value="CosPhi (43)" />
+      <Text id="TI_Index_Is" value="Is (16)" />
+      <Text id="TI_Index_Ures" value="U (44)" />
+      <Text id="TI_Index_Pw" value="P (40)" />
+      <Text id="TI_ME_MSR_DS67" value="Imagen de proceso de las salidas" />
+      <Text id="TI_ME_MSR_DS69" value="Imagen de proceso de las entradas" />
+      <Text id="TI_ME_MSR_DS92_Common" value="Funciones del sistema operativo"></Text>
+      <Text id="TI_ME_MSR_DS92_Diag" value="Monitoreo de cos phi y monitoreo de corriente" />
+      <Text id="TI_ME_MSR_DS94" value="Valores medidos" />
+      <Text id="TI_ME_MSR_DS131_General" value="Funciones del sistema operativo" />
+      <Text id="TI_ME_MSR_DS131_Device" value="Monitoreo de cos phi y monitoreo de corriente" />
+      <Text id="TI_ME_MSR_DS131_Limits" value="Límites" />
+      <Text id="TI_ME_Ident" value="Datos de identificación" />
+      <Text id="TI_ME_Param" value="Datos de parámetros" />
+      <Text id="TI_ME_Observe" value="Datos de proceso" />
+      <Text id="TI_ME_Diag" value="Datos de diagnóstico" />
+      <Text id="TI_ME_SystemCommand" value="Comandos del sistema" />
+      <Text id="TI_ME_DeviceAccess" value="Bloqueos de acceso a dispositivo" />
+      <Text id="TI_EV_Sensor" value="Error de sensor" />
+      <Text id="TI_EvDescr_Sensor" value="Error de sensor" />
+      <Text id="TI_DS131_DiagComm_Descr" value="" />
+      <Text id="TI_DS131_DiagCommError_Descr" value="" />
+      <Text id="TI_DS131_LocalAdj_Descr" value="" />
+      <Text id="TI_DS131_LocalSet_Descr" value="" />
+      <Text id="TI_DS131_LocalReset_Descr" value="" />
+      <Text id="TI_DS131_ErrorSave_Descr" value="" />
+      <Text id="TI_DS131_IndexOfValue_Descr" value="" />
+      <Text id="TI_DS131_Memory_Descr" value="" />
+      <Text id="TI_DS131_OnDelPON_Descr" value="" />
+      <Text id="TI_DS131_OnDelReset_Descr" value="" />
+      <Text id="TI_DS131_OnDelRestart_Descr" value="" />
+      <Text id="TI_DS131_OnDel_Descr" value="" />
+      <Text id="TI_DS131_Del1_Descr" value="" />
+      <Text id="TI_DS131_Del2_Descr" value="" />
+      <Text id="TI_DS131_Del3_Descr" value="" />
+      <Text id="TI_DS131_Del4_Descr" value="" />
+      <Text id="TI_DS131_Limit1_Descr" value="" />
+      <Text id="TI_DS131_Limit2_Descr" value="" />
+      <Text id="TI_DS131_Limit3_Descr" value="" />
+      <Text id="TI_DS131_Limit4_Descr" value="" />
+      <Text id="TI_DS131_Warn1_Descr" value="" />
+      <Text id="TI_DS131_Warn2_Descr" value="" />
+      <Text id="TI_DS131_Warn3_Descr" value="" />
+      <Text id="TI_DS131_Warn4_Descr" value="" />
+      <Text id="TI_DS131_Hyst_Cos_Descr" value="" />
+      <Text id="TI_DS131_Hyst_Ires_Descr" value="" />
+      <Text id="TI_DS131_OperationPrincip_Descr" value="" />
+      <Text id="TI_Connection_Descr" value="Connection Description" />
+      <Text id="TI_CableWire1" value="L+" />
+      <Text id="TI_CableWire2" value="C/Q" />
+      <Text id="TI_CableWire3" value="L-" />
+    </Language>
+    <Language xml:lang="it">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.com/io-link" />
+      <Text id="TI_DeviceFamily" value="Relè di controllo SIRIUS" />
+      <Text id="TI_Device_Name" value="Relè di controllo cos phi/corrente attiva SIRIUS per IO-Link 3UG4841" />
+      <Text id="TI_Device_Text" value="Relè di controllo digitale, controllo di cos phi e di corrente attiva per IO-Link, AC 90 ... 690 V, 0,2 ... 10 A, superamento in positivo e in negativo, ritardo all'avviamento, ritardo d'intervento, isteresi 0,1 ... 3,0 A, 2 contatti CO, con morsetti a vite 1CA40, con morsetti a molla 2CA40" />
+      <Text id="TI_BitState_On" value="   X" />
+      <Text id="TI_BitState_Off" value=" " />
+      <Text id="TI_DS_Header" value="DS Header" />
+      <Text id="TI_Byte" value="" />
+      <Text id="TI_Pae" value="PAE" />
+      <Text id="TI_PaeReady" value="Pronto" />
+      <Text id="TI_PaeFault" value="Errore cumulativo" />
+      <Text id="TI_PaeWarning" value="Avviso cumulativo" />
+      <Text id="TI_PaeRelay_K1" value="Stato relè di uscita K1" />
+      <Text id="TI_PaeRelay_K2" value="Stato relè di uscita K2" />
+      <Text id="TI_PaeValueIndex" value="Codifica valore analogico" />
+      <Text id="TI_PaeValue" value="Valore analogico" />
+      <Text id="TI_DS67" value="PAA" />
+      <Text id="TI_DS67_OnDel" value="Avvia tempo di ritardo avviamento" />
+      <Text id="TI_DS67_Reset" value="Reset" />
+      <Text id="TI_DS69" value="PAE" />
+      <Text id="TI_DS69_Ready" value="Pronto" />
+      <Text id="TI_DS69_Error" value="Errore cumulativo" />
+      <Text id="TI_DS69_Warning" value="Avviso cumulativo" />
+      <Text id="TI_DS69_K1" value="Stato relè di uscita K1" />
+      <Text id="TI_DS69_K2" value="Stato relè di uscita K2" />
+      <Text id="TI_DS69_Index" value="Codifica valore analogico" />
+      <Text id="TI_DS69_Value" value="Valore analogico" />
+      <Text id="TI_Paa" value="PAA" />
+      <Text id="TI_PaaStartOnDel" value="Avvia tempo di ritardo avviamento" />
+      <Text id="TI_PaaDeviceReset" value="Reset" />
+      <Text id="TI_DS92" value="index92" />
+      <Text id="TI_DS92_Ready" value="Pronto"></Text>
+      <Text id="TI_DS92_Error" value="Errore cumulativo"></Text>
+      <Text id="TI_DS92_Warning" value="Avviso cumulativo"></Text>
+      <Text id="TI_DS92_Prewarning" value="Group prewarning"></Text>
+      <Text id="TI_DS92_Setting" value="Parametrizzazione attiva"></Text>
+      <Text id="TI_DS92_WrongParam" value="Parametro non valido"></Text>
+      <Text id="TI_DS92_InternalError" value="Errore di autotest / errore interno"></Text>
+      <Text id="TI_DS92_WrongParamNo" value="Numero errore di parametro"></Text>
+      <Text id="TI_DS92_OnDel" value="Tempo di ritardo avviamento in corso"></Text>
+      <Text id="TI_DS92_Del1" value="Tempo di ritardo intervento in corso (valore limite per superamento in positivo: valore di cos phi)"></Text>
+      <Text id="TI_DS92_Del2" value="Tempo di ritardo intervento in corso (valore limite per superamento in negativo: valore di cos phi)"></Text>
+      <Text id="TI_DS92_Del3" value="Tempo di ritardo intervento in corso (valore limite per superamento in positivo: valore di corrente attiva)"></Text>
+      <Text id="TI_DS92_Del4" value="Tempo di ritardo intervento in corso (Valore limite per superamento in negativo: valore di corrente attiva)"></Text>
+      <Text id="TI_DS92_Limit1" value="Valore limite per superamento in positivo violato (valore di cos phi)"></Text>
+      <Text id="TI_DS92_Limit2" value="Valore limite per superamento in negativo violato (valore di cos phi)"></Text>
+      <Text id="TI_DS92_Limit3" value="Soglia per superamento in positivo violata (valore di corrente attiva)"></Text>
+      <Text id="TI_DS92_Limit4" value="Soglia per superamento in negativo violata (valore di corrente attiva)"></Text>
+      <Text id="TI_DS92_Warn1" value="Valore limite di avviso per superamento in positivo violato (valore di cos phi)"></Text>
+      <Text id="TI_DS92_Warn2" value="Valore limite di avviso per superamento in negativo violato (valore di cos phi)"></Text>
+      <Text id="TI_DS92_Warn3" value="Valore limite di avviso per superamento in positivo violato (valore di corrente attiva)"></Text>
+      <Text id="TI_DS92_Warn4" value="Valore limite di avviso per superamento in negativo violato (valore di corrente attiva)"></Text>
+      <Text id="TI_DS94" value="index94" />
+      <Text id="TI_DS94_Cos" value="Valore di cos phi" />
+      <Text id="TI_DS94_Ires" value="Corrente attiva Ir" />
+      <Text id="TI_DS94_Is" value="Corrente apparente Is" />
+      <Text id="TI_DS94_Uw" value="Tensione U" />
+      <Text id="TI_DS94_Pw" value="Potenza attiva P" />
+      <Text id="TI_DS94_Ires_long" value="Corrente attiva Ir" />
+      <Text id="TI_DS94_Is_long" value="Corrente apparente Is" />
+      <Text id="TI_DS94_Pw_long" value="Potenza attiva P" />
+      <Text id="TI_Value_Error" value="Fuori campo" />
+      <Text id="TI_DS131" value="index131" />
+      <Text id="TI_DS131_Dis" value="Bloccato" />
+      <Text id="TI_DS131_En" value="Abilitato" />
+      <Text id="TI_DS131_NC" value="Principio della corrente di riposo (NC)" />
+      <Text id="TI_DS131_NO" value="Principio della corrente di lavoro  (NO)" />
+      <Text id="TI_DS131_DiagComm" value="Diagnostica cumulativa" />
+      <Text id="TI_DS131_DiagCommError" value="Diagnostica errori cumulativi" />
+      <Text id="TI_DS131_DiagCommWarning" value="Group warning diagnostics" />
+      <Text id="TI_DS131_LocalAdj" value="Modifica valore limite locale" />
+      <Text id="TI_DS131_LocalSet" value="Modifica parametro locale" />
+      <Text id="TI_DS131_LocalReset" value="Reset locale" />
+      <Text id="TI_DS131_ErrorSave" value="Memoria errori ritentiva" />
+      <Text id="TI_DS131_Memory" value="Comportamento di reset" />
+      <Text id="TI_DS131_onDelPON" value="Tempo di ritardo avviamento (con Power ON)" />
+      <Text id="TI_DS131_onDelReset" value="Tempo di ritardo avviamento (con reset manuale)" />
+      <Text id="TI_DS131_onDelRestart" value="Tempo di ritardo avviamento (con riavviamento manuale)" />
+      <Text id="TI_DS131_IndexOfValue" value="Codifica valore analogico" />
+      <Text id="TI_DS131_onDel" value="Tempo di ritardo di avviamento" />
+      <Text id="TI_DS131_Del1" value="Tempo di ritardo intervento (in caso di superamento in positivo del valore di cos phi)" />
+      <Text id="TI_DS131_Del2" value="Tempo di ritardo intervento (in caso di superamento in negativo del valore di cos phi)" />
+      <Text id="TI_DS131_Del3" value="Tempo di ritardo intervento (in caso di superamento in positivo della corrente attiva)" />
+      <Text id="TI_DS131_Del4" value="Tempo di ritardo intervento (in caso di superamento in negativo della corrente attiva)" />
+      <Text id="TI_DS131_Limit1" value="Valore limite per superamento in positivo del valore di cos phi" />
+      <Text id="TI_DS131_Limit2" value="Valore limite per superamento in negativo del valore di cos phi" />
+      <Text id="TI_DS131_Limit3" value="Valore limite per superamento in positivo del valore di corrente attiva" />
+      <Text id="TI_DS131_Limit4" value="Valore limite per superamento in negativo del valore di corrente attiva" />
+      <Text id="TI_DS131_Warn1" value="Valore limite di avviso per superamento in positivo del valore di cos phi" />
+      <Text id="TI_DS131_Warn2" value="Valore limite di avviso per superamento in negativo del valore di cos phi" />
+      <Text id="TI_DS131_Warn3" value="Valore limite di avviso per superamento in positivo del valore di corrente attiva" />
+      <Text id="TI_DS131_Warn4" value="Valore limite di avviso per superamento in negativo del valore di corrente attiva" />
+      <Text id="TI_DS131_Hyst_Cos" value="Isteresis cos phi" />
+      <Text id="TI_DS131_Hyst_Ires" value="Isteresis corrente attiva" />
+      <Text id="TI_DS131_OperationPrincip" value="Comportamento di commutazione relè" />
+      <Text id="TI_DS131_Limit_Off" value="Bloccato" />
+      <Text id="TI_DS131_ResManual" value="Manuale" />
+      <Text id="TI_DS131_ResAuto" value="Automatico" />
+      <Text id="TI_Index_Ires" value="Ir (28)" />
+      <Text id="TI_Index_Cos" value="CosPhi (43)" />
+      <Text id="TI_Index_Is" value="Is (16)" />
+      <Text id="TI_Index_Ures" value="U (44)" />
+      <Text id="TI_Index_Pw" value="P (40)" />
+      <Text id="TI_ME_MSR_DS67" value="Immagine di processo delle uscite" />
+      <Text id="TI_ME_MSR_DS69" value="Immagine di processo degli ingressi" />
+      <Text id="TI_ME_MSR_DS92_Common" value="Funzioni del sistema operativo"></Text>
+      <Text id="TI_ME_MSR_DS92_Diag" value="Controllo di cos phi e corrente attiva" />
+      <Text id="TI_ME_MSR_DS94" value="Measured values" />
+      <Text id="TI_ME_MSR_DS131_General" value="Funzioni del sistema operativo" />
+      <Text id="TI_ME_MSR_DS131_Device" value="Controllo di cos phi e corrente attiva" />
+      <Text id="TI_ME_MSR_DS131_Limits" value="Valori limite" />
+      <Text id="TI_ME_Ident" value="Dati di identificazione" />
+      <Text id="TI_ME_Param" value="Dati dei parametri" />
+      <Text id="TI_ME_Observe" value="Dati di processo" />
+      <Text id="TI_ME_Diag" value="Dati di diagnostica" />
+      <Text id="TI_ME_SystemCommand" value="Comandi di sistema" />
+      <Text id="TI_ME_DeviceAccess" value="Accesso all'apparecchio bloccato" />
+      <Text id="TI_EV_Sensor" value="Errore sensore" />
+      <Text id="TI_EvDescr_Sensor" value="Errore sensore" />
+      <Text id="TI_DS131_DiagComm_Descr" value="" />
+      <Text id="TI_DS131_DiagCommError_Descr" value="" />
+      <Text id="TI_DS131_LocalAdj_Descr" value="" />
+      <Text id="TI_DS131_LocalSet_Descr" value="" />
+      <Text id="TI_DS131_LocalReset_Descr" value="" />
+      <Text id="TI_DS131_ErrorSave_Descr" value="" />
+      <Text id="TI_DS131_IndexOfValue_Descr" value="" />
+      <Text id="TI_DS131_Memory_Descr" value="" />
+      <Text id="TI_DS131_OnDelPON_Descr" value="" />
+      <Text id="TI_DS131_OnDelReset_Descr" value="" />
+      <Text id="TI_DS131_OnDelRestart_Descr" value="" />
+      <Text id="TI_DS131_OnDel_Descr" value="" />
+      <Text id="TI_DS131_Del1_Descr" value="" />
+      <Text id="TI_DS131_Del2_Descr" value="" />
+      <Text id="TI_DS131_Del3_Descr" value="" />
+      <Text id="TI_DS131_Del4_Descr" value="" />
+      <Text id="TI_DS131_Limit1_Descr" value="" />
+      <Text id="TI_DS131_Limit2_Descr" value="" />
+      <Text id="TI_DS131_Limit3_Descr" value="" />
+      <Text id="TI_DS131_Limit4_Descr" value="" />
+      <Text id="TI_DS131_Warn1_Descr" value="" />
+      <Text id="TI_DS131_Warn2_Descr" value="" />
+      <Text id="TI_DS131_Warn3_Descr" value="" />
+      <Text id="TI_DS131_Warn4_Descr" value="" />
+      <Text id="TI_DS131_Hyst_Cos_Descr" value="" />
+      <Text id="TI_DS131_Hyst_Ires_Descr" value="" />
+      <Text id="TI_DS131_OperationPrincip_Descr" value="" />
+      <Text id="TI_Connection_Descr" value="Connection Description" />
+      <Text id="TI_CableWire1" value="L+" />
+      <Text id="TI_CableWire2" value="C/Q" />
+      <Text id="TI_CableWire3" value="L-" />
+    </Language>
+  </ExternalTextCollection>
+  <Stamp crc="2397562621"><Checker name="IODD-Checker V1.1.0 Beta 8" version="V1.1.0.8"/></Stamp>
+</IODevice>

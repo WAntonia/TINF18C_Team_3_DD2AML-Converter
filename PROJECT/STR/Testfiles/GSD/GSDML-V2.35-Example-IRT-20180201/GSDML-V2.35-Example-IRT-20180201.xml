@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Example GSD for Isochronous Real Time (IRT)
+
+    DeviceAccessPointItem ID="IDD_ABS_V22"
+        - PN V2.2 only (RT/IRT LegacyStartup, AbsoluteForwarder, LLDP_NoD_Supported="false", ...)
+
+    DeviceAccessPointItem ID="IDD_ABS_V23"
+        - PN V2.3 compatible (RT/IRT AdvancedStartup, AbsoluteForwarder, LLDP_NoD_Supported="true", ...)
+
+    DeviceAccessPointItem ID="IDD_REL_V22"
+        - PN V2.2 only (RT/IRT LegacyStartup, RelativeForwarder, LLDP_NoD_Supported="false", ...)
+
+    DeviceAccessPointItem ID="IDD_REL_V23"
+        - PN V2.3 compatible (RT/IRT AdvancedStartup, RelativeForwarder, LLDP_NoD_Supported="true", ...)
+-->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.35.xsd">
+	<!-- ProfileHeader definition as defined in ISO 15745-1. Please do not change the content. -->
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0xFFFF" DeviceID="0x009E">
+			<InfoText TextId="IDT_INFO_Device"/>
+			<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="Drives" ProductFamily="PNO GSDML V2.35 Examples"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+
+			<!-- ============================================================================================ -->
+			<DeviceAccessPointList>
+
+				<!-- TestDeviceIRT  PN V2.3 AbsoluteForwarder -->
+				<DeviceAccessPointItem ID="IDD_ABS_V23" PNIO_Version="V2.32" ModuleIdentNumber="0x00020000" PhysicalSlots="0..16" MinDeviceInterval="8" DNS_CompatibleName="pno-example-dap" FixedInSlots="0" ObjectUUID_LocalIndex="0" ImplementationType="ERTEC200P" RequiredSchemaVersion="V2.3" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" MultipleWriteSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2">
+					<ModuleInfo>
+						<Name TextId="IDT_MOD_NAME_ABS_DAPV23"/>
+						<InfoText TextId="IDT_INFO_ABS_DAPV23"/>
+						<Family MainFamily="Drives" ProductFamily="TestDevice"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009E-D1"/>
+						<HardwareRelease Value="V2.0"/>
+						<SoftwareRelease Value="V2.0"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="Isochronous" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SS2_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SS2_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SS2_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="400" MaxOutputLength="400" MaxDataLength="800"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_1" AllowedInSlots="1..16"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_ABS_DV23" SubmoduleIdentNumber="0x00000002" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_MOD_NAME_ABS_DAPV23"/>
+								<InfoText TextId="IDT_INFO_ABS_DAPV23"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_ABS_V23I" SubmoduleIdentNumber="0x00000003" SubslotNumber="32768" TextId="IDT_Interface2" IsochroneModeSupported="true" SupportedProtocols="SNMP;LLDP" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" IsochroneModeInRT_Classes="RT_CLASS_3" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2088" MaxNumberIR_FrameData="1024" MaxRangeIR_FrameID="1024" StartupMode="Legacy;Advanced" ForwardingMode="Absolute"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAR="2" StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+           						<RT_Class3TimingProperties SendClock="8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128" ReductionRatioPow2="2 4 8 16" MaxReductionRatioIsochroneMode="1" ReductionRatio="1"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_ABS_V23P1" SubslotNumber="32769" MaxPortRxDelay="198" MaxPortTxDelay="6" PortDeactivationSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" TextId="IDT_Port1" SubmoduleIdentNumber="0x00000004">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_ABS_V23P2" SubslotNumber="32770" MaxPortRxDelay="198" MaxPortTxDelay="6" PortDeactivationSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" TextId="IDT_Port2" SubmoduleIdentNumber="0x00000005">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+
+				<!-- TestDeviceIRT  PN V2.2 Absolute Forwarder -->
+				<DeviceAccessPointItem ID="IDD_ABS_V22" PNIO_Version="V2.3" ModuleIdentNumber="0x00020001" PhysicalSlots="0..16" MinDeviceInterval="8" DNS_CompatibleName="TestDeviceIRT" FixedInSlots="0" ObjectUUID_LocalIndex="0" ImplementationType="ERTEC200P" RequiredSchemaVersion="V2.2" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" MultipleWriteSupported="true">
+					<ModuleInfo>
+						<Name TextId="IDT_MOD_NAME_ABS_DAPV22"/>
+						<InfoText TextId="IDT_INFO_ABS_DAPV22"/>
+						<Family MainFamily="Drives" ProductFamily="TestDevice"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009E-D2"/>
+						<HardwareRelease Value="V2.0"/>
+						<SoftwareRelease Value="V2.0"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="Isochronous" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SS2_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SS2_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SS2_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="400" MaxOutputLength="400" MaxDataLength="800"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_1" AllowedInSlots="1..16"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_ABS_DV22" SubmoduleIdentNumber="0x00000002" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_MOD_NAME_ABS_DAPV22"/>
+								<InfoText TextId="IDT_INFO_ABS_DAPV22"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_ABS_V22I" SubmoduleIdentNumber="0x00000003" SubslotNumber="32768" TextId="IDT_Interface2" IsochroneModeSupported="true" SupportedProtocols="SNMP;LLDP" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" IsochroneModeInRT_Classes="RT_CLASS_3" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2088" MaxNumberIR_FrameData="1024" MaxRangeIR_FrameID="1024" StartupMode="Legacy" ForwardingMode="Absolute"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAR="2" StartupMode="Legacy">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+           						<RT_Class3TimingProperties SendClock="8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128" ReductionRatioPow2="2 4 8 16" MaxReductionRatioIsochroneMode="1" ReductionRatio="1"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_ABS_V22P1" SubslotNumber="32769" MaxPortRxDelay="198" MaxPortTxDelay="6" PortDeactivationSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" TextId="IDT_Port1" SubmoduleIdentNumber="0x00000004">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_ABS_V22P2" SubslotNumber="32770" MaxPortRxDelay="198" MaxPortTxDelay="6" PortDeactivationSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" TextId="IDT_Port2" SubmoduleIdentNumber="0x00000005">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+
+				<!-- TestDeviceIRT  PN V2.3 RelativeForwarder -->
+				<DeviceAccessPointItem ID="IDD_REL_V23" PNIO_Version="V2.32" ModuleIdentNumber="0x00020002" PhysicalSlots="0..16" MinDeviceInterval="8" DNS_CompatibleName="TestDeviceIRT" FixedInSlots="0" ObjectUUID_LocalIndex="0" ImplementationType="ERTEC200P" RequiredSchemaVersion="V2.3" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" MultipleWriteSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2">
+					<ModuleInfo>
+						<Name TextId="IDT_MOD_NAME_REL_DAPV23"/>
+						<InfoText TextId="IDT_INFO_REL_DAPV23"/>
+						<Family MainFamily="Drives" ProductFamily="TestDevice"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009E-D2"/>
+						<HardwareRelease Value="V2.0"/>
+						<SoftwareRelease Value="V2.0"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="Isochronous" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SS2_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SS2_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SS2_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="400" MaxOutputLength="400" MaxDataLength="800"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_1" AllowedInSlots="1..16"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_REL_DV23" SubmoduleIdentNumber="0x00000002" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_MOD_NAME_REL_DAPV23"/>
+								<InfoText TextId="IDT_INFO_REL_DAPV23"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_REL_V23I" SubmoduleIdentNumber="0x00000003" SubslotNumber="32768" TextId="IDT_Interface2" IsochroneModeSupported="true" SupportedProtocols="SNMP;LLDP" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" IsochroneModeInRT_Classes="RT_CLASS_3" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2088" MaxNumberIR_FrameData="1024" MaxRangeIR_FrameID="1024" StartupMode="Legacy;Advanced" ForwardingMode="Relative"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAR="2" StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+           						<RT_Class3TimingProperties SendClock="8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128" ReductionRatioPow2="2 4 8 16" MaxReductionRatioIsochroneMode="1" ReductionRatio="1"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_REL_V23P1" SubslotNumber="32769" MaxPortRxDelay="198" MaxPortTxDelay="6" PortDeactivationSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" TextId="IDT_Port1" SubmoduleIdentNumber="0x00000004">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_REL_V23P2" SubslotNumber="32770" MaxPortRxDelay="198" MaxPortTxDelay="6" PortDeactivationSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" TextId="IDT_Port2" SubmoduleIdentNumber="0x00000005">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+
+				<!-- TestDeviceIRT  PN V2.2 Relative Forwarder -->
+				<DeviceAccessPointItem ID="IDD_REL_V22" PNIO_Version="V2.3" ModuleIdentNumber="0x00020003" PhysicalSlots="0..16" MinDeviceInterval="8" DNS_CompatibleName="TestDeviceIRT" FixedInSlots="0" ObjectUUID_LocalIndex="0" ImplementationType="ERTEC200P" RequiredSchemaVersion="V2.2" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" MultipleWriteSupported="true">
+					<ModuleInfo>
+						<Name TextId="IDT_MOD_NAME_REL_DAPV22"/>
+						<InfoText TextId="IDT_INFO_REL_DAPV22"/>
+						<Family MainFamily="Drives" ProductFamily="TestDevice"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009E-D3"/>
+						<HardwareRelease Value="V2.0"/>
+						<SoftwareRelease Value="V2.0"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="Isochronous" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SS2_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SS2_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SS2_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="400" MaxOutputLength="400" MaxDataLength="800"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_1" AllowedInSlots="1..16"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_REL_DV22" SubmoduleIdentNumber="0x00000002" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_MOD_NAME_REL_DAPV22"/>
+								<InfoText TextId="IDT_INFO_REL_DAPV22"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_REL_V22I" SubmoduleIdentNumber="0x00000003" SubslotNumber="32768" TextId="IDT_Interface2" IsochroneModeSupported="true" SupportedProtocols="SNMP;LLDP" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" IsochroneModeInRT_Classes="RT_CLASS_3" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2088" MaxNumberIR_FrameData="1024" MaxRangeIR_FrameID="1024" StartupMode="Legacy" ForwardingMode="Relative"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAR="2" StartupMode="Legacy">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+           						<RT_Class3TimingProperties SendClock="8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128" ReductionRatioPow2="2 4 8 16" MaxReductionRatioIsochroneMode="1" ReductionRatio="1"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_REL_V22P1" SubslotNumber="32769" MaxPortRxDelay="198" MaxPortTxDelay="6" PortDeactivationSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" TextId="IDT_Port1" SubmoduleIdentNumber="0x00000004">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_REL_V22P2" SubslotNumber="32770" MaxPortRxDelay="198" MaxPortTxDelay="6" PortDeactivationSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" TextId="IDT_Port2" SubmoduleIdentNumber="0x00000005">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+
+			</DeviceAccessPointList>
+
+			<!-- ============================================================================================ -->
+			<ModuleList>
+
+				<!-- PROFIdrive test telegram 1: 46 Byte /4 Byte -->
+				<ModuleItem ID="IDM_1" ModuleIdentNumber="0x00000001">
+					<ModuleInfo>
+						<Name TextId="IDT_MOD_NAME_TEL1"/>
+						<InfoText TextId="IDT_MOD_INFO_TEL1"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_1" SubmoduleIdentNumber="0x00000001" API="14848" FixedInSubslots="1" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_SM_NAME_TEL1"/>
+								<InfoText TextId="IDT_SM_INFO_TEL1"/>
+							</ModuleInfo>
+							 <IsochroneMode T_DC_Base="8" T_DC_Min="1" T_DC_Max="16" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1"/>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+
+			</ModuleList>
+
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<!-- module text -->
+					<Text TextId="IDT_MOD_NAME_TEL1" Value="Testmodule 1"/>
+					<Text TextId="IDT_MOD_INFO_TEL1" Value="Testmodule 1 with Test telegram 1"/>
+					<Text TextId="IDT_SM_NAME_TEL1" Value="Test telegram 1, 46/4"/>
+					<Text TextId="IDT_SM_INFO_TEL1" Value="Test telegram 1, 46 Bytes Input, 4 Bytes Output / "/>
+
+					<Text TextId="IDT_DATAITEM_ACTVAL" Value="Status word or actual value"/>
+					<Text TextId="IDT_DATAITEM_REFVAL" Value="Control word or setpoint"/>
+
+					<!-- DAP text -->
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Examples"/>
+
+					<Text TextId="IDT_MOD_NAME_ABS_DAPV23" Value="TestDeviceIRT Abs PN V2.3"/>
+					<Text TextId="IDT_INFO_ABS_DAPV23" Value="IO-Device TestDeviceIRT AbsoluteForwarder PN V2.3"/>
+
+					<Text TextId="IDT_MOD_NAME_ABS_DAPV22" Value="TestDeviceIRT Abs PN V2.2"/>
+					<Text TextId="IDT_INFO_ABS_DAPV22" Value="IO-Device TestDeviceIRT AbsoluteForwarder PN V2.2"/>
+
+					<Text TextId="IDT_MOD_NAME_REL_DAPV23" Value="TestDeviceIRT Rel PN V2.3"/>
+					<Text TextId="IDT_INFO_REL_DAPV23" Value="IO-Device TestDeviceIRT RelativeForwarder PN V2.3"/>
+
+					<Text TextId="IDT_MOD_NAME_REL_DAPV22" Value="TestDeviceIRT Rel PN V2.2"/>
+					<Text TextId="IDT_INFO_REL_DAPV22" Value="IO-Device TestDeviceIRT RelativeForwarder PN V2.2"/>
+
+					<Text TextId="IDT_Port1" Value="Port 1"/>
+					<Text TextId="IDT_Port2" Value="Port 2"/>
+					<Text TextId="IDT_Interface2" Value="PN-IO"/>
+					<Text TextId="IDT_SS2_Interface" Value="X200"/>
+					<Text TextId="IDT_SS2_Port1" Value="X200 P1"/>
+					<Text TextId="IDT_SS2_Port2" Value="X201 P2"/>
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

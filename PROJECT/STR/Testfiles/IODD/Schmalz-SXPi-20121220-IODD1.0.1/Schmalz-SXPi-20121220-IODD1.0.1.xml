@@ -1,0 +1,1140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+ <!-- IODD V 1.0 --> 
+<!-- <IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2008/03" xsi:schemaLocation="http://www.io-link.com/IODD/2008/03 IODD1.0.xsd"> -->
+
+<!-- IODD V 1.0.1 --> 
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.2" releaseDate="2012-12-20" copyright="Copyright 2010, Schmalz GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="234" vendorName="J. Schmalz GmbH" deviceId="100210">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Schmalz-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="10.02.02.*" hardwareRevision="0.0" firmwareRevision="0.0" deviceSymbol="Schmalz-IO-Link-SXPi-pic.png" deviceIcon="Schmalz-IO-Link-SXPi-icon.png">
+          <ProductName textId="TI_SXPi" />
+          <ProductText textId="TI_SXMPi_00_IMP_Q_2xM12" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+    
+    <DatatypeCollection>
+    	<Datatype id="DT_DigitalIn" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    	<SingleValue xsi:type="BooleanValueT" value="false">
+    	<Name textId="TI_PD_DigitalIn_low" /> 
+    	</SingleValue>
+    	<SingleValue xsi:type="BooleanValueT" value="true">
+    	<Name textId="TI_PD_DigitalIn_high" /> 
+    	</SingleValue>
+    	</Datatype>
+    
+    	<Datatype id="DT_DigitalOut" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    	<SingleValue xsi:type="BooleanValueT" value="false">
+    	<Name textId="TI_PD_DigitalOut_low" /> 
+    	</SingleValue>
+    	<SingleValue xsi:type="BooleanValueT" value="true">
+    	<Name textId="TI_PD_DigitalOut_high" /> 
+    	</SingleValue>
+    	</Datatype>
+    	   
+    </DatatypeCollection>
+
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_VendorName" defaultValue="J. Schmalz GmbH" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.schmalz.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="SXPi" />
+	<StdVariableRef id="V_ProductID" defaultValue="10.02.02.*" />
+	<StdVariableRef id="V_ProductText" defaultValue="SXMPi 00 IMP Q 2xM12" />
+        <StdVariableRef id="V_SerialNumber" defaultValue="000000002" />
+        <StdVariableRef id="V_HardwareRevision"  />
+        <StdVariableRef id="V_FirmwareRevision"  />
+        <StdVariableRef id="V_ProcessDataIn" /> 
+        <StdVariableRef id="V_ProcessDataOut" />
+	
+        <Variable id="V_System_vacuum" index="64" accessRights="ro" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false" >
+          <Name textId="TI_System_vacuum" /> 
+          <RecordItem subindex="1" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_System_vacuum" />
+          </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1"  defaultValue="0" /> 
+          <Name textId="Index" /> 
+        </Variable>
+   <!--      
+        <Variable id="V_System_pressure" index="65" accessRights="ro" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <Name textId="TI_System_pressure" /> 
+          <RecordItem subindex="2" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_System_pressure" />
+          </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="2" defaultValue="0" /> 
+          <Name textId="Index" /> 
+        </Variable>
+   -->     
+	<Variable id="V_Air_saving_function" index="68" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="2" subindexAccessSupported="false">
+            <RecordItem subindex="3" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="not_active" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="active" />
+                </SingleValue>
+		<SingleValue value="2">
+                  <Name textId="active_with_external_signal" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Air_saving_function" />
+            </RecordItem>
+          </Datatype>
+           <RecordItemInfo subindex="3" defaultValue="1" /> 
+          <Name textId="Index" />
+	  </Variable>
+	
+        <Variable id="V_Blow-off_mode_bLo" index="69" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="2" subindexAccessSupported="false">
+            <RecordItem subindex="4" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="TI_Externally_controlled_blow_off_E" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_Internally_controlled_blow_off_time_dependent_I_t" />
+                </SingleValue>
+		 <SingleValue value="2">
+                  <Name textId="TI_Externally_controlled_blow_off_time_dependent_E_t" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Blow_off_mode" />
+            </RecordItem>
+           </Datatype>
+         <Name textId="Index" />
+	</Variable>
+
+	 <Variable id="V_Output_1_function" index="70" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="5" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_NO" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_NC" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Output-1_function" />
+            </RecordItem>
+           </Datatype>
+           <Name textId="Index" />
+	</Variable>
+	  <Variable id="V_Output_2_function" index="71" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="6" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_NO" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_NC" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Output-2_function" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="Index" />
+	  </Variable>
+	<Variable id="V_Output_3_function" index="72" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="7" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_NO" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_NC" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Output-3_function" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="Index" />
+	  </Variable> 
+
+        <Variable id="V_Signal_Type" index="73" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="8" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="PNP" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="NPN" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Signal_Type" />
+            </RecordItem>
+          </Datatype>
+         <Name textId="Index" />
+	</Variable>
+      	  
+        <Variable id="V_Vacuum_display_unit" index="74" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="2" subindexAccessSupported="false">
+            <RecordItem subindex="9" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+                <SingleValue value="0">
+                  <Name textId="mbar" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="kPa" />
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="inHg" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Vacuum_display_unit" />
+            </RecordItem>
+          </Datatype>
+         <Name textId="Index" />
+	</Variable>
+        
+	<Variable accessRights="rw" id="V_Output_filter_dLY" index="75" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="2" subindexAccessSupported="false">
+            <RecordItem subindex="10" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="2"> 
+             <SingleValue value="0">
+              <Name textId="TI_OFF" />
+               </SingleValue>
+                <SingleValue value="1">
+                 <Name textId="TI_10msec" />
+                </SingleValue>
+                <SingleValue value="2">
+                 <Name textId="TI_50msec" />
+                </SingleValue>
+                <SingleValue value="3">
+                 <Name textId="TI_200msec" />
+                </SingleValue>
+               </SimpleDatatype>  
+              <Name textId="TI_Output_filter_dLY" />               
+            </RecordItem>
+          </Datatype>
+         <Name textId="Index" />
+	</Variable>
+	
+	<Variable id="V_ECO-Mode" index="76" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="11" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_ECO_OFF" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_ECO_ON" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_ECO_Mode" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="Index" />
+	</Variable>
+
+	<Variable id="V_PIN_code" index="77" accessRights="rw" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="12" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_PIN_code" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="12"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+
+        <Variable id="V_Disable_continuous_sucking" index="78" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="13" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_No" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_Yes" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Disable_continuous_sucking" />
+            </RecordItem>
+          </Datatype>
+         <Name textId="Index" />
+	</Variable>
+	
+	<Variable id="V_Setpoint_H1" index="100" accessRights="rw" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="14" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Setpoint_H1" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="14"  defaultValue="750" />
+          <Name textId="Index" />         
+        </Variable>
+
+	<Variable id="V_Hysteresis_h1" index="101" accessRights="rw" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="15" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Hysteresis_h1" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="15"  defaultValue="150" />
+          <Name textId="Index" />         
+        </Variable>
+        
+        <Variable id="V_Setpoint_H2" index="102" accessRights="rw" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="16" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Setpoint_H2" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="16"  defaultValue="550" />
+          <Name textId="Index" />         
+        </Variable>
+        
+        <Variable id="V_Hysteresis_h2" index="103" accessRights="rw" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="17" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Hysteresis_h2" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="17"  defaultValue="10" />
+          <Name textId="Index" />         
+        </Variable>
+<!-- 
+        <Variable id="V_Setpoint_HP1" index="104" accessRights="rw" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="18" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Setpoint_HP1" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="18"  defaultValue="40" />
+          <Name textId="Index" />         
+        </Variable>
+        
+        <Variable id="V_Hysteresis_hP1" index="105" accessRights="rw" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="19" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Hysteresis_hP1" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="19"  defaultValue="2" />
+          <Name textId="Index" />         
+        </Variable>
+-->
+        <Variable id="V_Duration_automatic_blow" index="106" accessRights="rw" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="20" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Duration_automatic_blow" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="20"  defaultValue="20" />
+          <Name textId="Index" />         
+        </Variable>   
+	
+	 <Variable id="V_Permissible_evacuation_time_t-1" index="107" accessRights="rw" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="21" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Permissible_evacuation_time_t-1" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="21"  defaultValue="200" />
+          <Name textId="Index" />         
+        </Variable>
+
+	<Variable id="V_Permissible_leakage_value_L" index="108" accessRights="rw"> 
+	<Datatype xsi:type="RecordT" bitLength="3" subindexAccessSupported="false">
+            <RecordItem subindex="22" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="3">
+                <SingleValue value="0">
+                  <Name textId="TI_4mbar_p_s" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_11mbar_p_s" />
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TI_25mbar_p_s" />
+                </SingleValue>
+		 <SingleValue value="3">
+                  <Name textId="TI_50mbar_p_s" />
+                </SingleValue>
+		 <SingleValue value="4">
+                  <Name textId="TI_100mbar_p_s" />
+                </SingleValue>		
+               <SingleValue value="5">
+                  <Name textId="TI_150mbar_p_s" />
+                </SingleValue>
+                <SingleValue value="6">
+                  <Name textId="TI_250mbar_p_s" />
+                </SingleValue>
+                </SimpleDatatype>
+              <Name textId="TI_Permissible_leakage_value_L" />
+            </RecordItem>
+          </Datatype>
+	 <Name textId="Index" />
+        </Variable>
+	
+	
+	<Variable accessRights="wo" id="V_Vacuum_sensor_offset" index="120">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="23" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_nothing" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_zero_offset" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Vacuum_sensor_offset" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="Index" />
+	  </Variable>
+<!-- 	  
+	<Variable accessRights="wo" id="V_Pressure_sensor_offset" index="121">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="24" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_nothing" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_zero_offset" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Pressure_sensor_offset" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="Index" />
+	 </Variable>
+-->	
+	  <Variable id="V_Reset_erasable_counters" index="122" accessRights="wo">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="25" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_nothing" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_Reset_eras_counters" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Reset_erasable_counters" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="Index" />
+	  </Variable>   
+		
+        <Variable id="V_Factory_defaults" index="123" accessRights="wo">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported="false">
+            <RecordItem subindex="26" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="0">
+                  <Name textId="TI_nothing" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_restore" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Factory_defaults" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="Index" />
+	  </Variable>
+       	
+	<Variable id="V_Error_code" index="130" accessRights="ro" >
+	 <Datatype xsi:type="RecordT" bitLength="4" subindexAccessSupported="false">
+            <RecordItem subindex="27" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="4">
+                <SingleValue value="0">
+                  <Name textId="TI_No_error" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_E01" />
+                </SingleValue>
+		<SingleValue value="2">
+                  <Name textId="TI_E02" />
+                </SingleValue>
+		<SingleValue value="3">
+                  <Name textId="TI_E03" />
+                </SingleValue>
+                <SingleValue value="4">
+                  <Name textId="TI_E04" />
+                </SingleValue>
+                <SingleValue value="5">
+                  <Name textId="TI_E05" />
+                </SingleValue>
+                <SingleValue value="6">
+                  <Name textId="TI_E06" />
+                </SingleValue>
+                <SingleValue value="7">
+                  <Name textId="TI_E07" />
+                </SingleValue>
+                <SingleValue value="8">
+                  <Name textId="TI_E08" />
+                </SingleValue>
+                <SingleValue value="9">
+                  <Name textId="TI_E09" />
+                </SingleValue>
+                <SingleValue value="10">
+                  <Name textId="TI_E10" />
+                </SingleValue>
+                <SingleValue value="11">
+                  <Name textId="TI_E11" />
+                </SingleValue>
+                <SingleValue value="12">
+                  <Name textId="TI_E12" />
+                </SingleValue>
+                <SingleValue value="13">
+                  <Name textId="TI_E13" />
+                </SingleValue>
+                <SingleValue value="14">
+                  <Name textId="TI_E14" />
+                </SingleValue>
+                <SingleValue value="15">
+                  <Name textId="TI_E15" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Error_code" />
+            </RecordItem>
+          </Datatype>
+	 <Name textId="Index" />
+        </Variable> 
+
+        <Variable id="V_Vacuum-on_counter_cc1" index="140" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+          <RecordItem subindex="28" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="32" /> 
+          <Name textId="TI_Vacuum-on_counter_cc1" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="28"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+	
+         <Variable id="V_Valve_operating_counter_cc2" index="141" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+          <RecordItem subindex="29" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="32" /> 
+          <Name textId="TI_Valve_operating_counter_cc2" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="29"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+        
+          <Variable id="V_Condition_monitoring_counter_cc3" index="142" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+          <RecordItem subindex="30" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="32" /> 
+          <Name textId="TI_Condition_monitoring_counter_cc3" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="30"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+
+        <Variable id="V_Vacuum-on_counter_ct1" index="143" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+          <RecordItem subindex="31" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="32" /> 
+          <Name textId="TI_Vacuum-on_counter_ct1" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="31"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+	
+         <Variable id="V_Valve_operating_counter_ct2" index="144" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+          <RecordItem subindex="32" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="32" /> 
+          <Name textId="TI_Valve_operating_counter_ct2" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="32"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+        
+        <Variable id="V_Condition_monitoring_counter_ct3" index="145" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+          <RecordItem subindex="33" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="32" /> 
+          <Name textId="TI_Condition_monitoring_counter_ct3" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="33"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>     	
+        
+        <Variable id="V_Condition_monitoring" index="146" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+          <RecordItem subindex="34" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="8" /> 
+          <Name textId="TI_Condition_monitoring" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="34"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+
+	<Variable id="V_Leakage_area" index="147" accessRights="ro" >
+	 <Datatype xsi:type="RecordT" bitLength="4" subindexAccessSupported="false">
+            <RecordItem subindex="35" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="4">
+                <SingleValue value="0">
+                  <Name textId="TI_No_actual_value" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_Leakage_higher_200mbar_per_s" />
+                </SingleValue>
+		<SingleValue value="2">
+                  <Name textId="TI_Leakage_between_133_200mbar_per_s" />
+                </SingleValue>
+		<SingleValue value="4">
+                  <Name textId="TI_Leakage_between_67_133mbar_per_s" />
+                </SingleValue>
+                <SingleValue value="8">
+                  <Name textId="TI_Leakage_lesser_67mbar_per_s" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Leakage_area" />
+            </RecordItem>
+          </Datatype>
+	 <Name textId="Index" />
+        </Variable> 
+
+        
+        <Variable id="V_Evacuation_time_t0" index="148" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="36" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Evacuation_time_t0" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="36"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+	
+        <Variable id="V_Evacuation_time_t1" index="149" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="37" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Evacuation_time_t1" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="37"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+                  
+        <Variable id="V_Air_consumption_per_cycle_in_percent" index="155" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+          <RecordItem subindex="38" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="8" /> 
+          <Name textId="TI_Air_consumption_per_cycle_in_percent" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="38"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+
+<!-- 
+        
+	<Variable id="V_Leakage" index="160" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="39" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Leakage" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="39"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+	
+	<Variable id="V_Dynamic_pressure" index="161" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="40" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Dynamic_pressure" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="40"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+
+	<Variable id="V_Quality" index="162" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+          <RecordItem subindex="41" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="8" /> 
+          <Name textId="TI_Quality" /> 
+          </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="41"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+
+        <Variable id="V_Performance" index="163" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+          <RecordItem subindex="42" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="8" /> 
+          <Name textId="TI_Performance" /> 
+          </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="42"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+        
+	<Variable id="V_Air_consumption_per_cycle" index="170" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="43" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Air_consumption_per_cycle" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="43"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+
+	<Variable id="V_Energy_consumption_per_cycle" index="171" accessRights="ro" dynamic="true" >
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+          <RecordItem subindex="44" bitOffset="0">
+          <SimpleDatatype xsi:type="UIntegerT" bitLength="16" /> 
+          <Name textId="TI_Energy_consumption_per_cycle" /> 
+          </RecordItem>
+          </Datatype>
+         <RecordItemInfo subindex="44"  defaultValue="0" />
+          <Name textId="Index" />         
+        </Variable>
+-->	
+	
+      </VariableCollection>
+      
+      <ProcessDataCollection>
+        <ProcessData id="PD_ProcessData">
+          <ProcessDataIn id="PD_ProcessDataIn" bitLength="8">
+            <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+               <Name textId="TI_Pae" />
+               <RecordItem subindex="1" bitOffset="0">
+               <DatatypeRef datatypeId="DT_DigitalIn" /> 
+               <Name textId="TI_Part_present_H2" /> 
+               </RecordItem>
+               <RecordItem subindex="2" bitOffset="1">
+               <DatatypeRef datatypeId="DT_DigitalIn" /> 
+               <Name textId="TI_Air_saving_function_H1" /> 
+               </RecordItem>
+               <RecordItem subindex="3" bitOffset="2">
+               <DatatypeRef datatypeId="DT_DigitalIn" /> 
+               <Name textId="TI_system_pressure_HP1" /> 
+               </RecordItem>   
+               <RecordItem subindex="4" bitOffset="3">
+               <DatatypeRef datatypeId="DT_DigitalIn" /> 
+               <Name textId="TI_Status_LED_green" /> 
+               </RecordItem>
+               <RecordItem subindex="5" bitOffset="4">
+               <DatatypeRef datatypeId="DT_DigitalIn" /> 
+               <Name textId="TI_Status_LED_red" /> 
+               </RecordItem>
+               <RecordItem subindex="6" bitOffset="5">
+               <DatatypeRef datatypeId="DT_DigitalIn" /> 
+               <Name textId="TI_Status_LED_blinking" /> 
+               </RecordItem>
+               <RecordItem subindex="7" bitOffset="6">
+               <DatatypeRef datatypeId="DT_DigitalIn" /> 
+               <Name textId="TI_Condition_Monitoring_Event" /> 
+               </RecordItem>
+               <RecordItem subindex="8" bitOffset="7">
+               <DatatypeRef datatypeId="DT_DigitalIn" /> 
+               <Name textId="TI_Error_Event" /> 
+               </RecordItem>
+              </Datatype>
+
+             <Name textId="TI_Pae" /> 
+          </ProcessDataIn>
+          
+          <ProcessDataOut id="PD_ProcessDataOut" bitLength="8">
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+          <Name textId="TI_Paa" /> 
+          <RecordItem subindex="1" bitOffset="0">
+          <DatatypeRef datatypeId="DT_DigitalOut" /> 
+          <Name textId="TI_Vacuum_On" /> 
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="1">
+          <DatatypeRef datatypeId="DT_DigitalOut" /> 
+          <Name textId="TI_Blow_Off" /> 
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="2">
+          <DatatypeRef datatypeId="DT_DigitalOut" /> 
+          <Name textId="TI_Setting_mode" /> 
+          </RecordItem>
+          </Datatype>
+          <Name textId="TI_Paa" /> 
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_OR_MR_SR_Ident">
+          <Name textId="TI_ME_OR_MR_SR_Ident" /> 
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_ProductName" />
+	    <VariableRef variableId="V_ProductID" />
+	    <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_SerialNumber" />
+	    <VariableRef variableId="V_HardwareRevision" />
+	    <VariableRef variableId="V_FirmwareRevision" />	    
+          </Menu>
+
+          <Menu id="ME_MSR_PAE">
+            <Name textId="TI_ME_MSR_PAE" /> 
+	    <RecordItemRef variableId="V_ProcessDataIn" subindex="1" />
+	    <RecordItemRef variableId="V_ProcessDataIn" subindex="2" />
+	    <RecordItemRef variableId="V_ProcessDataIn" subindex="3" />
+	    <RecordItemRef variableId="V_ProcessDataIn" subindex="4" />
+	    <RecordItemRef variableId="V_ProcessDataIn" subindex="5" />
+	    <RecordItemRef variableId="V_ProcessDataIn" subindex="6" />
+	    <RecordItemRef variableId="V_ProcessDataIn" subindex="7" />
+	    <RecordItemRef variableId="V_ProcessDataIn" subindex="8" />
+	  </Menu>
+	  <Menu id="ME_MSR_PAA">
+            <Name textId="TI_ME_MSR_PAA" /> 	    
+	    <RecordItemRef variableId="V_ProcessDataOut" subindex="1" />
+	    <RecordItemRef variableId="V_ProcessDataOut" subindex="2" />
+	    <RecordItemRef variableId="V_ProcessDataOut" subindex="3" />    
+	  </Menu>
+  
+	   <Menu id="ME_OR_MR_SR_Initial_Setup">
+            <Name textId="TI_ME_MR_SR_Initial_Setup" />	
+             <RecordItemRef variableId="V_Air_saving_function" subindex="3" />
+	     <RecordItemRef variableId="V_Blow-off_mode_bLo" subindex="4" />
+	     <RecordItemRef variableId="V_Output_1_function" subindex="5" accessRightRestriction="rw" />
+	     <RecordItemRef variableId="V_Output_2_function" subindex="6" />
+	     <RecordItemRef variableId="V_Output_3_function" subindex="7" accessRightRestriction="rw" />
+	     <RecordItemRef variableId="V_Signal_Type" subindex="8" /> 
+             <RecordItemRef variableId="V_Vacuum_display_unit" subindex="9" />
+	     <RecordItemRef variableId="V_Output_filter_dLY" subindex="10" accessRightRestriction="rw"/> 
+	     <RecordItemRef variableId="V_ECO-Mode" subindex="11" />
+	     <RecordItemRef variableId="V_PIN_code" subindex="12" accessRightRestriction="rw" gradient="1"/> 
+	     <RecordItemRef variableId="V_Disable_continuous_sucking" subindex="13" /> 
+            </Menu>
+	  
+           <Menu id="ME_OR_MR_SR_Production_Setup">
+            <Name textId="TI_ME_MR_SR_Production_Setup" />	
+             <RecordItemRef variableId="V_Setpoint_H1" subindex="14" accessRightRestriction="rw" unitCode="1138" gradient="1"/>
+             <RecordItemRef variableId="V_Hysteresis_h1" subindex="15" accessRightRestriction="rw" unitCode="1138" gradient="1"/>
+             <RecordItemRef variableId="V_Setpoint_H2" subindex="16" accessRightRestriction="rw" unitCode="1138" gradient="1"/>
+             <RecordItemRef variableId="V_Hysteresis_h2" subindex="17" accessRightRestriction="rw" unitCode="1138" gradient="1"/>
+	    <!--  <RecordItemRef variableId="V_Setpoint_HP1" subindex="18" accessRightRestriction="rw" unitCode="1137" gradient="0.1"/> -->
+	    <!--  <RecordItemRef variableId="V_Hysteresis_hP1" subindex="19" accessRightRestriction="rw" unitCode="1137" gradient="0.1"/>  -->
+	     <RecordItemRef variableId="V_Duration_automatic_blow" subindex="20" accessRightRestriction="rw" unitCode="1054" gradient="0.01" />	 
+	     <RecordItemRef variableId="V_Permissible_evacuation_time_t-1" subindex="21" accessRightRestriction="rw" unitCode="1054" gradient="0.01"/>	
+	     <RecordItemRef variableId="V_Permissible_leakage_value_L" subindex="22" /> 	     
+           </Menu>
+           
+           <Menu id="ME_OR_MR_SR_Calibration">
+            <Name textId="TI_ME_MR_SR_Calibration" />	
+             <RecordItemRef variableId="V_Vacuum_sensor_offset" subindex="23" accessRightRestriction="wo"/>
+	    <!--  <RecordItemRef variableId="V_Pressure_sensor_offset" subindex="24" accessRightRestriction="wo"/>  -->
+	     <RecordItemRef variableId="V_Reset_erasable_counters" subindex="25" accessRightRestriction="wo"/>   
+	     <RecordItemRef variableId="V_Factory_defaults" subindex="26" accessRightRestriction="wo"/>	
+           </Menu>
+           
+          <Menu id="ME_OR_MR_SR_Param">
+           <Name textId="TI_ME_OR_MR_SR_Param" /> 	   
+            <MenuRef menuId="ME_OR_MR_SR_Initial_Setup"/>
+            <MenuRef menuId="ME_OR_MR_SR_Production_Setup"	/>
+            <MenuRef menuId="ME_OR_MR_SR_Calibration"/>
+               	    
+          </Menu>
+         
+           <Menu id="ME_OR_MR_SR_Error">
+            <Name textId="TI_ME_MR_SR_Error" />	
+            <RecordItemRef variableId="V_Error_code" subindex="27" /> 
+           </Menu>
+          
+           <Menu id="ME_OR_MR_SR_Counter">
+           <Name textId="TI_ME_MR_SR_Counter" />
+	    <RecordItemRef variableId="V_Vacuum-on_counter_cc1" subindex="28" accessRightRestriction="ro" />
+	    <RecordItemRef variableId="V_Valve_operating_counter_cc2" subindex="29" accessRightRestriction="ro" />
+	    <RecordItemRef variableId="V_Condition_monitoring_counter_cc3" subindex="30" accessRightRestriction="ro" />
+	    <RecordItemRef variableId="V_Vacuum-on_counter_ct1" subindex="31" accessRightRestriction="ro" />
+	    <RecordItemRef variableId="V_Valve_operating_counter_ct2" subindex="32" accessRightRestriction="ro" />
+	    <RecordItemRef variableId="V_Condition_monitoring_counter_ct3" subindex="33" accessRightRestriction="ro" />           
+           </Menu>
+            
+ 
+           <Menu id="ME_OR_MR_SR_Condition_Monitoring">
+           <Name textId="TI_ME_MR_SR_Condition_Monitoring" />  
+	    <RecordItemRef variableId="V_Condition_monitoring" subindex="34" /> 
+	    <RecordItemRef variableId="V_Leakage_area" subindex="35" accessRightRestriction="ro" /> 
+            <RecordItemRef variableId="V_Evacuation_time_t0" subindex="36" accessRightRestriction="ro" /> 
+            <RecordItemRef variableId="V_Evacuation_time_t1" subindex="37" accessRightRestriction="ro" /> 	
+           </Menu>        
+
+           <Menu id="ME_OR_MR_SR_Energy_Monitoring">
+	    <Name textId="TI_ME_MR_SR_Energy_Monitoring" />
+	     <RecordItemRef variableId="V_Air_consumption_per_cycle_in_percent" subindex="38" accessRightRestriction="ro" />
+	<!--      <RecordItemRef variableId="V_Air_consumption_per_cycle" subindex="43" accessRightRestriction="ro" />  -->
+	<!--      <RecordItemRef variableId="V_Energy_consumption_per_cycle" subindex="44" accessRightRestriction="ro" />  -->	      
+	  </Menu>
+	<!--   
+	  <Menu id="ME_OR_MR_SR_Predictive_Maintenance">
+	    <Name textId="TI_ME_MR_SR_Predictive_Maintenance" />
+	     <RecordItemRef variableId="V_Leakage" subindex="39" />
+	     <RecordItemRef variableId="V_Dynamic_pressure" subindex="40" accessRightRestriction="ro" />
+	     <RecordItemRef variableId="V_Quality" subindex="41" accessRightRestriction="ro" /> 
+	     <RecordItemRef variableId="V_Performance" subindex="42" accessRightRestriction="ro" /> 
+	  </Menu>
+	-->
+	  <Menu id="ME_OR_MR_SR_Diag">
+	    <Name textId="TI_ME_MR_SR_Diag" />
+	     <MenuRef menuId="ME_OR_MR_SR_Error"/>
+	     <MenuRef menuId="ME_OR_MR_SR_Counter"/>
+	     <MenuRef menuId="ME_OR_MR_SR_Condition_Monitoring"/>
+	     <MenuRef menuId="ME_OR_MR_SR_Energy_Monitoring"/>
+	   <!--   <MenuRef menuId="ME_OR_MR_SR_Predictive_Maintenance"/>  -->
+
+	  </Menu>
+	  
+	  
+	  <Menu id="ME_OR_MR_SR_Observe">
+	    <Name textId="TI_ME_Observe" />
+	    <RecordItemRef variableId="V_System_vacuum" subindex="1" accessRightRestriction="ro" unitCode="1138" gradient="1" /> 
+	 <!--    <RecordItemRef variableId="V_System_pressure" subindex="2" accessRightRestriction="ro" unitCode="1137" gradient="0.1" /> -->	  
+	    <MenuRef menuId="ME_MSR_PAE"/>
+	    <MenuRef menuId="ME_MSR_PAA"/>
+	  </Menu>	  
+        </MenuCollection>
+        
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="ME_OR_MR_SR_Param" />
+          <ObservationMenu menuId="ME_OR_MR_SR_Observe" />
+          <DiagnosisMenu menuId="ME_OR_MR_SR_Diag" /> 
+ 
+
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="ME_OR_MR_SR_Param" />
+          <ObservationMenu menuId="ME_OR_MR_SR_Observe" />
+          <DiagnosisMenu menuId="ME_OR_MR_SR_Diag" />
+
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="ME_OR_MR_SR_Param" />
+          <ObservationMenu menuId="ME_OR_MR_SR_Observe" />
+          <DiagnosisMenu menuId="ME_OR_MR_SR_Diag" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="3000" sioSupported="true" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="J. Schmalz GmbH" />
+      <Text id="TI_VendorUrl" value="http://www.schmalz.com" />
+      <Text id="TI_DeviceFamily" value="CompactEjector" />
+
+      <Text id="Index" value=" " />
+      <Text id="TI_ME_OR_MR_SR_Ident" value="Identification data" /> 
+      <Text id="TI_ME_OR_MR_SR_Param" value="Parameter data" />
+
+      <Text id="TI_ME_MR_SR_Initial_Setup" value="Initial Setup" />
+      <Text id="TI_ME_MR_SR_Production_Setup" value="Production Setup" />
+      <Text id="TI_ME_MR_SR_Calibration" value="Calibration" />
+
+      <Text id="TI_SXMPi_00_IMP_Q_2xM12" value="SXMPi 00 IMP Q 2xM12" />
+      <Text id="TI_Pae" value="PAE" />
+      <Text id="TI_Paa" value="PAA" />
+   
+      <Text id="TI_ME_MSR_PAE" value="PAE" /> 
+      <Text id="TI_ME_MSR_PAA" value="PAA" /> 
+      
+      <Text id="TI_PD_DigitalIn_low" value="PD_DigitalIn_low" />
+      <Text id="TI_PD_DigitalIn_high" value="PD_DigitalIn_high" />
+      
+      <Text id="TI_Part_present_H2" value="Part present (H2)" />
+      <Text id="TI_Air_saving_function_H1" value="Automatic air saving function (H1)" />
+      <Text id="TI_system_pressure_HP1" value="-" /> 
+      <Text id="TI_Status_LED_green" value="Status LED - green" />
+      <Text id="TI_Status_LED_red" value="Status LED - red" />
+      <Text id="TI_Status_LED_blinking" value="Status LED - flashing" />
+      <Text id="TI_Condition_Monitoring_Event" value="Condition Monitoring Event" />
+      <Text id="TI_Error_Event" value="Error Event" />
+      
+      <Text id="TI_PD_DigitalOut_low" value="PD_DigitalOut_low" /> 
+      <Text id="TI_PD_DigitalOut_high" value="PD_DigitalOut_high" /> 
+      <Text id="TI_Vacuum_On" value="Vaccum On" /> 
+      <Text id="TI_Blow_Off" value="Blow-Off" /> 
+      <Text id="TI_Setting_mode" value="Setting mode" /> 
+
+      <Text id="TI_ME_Observe" value="Online" /> 
+      <Text id="TI_System_vacuum" value="64: System vacuum" /> 
+    <!--   <Text id="TI_System_pressure" value="65: System pressure" />  -->           
+   
+      <Text id="TI_Air_saving_function" value="68: [ctr] Air saving function" />   
+    
+ 
+      <Text id="TI_Blow_off_mode" value="69: [bLo] Blow-off mode" />
+      <Text id="TI_Externally_controlled_blow_off_E" value="Externally controlled blow_off _E_" />
+      <Text id="TI_Internally_controlled_blow_off_time_dependent_I_t" value="Externally controlled blow_off time dependent I_t" />
+      <Text id="TI_Externally_controlled_blow_off_time_dependent_E_t" value="Externally controlled blow_off time dependent E_t" />
+
+      <Text id="TI_Output-1_function" value="70: [o-1] Output 1 function" />
+      <Text id="TI_Output-2_function" value="71: [o-2] Output 2 function" />
+      <Text id="TI_Output-3_function" value="72: [o-3] Output 3 function" />
+      <Text id="TI_NO" value="NO" />
+      <Text id="TI_NC" value="NC" />
+      <Text id="TI_Signal_Type" value="73: [tYP] Signal Type" />
+      <Text id="NPN" value="NPN" />
+      <Text id="PNP" value="PNP" />
+      <Text id="TI_Vacuum_display_unit" value="74: [uni] Vacuum display unit" />
+      <Text id="mbar" value="mbar" />
+      <Text id="kPa" value="kPa" />
+      <Text id="inHg" value="inHg" />
+      <Text id="not_active" value="not active" />
+      <Text id="active" value="active" />
+      <Text id="active_with_external_signal" value="active with supervision" />
+      <Text id="TI_Output_filter_dLY" value="75: [dLY] Output filter" />
+      <Text id="TI_OFF" value="OFF" />
+      <Text id="TI_10msec" value="10msec" />
+      <Text id="TI_50msec" value="50msec" />
+      <Text id="TI_200msec" value="200msec" />
+      <Text id="TI_ECO_Mode" value="76: [Eco] ECO-Mode" /> 
+      <Text id="TI_ECO_OFF" value="ECO_OFF" />      
+      <Text id="TI_ECO_ON" value="ECO_ON" /> 
+      
+      <Text id="TI_PIN_code" value="77: [Pin] PIN code" />  
+      
+      <Text id="TI_Disable_continuous_sucking" value="78: [dCS] Disable continuous sucking" />
+ 
+      <Text id="TI_Setpoint_H1" value="100: [H-1] Setpoint H1" />
+      <Text id="TI_Hysteresis_h1" value="101: [h-1] Hysteresis h1" />
+      <Text id="TI_Setpoint_H2" value="102: [H-2] Setpoint H2" />     
+      <Text id="TI_Hysteresis_h2" value="103: [h-2] Hysteresis h2" />
+     
+   <!--    <Text id="TI_Setpoint_HP1" value="104: [HP1] Setpoint HP1" /> -->
+   <!--    <Text id="TI_Hysteresis_hP1" value="105: [hP1] Hysteresis hP1" />   -->
+      <Text id="TI_Duration_automatic_blow" value="106: [tbL] Duration automatic blow" />
+      <Text id="TI_Permissible_evacuation_time_t-1" value="107: [t-1] Permissible leakage time" />  
+      <Text id="TI_Permissible_leakage_value_L" value="108: [-L-] Permissible leakage value" /> 
+      <Text id="TI_4mbar_p_s" value="4mbar p.s." />
+      <Text id="TI_11mbar_p_s" value="11mbar p.s." />
+      <Text id="TI_25mbar_p_s" value="25mbar p.s." />
+      <Text id="TI_50mbar_p_s" value="50mbar p.s." />      
+      <Text id="TI_100mbar_p_s" value="100mbar p.s." />
+      <Text id="TI_150mbar_p_s" value="150mbar p.s." />
+      <Text id="TI_250mbar_p_s" value="250mbar p.s." />
+      
+      <Text id="TI_Vacuum_sensor_offset" value="120: [UAC] Vacuum sensor offset Cal UAC" />
+     
+    <!--   <Text id="TI_Pressure_sensor_offset" value="121: [PrS] Pressure sensor offset Cal PrS" />  -->
+      <Text id="TI_No" value="No" />
+      <Text id="TI_Yes" value="Yes" />
+      <Text id="TI_zero_offset" value="zero_offset" />  
+      <Text id="TI_Reset_erasable_counters" value="122: [rct] Reset erasable counters" />
+      <Text id="TI_Reset_eras_counters" value="Reset erasable counters" />
+      <Text id="TI_Factory_defaults" value="123: [rES] Factory defaults" />
+      <Text id="TI_nothing" value="nothing" />
+      <Text id="TI_restore" value="restore" />     
+      
+      <Text id="TI_ME_MR_SR_Diag" value="Diagnose" /> 
+      <Text id="TI_ME_MR_SR_Error" value="Error" /> 
+      <Text id="TI_Error_code" value="130: [Exx] Error code" /> 
+      <Text id="TI_No_error" value="No error" />
+      <Text id="TI_E01" value="E01" />      
+      <Text id="TI_E02" value="E02" />
+      <Text id="TI_E03" value="E03" />
+      <Text id="TI_E04" value="E04" />
+      <Text id="TI_E05" value="E05" />
+      <Text id="TI_E06" value="E06" />
+      <Text id="TI_E07" value="E07" />
+      <Text id="TI_E08" value="E08" />
+      <Text id="TI_E09" value="E09" />
+      <Text id="TI_E10" value="E10" />
+      <Text id="TI_E11" value="E11" />
+      <Text id="TI_E12" value="E12" />
+      <Text id="TI_E13" value="E13" />
+      <Text id="TI_E14" value="E14" />
+      <Text id="TI_E15" value="E15" />
+      
+      <Text id="TI_ME_MR_SR_Counter" value="Counter" /> 
+      <Text id="TI_Vacuum-on_counter_cc1" value="140: [cc1] Vacuum-on counter" />
+      <Text id="TI_Valve_operating_counter_cc2" value="141: [cc2] Valve operating counter" />     
+      <Text id="TI_Condition_monitoring_counter_cc3" value="142: [cc3] Condition monitoring counter" />  
+      <Text id="TI_Vacuum-on_counter_ct1" value="143: [ct1] Vacuum-on counter" />
+      <Text id="TI_Valve_operating_counter_ct2" value="144: [ct2] Valve operating counter" />     
+      <Text id="TI_Condition_monitoring_counter_ct3" value="145: [ct3] Condition monitoring counter" />  
+
+      <Text id="TI_ME_MR_SR_Condition_Monitoring" value="Condition Monitoring [CM]" />
+      <Text id="TI_Condition_monitoring" value="146: Condition monitoring" />
+  
+      <Text id="TI_Leakage_area" value="147: Leakage area" />       
+
+      <Text id="TI_No_actual_value" value="No actual value" />
+      <Text id="TI_Leakage_higher_200mbar_per_s" value="Leakage higher 200mbar/s" />
+      <Text id="TI_Leakage_between_133_200mbar_per_s" value="Leakage between 133 u 200mbar/s" />
+      <Text id="TI_Leakage_between_67_133mbar_per_s" value="Leakage between 67 u 133mbar/s" />
+      <Text id="TI_Leakage_lesser_67mbar_per_s" value="Leakage lesser 67mbar/s" />
+
+      <Text id="TI_Evacuation_time_t0" value="148: Evacuation time t0" />
+      <Text id="TI_Evacuation_time_t1" value="149: Evacuation time t1" />
+      
+      <Text id="TI_Air_consumption_per_cycle_in_percent" value="155: Air consumption per cycle in percent" />
+      
+      
+    <!--  <Text id="TI_ME_MR_SR_Predictive_Maintenance" value="Predictive Maintenance [PM]" /> -->
+    <!--  <Text id="TI_Leakage" value="160: Leakage" />  -->
+    <!--  <Text id="TI_Dynamic_pressure" value="161: Dynamic pressure" />  -->
+    <!--  <Text id="TI_Quality" value="162: Quality" />  -->
+    <!--  <Text id="TI_Performance" value="163: Performance" />  -->
+      
+      <Text id="TI_ME_MR_SR_Energy_Monitoring" value="Energy Monitoring [EM]" /> 
+    <!--  <Text id="TI_Air_consumption_per_cycle" value="170: Air consumption per cycle" />  -->
+    <!--  <Text id="TI_Energy_consumption_per_cycle" value="171: Energy consumption per cycle" />  -->
+      
+
+      <Text id="TI_SXPi" value="SXPi" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3975093878"><Checker name="IODD-Checker V1.0.7" version="V1.0.7.0"/></Stamp>
+</IODevice>

@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.1" releaseDate="2016-06-02" copyright="Copyright 2008-2011, Siemens AG" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="42" vendorName="Siemens AG" deviceId="229378">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Siemens-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="3RK5010-0CA00-0AA0" hardwareRevision="E0.2.0" firmwareRevision="V2.0.2" deviceSymbol="Siemens-K20-8DI-pic.png" deviceIcon="Siemens-K20-8DI-icon.png">
+          <ProductName textId="TI_3RK5010-0CA00_Name" />
+          <ProductText textId="TI_3RK5010-0CA00_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <DatatypeCollection>
+        <Datatype id="DT_Inversion" xsi:type="BooleanT">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_Inversion_Off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_Inversion_On" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_DigitalIn" xsi:type="BooleanT">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_DigitalIn_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_DigitalIn_high" />
+          </SingleValue>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <!--
+		  <Variable id="V_DS_3" index="131" accessRights="ro">
+			  <Datatype xsi:type="RecordT"  bitLength="8" subindexAccessSupported="false">
+				  <RecordItem subindex="1" bitOffset="0">
+					  <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+					  <Name textId="TI_VendorUrl" />
+				  </RecordItem>
+			  </Datatype>
+			  <RecordItemInfo subindex="1" defaultValue="0" />
+			  <Name textId="TI_VendorUrl" />
+		  </Variable>
+			-->
+        <StdDirectParameterRef id="V_DeviceSpecific_DirectParameters" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="128">
+            <RecordItem subindex="1" bitOffset="96">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_Parameter_Inversion_1" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="97">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_Parameter_Inversion_2" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="98">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_Parameter_Inversion_3" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="99">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_Parameter_Inversion_4" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="100">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_Parameter_Inversion_5" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="101">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_Parameter_Inversion_6" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="102">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_Parameter_Inversion_7" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="103">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_Parameter_Inversion_8" />
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="88">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue xsi:type="UIntegerValueT" value="10">
+                  <Name textId="TI_Parameter_Input_delay_1ms" />
+                </SingleValue>
+                <SingleValue xsi:type="UIntegerValueT" value="30">
+                  <Name textId="TI_Parameter_Input_delay_3ms" />
+                </SingleValue>
+                <SingleValue xsi:type="UIntegerValueT" value="150">
+                  <Name textId="TI_Parameter_Input_delay_15ms" />
+                </SingleValue>
+                <SingleValue xsi:type="UIntegerValueT" value="200">
+                  <Name textId="TI_Parameter_Input_delay_20ms" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_Parameter_Input_delay" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="0" />
+          <RecordItemInfo subindex="3" defaultValue="0" />
+          <RecordItemInfo subindex="4" defaultValue="0" />
+          <RecordItemInfo subindex="5" defaultValue="0" />
+          <RecordItemInfo subindex="6" defaultValue="0" />
+          <RecordItemInfo subindex="7" defaultValue="0" />
+          <RecordItemInfo subindex="8" defaultValue="0" />
+          <RecordItemInfo subindex="9" defaultValue="30" />
+          <Name textId="TI_V_DirectParams" />
+        </StdDirectParameterRef>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="PD_Digital">
+          <ProcessDataIn id="PD_DigitalIn" bitLength="8">
+            <Datatype xsi:type="RecordT" bitLength="8">
+              <Name textId="TI_DigitalIn" />
+              <RecordItem subindex="1" bitOffset="0">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_DigitalIn_Bit_1" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_DigitalIn_Bit_2" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_DigitalIn_Bit_3" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="3">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_DigitalIn_Bit_4" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="4">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_DigitalIn_Bit_5" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="5">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_DigitalIn_Bit_6" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="6">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_DigitalIn_Bit_7" />
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="7">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_DigitalIn_Bit_8" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_DigitalIn" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <!-- Kurzschluß Event 0x5410 -->
+        <Event code="21520" type="Error" mode="AppearDisappear">
+          <Name textId="TI_EV_Overload" />
+          <Description textId="TI_EvDescr_Overload" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_Ident">
+            <Name textId="TI_ME_Ident" />
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="8" />
+            <!--Vendor ID 1-->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="9" />
+            <!--Vendor ID 2-->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="10" />
+            <!--Device ID 1-->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="11" />
+            <!--Device ID 2-->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="12" />
+            <!--Device ID 3-->
+          </Menu>
+          <Menu id="ME_OR_Param">
+            <Name textId="TI_ME_Param" />
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="1" accessRightRestriction="ro" />
+            <!-- inversion of input 1 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="2" accessRightRestriction="ro" />
+            <!-- inversion of input 2 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="3" accessRightRestriction="ro" />
+            <!-- inversion of input 3 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="4" accessRightRestriction="ro" />
+            <!-- inversion of input 4 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="5" accessRightRestriction="ro" />
+            <!-- inversion of input 5 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="6" accessRightRestriction="ro" />
+            <!-- inversion of input 6 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="7" accessRightRestriction="ro" />
+            <!-- inversion of input 7 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="8" accessRightRestriction="ro" />
+            <!-- inversion of input 8 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="9" accessRightRestriction="ro" />
+            <!-- time delay -->
+          </Menu>
+          <Menu id="ME_MSR_Param">
+            <Name textId="TI_ME_Param" />
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="1" />
+            <!-- inversion of input 1 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="2" />
+            <!-- inversion of input 2 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="3" />
+            <!-- inversion of input 3 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="4" />
+            <!-- inversion of input 4 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="5" />
+            <!-- inversion of input 5 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="6" />
+            <!-- inversion of input 6 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="7" />
+            <!-- inversion of input 7 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="8" />
+            <!-- inversion of input 8 -->
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="9" />
+            <!-- time delay -->
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_OR_Param" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_MSR_Param" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_MSR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="2300" sioSupported="false" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.com/io-link" />
+      <Text id="TI_DeviceFamily" value="Input Modules" />
+      <Text id="TI_3RK5010-0CA00_Name" value="IO-Link Module K20 8DI" />
+      <Text id="TI_3RK5010-0CA00_Text" value="digital, 8DI, IP67, 8 X 1 input, sensor supply max. 400 mA, 8 X M8-socket standard-assignment, Device-id1,2,3=3,128,2" />
+      <Text id="TI_Inversion_Off" value="not inverted" />
+      <Text id="TI_Inversion_On" value="inverted" />
+      <Text id="TI_DigitalIn_low" value="0" />
+      <Text id="TI_DigitalIn_high" value="1" />
+      <Text id="TI_V_DirectParams" value="Direct parameters" />
+      <Text id="TI_Parameter_Inversion_1" value="Inversion of the input signal 1" />
+      <Text id="TI_Parameter_Inversion_2" value="Inversion of the input signal 2" />
+      <Text id="TI_Parameter_Inversion_3" value="Inversion of the input signal 3" />
+      <Text id="TI_Parameter_Inversion_4" value="Inversion of the input signal 4" />
+      <Text id="TI_Parameter_Inversion_5" value="Inversion of the input signal 5" />
+      <Text id="TI_Parameter_Inversion_6" value="Inversion of the input signal 6" />
+      <Text id="TI_Parameter_Inversion_7" value="Inversion of the input signal 7" />
+      <Text id="TI_Parameter_Inversion_8" value="Inversion of the input signal 8" />
+      <Text id="TI_Parameter_Input_delay" value="Input delay" />
+      <Text id="TI_Parameter_Input_delay_1ms" value="1 ms" />
+      <Text id="TI_Parameter_Input_delay_3ms" value="3 ms" />
+      <Text id="TI_Parameter_Input_delay_15ms" value="15 ms" />
+      <Text id="TI_Parameter_Input_delay_20ms" value="20 ms" />
+      <Text id="TI_DigitalIn" value="Process data (input)" />
+      <Text id="TI_DigitalIn_Bit_1" value="IN 1" />
+      <Text id="TI_DigitalIn_Bit_2" value="IN 2" />
+      <Text id="TI_DigitalIn_Bit_3" value="IN 3" />
+      <Text id="TI_DigitalIn_Bit_4" value="IN 4" />
+      <Text id="TI_DigitalIn_Bit_5" value="IN 5" />
+      <Text id="TI_DigitalIn_Bit_6" value="IN 6" />
+      <Text id="TI_DigitalIn_Bit_7" value="IN 7" />
+      <Text id="TI_DigitalIn_Bit_8" value="IN 8" />
+      <Text id="TI_EV_Overload" value="overload" />
+      <Text id="TI_EvDescr_Overload" value="possibly inputs wrongly attached" />
+      <Text id="TI_ME_Ident" value="Identification Data" />
+      <Text id="TI_ME_Param" value="Parameter Data" />
+    </PrimaryLanguage>
+    <Language xml:lang="de">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.de/io-link" />
+      <Text id="TI_DeviceFamily" value="Eingangsmodule" />
+      <Text id="TI_3RK5010-0CA00_Name" value="IO-Link Modul K20 8DI" />
+      <Text id="TI_3RK5010-0CA00_Text" value="digital, 8DI, IP67, 8 x 1 Eingang, Sensorversorgung max. 400 mA, 8 x M8-Buchse Standard-Belegung, Device-id1,2,3=3,128,2" />
+      <Text id="TI_Inversion_Off" value="nicht invertiert" />
+      <Text id="TI_Inversion_On" value="invertiert" />
+      <Text id="TI_DigitalIn_low" value="0" />
+      <Text id="TI_DigitalIn_high" value="1" />
+      <Text id="TI_V_DirectParams" value="Direktparameter" />
+      <Text id="TI_Parameter_Inversion_1" value="Invertierung des Eingangssignals 1" />
+      <Text id="TI_Parameter_Inversion_2" value="Invertierung des Eingangssignals 2" />
+      <Text id="TI_Parameter_Inversion_3" value="Invertierung des Eingangssignals 3" />
+      <Text id="TI_Parameter_Inversion_4" value="Invertierung des Eingangssignals 4" />
+      <Text id="TI_Parameter_Inversion_5" value="Invertierung des Eingangssignals 5" />
+      <Text id="TI_Parameter_Inversion_6" value="Invertierung des Eingangssignals 6" />
+      <Text id="TI_Parameter_Inversion_7" value="Invertierung des Eingangssignals 7" />
+      <Text id="TI_Parameter_Inversion_8" value="Invertierung des Eingangssignals 8" />
+      <Text id="TI_Parameter_Input_delay" value="Eingangsverzögerung" />
+      <Text id="TI_Parameter_Input_delay_1ms" value="1 ms" />
+      <Text id="TI_Parameter_Input_delay_3ms" value="3 ms" />
+      <Text id="TI_Parameter_Input_delay_15ms" value="15 ms" />
+      <Text id="TI_Parameter_Input_delay_20ms" value="20 ms" />
+      <Text id="TI_DigitalIn" value="Prozessdaten (Eingang)" />
+      <Text id="TI_DigitalIn_Bit_1" value="IN 1" />
+      <Text id="TI_DigitalIn_Bit_2" value="IN 2" />
+      <Text id="TI_DigitalIn_Bit_3" value="IN 3" />
+      <Text id="TI_DigitalIn_Bit_4" value="IN 4" />
+      <Text id="TI_DigitalIn_Bit_5" value="IN 5" />
+      <Text id="TI_DigitalIn_Bit_6" value="IN 6" />
+      <Text id="TI_DigitalIn_Bit_7" value="IN 7" />
+      <Text id="TI_DigitalIn_Bit_8" value="IN 8" />
+      <Text id="TI_EV_Overload" value="Überlast" />
+      <Text id="TI_EvDescr_Overload" value="eventuell Eingänge falsch angeschlossen" />
+      <Text id="TI_ME_Ident" value="Identifikationsdaten" />
+      <Text id="TI_ME_Param" value="Parameterdaten" />
+    </Language>
+    <Language xml:lang="fr">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.com/io-link" />
+      <Text id="TI_DeviceFamily" value="Modules d'entrée" />
+      <Text id="TI_3RK5010-0CA00_Name" value="Module IO-Link K20 8DI" />
+      <Text id="TI_3RK5010-0CA00_Text" value="TOR, 8 DI, IP67, 8 x 1 entrée, alimentation de capteur max. 400 mA, 8 x douille M8, brochage standard, Device-id1,2,3=3,128,2" />
+      <Text id="TI_Inversion_Off" value="non inversé" />
+      <Text id="TI_Inversion_On" value="inversé" />
+      <Text id="TI_DigitalIn_low" value="0" />
+      <Text id="TI_DigitalIn_high" value="1" />
+      <Text id="TI_V_DirectParams" value="Paramètre direct" />
+      <Text id="TI_Parameter_Inversion_1" value="Inversion du signal d'entrée 1" />
+      <Text id="TI_Parameter_Inversion_2" value="Inversion du signal d'entrée 2" />
+      <Text id="TI_Parameter_Inversion_3" value="Inversion du signal d'entrée 3" />
+      <Text id="TI_Parameter_Inversion_4" value="Inversion du signal d'entrée 4" />
+      <Text id="TI_Parameter_Inversion_5" value="Inversion du signal d'entrée 5" />
+      <Text id="TI_Parameter_Inversion_6" value="Inversion du signal d'entrée 6" />
+      <Text id="TI_Parameter_Inversion_7" value="Inversion du signal d'entrée 7" />
+      <Text id="TI_Parameter_Inversion_8" value="Inversion du signal d'entrée 8" />
+      <Text id="TI_Parameter_Input_delay" value="Temporisation d'entrée" />
+      <Text id="TI_Parameter_Input_delay_1ms" value="1 ms" />
+      <Text id="TI_Parameter_Input_delay_3ms" value="3 ms" />
+      <Text id="TI_Parameter_Input_delay_15ms" value="15 ms" />
+      <Text id="TI_Parameter_Input_delay_20ms" value="20 ms" />
+      <Text id="TI_DigitalIn" value="Données processus" />
+      <Text id="TI_DigitalIn_Bit_1" value="IN 1" />
+      <Text id="TI_DigitalIn_Bit_2" value="IN 2" />
+      <Text id="TI_DigitalIn_Bit_3" value="IN 3" />
+      <Text id="TI_DigitalIn_Bit_4" value="IN 4" />
+      <Text id="TI_DigitalIn_Bit_5" value="IN 5" />
+      <Text id="TI_DigitalIn_Bit_6" value="IN 6" />
+      <Text id="TI_DigitalIn_Bit_7" value="IN 7" />
+      <Text id="TI_DigitalIn_Bit_8" value="IN 8" />
+      <Text id="TI_EV_Overload" value="Surcharge" />
+      <Text id="TI_EvDescr_Overload" value="Entrées éventuellement mal raccordées" />
+      <Text id="TI_ME_Ident" value="Données d'identification" />
+      <Text id="TI_ME_Param" value="Données de paramétrage" />
+    </Language>
+    <Language xml:lang="es">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.com/io-link" />
+      <Text id="TI_DeviceFamily" value="Módulos de entradas" />
+      <Text id="TI_3RK5010-0CA00_Name" value="Módulo IO-Link K20 8DI" />
+      <Text id="TI_3RK5010-0CA00_Text" value="digital, 8DI, IP67, 8 x 1 entradas, alimentación de sensores, máx. 400 mA, 8 x conectores hembra M8 con asignación estándar, Device-id1,2,3=3,128,2" />
+      <Text id="TI_Inversion_Off" value="no invertida" />
+      <Text id="TI_Inversion_On" value="invertida" />
+      <Text id="TI_DigitalIn_low" value="0" />
+      <Text id="TI_DigitalIn_high" value="1" />
+      <Text id="TI_V_DirectParams" value="Parámetros directos" />
+      <Text id="TI_Parameter_Inversion_1" value="Inversión de la señal de entrada 1" />
+      <Text id="TI_Parameter_Inversion_2" value="Inversión de la señal de entrada 2" />
+      <Text id="TI_Parameter_Inversion_3" value="Inversión de la señal de entrada 3" />
+      <Text id="TI_Parameter_Inversion_4" value="Inversión de la señal de entrada 4" />
+      <Text id="TI_Parameter_Inversion_5" value="Inversión de la señal de entrada 5" />
+      <Text id="TI_Parameter_Inversion_6" value="Inversión de la señal de entrada 6" />
+      <Text id="TI_Parameter_Inversion_7" value="Inversión de la señal de entrada 7" />
+      <Text id="TI_Parameter_Inversion_8" value="Inversión de la señal de entrada 8" />
+      <Text id="TI_Parameter_Input_delay" value="Retardo de la entrada" />
+      <Text id="TI_Parameter_Input_delay_1ms" value="1 ms" />
+      <Text id="TI_Parameter_Input_delay_3ms" value="3 ms" />
+      <Text id="TI_Parameter_Input_delay_15ms" value="15 ms" />
+      <Text id="TI_Parameter_Input_delay_20ms" value="20 ms" />
+      <Text id="TI_DigitalIn" value="Datos de proceso" />
+      <Text id="TI_DigitalIn_Bit_1" value="IN 1" />
+      <Text id="TI_DigitalIn_Bit_2" value="IN 2" />
+      <Text id="TI_DigitalIn_Bit_3" value="IN 3" />
+      <Text id="TI_DigitalIn_Bit_4" value="IN 4" />
+      <Text id="TI_DigitalIn_Bit_5" value="IN 5" />
+      <Text id="TI_DigitalIn_Bit_6" value="IN 6" />
+      <Text id="TI_DigitalIn_Bit_7" value="IN 7" />
+      <Text id="TI_DigitalIn_Bit_8" value="IN 8" />
+      <Text id="TI_EV_Overload" value="Sobrecarga" />
+      <Text id="TI_EvDescr_Overload" value="Posibles entradas mal conectadas" />
+      <Text id="TI_ME_Ident" value="Datos de identificación" />
+      <Text id="TI_ME_Param" value="Datos de parámetros" />
+    </Language>
+    <Language xml:lang="it">
+      <Text id="TI_VendorText" value="Siemens AG" />
+      <Text id="TI_VendorUrl" value="http://www.siemens.com/io-link" />
+      <Text id="TI_DeviceFamily" value="Moduli di ingressi" />
+      <Text id="TI_3RK5010-0CA00_Name" value="Modulo IO-Link K20 8 DI" />
+      <Text id="TI_3RK5010-0CA00_Text" value="digitale, 8 DI, IP67, 8 x 1 ingresso, alimentazione sensori max. 400 mA, 8 x prese M8 con assegnazione dei pin standard, device ID 1,2,3=3,128,2" />
+      <Text id="TI_Inversion_Off" value="non invertito" />
+      <Text id="TI_Inversion_On" value="invertito" />
+      <Text id="TI_DigitalIn_low" value="0" />
+      <Text id="TI_DigitalIn_high" value="1" />
+      <Text id="TI_V_DirectParams" value="Parametro diretto" />
+      <Text id="TI_Parameter_Inversion_1" value="Inversione del segnale d'ingresso 1" />
+      <Text id="TI_Parameter_Inversion_2" value="Inversione del segnale d'ingresso 2" />
+      <Text id="TI_Parameter_Inversion_3" value="Inversione del segnale d'ingresso 3" />
+      <Text id="TI_Parameter_Inversion_4" value="Inversione del segnale d'ingresso 4" />
+      <Text id="TI_Parameter_Inversion_5" value="Inversione del segnale d'ingresso 5" />
+      <Text id="TI_Parameter_Inversion_6" value="Inversione del segnale d'ingresso 6" />
+      <Text id="TI_Parameter_Inversion_7" value="Inversione del segnale d'ingresso 7" />
+      <Text id="TI_Parameter_Inversion_8" value="Inversione del segnale d'ingresso 8" />
+      <Text id="TI_Parameter_Input_delay" value="Ritardo in ingresso" />
+      <Text id="TI_Parameter_Input_delay_1ms" value="1 ms" />
+      <Text id="TI_Parameter_Input_delay_3ms" value="3 ms" />
+      <Text id="TI_Parameter_Input_delay_15ms" value="15 ms" />
+      <Text id="TI_Parameter_Input_delay_20ms" value="20 ms" />
+      <Text id="TI_DigitalIn" value="Dati di processo" />
+      <Text id="TI_DigitalIn_Bit_1" value="IN 1" />
+      <Text id="TI_DigitalIn_Bit_2" value="IN 2" />
+      <Text id="TI_DigitalIn_Bit_3" value="IN 3" />
+      <Text id="TI_DigitalIn_Bit_4" value="IN 4" />
+      <Text id="TI_DigitalIn_Bit_5" value="IN 5" />
+      <Text id="TI_DigitalIn_Bit_6" value="IN 6" />
+      <Text id="TI_DigitalIn_Bit_7" value="IN 7" />
+      <Text id="TI_DigitalIn_Bit_8" value="IN 8" />
+      <Text id="TI_EV_Overload" value="Sovraccarico" />
+      <Text id="TI_EvDescr_Overload" value="Ingressi eventualmente collegati erroneamente" />
+      <Text id="TI_ME_Ident" value="Dati di identificazione" />
+      <Text id="TI_ME_Param" value="Dati dei parametri" />
+    </Language>
+  </ExternalTextCollection>
+  <Stamp crc="4161691945"><Checker name="IODD-Checker V1.0.10" version="V1.0.10.0"/></Stamp>
+</IODevice>

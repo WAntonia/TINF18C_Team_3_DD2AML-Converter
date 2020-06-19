@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- This example shows how to use the categories feature of the GSDML -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.35.xsd">
+	<!-- ProfileHeader definition as defined in ISO 15745-1. Please do not change the content. -->
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0xFFFF" DeviceID="0x0098">
+			<InfoText TextId="IDT_INFO_Device"/>
+			<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="I/O" ProductFamily="PNO GSDML V2.35 Examples"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.35" PhysicalSlots="0..10" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" DNS_CompatibleName="pno-example-dap" FixedInSlots="0" ObjectUUID_LocalIndex="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" MultipleWriteSupported="true" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="2">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_DAP1"/>
+						<InfoText TextId="IDT_INFO_DAP1"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-0098"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="A" ApplicationClass="" NetloadClass="I"/>
+					<IOConfigData MaxInputLength="244" MaxOutputLength="244"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_1" AllowedInSlots="1..10"/>
+						<ModuleItemRef ModuleItemTarget="IDM_2" AllowedInSlots="1..10"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_1" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1..3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS1"/>
+								<InfoText TextId="IDT_INFO_VS1"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_I" SubmoduleIdentNumber="0x00000002" SubslotNumber="32768" TextId="IDT_NAME_IS" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+							<ApplicationRelations StartupMode="Advanced">
+								<TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P1" SubmoduleIdentNumber="0x00000003" SubslotNumber="32769" TextId="IDT_NAME_PS1" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P2" SubmoduleIdentNumber="0x00000003" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<ModuleItem ID="IDM_1" ModuleIdentNumber="0x00000002">
+					<ModuleInfo CategoryRef="IDC_AnalogModules" SubCategory1Ref="IDC_AnalogInput">
+						<Name TextId="IDT_MODULE_NAME_Module1"/>
+						<InfoText TextId="IDT_INFO_Module1"/>
+						<OrderNumber Value="12345-0098-M1"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_2" SubmoduleIdentNumber="0x00000010" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_AnalogInput"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_AnalogInput"/>
+								</Input>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS2"/>
+								<InfoText TextId="IDT_INFO_VS2"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="IDM_2" ModuleIdentNumber="0x00000003">
+					<ModuleInfo CategoryRef="IDC_AnalogModules" SubCategory1Ref="IDC_AnalogOutput">
+						<Name TextId="IDT_MODULE_NAME_Module2"/>
+						<InfoText TextId="IDT_INFO_Module2"/>
+						<OrderNumber Value="12345-0098-M2"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_3" SubmoduleIdentNumber="0x00000011" MayIssueProcessAlarm="false">
+							<IOData>
+								<Output>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_AnalogOutput"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_AnalogOutput"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS3"/>
+								<InfoText TextId="IDT_INFO_VS3"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<CategoryList>
+				<CategoryItem ID="IDC_AnalogModules" TextId="IDT_CATEGORY_AnalogModules"/>
+				<CategoryItem ID="IDC_AnalogInput" TextId="IDT_CATEGORY_AnalogIn"/>
+				<CategoryItem ID="IDC_AnalogOutput" TextId="IDT_CATEGORY_AnalogOut"/>
+			</CategoryList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Examples"/>
+					<Text TextId="IDT_MODULE_NAME_DAP1" Value="PNO Example DAP - Categories"/>
+					<Text TextId="IDT_INFO_DAP1" Value="This example shows how to use the categories feature"/>
+					<Text TextId="IDT_NAME_IS" Value="I"/>
+					<Text TextId="IDT_NAME_PS1" Value="P1"/>
+					<Text TextId="IDT_NAME_PS2" Value="P2"/>
+					<Text TextId="IDT_MODULE_NAME_Module1" Value="AI2"/>
+					<Text TextId="IDT_INFO_Module1" Value="This text can contain some human readable information about Module 1"/>
+					<Text TextId="IDT_MODULE_NAME_Module2" Value="AO2"/>
+					<Text TextId="IDT_INFO_Module2" Value="This text can contain some human readable information about Module 2"/>
+					<Text TextId="IDT_DATAITEM_AnalogInput" Value="Analog Input Channel"/>
+					<Text TextId="IDT_DATAITEM_AnalogOutput" Value="Analog Output Channel"/>
+					<Text TextId="IDT_CATEGORY_AnalogModules" Value="Analog Modules"/>
+					<Text TextId="IDT_CATEGORY_AnalogIn" Value="Analog Input Modules"/>
+					<Text TextId="IDT_CATEGORY_AnalogOut" Value="Analog Output Modules"/>
+					<Text TextId="IDT_NAME_VS1" Value="Submodule 1"/>
+					<Text TextId="IDT_INFO_VS1" Value="Description of submodule 1"/>
+					<Text TextId="IDT_NAME_VS2" Value="Submodule 2"/>
+					<Text TextId="IDT_INFO_VS2" Value="Description of submodule 2"/>
+					<Text TextId="IDT_NAME_VS3" Value="Submodule 3"/>
+					<Text TextId="IDT_INFO_VS3" Value="Description of submodule 3"/>
+				</PrimaryLanguage>
+				<Language xml:lang="de">
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Beispiele"/>
+					<Text TextId="IDT_MODULE_NAME_DAP1" Value="PNO Beispiel DAP - Kategorien"/>
+					<Text TextId="IDT_INFO_DAP1" Value="Dieses Beispiel zeigt wie man Kategorien verwendet"/>
+					<Text TextId="IDT_NAME_IS" Value="I"/>
+					<Text TextId="IDT_NAME_PS1" Value="P1"/>
+					<Text TextId="IDT_NAME_PS2" Value="P2"/>
+					<Text TextId="IDT_MODULE_NAME_Module1" Value="AI2"/>
+					<Text TextId="IDT_INFO_Module1" Value="Hier können weitere Informationen zum Modul 1 in lesbarer Form stehen"/>
+					<Text TextId="IDT_MODULE_NAME_Module2" Value="AO2"/>
+					<Text TextId="IDT_INFO_Module2" Value="Hier können weitere Informationen zum Modul 2 in lesbarer Form stehen"/>
+					<Text TextId="IDT_DATAITEM_AnalogInput" Value="Analog Eingabe Kanal"/>
+					<Text TextId="IDT_DATAITEM_AnalogOutput" Value="Analog Ausgabe Kanal"/>
+					<Text TextId="IDT_CATEGORY_AnalogModules" Value="Analogbaugruppen"/>
+					<Text TextId="IDT_CATEGORY_AnalogIn" Value="Analogeingabebaugruppen"/>
+					<Text TextId="IDT_CATEGORY_AnalogOut" Value="Analogausgabebaugruppen"/>
+					<Text TextId="IDT_NAME_VS1" Value="Submodul 1"/>
+					<Text TextId="IDT_INFO_VS1" Value="Beschreibung des Submoduls 1"/>
+					<Text TextId="IDT_NAME_VS2" Value="Submodul 2"/>
+					<Text TextId="IDT_INFO_VS2" Value="Beschreibung des Submoduls 2"/>
+					<Text TextId="IDT_NAME_VS3" Value="Submodule 3"/>
+					<Text TextId="IDT_INFO_VS3" Value="Beschreibung des Submoduls 3"/>
+				</Language>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

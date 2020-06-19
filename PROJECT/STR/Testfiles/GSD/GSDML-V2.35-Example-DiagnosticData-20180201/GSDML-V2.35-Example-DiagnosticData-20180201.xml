@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- An example for the diagnostics: all combinations of channel diagnosis and unit diagnosis. -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.35.xsd">
+	<!-- ProfileHeader definition as defined in ISO 15745-1. Please do not change the content. -->
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0xFFFF" DeviceID="0x009A">
+			<InfoText TextId="IDT_INFO_Device"/>
+			<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="I/O" ProductFamily="PNO GSDML V2.35 Examples"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.35" PhysicalSlots="0..1" ModuleIdentNumber="0x00000001" MinDeviceInterval="64" DNS_CompatibleName="pno-example-dap" FixedInSlots="0" ObjectUUID_LocalIndex="0" MultipleWriteSupported="true" RequiredSchemaVersion="V2.1" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="2">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DAP1"/>
+						<InfoText TextId="IDT_INFO_DAP1"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009A"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="A" ApplicationClass="" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="1" TextId="IDT_SUBSLOT_1"/>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="24" MaxOutputLength="24" MaxDataLength="40"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_1" AllowedInSlots="1"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_V1" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS1"/>
+								<InfoText TextId="IDT_INFO_VS1"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_I" SubmoduleIdentNumber="0x00000002" SubslotNumber="32768" TextId="IDT_NAME_IS" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+							<ApplicationRelations StartupMode="Advanced">
+								<TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P1" SubmoduleIdentNumber="0x00000003" SubslotNumber="32769" TextId="IDT_NAME_PS1" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P2" SubmoduleIdentNumber="0x00000003" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<ModuleItem ID="IDM_1" ModuleIdentNumber="0x00000002" PhysicalSubslots="2 3">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_M1"/>
+						<InfoText TextId="IDT_INFO_M1"/>
+						<OrderNumber Value="12345-009A-M"/>
+					</ModuleInfo>
+					<UseableSubmodules>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_1" AllowedInSubslots="2 3"/>
+					</UseableSubmodules>
+				</ModuleItem>
+			</ModuleList>
+			<SubmoduleList>
+				<SubmoduleItem ID="IDS_1" SubmoduleIdentNumber="0x00000021" MayIssueProcessAlarm="false">
+					<IOData>
+						<Input>
+							<DataItem DataType="Unsigned8" TextId="IDT_Input"/>
+						</Input>
+					</IOData>
+					<ModuleInfo CategoryRef="IDC_DI">
+						<Name TextId="IDT_NAME_S1"/>
+						<InfoText TextId="IDT_INFO_S1"/>
+						<OrderNumber Value="12345-009A-S1"/>
+					</ModuleInfo>
+				</SubmoduleItem>
+			</SubmoduleList>
+			<ValueList>
+				<ValueItem ID="IDV_UDIAG1">
+					<Assignments>
+						<Assign Content="0" TextId="IDT_UDIAG1_0"/>
+						<Assign Content="1" TextId="IDT_UDIAG1_1"/>
+					</Assignments>
+				</ValueItem>
+				<ValueItem ID="IDV_API24576_UDIAG36864">
+					<Assignments>
+						<Assign Content="0" TextId="IDT_API24576_UDIAG36864_0"/>
+						<Assign Content="10" TextId="IDT_API24576_UDIAG36864_10"/>
+					</Assignments>
+				</ValueItem>
+			</ValueList>
+			<ChannelDiagList>
+				<!-- vendor specific Channel ErrorType=0x0100, nothing new here -->
+				<ChannelDiagItem ErrorType="256">
+					<Name TextId="IDT_DIAG256"/>
+					<ExtChannelDiagList>
+						<!-- vendor specific extended Channel Diagnosis ErrorType=0x0001 -->
+						<ExtChannelDiagItem ErrorType="1">
+							<Name TextId="IDT_DIAG256_EXT1"/>
+						</ExtChannelDiagItem>
+					</ExtChannelDiagList>
+				</ChannelDiagItem>
+				<!-- System defined Channel ErrorType, all new! -->
+				<SystemDefinedChannelDiagItem ErrorType="5">
+					<!-- Overtemperature -->
+					<ExtChannelDiagList>
+						<!-- vendor specific extended Channel ErrorType=0x0001 -->
+						<ExtChannelDiagItem ErrorType="1">
+							<Name TextId="IDT_DIAG5_EXT1"/>
+							<ExtChannelAddValue>
+								<DataItem Id="1" DataType="Unsigned8"/>
+								<DataItem Id="2" DataType="Unsigned8"/>
+								<!-- unused -->
+								<DataItem Id="3" DataType="Unsigned8"/>
+								<!-- unused -->
+								<DataItem Id="4" DataType="Unsigned8"/>
+								<!-- unused -->
+							</ExtChannelAddValue>
+						</ExtChannelDiagItem>
+						<!-- profile specific (for fictive API=0x6000) extended Channel ErrorType 0x9000  -->
+						<ProfileExtChannelDiagItem API="24576" ErrorType="36864">
+							<Name TextId="IDT_DIAG5_API24576_EXT36864"/>
+						</ProfileExtChannelDiagItem>
+						<!-- profile specific (for fictive API=0x6001) extended Channel ErrorType 0x9000  -->
+						<ProfileExtChannelDiagItem API="24577" ErrorType="36864">
+							<Name TextId="IDT_DIAG5_API24577_EXT36864"/>
+						</ProfileExtChannelDiagItem>
+					</ExtChannelDiagList>
+				</SystemDefinedChannelDiagItem>
+				<SystemDefinedChannelDiagItem ErrorType="1">
+					<!-- Short circuit -->
+					<ExtChannelDiagList>
+						<!-- vendor specific extended Channel ErrorType 0x0001 -->
+						<ExtChannelDiagItem ErrorType="1">
+							<Name TextId="IDT_DIAG1_EXT1"/>
+						</ExtChannelDiagItem>
+						<!-- vendor specific extended Channel ErrorType 0x0002 -->
+						<ExtChannelDiagItem ErrorType="2">
+							<Name TextId="IDT_DIAG1_EXT2"/>
+						</ExtChannelDiagItem>
+					</ExtChannelDiagList>
+				</SystemDefinedChannelDiagItem>
+				<!-- profile specific (for PROFIdrive API=0x3A00) Channel ErrorType 0x900D Brake Resistor -->
+				<ProfileChannelDiagItem API="14848" ErrorType="36877">
+					<Name TextId="IDT_API14848_DIAG36877"/>
+					<ExtChannelDiagList>
+						<!-- profile specific extended Channel Diagnosis (not new) fictive 0x9000 -->
+						<ProfileExtChannelDiagItem ErrorType="36864">
+							<Name TextId="IDT_API14848_DIAG36877_EXT36864"/>
+						</ProfileExtChannelDiagItem>
+						<!-- new: vendor specific extended Channel Diagnosis 0x7FFF -->
+						<ExtChannelDiagItem ErrorType="32767">
+							<Name TextId="IDT_API14848_DIAG36877_EXT32767"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="32766">
+							<Name TextId="IDT_API14848_DIAG36877_EXT32766"/>
+						</ExtChannelDiagItem>
+					</ExtChannelDiagList>
+				</ProfileChannelDiagItem>
+			</ChannelDiagList>
+			<UnitDiagTypeList>
+				<!-- manufacturer specific Diagnosis -->
+				<UnitDiagTypeItem UserStructureIdentifier="1">
+					<Name TextId="IDT_UDIAG1"/>
+					<Ref ValueItemTarget="IDV_UDIAG1" ByteOffset="0" DataType="Bit" DefaultValue="0" TextId="IDT_ConnectorState"/>
+				</UnitDiagTypeItem>
+				<!-- profile specific Diagnosis (for fictive API=0x6000) -->
+				<ProfileUnitDiagTypeItem UserStructureIdentifier="36864" API="24576">
+					<Name TextId="IDT_API24576_UDIAG36864"/>
+					<Ref ValueItemTarget="IDV_API24576_UDIAG36864" ByteOffset="0" DataType="Unsigned8" DefaultValue="0" TextId="IDT_PressureValue"/>
+				</ProfileUnitDiagTypeItem>
+			</UnitDiagTypeList>
+			<CategoryList>
+				<CategoryItem ID="IDC_DI" TextId="IDT_CATEGORY_DI">
+					<InfoText TextId="IDT_INFO_DI"/>
+				</CategoryItem>
+				<CategoryItem ID="IDC_DO" TextId="IDT_CATEGORY_DO">
+					<InfoText TextId="IDT_INFO_DO"/>
+				</CategoryItem>
+			</CategoryList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Examples"/>
+					<Text TextId="IDT_NAME_DAP1" Value="ChannelDiagnosis Example"/>
+					<Text TextId="IDT_INFO_DAP1" Value="Example for the new ChannelDiagnosis combinations"/>
+					<Text TextId="IDT_SUBSLOT_1" Value="Subslot 1"/>
+					<Text TextId="IDT_SUBSLOT_Interface" Value="Interface"/>
+					<Text TextId="IDT_SUBSLOT_Port1" Value="Port 1"/>
+					<Text TextId="IDT_SUBSLOT_Port2" Value="Port 2"/>
+					<Text TextId="IDT_NAME_VS1" Value="Submodule V1"/>
+					<Text TextId="IDT_INFO_VS1" Value="Description of submodule V1"/>
+					<Text TextId="IDT_NAME_IS" Value="I"/>
+					<Text TextId="IDT_NAME_PS1" Value="P1"/>
+					<Text TextId="IDT_NAME_PS2" Value="P2"/>
+					<Text TextId="IDT_NAME_M1" Value="Module"/>
+					<Text TextId="IDT_INFO_M1" Value="Description of module"/>
+					<Text TextId="IDT_NAME_S1" Value="Submodule 1"/>
+					<Text TextId="IDT_INFO_S1" Value="Description of submodule 1"/>
+					<Text TextId="IDT_Input" Value="Input byte"/>
+					<Text TextId="IDT_CATEGORY_DI" Value="Digital input"/>
+					<Text TextId="IDT_INFO_DI" Value="Description of digital input"/>
+					<Text TextId="IDT_CATEGORY_DO" Value="Digital output"/>
+					<Text TextId="IDT_INFO_DO" Value="Description of digital output"/>
+					<Text TextId="IDT_DIAG256" Value="ChannelDiag ErrorType=256 (vendor)"/>
+					<Text TextId="IDT_DIAG256_EXT1" Value="ChannelDiag ErrorType=256 (vendor) Ext ErrorType=1 (vendor)"/>
+					<Text TextId="IDT_DIAG5_EXT1" Value="The temperature is {1} °C"/>
+					<Text TextId="IDT_DIAG5_API24576_EXT36864" Value="Cooling fluid level too low."/>
+					<Text TextId="IDT_DIAG5_API24577_EXT36864" Value="More ice, please."/>
+					<Text TextId="IDT_DIAG1_EXT1" Value="Short to ground."/>
+					<Text TextId="IDT_DIAG1_EXT2" Value="Short to supply voltage."/>
+					<Text TextId="IDT_API14848_DIAG36877" Value="Break resistor."/>
+					<Text TextId="IDT_API14848_DIAG36877_EXT36864" Value="Braking pads worn out."/>
+					<Text TextId="IDT_API14848_DIAG36877_EXT32767" Value="Break disk worn out."/>
+					<Text TextId="IDT_API14848_DIAG36877_EXT32766" Value="Hydraulic fluid bad."/>
+					<Text TextId="IDT_UDIAG1" Value="DiagnosticsConnector"/>
+					<Text TextId="IDT_ConnectorState" Value="State of the diagnostics connector"/>
+					<Text TextId="IDT_UDIAG1_0" Value="Connected"/>
+					<Text TextId="IDT_UDIAG1_1" Value="Not connected"/>
+					<Text TextId="IDT_API24576_UDIAG36864" Value="Pressure exceeded"/>
+					<Text TextId="IDT_PressureValue" Value="Pressure value"/>
+					<Text TextId="IDT_API24576_UDIAG36864_0" Value="Within absolute maximum limit"/>
+					<Text TextId="IDT_API24576_UDIAG36864_10" Value="Duck and cover"/>
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

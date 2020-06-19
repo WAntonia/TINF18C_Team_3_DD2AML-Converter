@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- This example demonstrates the IRT optimizations (Startup Mode, Relative Forwarding, Fast Forwarding, Preamble Shortening, Send Clocks, MRPD, Dynamic Frame Packing). -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.35.xsd">
+	<!-- ProfileHeader definition as defined in ISO 15745-1. Please do not change the content. -->
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0xFFFF" DeviceID="0x009F">
+			<InfoText TextId="IDT_INFO_Device"/>
+			<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="I/O" ProductFamily="PNO GSDML V2.35 Examples"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.35" PhysicalSlots="0..9" ModuleIdentNumber="0x00000001" MinDeviceInterval="8" DNS_CompatibleName="pno-example-dap" SharedDeviceSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="0" ParameterizationSpeedupSupported="true" MultipleWriteSupported="true" RequiredSchemaVersion="V2.1" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="2" PowerOnToCommReady="10">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DAP1"/>
+						<InfoText TextId="IDT_INFO_DAP1"/>
+						<VendorName Value="PROFIBUS &amp; PROFINET International"/>
+						<OrderNumber Value="12345-009F"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="HighPerformance" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="1" TextId="IDT_SUBSLOT_1"/>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_Interface"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_Port1"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_Port2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="1440" MaxOutputLength="1440" MaxDataLength="2880"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_DI_16" AllowedInSlots="1..9"/>
+						<ModuleItemRef ModuleItemTarget="IDM_DI_32" AllowedInSlots="1..9"/>
+						<ModuleItemRef ModuleItemTarget="IDM_DO_16" AllowedInSlots="1..9"/>
+						<ModuleItemRef ModuleItemTarget="IDM_DO_32" AllowedInSlots="1..9"/>
+						<ModuleItemRef ModuleItemTarget="IDM_DI_DO_16" AllowedInSlots="1..9"/>
+						<ModuleItemRef ModuleItemTarget="IDM_DI_DO_32" AllowedInSlots="1..9"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_V1" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_VS1"/>
+								<InfoText TextId="IDT_INFO_VS1"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" TextId="IDT_NAME_IS" SupportedProtocols="SNMP;LLDP" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" DCP_HelloSupported="true" DCP_BoundarySupported="true" PTP_BoundarySupported="true" MulticastBoundarySupported="true" NetworkComponentDiagnosisSupported="true" MaxFrameStartTime="1600" MinNRT_Gap="960" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2088" MaxBridgeDelayFFW="1000" MaxNumberIR_FrameData="256" StartupMode="Legacy;Advanced" ForwardingMode="Absolute;Relative" MaxDFP_Frames="4" MaxDFP_Feed="340" AlignDFP_Subframes="false" FragmentationType="Dynamic" MaxRedPeriodLength="4000" MinFSO="1760" MinRTC3_Gap="1120" YellowSafetyMargin="160" DFP_OutboundTruncationSupported="true" MaxRetentionTime="30000"/>
+							<SynchronisationMode T_PLL_MAX="1000" SupportedRole="SyncMasterRedundant+SyncSlave" MaxLocalJitter="300" SupportedSyncProtocols="PTCP" PeerToPeerJitter="250"/>
+							<ApplicationRelations NumberOfAR="4" StartupMode="Advanced" NumberOfAdditionalInputCR="1" NumberOfAdditionalMulticastProviderCR="1" NumberOfAdditionalOutputCR="1" NumberOfMulticastConsumerCR="3">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client;Manager" MRPD_Supported="true" MRT_Supported="true"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" TextId="IDT_NAME_PS1" MaxPortRxDelay="185" MaxPortTxDelay="24" IsDefaultRingport="true" MAUType="100BASETXFD" MAUTypes="10 11 15 16" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" ShortPreamble100MBitSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="10" AdjustSupported="true"/>
+								<MAUTypeItem Value="11" AdjustSupported="true"/>
+								<MAUTypeItem Value="15" AdjustSupported="true"/>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" TextId="IDT_NAME_PS2" MaxPortRxDelay="185" MaxPortTxDelay="24" IsDefaultRingport="true" MAUType="100BASETXFD" MAUTypes="10 11 15 16" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" ShortPreamble100MBitSupported="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="10" AdjustSupported="true"/>
+								<MAUTypeItem Value="11" AdjustSupported="true"/>
+								<MAUTypeItem Value="15" AdjustSupported="true"/>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<ModuleItem ID="IDM_DI_16" ModuleIdentNumber="0x00000010">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DI_16"/>
+						<InfoText TextId="IDT_INFO_DI_16"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_I16" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="IDT_DATA_DI_16" DataType="OctetString" Length="16"/>
+								</Input>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_DI_16"/>
+								<InfoText TextId="IDT_INFO_DI_16"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="IDM_DI_32" ModuleIdentNumber="0x00000011">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DI_32"/>
+						<InfoText TextId="IDT_INFO_DI_32"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_I32" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="IDT_DATA_DI_32" DataType="OctetString" Length="32"/>
+								</Input>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_DI_32"/>
+								<InfoText TextId="IDT_INFO_DI_32"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="IDM_DO_16" ModuleIdentNumber="0x00000020">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DO_16"/>
+						<InfoText TextId="IDT_INFO_DO_16"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_O16" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="IDT_DATA_DO_16" DataType="OctetString" Length="16"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_DO_16"/>
+								<InfoText TextId="IDT_INFO_DO_16"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="IDM_DO_32" ModuleIdentNumber="0x00000021">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DO_32"/>
+						<InfoText TextId="IDT_INFO_DO_32"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_O32" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="IDT_DATA_DO_32" DataType="OctetString" Length="32"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_DO_32"/>
+								<InfoText TextId="IDT_INFO_DO_32"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="IDM_DI_DO_16" ModuleIdentNumber="0x00000030">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DI_DO_16"/>
+						<InfoText TextId="IDT_INFO_DI_DO_16"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_IO16" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="IDT_DATA_DI_16" DataType="OctetString" Length="16"/>
+								</Input>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="IDT_DATA_DO_16" DataType="OctetString" Length="16"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_DI_DO_16"/>
+								<InfoText TextId="IDT_INFO_DI_DO_16"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="IDM_DI_DO_32" ModuleIdentNumber="0x00000031">
+					<ModuleInfo>
+						<Name TextId="IDT_NAME_DI_DO_32"/>
+						<InfoText TextId="IDT_INFO_DI_DO_32"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_IO32" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="IDT_DATA_DI_32" DataType="OctetString" Length="32"/>
+								</Input>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="IDT_DATA_DO_32" DataType="OctetString" Length="32"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_NAME_DI_DO_32"/>
+								<InfoText TextId="IDT_INFO_DI_DO_32"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="IDT_INFO_Device" Value="PNO GSDML V2.35 Examples"/>
+					<Text TextId="IDT_NAME_DAP1" Value="IRT Optimizations example DAP"/>
+					<Text TextId="IDT_INFO_DAP1" Value="Description of IRT Optimizations example DAP"/>
+					<Text TextId="IDT_SUBSLOT_1" Value="Subslot 1"/>
+					<Text TextId="IDT_SUBSLOT_Interface" Value="Interface"/>
+					<Text TextId="IDT_SUBSLOT_Port1" Value="Port 1"/>
+					<Text TextId="IDT_SUBSLOT_Port2" Value="Port 2"/>
+					<Text TextId="IDT_NAME_VS1" Value="Submodule V1"/>
+					<Text TextId="IDT_INFO_VS1" Value="Description of submodule V1"/>
+					<Text TextId="IDT_NAME_IS" Value="I"/>
+					<Text TextId="IDT_NAME_PS1" Value="P1"/>
+					<Text TextId="IDT_NAME_PS2" Value="P2"/>
+					<Text TextId="IDT_NAME_DI_16" Value="Digital input module 16"/>
+					<Text TextId="IDT_INFO_DI_16" Value="Description of digital input module 16"/>
+					<Text TextId="IDT_NAME_DI_32" Value="Digital input module 32"/>
+					<Text TextId="IDT_INFO_DI_32" Value="Description of digital input module 32"/>
+					<Text TextId="IDT_NAME_DO_16" Value="Digital output module 16"/>
+					<Text TextId="IDT_INFO_DO_16" Value="Description of digital output module 16"/>
+					<Text TextId="IDT_NAME_DO_32" Value="Digital output module 32"/>
+					<Text TextId="IDT_INFO_DO_32" Value="Description of digital output module 32"/>
+					<Text TextId="IDT_NAME_DI_DO_16" Value="Digital input/output module 16"/>
+					<Text TextId="IDT_INFO_DI_DO_16" Value="Description of digital input/output module 16"/>
+					<Text TextId="IDT_NAME_DI_DO_32" Value="Digital input/output module 32"/>
+					<Text TextId="IDT_INFO_DI_DO_32" Value="Description of digital input/output module 32"/>
+					<Text TextId="IDT_DATA_DI_16" Value="Digital input data 16 octets"/>
+					<Text TextId="IDT_DATA_DI_32" Value="Digital input data 32 octets"/>
+					<Text TextId="IDT_DATA_DO_16" Value="Digital output data 16 octets"/>
+					<Text TextId="IDT_DATA_DO_32" Value="Digital output data 32 octets"/>
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

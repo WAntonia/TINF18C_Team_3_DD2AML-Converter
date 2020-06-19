@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo copyright="OMRON Corporation" releaseDate="2017-03-01" version="V1.11" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity deviceId="131082" vendorId="612" vendorName="OMRON Corporation">
+      <VendorText textId="T_VendorText" />
+      <VendorUrl textId="T_VendorUrl" />
+      <VendorLogo name="OMRON-logo.png" />
+      <DeviceName textId="T_DeviceName" />
+      <DeviceFamily textId="T_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="E2EQ-X3B4-IL2 2M" deviceSymbol="OMRON-E2EQ-X3Bx-ILx-pic.png" deviceIcon="OMRON-E2EQ-X3Bx-ILx-icon.png">
+          <Name textId="TN_DeviceVariantName1" />
+          <Description textId="TD_DeviceVariantDescription" />
+        </DeviceVariant>
+        <DeviceVariant productId="E2EQ-X3B4-IL2 5M" deviceSymbol="OMRON-E2EQ-X3Bx-ILx-pic.png" deviceIcon="OMRON-E2EQ-X3Bx-ILx-icon.png">
+          <Name textId="TN_DeviceVariantName2" />
+          <Description textId="TD_DeviceVariantDescription" />
+        </DeviceVariant>
+        <DeviceVariant productId="E2EQ-X3B4-M1TJ-IL2 0.3M" deviceSymbol="OMRON-E2EQ-X3Bx-ILx-pic.png" deviceIcon="OMRON-E2EQ-X3Bx-ILx-icon.png">
+          <Name textId="TN_DeviceVariantName3" />
+          <Description textId="TD_DeviceVariantDescription" />
+        </DeviceVariant>
+        <DeviceVariant productId="" deviceSymbol="OMRON-E2EQ-X3Bx-ILx-pic.png" deviceIcon="OMRON-E2EQ-X3Bx-ILx-icon.png">
+          <Name textId="TN_DeviceVariantName" />
+          <Description textId="TD_DeviceVariantDescription" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true">
+        <SupportedAccessLocks dataStorage="true" localParameterization="false" localUserInterface="false" parameter="true" />
+      </Features>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130" />
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks">
+          <StdRecordItemRef subindex="1" defaultValue="false" />
+          <StdRecordItemRef subindex="2" defaultValue="false" />
+        </StdVariableRef>
+        <StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="6" />
+        <StdVariableRef id="V_VendorName" defaultValue="OMRON Corporation" />
+        <StdVariableRef id="V_VendorText" />
+        <StdVariableRef id="V_ProductName" />
+        <StdVariableRef id="V_ProductID" />
+        <StdVariableRef id="V_ProductText" />
+        <StdVariableRef id="V_SerialNumber" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificTag" />
+        <StdVariableRef id="V_ProcessDataInput" />
+        <Variable id="V_SwitchPointLogic" index="61" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="8" subindexAccessSupported="true">
+            <RecordItem subindex="1" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TN_SwitchPointLogic_NO" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TN_SwitchPointLogic_NC" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TN_SwitchPointLogic" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <Name textId="TN_SwitchPoint" />
+        </Variable>
+        <Variable id="V_TimerCD" index="65" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24" subindexAccessSupported="true">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TN_TimerCD_Mode_NONE" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TN_TimerCD_Mode_ONDelay" />
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TN_TimerCD_Mode_OFFDelay" />
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="TN_TimerCD_Mode_OneShot" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TN_TimerCD_Mode" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                <ValueRange lowerValue="1" upperValue="4000" />
+              </SimpleDatatype>
+              <Name textId="TN_TimerCD_Time" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="5" />
+          <Name textId="TN_TimerCD" />
+        </Variable>
+        <Variable id="V_OperatingTime" index="160" accessRights="ro">
+          <Datatype xsi:type="UIntegerT" bitLength="32" />
+          <Name textId="TN_OperatingTime" />
+        </Variable>
+        <Variable id="V_InstabilityONDelayTimer" index="161" accessRights="rw" defaultValue="4">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TN_InstabilityONDelayTimer_0ms" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TN_InstabilityONDelayTimer_10ms" />
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="TN_InstabilityONDelayTimer_50ms" />
+            </SingleValue>
+            <SingleValue value="3">
+              <Name textId="TN_InstabilityONDelayTimer_100ms" />
+            </SingleValue>
+            <SingleValue value="4">
+              <Name textId="TN_InstabilityONDelayTimer_300ms" />
+            </SingleValue>
+            <SingleValue value="5">
+              <Name textId="TN_InstabilityONDelayTimer_500ms" />
+            </SingleValue>
+            <SingleValue value="6">
+              <Name textId="TN_InstabilityONDelayTimer_1000ms" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TN_InstabilityONDelayTimer" />
+        </Variable>
+        <Variable id="V_DiagnosisOutputMode" index="162" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="16">
+            <RecordItem subindex="1" bitOffset="8">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_NONE" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_MODE1" />
+                </SingleValue>
+                <SingleValue value="2">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_MODE2" />
+                </SingleValue>
+                <SingleValue value="3">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_MODE3" />
+                </SingleValue>
+                <SingleValue value="4">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_MODE4" />
+                </SingleValue>
+                <SingleValue value="5">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_MODE5" />
+                </SingleValue>
+                <SingleValue value="6">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_MODE6" />
+                </SingleValue>
+                <SingleValue value="7">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_MODE7" />
+                </SingleValue>
+                <SingleValue value="8">
+                  <Name textId="TN_DiagnosisOutputMode_OverApproach_MODE8" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TN_DiagnosisOutputMode_OverApproach" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TN_DiagnosisOutputMode_Instability_Disable" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TN_DiagnosisOutputMode_Instability_Enable" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TN_DiagnosisOutputMode_Instability" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="2" />
+          <RecordItemInfo subindex="2" defaultValue="1" />
+          <Name textId="TN_DiagnosisOutputMode" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="PD_ProcessData">
+          <ProcessDataIn id="PD_ProcessDataIn" bitLength="16">
+            <Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+              <RecordItem bitOffset="8" subindex="1">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+                <Name textId="TN_PD_DetectionLevel" />
+              </RecordItem>
+              <RecordItem bitOffset="7" subindex="2">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TN_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TN_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TN_PD_Error" />
+              </RecordItem>
+              <RecordItem bitOffset="5" subindex="3">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TN_TooClose" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TN_NotClose" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TN_PD_OverApproach" />
+              </RecordItem>
+              <RecordItem bitOffset="4" subindex="4">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TN_Unstable" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TN_Stable" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TN_PD_Instability" />
+              </RecordItem>
+              <RecordItem bitOffset="0" subindex="5">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TN_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TN_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TN_PD_SensorOut1" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TN_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <StdEventRef code="25376" />
+        <StdEventRef code="30480" />
+        <Event code="6144" type="Error">
+          <Name textId="TN_Event_0x1800" />
+        </Event>
+        <Event code="6145" type="Error">
+          <Name textId="TN_Event_0x1801" />
+        </Event>
+        <Event code="6146" type="Error">
+          <Name textId="TN_Event_0x1802" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="M_Identification">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_SerialNumber" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+          </Menu>
+          <Menu id="M_Diagnosis">
+            <VariableRef variableId="V_OperatingTime" unitCode="1059" />
+            <VariableRef variableId="V_ProcessDataInput" />
+            <VariableRef variableId="V_DetailedDeviceStatus" />
+          </Menu>
+          <Menu id="M_Parameter">
+            <VariableRef variableId="V_SwitchPointLogic" />
+            <VariableRef variableId="V_TimerCD" />
+            <VariableRef variableId="V_DiagnosisOutputMode" />
+            <VariableRef variableId="V_InstabilityONDelayTimer" />
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_RestoreFactorySettings" />
+              </Button>
+            </VariableRef>
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="2" />
+          </Menu>
+          <Menu id="M_Observation">
+            <VariableRef variableId="V_OperatingTime" unitCode="1059" />
+            <VariableRef variableId="V_ProcessDataInput" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_Identification" />
+          <ParameterMenu menuId="M_Parameter" />
+          <ObservationMenu menuId="M_Observation" />
+          <DiagnosisMenu menuId="M_Diagnosis" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_Identification" />
+          <ParameterMenu menuId="M_Parameter" />
+          <ObservationMenu menuId="M_Observation" />
+          <DiagnosisMenu menuId="M_Diagnosis" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_Identification" />
+          <ParameterMenu menuId="M_Parameter" />
+          <ObservationMenu menuId="M_Observation" />
+          <DiagnosisMenu menuId="M_Diagnosis" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer bitrate="COM2" minCycleTime="2300" sioSupported="true" mSequenceCapability="1">
+        <Connection xsi:type="M12-4ConnectionT" connectionSymbol="OMRON-E2E-ILx_M12-con-pic.png">
+          <ProductRef productId="E2EQ-X3B4-M1TJ-IL2 0.3M" />
+          <Wire1 function="L+" />
+          <Wire2 function="NC" />
+          <Wire3 function="L-" />
+          <Wire4 function="C/Q" />
+        </Connection>
+        <Connection xsi:type="CableConnectionT" connectionSymbol="OMRON-E2E-ILx_3-wire-con-pic.png">
+          <ProductRef productId="E2EQ-X3B4-IL2 2M" />
+          <Description textId="TD_CableVariant" />
+          <Wire1 color="BN" function="L+">
+            <Name textId="TN_CableWire1" />
+          </Wire1>
+          <Wire2 color="BU" function="L-">
+            <Name textId="TN_CableWire3" />
+          </Wire2>
+          <Wire3 color="BK" function="C/Q">
+            <Name textId="TN_CableWire4" />
+          </Wire3>
+        </Connection>
+        <Connection xsi:type="CableConnectionT" connectionSymbol="OMRON-E2E-ILx_3-wire-con-pic.png">
+          <ProductRef productId="E2EQ-X3B4-IL2 5M" />
+          <Description textId="TD_CableVariant" />
+          <Wire1 color="BN" function="L+">
+            <Name textId="TN_CableWire1" />
+          </Wire1>
+          <Wire2 color="BU" function="L-">
+            <Name textId="TN_CableWire3" />
+          </Wire2>
+          <Wire3 color="BK" function="C/Q">
+            <Name textId="TN_CableWire4" />
+          </Wire3>
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="" />
+          <Wire1 color="BN" function="L+" />
+          <Wire2 color="WH" function="NC" />
+          <Wire3 color="BU" function="L-" />
+          <Wire4 color="BK" function="C/Q" />
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="200" testValue="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" />
+      <Config2 index="1024" testValue="0x01" />
+      <Config3 index="200" testValue="0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0A,0x0B,0x0C,0x0D,0x0E,0x0F,0x10" />
+      <Config7 index="155">
+        <EventTrigger appearValue="1" disappearValue="2" />
+        <EventTrigger appearValue="3" disappearValue="4" />
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="T_VendorText" value="" />
+      <Text id="T_VendorUrl" value="http://www.omron.com/" />
+      <Text id="T_DeviceName" value="E2EQ-X3B4-IL2" />
+      <Text id="T_DeviceFamily" value="Proximity Sensor" />
+      <Text id="TN_DeviceVariantName1" value="E2EQ-X3B4-IL2 2M" />
+      <Text id="TN_DeviceVariantName2" value="E2EQ-X3B4-IL2 5M" />
+      <Text id="TN_DeviceVariantName3" value="E2EQ-X3B4-M1TJ-IL2 0.3M" />
+      <Text id="TN_DeviceVariantName" value="E2EQ-X3B4-IL2" />
+      <Text id="TD_DeviceVariantDescription" value="Spatter-resistant Proximity Sensor (M12)" />
+      <Text id="TN_ProcessDataIn" value="Process Data In" />
+      <Text id="TN_ON" value="ON" />
+      <Text id="TN_OFF" value="OFF" />
+      <Text id="TN_PD_SensorOut1" value="Sensor Output" />
+      <Text id="TN_Stable" value="Stable" />
+      <Text id="TN_Unstable" value="Unstable" />
+      <Text id="TN_PD_Instability" value="Instability Detection Alarm" />
+      <Text id="TN_NotClose" value="Not Close" />
+      <Text id="TN_TooClose" value="Too Close" />
+      <Text id="TN_PD_OverApproach" value="Target too Close Alarm" />
+      <Text id="TN_PD_Error" value="Error" />
+      <Text id="TN_PD_DetectionLevel" value="Detection Level" />
+      <Text id="TN_SwitchPoint" value="Switchpoint" />
+      <Text id="TN_SwitchPointLogic" value="Switchpoint Logic" />
+      <Text id="TN_SwitchPointLogic_NO" value="NO (Normally Open)" />
+      <Text id="TN_SwitchPointLogic_NC" value="NC (Normally Close)" />
+      <Text id="TN_TimerCD" value="Timer" />
+      <Text id="TN_TimerCD_Mode" value="Mode" />
+      <Text id="TN_TimerCD_Mode_NONE" value="Disable" />
+      <Text id="TN_TimerCD_Mode_ONDelay" value="ON Delay" />
+      <Text id="TN_TimerCD_Mode_OFFDelay" value="OFF Delay" />
+      <Text id="TN_TimerCD_Mode_OneShot" value="One Shot" />
+      <Text id="TN_TimerCD_Time" value="Time (ms)" />
+      <Text id="TN_OperatingTime" value="Operating Hours" />
+      <Text id="TN_InstabilityONDelayTimer" value="ON Delay Timer for Instability Detection Setting" />
+      <Text id="TN_InstabilityONDelayTimer_0ms" value="0ms" />
+      <Text id="TN_InstabilityONDelayTimer_10ms" value="10ms" />
+      <Text id="TN_InstabilityONDelayTimer_50ms" value="50ms" />
+      <Text id="TN_InstabilityONDelayTimer_100ms" value="100ms" />
+      <Text id="TN_InstabilityONDelayTimer_300ms" value="300ms" />
+      <Text id="TN_InstabilityONDelayTimer_500ms" value="500ms" />
+      <Text id="TN_InstabilityONDelayTimer_1000ms" value="1000ms" />
+      <Text id="TN_DiagnosisOutputMode" value="Alarm Setting" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach" value="Target too Close Setting" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_NONE" value="Disable" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_MODE1" value="MODE1 (Iron 10%)" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_MODE2" value="MODE2 (Iron 20%)" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_MODE3" value="MODE3 (Iron 30%)" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_MODE4" value="MODE4 (SUS 10%)" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_MODE5" value="MODE5 (SUS 20%)" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_MODE6" value="MODE6 (SUS 30%)" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_MODE7" value="MODE7 (Aluminum 10%)" />
+      <Text id="TN_DiagnosisOutputMode_OverApproach_MODE8" value="MODE8 (Aluminum 20%)" />
+      <Text id="TN_DiagnosisOutputMode_Instability" value="Instability Detection Setting" />
+      <Text id="TN_DiagnosisOutputMode_Instability_Disable" value="Disable" />
+      <Text id="TN_DiagnosisOutputMode_Instability_Enable" value="Enable" />
+      <Text id="TD_CableVariant" value="Pre-Wired Type" />
+      <Text id="TN_CableWire1" value="L+" />
+      <Text id="TN_CableWire3" value="L-" />
+      <Text id="TN_CableWire4" value="C/Q" />
+      <Text id="TD_RestoreFactorySettings" value="Restore Factory Settings" />
+      <Text id="TN_Event_0x1800" value="Coil Disconnection Error" />
+      <Text id="TN_Event_0x1801" value="IO-Link Physical Layer Error" />
+      <Text id="TN_Event_0x1802" value="Watchdog Timer Error" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="4192682677"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>
