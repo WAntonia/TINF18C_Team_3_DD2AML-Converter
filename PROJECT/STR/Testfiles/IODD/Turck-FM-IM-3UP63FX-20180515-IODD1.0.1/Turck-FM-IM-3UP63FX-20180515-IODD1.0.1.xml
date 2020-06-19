@@ -1,0 +1,1744 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+	<DocumentInfo version="V01.1000" releaseDate="2018-05-15" copyright="&#169; 2012, Werner Turck GmbH  Co. &amp; KG"/>
+	<ProfileHeader>
+		<ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for IO-Link Devices</ProfileName>
+		<ProfileSource>IO-Link Consortium</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>1</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>IODD</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		
+		<!-- ================================================================================================ -->
+		<!--    Indentity										      -->
+		<!-- ================================================================================================ -->
+		<DeviceIdentity vendorId="317" vendorName="Turck" deviceId="1377793">
+			<VendorText textId="TEXT_VendorText"/>
+			<VendorUrl textId="TEXT_VendorUrl"/>
+			<VendorLogo name="Turck-logo.png"/>
+			<DeviceFamily textId="TEXT_DeviceFamily"/>
+			<DeviceVariantCollection>
+				<DeviceVariant productId="100000818" firmwareRevision="1.1.X.X" deviceSymbol="Turck-FM-IM-pic.png" deviceIcon="Turck-FM-IM-icon.png">
+					<ProductName textId="TEXT_100000818_Name"/>
+					<ProductText textId="TEXT_100000818_Text"/>
+				</DeviceVariant>
+			</DeviceVariantCollection>
+		</DeviceIdentity>
+		
+		
+		
+		<!-- ============================================================ -->
+		<!--    DeviceFunction										      -->
+		<!-- ============================================================ -->
+		<DeviceFunction>			
+			
+			<!-- ============================================================ -->
+			<!--    DatatypeCollection									      -->
+			<!-- ============================================================ -->
+			<DatatypeCollection>				
+				
+				<!-- ============================================================ -->
+				<!--    ProcessDataIn 										      -->
+				<!-- ============================================================ -->
+				<Datatype xsi:type="RecordT" id="DT_ProcessValue" subindexAccessSupported="false"  bitLength="16">
+					
+					
+					<RecordItem subindex="1" bitOffset="6">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">						
+							
+							<ValueRange lowerValue="0" upperValue="10">					
+								<!--Name textId="TEXT_PROCESSDATA_No_Data" /-->
+							</ValueRange>	
+							<ValueRange lowerValue="11" upperValue="1023">
+								<!--Name textId="TEXT_PROCESSDATA_Data" /-->
+							</ValueRange>							
+
+						</SimpleDatatype>
+						<Name textId="TEXT_PROCESSDATA_ProcessDataIn_Measure" />
+					</RecordItem>
+					
+					<RecordItem subindex="2"  bitOffset="0">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="true">
+								<Name textId="TEXT_PROCESSDATA_SwitchActive" />
+							</SingleValue>
+							<SingleValue value="false">
+								<Name textId="TEXT_PROCESSDATA_SwitchNotActive" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="TEXT_PROCESSDATA_ProcessDataIn_Signal1" />
+					</RecordItem>
+					
+					<RecordItem subindex="3"  bitOffset="1">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="true">
+								<Name textId="TEXT_PROCESSDATA_SwitchActive" />
+							</SingleValue>
+							<SingleValue value="false">
+								<Name textId="TEXT_PROCESSDATA_SwitchNotActive" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="TEXT_PROCESSDATA_ProcessDataIn_Signal2" />
+					</RecordItem>
+					
+					<RecordItem subindex="4"  bitOffset="2">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="true">
+								<Name textId="TEXT_PROCESSDATA_SwitchActive" />
+							</SingleValue>
+							<SingleValue value="false">
+								<Name textId="TEXT_PROCESSDATA_SwitchNotActive" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="TEXT_PROCESSDATA_ProcessDataIn_Signal3" />
+					</RecordItem>
+					
+				<!--Datatype xsi:type="UIntegerT" id="DT_ProcessValue" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="1023">
+						<Name textId="TEXT_Data" />
+					</ValueRange>
+				</Datatype-->
+				
+				</Datatype>				
+				
+				
+				<!-- ================================================================================================ -->
+				<!--    ProcessDataOut 										      -->
+				<!-- ================================================================================================ -->
+				<!--Datatype xsi:type="BooleanT" id="DT_ProcessDataOut">
+					
+					<SingleValue value="true">
+						<Name textId="TEXT_No_Data"/>
+					</SingleValue>
+					
+					<SingleValue value="false">
+						<Name textId="TEXT_Data"/>
+					</SingleValue>
+					
+				</Datatype-->			
+			</DatatypeCollection>
+			
+			
+			
+			
+			
+			<!-- ================================================================================================
+			<   			VariableCollection		
+			<    ================================================================================================ -->
+			<!-- Index(Dez)		(Hex)		Variable name
+			<    80				0x50		Parameter_SystemCommand				
+			<    89				0x59		Parameter_Lock
+			<    97				0x61		Parameter_SP1_FUNCTION
+			<    98				0x62		Parameter_SP2_FUNCTION
+			<    99				0x63		Parameter_SP3_FUNCTION
+			<    100			0x64		Parameter_Flow_Teach
+			<    102			0x66		Parameter_TEACHMODE
+			<    101			0x65		Parameter_Quicktech_Above_Under  (entfällt)
+			<    112			0x70		Parameter_Ain_Flow
+			<    113			0x71		Parameter_Ain_Temperature
+			<    128			0x80		Parameter_CURRENT_SP1_BIT
+			<    129			0x81		Parameter_MAXMIN_SP1_PROZENT
+			<    130			0x82		Parameter_SP2	
+			<    128			0x80		Parameter_QUICKTEACH_SP1_BIT
+			<    145			0x91		Parameter_DeltaT_Flow
+			<    146			0x92		Parameter_DeltaT_Flow_To_High_Flag
+			<    150			0x96		Parameter_SP1_ON_DELAY
+			<    151			0x97		Parameter_SP2_ON_DELAY
+			<    152			0x98		Parameter_SP3_ON_DELAY
+			<    153			0x99		Parameter_SP1_OFF_DELAY
+			<    154			0x9A		Parameter_SP2_OFF_DELAY
+			<    155			0x9B		Parameter_SP3_OFF_DELAY
+			<    144			0x90		Parameter_Fault			
+			<    210			0xD2		Parameter_Hysterese
+			<    103			0x67		Parameter_Quicktech_Above_Under_new
+			<    994			0x03E2		Parameter_RANGE_VALUES
+			<    tbd			tbd			Parameter_ERROR_CURRENT (nicht enthalten)
+			<    tbd			tbd			Parameter_CURRENT_MODE (nicht enthalten)
+			<    tbd			tbd			Parameter_FIXED_CURRENT (nicht enthalten)
+			<    tbd			tbd			Parameter_CurrentOut (nicht enthalten)
+			<    800			0x320		Parameter_SP_Gradient		
+			<    801			0x321		Parameter_SP_Teach_Temperarture		
+			<    ================================================================================================ -->
+			<VariableCollection>
+				
+				<StdVariableRef id="V_DirectParameters_1"/>
+				<StdVariableRef id="V_DirectParameters_2"/>				
+				<StdVariableRef id="V_VendorName" defaultValue="Turck"/>
+				<StdVariableRef id="V_VendorText" defaultValue="www.turck.com"/>
+				<StdVariableRef id="V_ProductName" />
+				<StdVariableRef id="V_ProductID" defaultValue="100000818" />
+				<StdVariableRef id="V_ProductText" />
+				<StdVariableRef id="V_SerialNumber"/>
+				<StdVariableRef id="V_HardwareRevision"/>
+				<StdVariableRef id="V_FirmwareRevision"/>
+				<StdVariableRef id="V_ApplicationSpecificName" fixedLengthRestriction="16" />
+				<StdVariableRef id="V_ProcessDataIn"/>
+				
+				
+				
+				<Variable id="Parameter_Lock" index="89" accessRights="rw" defaultValue="1">  
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TEXT_Parameter_Locked"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TEXT_Parameter_Unlocked"/>
+					</SingleValue>						
+				</Datatype>
+				<Name textId="TEXT_Parameter_Lock"/>
+				<Description textId="TEXT_Parameter_Lock_Descr"/>
+				</Variable>
+	
+				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SystemCommand" index="80" accessRights="wo">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="TEXT_Reset" />
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TEXT_Default" />
+						</SingleValue>						
+					</Datatype>
+					<Name textId="TEXT_Parameter_System_Command" />
+					<Description textId="TEXT_Parameter_System_Command_Descr" />
+				</Variable>
+				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				
+				<Variable id="Parameter_DeltaT_Flow_To_High_Flag" index="146" accessRights="ro" defaultValue="1" dynamic="true">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TEXT_READY_TO_TEACH" />
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TEXT_NOT_READY_TO_TEACH" />
+					</SingleValue>	
+				</Datatype>
+				<Name textId="TEXT_Parameter_DeltaT_Flow_To_High_Flag"/>				
+				</Variable>
+				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_DeltaT_Flow" index="145" accessRights="ro" dynamic="true">
+				<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+					
+					<RecordItem subindex="1" bitOffset="0">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="0" upperValue="1023">
+							</ValueRange>
+						</SimpleDatatype>
+						<Name textId="TEXT_Parameter_DeltaT_Flow_Raw" />
+					</RecordItem>
+					
+					<RecordItem subindex="2" bitOffset="10">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+							<SingleValue value="0">
+							<Name textId="TEXT_DeltaT_Flow_zero" />
+							</SingleValue>
+							<SingleValue value="1">
+							<Name textId="TEXT_DeltaT_Flow_low" />
+							</SingleValue>
+							<SingleValue value="2">
+							<Name textId="TEXT_DeltaT_Flow_medium" />
+							</SingleValue>
+							<SingleValue value="3">
+							<Name textId="TEXT_DeltaT_Flow_high" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="TEXT_Parameter_DeltaT_Flow_Steps" />
+					</RecordItem>
+					
+				</Datatype>
+				<RecordItemInfo subindex="1" defaultValue="0" />
+				<RecordItemInfo subindex="2" defaultValue="0" />
+				<Name textId="TEXT_Parameter_DeltaT_Flow" />
+				<!--Description textId="TEXT_Parameter_DeltaT_Flow_Descr" /-->
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_Flow_Teach" index="100" accessRights="wo">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="TEXT_High_Flow_Teach" />
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TEXT_Low_Flow_Teach" />
+						</SingleValue>	
+						<SingleValue value="3">
+							<Name textId="TEXT_Quick_Flow_Teach" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TEXT_Parameter_Flow_Teach" />
+					<Description textId="TEXT_Parameter_Flow_Teach_Descr" />
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_TEACHMODE" index="102" accessRights="rw" defaultValue="2" dynamic="true">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="TEXT_QUICKTEACH_MODE" />
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TEXT_MAXMIN_MODE" />
+						</SingleValue>						
+				</Datatype>
+				<Name textId="TEXT_Parameter_TEACHMODE"/>
+				<!--Description textId="TEXT_Parameter_TEACHMODE_Descr"/-->
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<!--Variable id="Parameter_Quicktech_Above_Under_new" index="103" accessRights="rw" defaultValue="0" dynamic="true">
+				<Datatype xsi:type="IntegerT" bitLength="16">
+						<SingleValue value="40">
+							<Name textId="TEXT_Quicktech_Above_Under_40" />
+						</SingleValue>
+						<SingleValue value="35">
+							<Name textId="TEXT_Quicktech_Above_Under_35" />
+						</SingleValue>
+						<SingleValue value="30">
+							<Name textId="TEXT_Quicktech_Above_Under_30" />
+						</SingleValue>
+						<SingleValue value="25">
+							<Name textId="TEXT_Quicktech_Above_Under_25" />
+						</SingleValue>
+						<SingleValue value="20">
+							<Name textId="TEXT_Quicktech_Above_Under_20" />
+						</SingleValue>
+						<SingleValue value="15">
+							<Name textId="TEXT_Quicktech_Above_Under_15" />
+						</SingleValue>
+						<SingleValue value="10">
+							<Name textId="TEXT_Quicktech_Above_Under_10" />
+						</SingleValue>
+						<SingleValue value="5">
+							<Name textId="TEXT_Quicktech_Above_Under_5" />
+						</SingleValue>
+						<SingleValue value="0">
+							<Name textId="TEXT_Quicktech_Above_Under_0" />
+						</SingleValue>
+						<SingleValue value="-5">
+							<Name textId="TEXT_Quicktech_Above_Under_m5" />
+						</SingleValue>
+						<SingleValue value="-10">
+							<Name textId="TEXT_Quicktech_Above_Under_m10" />
+						</SingleValue>
+						<SingleValue value="-15">
+							<Name textId="TEXT_Quicktech_Above_Under_m15" />
+						</SingleValue>
+						<SingleValue value="-20">
+							<Name textId="TEXT_Quicktech_Above_Under_m20" />
+						</SingleValue>
+						<SingleValue value="-25">
+							<Name textId="TEXT_Quicktech_Above_Under_m25" />
+						</SingleValue>
+						<SingleValue value="-30">
+							<Name textId="TEXT_Quicktech_Above_Under_m30" />
+						</SingleValue>
+						<SingleValue value="-35">
+							<Name textId="TEXT_Quicktech_Above_Under_m35" />
+						</SingleValue>
+						<SingleValue value="-40">
+							<Name textId="TEXT_Quicktech_Above_Under_m40" />
+						</SingleValue>
+						
+				</Datatype>
+				<Name textId="TEXT_Parameter_Quicktech_Above_Under_new"/>
+				<Description textId="TEXT_Parameter_Quicktech_Above_Under_Descr_new"/>
+				</Variable-->
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_Hysterese" index="210" accessRights="rw" defaultValue="1">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="TEXT_Hysterese_off" />
+						</SingleValue>
+						<SingleValue value="5">
+							<Name textId="TEXT_Hysterese_on" />
+						</SingleValue>	
+				</Datatype>
+				<Name textId="TEXT_Parameter_Hysterese"/>
+				<Description textId="TEXT_Parameter_Hysterese"/>
+				</Variable>			
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_CURRENT_SP1_BIT" index="128" accessRights="ro" dynamic="true">
+				<Datatype xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="1023">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_CURRENT_SP1_BIT"/>
+				<Description textId="TEXT_Parameter_CURRENT_SP1_BIT_Descr"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_MAXMIN_SP1_PROZENT" index="129" accessRights="rw" defaultValue="70" dynamic="true">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="1" upperValue="100">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_MAXMIN_SP1_PROZENT"/>
+				<Description textId="TEXT_Parameter_MAXMIN_SP1_PROZENT_Descr"/>
+				</Variable>	
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP2" index="130" accessRights="rw" defaultValue="70">
+				<Datatype xsi:type="IntegerT" bitLength="16">
+					<ValueRange lowerValue="-50" upperValue="200">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP2"/>
+				<Description textId="TEXT_Parameter_SP2_Descr"/>
+				</Variable>				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_QUICKTEACH_SP1_BIT" index="131" accessRights="rw" dynamic="true">
+				<Datatype xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="1023">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_QUICKTEACH_SP1_BIT"/>
+				<Description textId="TEXT_Parameter_QUICKTEACH_SP1_BIT_Descr"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP1_FUNCTION" index="97" accessRights="rw" defaultValue="1">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="TEXT_Parameter_PNP_OVER" />
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TEXT_Parameter_PNP_UNDER" />
+						</SingleValue>	
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP1_FUNCTION"/>
+				<Description textId="TEXT_Parameter_SP1_FUNCTION_Descr"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP1_ON_DELAY" index="150" accessRights="rw" defaultValue="0">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="0" upperValue="255">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP1_ON_DELAY"/>
+				<Description textId="TEXT_Parameter_SP1_ON_DELAY_Descr"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP1_OFF_DELAY" index="153" accessRights="rw" defaultValue="0">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="0" upperValue="255">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP1_OFF_DELAY"/>
+				<Description textId="TEXT_Parameter_SP1_OFF_DELAY_Descr"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP2_FUNCTION" index="98" accessRights="rw" defaultValue="1">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="TEXT_Parameter_PNP_OVER" />
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TEXT_Parameter_PNP_UNDER" />
+						</SingleValue>	
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP2_FUNCTION"/>
+				<Description textId="TEXT_Parameter_SP2_FUNCTION_Descr"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP2_ON_DELAY" index="151" accessRights="rw" defaultValue="0">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="0" upperValue="255">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP2_ON_DELAY"/>
+				<Description textId="TEXT_Parameter_SP2_ON_DELAY_Descr"/>
+				</Variable>				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP2_OFF_DELAY" index="154" accessRights="rw" defaultValue="0">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="0" upperValue="255">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP2_OFF_DELAY"/>
+				<Description textId="TEXT_Parameter_SP2_OFF_DELAY_Descr"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP3_ON_DELAY" index="152" accessRights="rw" defaultValue="0">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="0" upperValue="255">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP3_ON_DELAY"/>
+				<Description textId="TEXT_Parameter_SP3_ON_DELAY_Descr"/>
+				</Variable>				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_SP3_OFF_DELAY" index="155" accessRights="rw" defaultValue="0">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="0" upperValue="255">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP3_OFF_DELAY"/>
+				<Description textId="TEXT_Parameter_SP3_OFF_DELAY_Descr"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_Ain_Flow" index="112" accessRights="ro" dynamic="true">
+				<Datatype xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="1023">
+					</ValueRange>
+					<!--SingleValue value="1031">
+						<Name textId="TEXT_Ain_Flow_MINMAXLIMIT" />
+					</SingleValue-->
+				</Datatype>
+				<Name textId="TEXT_Parameter_Ain_Flow"/>
+				</Variable>
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_Ain_Temperature" index="113" accessRights="ro" dynamic="true">
+				<Datatype xsi:type="IntegerT" bitLength="16">
+					<ValueRange lowerValue="-50" upperValue="200">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_Ain_Temperature"/>
+				</Variable>				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_Fault" index="144" accessRights="ro" dynamic="true">
+				<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="16">
+					<RecordItem subindex="1"   bitOffset="0">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>
+					<Name textId="TEXT_Fault_1" />
+					</RecordItem>
+					
+					<RecordItem subindex="2"  bitOffset="1">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_2" />
+					</RecordItem>
+					
+					<RecordItem subindex="3"  bitOffset="2">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>
+					<Name textId="TEXT_Fault_3" />
+					</RecordItem>
+					
+					<RecordItem subindex="4"  bitOffset="3">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_4" />
+					</RecordItem>
+					
+					<RecordItem subindex="5"  bitOffset="4">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>
+					<Name textId="TEXT_Fault_5" />
+					</RecordItem>
+					
+					<RecordItem subindex="6"  bitOffset="5">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_6" />
+					</RecordItem>
+					
+					<RecordItem subindex="7"  bitOffset="6">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>
+					<Name textId="TEXT_Fault_7" />
+					</RecordItem>
+					
+					<RecordItem subindex="8"  bitOffset="7">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_8" />
+					</RecordItem>
+					
+					<RecordItem subindex="9"  bitOffset="8">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>
+					<Name textId="TEXT_Fault_9" />
+					</RecordItem>
+					
+					<RecordItem subindex="10"  bitOffset="9">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_10" />
+					</RecordItem>
+					
+					<!--RecordItem subindex="11"  bitOffset="10">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>
+					<Name textId="TEXT_Fault_11" />
+					</RecordItem-->
+					
+					<RecordItem subindex="12"  bitOffset="11">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_12" />
+					</RecordItem>
+					
+					<RecordItem subindex="13"  bitOffset="12">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>
+					<Name textId="TEXT_Fault_13" />
+					</RecordItem>
+					
+					<RecordItem subindex="14"  bitOffset="13">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_14" />
+					</RecordItem>
+
+					<!--RecordItem subindex="15"  bitOffset="14">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_15" />
+					</RecordItem-->	
+
+					<!--RecordItem subindex="16"  bitOffset="15">
+						<SimpleDatatype xsi:type="BooleanT">
+						<SingleValue value="false">
+							<Name textId="TEXT_NO_ERROR"/>
+						</SingleValue>
+						<SingleValue value="true">
+							<Name textId="TEXT_ERROR"/>
+						</SingleValue>
+						</SimpleDatatype>						
+					<Name textId="TEXT_Fault_16" />
+					</RecordItem-->					
+					
+					
+				</Datatype>
+				<RecordItemInfo subindex="1" defaultValue="false" />
+				<RecordItemInfo subindex="2" defaultValue="false" />
+				<RecordItemInfo subindex="3" defaultValue="false" />
+				<RecordItemInfo subindex="4" defaultValue="false" />
+				<RecordItemInfo subindex="5" defaultValue="false" />
+				<RecordItemInfo subindex="6" defaultValue="false" />
+				<RecordItemInfo subindex="7" defaultValue="false" />
+				<RecordItemInfo subindex="8" defaultValue="false" />
+				<RecordItemInfo subindex="9" defaultValue="false" />
+				<RecordItemInfo subindex="10" defaultValue="false" />
+				<!--RecordItemInfo subindex="11" defaultValue="false" /-->
+				<RecordItemInfo subindex="12" defaultValue="false" />
+				<RecordItemInfo subindex="13" defaultValue="false" />
+				<RecordItemInfo subindex="14" defaultValue="false" />	
+				<!--RecordItemInfo subindex="15" defaultValue="false" /-->	
+				<!--RecordItemInfo subindex="16" defaultValue="false" /-->				
+				<Name textId="TEXT_Parameter_Fault" />
+				<Description textId="TEXT_Parameter_Fault_descr" />
+				</Variable>					
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<Variable id="Parameter_RANGE_VALUES" index="994" accessRights="rw" dynamic="true">
+				<Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="32">
+					
+					<RecordItem subindex="1" bitOffset="0">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+							<ValueRange lowerValue="0" upperValue="1023">
+							</ValueRange>
+						</SimpleDatatype>
+						<Name textId="TEXT_Parameter_MIN_TEACH_VALUE" />
+					</RecordItem>
+					
+					<RecordItem subindex="2" bitOffset="16">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+							<ValueRange lowerValue="0" upperValue="1023">
+							</ValueRange>
+						</SimpleDatatype>
+						<Name textId="TEXT_Parameter_MAX_TEACH_VALUE" />
+					</RecordItem>
+					
+				</Datatype>
+				<RecordItemInfo subindex="1" defaultValue="0" />
+				<RecordItemInfo subindex="2" defaultValue="1023" />
+				<Name textId="TEXT_Parameter_RANGE_VALUES" />
+				<!--Description textId="TEXT_Parameter_RANGE_VALUES_Descr" /-->
+				</Variable>			
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<!--Variable id="Parameter_ERROR_CURRENT" index="997" accessRights="rw" defaultValue="2">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="TEXT_Parameter_ERROR_CURRENT_1" />
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TEXT_Parameter_ERROR_CURRENT_2" />
+						</SingleValue>	
+				</Datatype>
+				<Name textId="TEXT_Parameter_ERROR_CURRENT"/>
+				<Description textId="TEXT_Parameter_ERROR_CURRENT_Descr"/>
+				</Variable-->	
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<!--Variable id="Parameter_CURRENT_MODE" index="998" accessRights="rw" defaultValue="1">
+				<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="1">
+							<Name textId="TEXT_Parameter_CURRENT_MODE_1" />
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TEXT_Parameter_CURRENT_MODE_2" />
+						</SingleValue>	
+				</Datatype>
+				<Name textId="TEXT_Parameter_CURRENT_MODE"/>
+				<Description textId="TEXT_Parameter_CURRENT_MODE_Descr"/>
+				</Variable-->	
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<!--Variable id="Parameter_FIXED_CURRENT" index="999" accessRights="rw" defaultValue="0">
+				<Datatype xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="20500">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_FIXED_CURRENT"/>
+				<Description textId="TEXT_Parameter_FIXED_CURRENT_Descr"/>
+				</Variable-->
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<!--Variable id="Parameter_CurrentOut" index="995" accessRights="ro" dynamic="true">
+				<Datatype xsi:type="IntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="25000">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_CurrentOut"/>
+				</Variable-->	
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<!--Variable id="Parameter_SP_Gradient" index="800" accessRights="rw" dynamic="false">
+				<Datatype xsi:type="IntegerT" bitLength="8">
+					<ValueRange lowerValue="-128" upperValue="127">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP_Gradient"/>
+				</Variable-->				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+				<!--Variable id="Parameter_SP_Teach_Temperarture" index="801" accessRights="rw" dynamic="false">
+				<Datatype xsi:type="IntegerT" bitLength="16">
+					<ValueRange lowerValue="-50" upperValue="200">
+					</ValueRange>
+				</Datatype>
+				<Name textId="TEXT_Parameter_SP_Teach_Temperarture"/>
+				</Variable-->				
+				<!-- ================================================================================================ -->
+				<!-- ================================================================================================ -->
+			
+			</VariableCollection>
+			
+			
+			
+			<!-- ================================================================================================ -->
+			<!--    ProcessDataCollection									      -->
+			<!-- ================================================================================================ -->
+			<ProcessDataCollection>
+							
+				<ProcessData id="PD_ProcessData">
+
+					<ProcessDataIn id="PD_ProcessDataIn" bitLength="16">
+						<DatatypeRef datatypeId="DT_ProcessValue"/>
+						<Name textId="TEXT_PROCESSDATA_ProcessDataIn"/>
+					</ProcessDataIn>
+
+					<!--ProcessDataOut id="PD_ProcessDataOut" bitLength="1">
+						<DatatypeRef datatypeId="DT_ProcessDataOut"/>
+						<Name textId="TEXT_PD_ProcessDataOut"/>
+					</ProcessDataOut-->
+
+				</ProcessData>
+							
+			</ProcessDataCollection>
+					
+			
+			
+			
+			<!-- ================================================================================================ -->
+			<!--    UserInterface									      -->
+			<!-- ================================================================================================ -->
+			<UserInterface>
+				<MenuCollection>
+					
+					<!-- ================================================================================================ -->
+					<!--    Menue Ebene 0#										      -->
+					<!-- ================================================================================================ -->
+					<Menu id="MENUE_RO_Ident">
+						<VariableRef variableId="V_VendorName"/>						
+						<VariableRef variableId="V_VendorText" />
+						<VariableRef variableId="V_ProductName"/>						
+						<VariableRef variableId="V_ProductID" />						
+						<VariableRef variableId="V_ProductText" />
+						<VariableRef variableId="V_SerialNumber"/>
+						<VariableRef variableId="V_FirmwareRevision"/>
+						<VariableRef variableId="V_ApplicationSpecificName" accessRightRestriction="ro"/>
+					</Menu>
+					
+					<Menu id="MENUE_RW_Ident">
+						<VariableRef variableId="V_VendorName"/>						
+						<VariableRef variableId="V_VendorText" />
+						<VariableRef variableId="V_ProductName"/>						
+						<VariableRef variableId="V_ProductID" />						
+						<VariableRef variableId="V_ProductText" />
+						<VariableRef variableId="V_SerialNumber"/>
+						<VariableRef variableId="V_FirmwareRevision"/>
+						<VariableRef variableId="V_ApplicationSpecificName" accessRightRestriction="rw"/>
+					</Menu>
+					
+					<!-- =============================================================== -->
+					<!--    Observer Main Menues								         -->
+					<!-- =============================================================== -->
+					
+					<Menu id="MENUE_RO_Observe">
+					
+						<!--VariableRef variableId="V_ProcessDataIn"/-->
+						
+						<!-- Measure  -->
+						<MenuRef menuId="MENUE_Additional_ProcessValues_MAXMINTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="2" /></MenuRef>	
+						<MenuRef menuId="MENUE_Additional_ProcessValues_QUICKTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="1" /></MenuRef>
+						
+						<!-- Faults   -->
+						<!--MenuRef menuId="MENUE_Faults"/-->	
+					</Menu>
+					
+					
+					<!-- =============================================================== -->
+					<!--    Parameter Main Menues								         -->
+					<!-- =============================================================== -->
+					
+					<!-- === Read Only === -->
+					<!-- ================= -->
+					<Menu id="MENUE_RO_Param">
+						<Name textId="TEXT_MENUE_RO_Param" />
+						
+						<!-- Flow Parameter  -->
+						<MenuRef menuId="MENUE_RO_FlowSettings"/>
+						
+						
+						<!-- Temperature Parameter  -->
+						<MenuRef menuId="MENUE_RO_TemperatureSettings"/>							
+												
+						
+						<!-- Outputs Parameter      -->
+						<!--MenuRef menuId="MENUE_RO_CurrentOutputSettings"/-->
+						<MenuRef menuId="MENUE_RO_SwitchOutputSettings"/>					
+												
+					</Menu>	
+					<!-- ================= -->
+					
+					<!-- === Read and Write === -->
+					<!-- ====================== -->
+					<Menu id="MENUE_RW_Param">
+						
+						<Name textId="TEXT_MENUE_RW_Param" />
+						
+						<!-- General Parameter  -->
+						<MenuRef menuId="MENUE_RW_GeneralSettings" />
+						
+						<!-- SystemCommands Parameter -->
+						<MenuRef menuId="MENUE_RW_SystemCommands">
+							<Condition variableId="Parameter_Lock"  value="1" />	
+						</MenuRef>
+						
+						<!-- Flow Parameter  -->
+						<MenuRef menuId="MENUE_RW_FlowSettings">							
+							<Condition variableId="Parameter_Lock"  value="1" />							
+						</MenuRef>
+						<MenuRef menuId="MENUE_RO_FlowSettings">							
+							<Condition variableId="Parameter_Lock"  value="0" />							
+						</MenuRef>
+						
+						
+						<!-- Temperature Parameter  -->
+						<MenuRef menuId="MENUE_RW_TemperatureSettings">							
+							<Condition variableId="Parameter_Lock"  value="1" />							
+						</MenuRef>
+						<MenuRef menuId="MENUE_RO_TemperatureSettings">							
+							<Condition variableId="Parameter_Lock"  value="0" />							
+						</MenuRef>
+						
+						
+						<!-- Outputs Parameter     -->
+						<!--MenuRef menuId="MENUE_RW_CurrentOutputSettings">							
+							<Condition variableId="Parameter_Lock"  value="1" />							
+						</MenuRef>
+						<MenuRef menuId="MENUE_RO_CurrentOutputSettings">							
+							<Condition variableId="Parameter_Lock"  value="0" />							
+						</MenuRef-->
+						<MenuRef menuId="MENUE_RW_SwitchOutputSettings">							
+							<Condition variableId="Parameter_Lock"  value="1" />							
+						</MenuRef>
+						<MenuRef menuId="MENUE_RO_SwitchOutputSettings">							
+							<Condition variableId="Parameter_Lock"  value="0" />							
+						</MenuRef>															
+						
+					</Menu>
+					<!-- ====================== -->
+					
+					
+					<!-- =============================================================== -->
+					<!--    Diagnose Main Menues								         -->
+					<!-- =============================================================== -->
+					
+					<!-- === Read Only === -->
+					<!-- ================= -->
+					<Menu id="MENUE_RO_Diag">
+					
+						<!-- ProcessDataIn  -->
+						<!--VariableRef variableId="V_ProcessDataIn"/-->
+																		
+						<!-- Additional_ProcessValues  -->
+						<!--MenuRef menuId="MENUE_Additional_ProcessValues_MAXMINTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="2" /></MenuRef>	
+						<MenuRef menuId="MENUE_Additional_ProcessValues_QUICKTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="1" /></MenuRef-->
+														
+						<!-- Faults   -->
+						<VariableRef variableId="Parameter_Fault"/>
+						<!--MenuRef menuId="MENUE_Faults"/-->
+						
+					</Menu>
+					<!-- ================= -->
+					
+					<!-- === Read and Write === -->
+					<!-- ====================== -->
+					<Menu id="MENUE_RW_Diag">
+					
+						<!-- ProcessDataIn  -->
+						<!--VariableRef variableId="V_ProcessDataIn"/-->
+												
+						<!-- Additional_ProcessValues  -->
+						<!--MenuRef menuId="MENUE_Additional_ProcessValues_MAXMINTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="2" /></MenuRef>	
+						<MenuRef menuId="MENUE_Additional_ProcessValues_QUICKTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="1" /></MenuRef-->
+														
+						<!-- Faults   -->
+						<VariableRef variableId="Parameter_Fault"/>
+						<!--MenuRef menuId="MENUE_Faults"/-->
+						
+					</Menu>
+					
+					
+						<!-- ======================================================================== -->
+						<!--   Parameter Sub Menues  						  						  -->
+						<!-- ======================================================================== -->
+						
+						<!-- General -->
+						<Menu id="MENUE_RW_GeneralSettings">
+						<Name textId="TEXT_MENUE_GeneralSettings" />				
+							
+							<VariableRef variableId="Parameter_Lock" accessRightRestriction="rw" />
+						</Menu>
+						
+						
+						<!-- System Commands -->
+						<Menu id="MENUE_RW_SystemCommands">
+						<Name textId="TEXT_MENUE_SystemCommands" />				
+							
+							<VariableRef variableId="Parameter_SystemCommand" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />
+							<VariableRef variableId="Parameter_SystemCommand" accessRightRestriction="wo" displayFormat="Button" buttonValue="2" />
+						</Menu>
+						
+
+						<!-- Additional_ProcessValues  -->
+						<Menu id="MENUE_Additional_ProcessValues_MAXMINTEACH">
+						<Name textId="TEXT_MENUE_Additional_ProcessValues" />
+							
+							<VariableRef  variableId="V_ProcessDataIn" />
+							<VariableRef variableId="Parameter_Ain_Flow" unitCode="1342" gradient="0.09775171065" displayFormat="Dec"/>
+							<VariableRef variableId="Parameter_MAXMIN_SP1_PROZENT" accessRightRestriction="ro" unitCode="1342" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<RecordItemRef  variableId="Parameter_DeltaT_Flow" subindex="2" accessRightRestriction="ro"  gradient="1"  offset="0"  displayFormat="Dec"/>
+							<!--VariableRef variableId="Parameter_CurrentOut" unitCode="1211" gradient="0.001"  offset="0"/--> 	
+							<VariableRef variableId="Parameter_Ain_Temperature" unitCode="1001" gradient="1"  offset="0"/> 													
+						</Menu>						
+
+						<!-- Additional_ProcessValues  -->
+						<Menu id="MENUE_Additional_ProcessValues_QUICKTEACH">
+						<Name textId="TEXT_MENUE_Additional_ProcessValues" />
+							
+							<VariableRef  variableId="V_ProcessDataIn" />
+							<VariableRef variableId="Parameter_CURRENT_SP1_BIT" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<RecordItemRef  variableId="Parameter_DeltaT_Flow" subindex="2" accessRightRestriction="ro"  gradient="1"  offset="0"  displayFormat="Dec"/>
+							<!--VariableRef variableId="Parameter_CurrentOut" unitCode="1211" gradient="0.001"  offset="0"/--> 		
+							<VariableRef variableId="Parameter_Ain_Temperature" unitCode="1001" gradient="1"  offset="0"/> 												
+						</Menu>
+					
+					
+						<!-- Flow Parameter-->						
+						<Menu id="MENUE_RW_FlowSettings">
+						<Name textId="TEXT_MENUE_FlowSettings" />
+						<VariableRef variableId="Parameter_TEACHMODE" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/>		
+						<MenuRef menuId="MENUE_RW_FlowSettings_MAXMINTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="2" /></MenuRef>	
+						<MenuRef menuId="MENUE_RW_FlowSettings_QUICKTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="1" /></MenuRef>
+						<!--MenuRef menuId="MENUE_RW_FlowSettings_SP_GRADIENT"/--> 
+						
+						</Menu>
+												
+						<Menu id="MENUE_RW_FlowSettings_MAXMINTEACH">
+						<Name textId="TEXT_MENUE_FlowSettings_MAXMINTEACH" />
+												
+							<VariableRef variableId="Parameter_DeltaT_Flow_To_High_Flag" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/> 
+							<RecordItemRef variableId="Parameter_DeltaT_Flow" subindex="2" accessRightRestriction="ro"  gradient="1"  offset="0"  displayFormat="Dec"/>
+							<VariableRef variableId="Parameter_Flow_Teach" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />							
+							<VariableRef variableId="Parameter_Flow_Teach" accessRightRestriction="wo" displayFormat="Button" buttonValue="2" />							
+							<!--VariableRef variableId="Parameter_Flow_Teach" accessRightRestriction="wo" displayFormat="Button" buttonValue="3" /-->
+							<!--VariableRef variableId="Parameter_Quicktech_Above_Under_new" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/-->	
+							<RecordItemRef variableId="Parameter_RANGE_VALUES" subindex="2" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<RecordItemRef variableId="Parameter_RANGE_VALUES" subindex="1" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/>							
+							<VariableRef variableId="Parameter_MAXMIN_SP1_PROZENT" accessRightRestriction="rw" unitCode="1342" gradient="1"  offset="0"  displayFormat="Dec"/>						
+							<!--VariableRef variableId="Parameter_QUICKTEACH_SP1_BIT" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/-->
+							<VariableRef variableId="Parameter_Hysterese" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/>							
+						</Menu>
+						
+						<Menu id="MENUE_RW_FlowSettings_QUICKTEACH">
+						<Name textId="TEXT_MENUE_FlowSettings_QUICKTEACH" />
+											
+							<VariableRef variableId="Parameter_DeltaT_Flow_To_High_Flag" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/> 
+							<RecordItemRef variableId="Parameter_DeltaT_Flow" subindex="2" accessRightRestriction="ro"  gradient="1"  offset="0"  displayFormat="Dec"/>
+							<!--VariableRef variableId="Parameter_Flow_Teach" accessRightRestriction="wo" displayFormat="Button" buttonValue="1" />							
+							<VariableRef variableId="Parameter_Flow_Teach" accessRightRestriction="wo" displayFormat="Button" buttonValue="2" /-->							
+							<VariableRef variableId="Parameter_Flow_Teach" accessRightRestriction="wo" displayFormat="Button" buttonValue="3" />
+							<!--VariableRef variableId="Parameter_Quicktech_Above_Under_new" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/-->				
+							<!--RecordItemRef variableId="Parameter_RANGE_VALUES" subindex="2" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/-->
+							<!--RecordItemRef variableId="Parameter_RANGE_VALUES" subindex="1" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/-->				
+							<!--VariableRef variableId="Parameter_MAXMIN_SP1_PROZENT" accessRightRestriction="rw" unitCode="1342" gradient="1"  offset="0"  displayFormat="Dec"/-->						
+							<VariableRef variableId="Parameter_QUICKTEACH_SP1_BIT" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<VariableRef variableId="Parameter_Hysterese" accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/>
+							
+						</Menu>
+												
+						<!--Menu id="MENUE_RW_FlowSettings_SP_GRADIENT">
+						<Name textId="TEXT_MENUE_FlowSettings_SP_GRADIENT" />
+						
+								<VariableRef variableId="Parameter_SP_Gradient" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP_Teach_Temperarture" unitCode="1001"  gradient="1"  offset="0" displayFormat="Dec"/>	
+							    <VariableRef variableId="Parameter_CURRENT_SP1_BIT" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>				
+						</Menu-->
+						
+						<Menu id="MENUE_RO_FlowSettings">
+						<Name textId="TEXT_MENUE_FlowSettings" />	
+                            <VariableRef variableId="Parameter_TEACHMODE" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>							
+							<MenuRef menuId="MENUE_RO_FlowSettings_MAXMINTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="2" /> </MenuRef>
+							<MenuRef menuId="MENUE_RO_FlowSettings_QUICKTEACH"> <Condition variableId="Parameter_TEACHMODE"  value="1" /> </MenuRef>							
+						    <!--MenuRef menuId="MENUE_RO_FlowSettings_SP_GRADIENT"/-->
+						</Menu>	
+						
+						<Menu id="MENUE_RO_FlowSettings_MAXMINTEACH">
+						<Name textId="TEXT_MENUE_FlowSettings_MAXMINTEACH" />												
+							<RecordItemRef variableId="Parameter_RANGE_VALUES" subindex="2" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<RecordItemRef variableId="Parameter_RANGE_VALUES" subindex="1" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>	
+							<VariableRef variableId="Parameter_MAXMIN_SP1_PROZENT" accessRightRestriction="ro" unitCode="1342" gradient="1"  offset="0"  displayFormat="Dec"/>	
+							<VariableRef variableId="Parameter_Hysterese" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>	
+						</Menu>	
+
+						<Menu id="MENUE_RO_FlowSettings_QUICKTEACH">
+						<Name textId="TEXT_MENUE_FlowSettings_QUICKTEACH" />																
+							<VariableRef variableId="Parameter_QUICKTEACH_SP1_BIT" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<!--VariableRef variableId="Parameter_Quicktech_Above_Under_new" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/-->	
+							<VariableRef variableId="Parameter_Hysterese" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>	
+						</Menu>			
+												
+						<!--Menu id="MENUE_RO_FlowSettings_SP_GRADIENT">
+						<Name textId="TEXT_MENUE_FlowSettings_SP_GRADIENT" />
+								
+								<VariableRef variableId="Parameter_SP_Gradient" accessRightRestriction="ro" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP_Teach_Temperarture" accessRightRestriction="ro" unitCode="1001"  gradient="1"  offset="0" displayFormat="Dec"/>	
+							    <VariableRef variableId="Parameter_CURRENT_SP1_BIT" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>			
+						</Menu-->					
+						
+						
+						<!-- Temperature Parameter -->						
+						<Menu id="MENUE_RW_TemperatureSettings">
+						<Name textId="TEXT_MENUE_TemperatureSettings" />
+							
+							<VariableRef variableId="Parameter_SP2" unitCode="1001" gradient="1"  offset="0"  displayFormat="Dec"/>
+						</Menu>
+						
+						<Menu id="MENUE_RO_TemperatureSettings">
+						<Name textId="TEXT_MENUE_TemperatureSettings" />
+							
+							<VariableRef variableId="Parameter_SP2" accessRightRestriction="ro" unitCode="1001" gradient="1"  offset="0"  displayFormat="Dec"/>
+						</Menu>	
+
+						<!-- CurrentOutput RW -->
+						<!--Menu id="MENUE_RW_CurrentOutputSettings">
+						<Name textId="TEXT_MENUE_CurrentOutputSettings" />
+							
+							<VariableRef variableId="Parameter_ERROR_CURRENT"  accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<VariableRef variableId="Parameter_CURRENT_MODE"  accessRightRestriction="rw" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<VariableRef variableId="Parameter_FIXED_CURRENT" accessRightRestriction="rw" unitCode="1211" gradient="0.001"  offset="0"  displayFormat="Dec"/>
+						
+						</Menu-->
+						
+						<!-- CurrentOutput RO -->
+						<!--Menu id="MENUE_RO_CurrentOutputSettings">
+						<Name textId="TEXT_MENUE_CurrentOutputSettings" />
+							
+							<VariableRef variableId="Parameter_ERROR_CURRENT"  accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>
+							<VariableRef variableId="Parameter_CURRENT_MODE"  accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/-->
+							<!--VariableRef variableId="Parameter_FIXED_CURRENT" accessRightRestriction="ro" unitCode="1211" gradient="0.001"  offset="0"  displayFormat="Dec"/-->
+						
+						<!--/Menu-->
+						
+						<!-- SwitchOutputs RW-->						
+						<Menu id="MENUE_RW_SwitchOutputSettings">
+						<Name textId="TEXT_MENUE_SwitchOutputSettings" />
+							
+							<MenuRef menuId="MENUE_SwitchOutput_Flow"/>	
+							<MenuRef menuId="MENUE_SwitchOutput_Temperature"/>
+							<MenuRef menuId="MENUE_SwitchOutput_Fault"/>
+						</Menu>
+												
+							<!-- ================================================================ -->
+							<!--   SwitchOutput RW Parameter Sub Sub Menues  							 		  -->
+							<!-- ================================================================ -->
+														
+							<!-- SwitchOutput_Flow -->
+							<Menu id="MENUE_SwitchOutput_Flow">							
+							<Name textId="TEXT_SwitchOutput_Flow" />
+							
+								<VariableRef variableId="Parameter_SP1_FUNCTION" gradient="1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP1_ON_DELAY" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP1_OFF_DELAY" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								
+							</Menu>
+							
+							
+							<!-- SwitchOutput_Temperature -->
+							<Menu id="MENUE_SwitchOutput_Temperature">							
+							<Name textId="TEXT_SwitchOutput_Temperature" />
+								<VariableRef variableId="Parameter_SP2_FUNCTION" gradient="1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP2_ON_DELAY" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP2_OFF_DELAY" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								
+							</Menu>								
+							
+							<!-- SwitchOutput_Fault -->
+							<Menu id="MENUE_SwitchOutput_Fault">							
+							<Name textId="TEXT_SwitchOutput_Fault" />
+								<VariableRef variableId="Parameter_SP3_ON_DELAY" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP3_OFF_DELAY" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								
+							</Menu>
+							
+						<!-- SwitchOutputs RO -->
+						<Menu id="MENUE_RO_SwitchOutputSettings">
+						<Name textId="TEXT_MENUE_SwitchOutputSettings" />
+							
+							<MenuRef menuId="MENUE_RO_Output_Flow"/>	
+							<MenuRef menuId="MENUE_RO_Output_Temperature"/>
+							<MenuRef menuId="MENUE_RO_Output_Fault"/>
+						</Menu>
+													
+						
+										
+							<!-- ================================================================ -->
+							<!--   SwitchOutput RO Parameter Sub Sub Menues  			 		  -->
+							<!-- ================================================================ -->
+							<Menu id="MENUE_RO_Output_Flow">							
+							<Name textId="TEXT_SwitchOutput_Flow" />
+							
+								<VariableRef variableId="Parameter_SP1_FUNCTION" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP1_ON_DELAY" accessRightRestriction="ro" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP1_OFF_DELAY" accessRightRestriction="ro" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+							</Menu>
+							
+							<!-- ================================================================================================ -->
+							<!--    Menue Ebene 3										      -->
+							<!-- ================================================================================================ -->
+							<Menu id="MENUE_RO_Output_Temperature">							
+							<Name textId="TEXT_SwitchOutput_Temperature" />
+								
+								<VariableRef variableId="Parameter_SP2_FUNCTION" accessRightRestriction="ro" gradient="1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP2_ON_DELAY" accessRightRestriction="ro" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP2_OFF_DELAY" accessRightRestriction="ro" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+							</Menu>								
+							
+							<!-- ================================================================================================ -->
+							<!--    Menue Ebene 3										      -->
+							<!-- ================================================================================================ -->
+							<Menu id="MENUE_RO_Output_Fault">							
+							<Name textId="TEXT_SwitchOutput_Fault" />
+								
+								<VariableRef variableId="Parameter_SP3_ON_DELAY" accessRightRestriction="ro" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+								<VariableRef variableId="Parameter_SP3_OFF_DELAY" accessRightRestriction="ro" unitCode="1054" gradient="0.1"  offset="0"  displayFormat="Dec"/>
+							</Menu>							
+							
+						<!-- Faults -->						
+						<!--Menu id="MENUE_Faults">
+						<Name textId="TEXT_MENUE_Faults" />
+							
+							<VariableRef variableId="Parameter_Fault"/>
+						</Menu-->	
+				
+				
+				
+				
+				</MenuCollection>
+				
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="MENUE_RO_Ident"/>
+					<ParameterMenu menuId="MENUE_RO_Param" />
+					<ObservationMenu menuId="MENUE_RO_Observe" />
+					<DiagnosisMenu menuId="MENUE_RO_Diag" />
+				</ObserverRoleMenuSet>
+				
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="MENUE_RW_Ident"/>
+					<ParameterMenu menuId="MENUE_RW_Param"/>
+					<ObservationMenu menuId="MENUE_RO_Observe" />
+					<DiagnosisMenu menuId="MENUE_RW_Diag"/>
+				</MaintenanceRoleMenuSet>
+				
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="MENUE_RW_Ident"/>
+					<ParameterMenu menuId="MENUE_RW_Param"/>
+					<ObservationMenu menuId="MENUE_RO_Observe" />
+					<DiagnosisMenu menuId="MENUE_RW_Diag"/>
+				</SpecialistRoleMenuSet>
+				
+			</UserInterface>
+			
+			
+			
+		</DeviceFunction>
+	</ProfileBody>
+	
+	
+	
+	<!-- ================================================================================================ -->
+	<!--    CommNetworkProfile									      -->
+	<!-- ================================================================================================ -->
+	<CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+		<TransportLayers>
+			<PhysicalLayer physics="2" minCycleTime="2000" sioSupported="true" baudrate="COM2"/>
+		</TransportLayers>
+	</CommNetworkProfile>
+	
+	
+	
+	<!-- ================================================================================================ -->
+	<!--  ExternalTextCollection									      -->
+	<!-- ================================================================================================ -->
+	<ExternalTextCollection>
+	
+		<!-- ==================================================== -->
+		<!-- ==================================================== -->
+		<!--  Language en									      -->
+		<!-- ==================================================== -->	
+		<!-- ==================================================== -->
+		<PrimaryLanguage xml:lang="en">	
+		
+			
+			
+			<!-- Processdata -->
+			<!--Text id="TEXT_ProcessDataIn_Measure" 					value="Flow rate [0 ... 100 %]"/-->
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn_Measure" 			value="Flow rate (Quasi analog)"/>
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn_Signal1" 			value="Flow rate (Switching output)"/>
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn_Signal2" 			value="Medium temperature (Switching output)"/>
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn_Signal3" 			value="Fault indication (Switching output)"/>
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn" 					value="Process data In"/>			
+			<!--Text id="TEXT_PROCESSDATA_No_Data" 						value="No data"/>
+			<Text id="TEXT_PROCESSDATA_Data" 							value="Data"/-->	
+			<Text id="TEXT_PROCESSDATA_SwitchActive" 					value="High"/>
+			<Text id="TEXT_PROCESSDATA_SwitchNotActive" 				value="Low"/>
+			
+			<!-- Info -->
+			<Text id="TEXT_VendorText" 									value="Turck"/>
+			<Text id="TEXT_VendorUrl" 									value="http://www.turck.com"/>
+			<Text id="TEXT_DeviceFamily" 								value="FM-IM Series"/>
+			<Text id="TEXT_100000818_Name" 								value="FM-IM-3UP63FX"/>
+			<Text id="TEXT_100000818_Text" 								value="Flow monitoring"/>
+			
+			
+			<!-- Ebene 0 -->
+			<Text id="TEXT_MENUE_RW_Param" 								value="Parameter read/write (R/W)"/>
+			<Text id="TEXT_MENUE_RO_Param" 								value="Parameter read (R)"/>
+				
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_GeneralSettings" 						value="General settings"/>
+			
+				<!-- Ebene 2  -->
+				<Text id="TEXT_Parameter_Lock" 							value="IODD parameterization"/>
+				<Text id="TEXT_Parameter_Lock_Descr" 					value="IO-Link communication disable/enable"/>
+				<Text id="TEXT_Parameter_Locked" 						value="Disabled"/>
+				<Text id="TEXT_Parameter_Unlocked" 						value="Enabled"/>
+			
+			
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_SystemCommands" 						value="System commands"/>
+			
+				<!-- Ebene 2  -->
+				<Text id="TEXT_Parameter_System_Command" 				value="System command"/>
+				<Text id="TEXT_Parameter_System_Command_Descr" 			value=""/>	
+				<Text id="TEXT_Reset" 									value="Hardware reset"/>	
+				<Text id="TEXT_Default" 								value="Default settings"/>	
+				
+				
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_Additional_ProcessValues" 				value="Process data"/>	
+				
+				<!-- Ebene 2  -->
+				<Text id="TEXT_Parameter_Ain_Flow" 						value="Flow rate"/>
+				<!--Text id="TEXT_Ain_Flow_MINMAXLIMIT" 				value="Gap between Max/Min trim to small"/-->
+				<Text id="TEXT_Parameter_Ain_Temperature" 				value="Media temperature"/>
+				<!--Text id="TEXT_Parameter_CurrentOut" 				value="Output current (Analog)"/-->
+			
+			
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_FlowSettings" 							value="Flow rate"/>
+			<Text id="TEXT_MENUE_FlowSettings_MAXMINTEACH" 				value="MAX/MIN-Teach Settings"/>
+			<Text id="TEXT_MENUE_FlowSettings_QUICKTEACH" 				value="Quick-Teach Setting"/>
+			<!--Text id="TEXT_MENUE_FlowSettings_SP_GRADIENT" 				value="adaptive switchpoint curve"/-->			
+			
+				<!-- Ebene 2  -->
+				
+				<Text id="TEXT_Parameter_TEACHMODE" 					value="Operation mode"/>
+				<Text id="TEXT_QUICKTEACH_MODE" 						value="Quick-Teach mode"/>
+				<Text id="TEXT_MAXMIN_MODE" 							value="MAX/MIN-Teach mode"/>				
+				<Text id="TEXT_Low_Flow_Teach" 							value="MIN-Teach"/>
+				<Text id="TEXT_High_Flow_Teach" 						value="MAX-Teach"/>
+				<Text id="TEXT_Quick_Flow_Teach" 						value="Quick-Teach"/>
+				<Text id="TEXT_Parameter_Flow_Teach" 					value="Teach"/>
+				<Text id="TEXT_Parameter_Flow_Teach_Descr" 				value="Teach"/>
+				<Text id="TEXT_Parameter_MAXMIN_SP1_PROZENT" 			value="Switchpoint MAX/MIN-Teach"/>	
+				<Text id="TEXT_Parameter_CURRENT_SP1_BIT" 				value="Switchpoint Quick-Teach"/>	
+				<Text id="TEXT_Parameter_QUICKTEACH_SP1_BIT" 			value="Switchpoint Quick-Teach"/>
+				<Text id="TEXT_Parameter_MAXMIN_SP1_PROZENT_Descr" 		value=""/>		
+				<Text id="TEXT_Parameter_CURRENT_SP1_BIT_Descr" 		value=""/>			
+				<Text id="TEXT_Parameter_QUICKTEACH_SP1_BIT_Descr" 		value=""/>
+				<Text id="TEXT_Parameter_DeltaT_Flow" 					value="Flow Gradient"/>
+				<Text id="TEXT_Parameter_DeltaT_Flow_Steps" 			value="DeltaFlow"/>	 
+				<Text id="TEXT_Parameter_DeltaT_Flow_Raw" 			    value="DeltaFlow Raw"/>	 		
+				<Text id="TEXT_Parameter_DeltaT_Flow_To_High_Flag" 		value="Teach status"/>
+				<Text id="TEXT_DeltaT_Flow_low" 						value="Low"/>
+				<Text id="TEXT_DeltaT_Flow_medium" 						value="Medium"/>
+				<Text id="TEXT_DeltaT_Flow_high" 						value="High"/>
+				<Text id="TEXT_DeltaT_Flow_zero" 						value="Acceptably small"/>	
+				<Text id="TEXT_Parameter_Hysterese" 					value="Hysteresis"/>	
+				<!--Text id="TEXT_Parameter_Hysterese_Descr" 			value=""/-->		
+				<Text id="TEXT_Hysterese_off" 							value="OFF"/>
+				<Text id="TEXT_Hysterese_on" 							value="ON"/>
+				<Text id="TEXT_READY_TO_TEACH" 							value="Teach mode has been automatically enabled"/>	 
+				<Text id="TEXT_NOT_READY_TO_TEACH" 						value="Teach mode has been automatically disabled"/>	
+				<Text id="TEXT_Parameter_RANGE_VALUES" 					value="Teach value"/>	
+				<Text id="TEXT_Parameter_MIN_TEACH_VALUE" 				value="MIN-Teach"/>	
+				<Text id="TEXT_Parameter_MAX_TEACH_VALUE" 				value="MAX-Teach"/>
+				<!--Text id="TEXT_Parameter_Quicktech_Above_Under_new" 		value="Quick-Teach-Shift"/>
+				<Text id="TEXT_Parameter_Quicktech_Above_Under_Descr_new" 	value=""/-->	
+				<!--Text id="TEXT_Quicktech_Above_Under_40" 				value="+ 4,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_35" 				value="+ 3,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_30" 				value="+ 3,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_25" 				value="+ 2,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_20" 				value="+ 2,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_15" 				value="+ 1,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_10" 				value="+ 1,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_5" 				value="+ 0,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_0" 				value="    0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m5" 				value="- 0,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m10" 				value="- 1,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m15" 				value="- 1,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m20" 				value="- 2,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m25" 				value="- 2,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m30" 				value="- 3,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m35" 				value="- 3,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m40" 				value="- 4,0 %"/-->
+				<!--Text id="TEXT_Parameter_SP_Gradient" 		            value="Switchpoint - gradient"/>
+				<Text id="TEXT_Parameter_SP_Teach_Temperarture" 	    value="Switchpoint - teach-temperature"/-->
+				
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_TemperatureSettings" 					value="Media temperature"/>
+			
+				<!-- Ebene 2  -->
+				<Text id="TEXT_Parameter_SP2" 							value="Switchpoint media temperature"/>	
+				<Text id="TEXT_Parameter_SP2_Descr" 					value=""/>
+			
+			
+			<!-- Ebene 1 ====================================================================================== -->
+			<!--Text id="TEXT_MENUE_CurrentOutputSettings" 			value="Current output"/-->
+			
+				<!-- Ebene 2 ====================================================================================== -->
+				<!--Text id="TEXT_Parameter_ERROR_CURRENT" 				value="Fault current"/>	
+				<Text id="TEXT_Parameter_ERROR_CURRENT_1" 				value="0 mA"/>	
+				<Text id="TEXT_Parameter_ERROR_CURRENT_2" 				value="> 21 mA"/>	
+				<Text id="TEXT_Parameter_ERROR_CURRENT_Descr" 			value=""/>
+				<Text id="TEXT_Parameter_CURRENT_MODE" 					value="Output current range"/>	
+				<Text id="TEXT_Parameter_CURRENT_MODE_1" 				value="4...20 mA"/>	
+				<Text id="TEXT_Parameter_CURRENT_MODE_2" 				value="20...4 mA"/>		
+				<Text id="TEXT_Parameter_CURRENT_MODE_Descr" 			value=""/>
+				<Text id="TEXT_Parameter_FIXED_CURRENT" 				value="Current force mode"/>	
+				<Text id="TEXT_Parameter_FIXED_CURRENT_Descr" 			value="max 20.5 mA; 0 mA = Current force mode off"/-->
+			
+			<!--Text id="TEXT_MENUE_E1_RSM_Sensor_NAMUR" 								value="RSM"/-->
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_SwitchOutputSettings" 					value="Switching outputs"/>
+				
+				<!-- Ebene 2  -->							
+				<Text id="TEXT_SwitchOutput_Flow" 						value="Flow rate"/>							
+				<Text id="TEXT_SwitchOutput_Temperature" 				value="Media temperature"/>
+				<Text id="TEXT_SwitchOutput_Fault"	 					value="Fault indication"/>
+				
+					<!-- Ebene 3  -->
+					<Text id="TEXT_Parameter_SP1_FUNCTION" 				value="Output type"/>
+					<Text id="TEXT_Parameter_SP2_FUNCTION" 				value="Output type"/>
+					<Text id="TEXT_Parameter_SP1_FUNCTION_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP2_FUNCTION_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_PNP_OVER" 					value="Active high"/>
+					<Text id="TEXT_Parameter_PNP_UNDER" 				value="Active low"/>
+					<Text id="TEXT_Parameter_SP1_ON_DELAY" 				value="Switching on delay"/>
+					<Text id="TEXT_Parameter_SP2_ON_DELAY" 				value="Switching on delay"/>
+					<Text id="TEXT_Parameter_SP3_ON_DELAY" 				value="Switching on delay"/>
+					<Text id="TEXT_Parameter_SP1_ON_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP2_ON_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP3_ON_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP1_OFF_DELAY" 			value="Switching off delay"/>
+					<Text id="TEXT_Parameter_SP2_OFF_DELAY" 			value="Switching off delay"/>
+					<Text id="TEXT_Parameter_SP3_OFF_DELAY" 			value="Switching off delay"/>
+					<Text id="TEXT_Parameter_SP1_OFF_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP2_OFF_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP3_OFF_DELAY_Descr" 		value=""/>
+					
+			
+			<!-- Ebene 1  -->
+			<!--Text id="TEXT_MENUE_Faults" 								value="Fault indication"/-->
+			
+				<!-- Ebene 2  -->	
+				<Text id="TEXT_Parameter_Fault" 						value="Fault indication"/>
+				<Text id="TEXT_Parameter_Fault_descr" 					value=""/>	
+				<Text id="TEXT_Fault_1"	 								value="Range between minimum and maximum flow rate too low"/>
+				<Text id="TEXT_Fault_2"	 								value="Flow rate above indicating range"/>
+				<Text id="TEXT_Fault_3"	 								value="Flow rate below indicating range"/>
+				<Text id="TEXT_Fault_4"	 								value="Flow rate above operating range"/>
+				<Text id="TEXT_Fault_5"	 								value="Media temperature above indicating range"/>
+				<Text id="TEXT_Fault_6"	 								value="Media temperature below indicating range"/>
+				<Text id="TEXT_Fault_7"	 								value="Media temperature above operating range"/>
+				<Text id="TEXT_Fault_8"	 								value="Media temperature below operating range"/>
+				<Text id="TEXT_Fault_9"	 								value="Wire break input (sensor)"/>
+				<Text id="TEXT_Fault_10"	 							value="Short-circuit/Overload input (sensor)"/>
+				<!--Text id="TEXT_Fault_11"	 							value="Overload transistor output Out 1 (FLOW)"/-->
+				<Text id="TEXT_Fault_12"	 							value="Short-circuit/Overload transistor output Out 2 (TEMP)"/>
+				<Text id="TEXT_Fault_13"	 							value="Short-circuit/Overload transistor output Out 3 (FAULT)"/>
+				<Text id="TEXT_Fault_14"	 							value="General fault"/>
+				<!--Text id="TEXT_Fault_15"	 							value="Current source wire break/open terminals"/-->
+				<!--Text id="TEXT_Fault_16"	 							value="Current source failure/apparent ohmic resistance too high"/-->
+				<Text id="TEXT_NO_ERROR"	 							value="No fault"/>	
+				<Text id="TEXT_ERROR"	 								value="Fault"/>	
+						
+		</PrimaryLanguage>
+		
+		<!-- ==================================================== -->
+		<!-- ==================================================== -->
+		<!--  Language de									      -->
+		<!-- ==================================================== -->
+		<!-- ==================================================== -->
+		<Language xml:lang="de" >
+		
+			
+			<!-- Processdata -->
+			<!--Text id="TEXT_ProcessDataIn_Measure" 					value="Stroemungsgeschwindigkeit [0 ... 100 %]"/-->				
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn_Measure" 			value="Stroemungsgeschwindigkeit (Quasianalog)"/>
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn_Signal1" 			value="Stroemungsgeschwindigkeit (Schaltausgang)"/>
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn_Signal2" 			value="Medientemperatur (Schaltausgang)"/>
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn_Signal3" 			value="Fehlermeldung (Schaltausgang)"/>
+			<Text id="TEXT_PROCESSDATA_ProcessDataIn" 					value="Process Data In"/>			
+			<!--Text id="TEXT_PROCESSDATA_No_Data" 						value="Keine Daten"/>
+			<Text id="TEXT_PROCESSDATA_Data" 							value="Daten"/-->
+			<Text id="TEXT_PROCESSDATA_SwitchActive" 					value="High"/>
+			<Text id="TEXT_PROCESSDATA_SwitchNotActive" 				value="Low"/>
+				
+			
+			<!-- Info -->
+			<Text id="TEXT_VendorText" 									value="Turck"/>
+			<Text id="TEXT_VendorUrl" 									value="http://www.turck.com"/>
+			<Text id="TEXT_DeviceFamily" 								value="FM-IM Series"/>
+			<Text id="TEXT_100000818_Name" 								value="FM-IM-3UP63FX"/>
+			<Text id="TEXT_100000818_Text" 								value="Stroemungsueberwachung"/>
+			
+			
+			<!-- Ebene 0 -->
+			<Text id="TEXT_MENUE_RW_Param" 								value="Parameter lesen/schreiben (R/W)"/>
+			<Text id="TEXT_MENUE_RO_Param" 								value="Parameter lesen (R)"/>
+			
+						
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_GeneralSettings" 						value="Generelle Einstellungen"/>
+			
+				<!-- Ebene 2  -->
+				<Text id="TEXT_Parameter_Lock" 							value="IODD Parametrierung"/>
+				<Text id="TEXT_Parameter_Lock_Descr" 					value="IO-Link Kommunikation sperren/freigeben"/>
+				<Text id="TEXT_Parameter_Locked" 						value="Gesperrt"/>
+				<Text id="TEXT_Parameter_Unlocked" 						value="Freigegeben"/>
+								
+				
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_SystemCommands" 						value="Systembefehle"/>
+			
+				<!-- Ebene 2  -->
+				<Text id="TEXT_Parameter_System_Command" 				value="Systembefehl"/>
+				<Text id="TEXT_Parameter_System_Command_Descr" 			value=""/>	
+				<Text id="TEXT_Reset" 									value="Hardware Reset"/>	
+				<Text id="TEXT_Default" 								value="Werkseinstellungen"/>
+						
+			
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_Additional_ProcessValues" 				value="Prozesswerte"/>	
+				
+				<!-- Ebene 2  -->
+				<Text id="TEXT_Parameter_Ain_Flow" 						value="Stroemungsgeschwindigkeit"/>
+				<!--Text id="TEXT_Ain_Flow_MINMAXLIMIT" 				value="Abstand zwischen Max/Min-Abgleich zu klein"/-->
+				<Text id="TEXT_Parameter_Ain_Temperature" 				value="Medientemperatur"/>
+				<!--Text id="TEXT_Parameter_CurrentOut" 				value="Ausgangsstrom (Analog)"/-->
+				
+			
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_FlowSettings" 							value="Stroemungsgeschwindigkeit"/>
+			<Text id="TEXT_MENUE_FlowSettings_MAXMINTEACH" 				value="MAX/MIN-Teach Einstellung"/>
+			<Text id="TEXT_MENUE_FlowSettings_QUICKTEACH" 				value="Quick-Teach Einstellung"/>
+			<!--Text id="TEXT_MENUE_FlowSettings_SP_GRADIENT" 				value="Adaptive Schaltpunkt-Kurve"/-->
+			
+				<!-- Ebene 2  -->
+				
+				<Text id="TEXT_Parameter_TEACHMODE" 					value="Betriebsmodus"/>
+				<Text id="TEXT_QUICKTEACH_MODE" 						value="Quick-Teach"/>
+				<Text id="TEXT_MAXMIN_MODE" 							value="MAX/MIN-Teach"/>
+				<Text id="TEXT_Low_Flow_Teach" 							value="MIN-Teach"/>
+				<Text id="TEXT_High_Flow_Teach" 						value="MAX-Teach"/>
+				<Text id="TEXT_Quick_Flow_Teach" 						value="Quick-Teach"/>
+				<Text id="TEXT_Parameter_Flow_Teach" 					value="Teach"/>
+				<Text id="TEXT_Parameter_Flow_Teach_Descr" 				value="Teach"/>	
+				<Text id="TEXT_Parameter_MAXMIN_SP1_PROZENT" 			value="Schaltpunkt MAX/MIN-Teach"/>	
+				<Text id="TEXT_Parameter_CURRENT_SP1_BIT" 				value="Schaltpunkt Quick-Teach"/>	
+				<Text id="TEXT_Parameter_QUICKTEACH_SP1_BIT" 			value="Schaltpunkt Quick-Teach"/>
+				<Text id="TEXT_Parameter_MAXMIN_SP1_PROZENT_Descr" 		value=""/>		
+				<Text id="TEXT_Parameter_CURRENT_SP1_BIT_Descr" 		value=""/>				
+				<Text id="TEXT_Parameter_QUICKTEACH_SP1_BIT_Descr" 		value=""/>
+				<Text id="TEXT_Parameter_DeltaT_Flow" 					value="Stroemungsgradient"/>
+				<Text id="TEXT_Parameter_DeltaT_Flow_Steps" 			value="DeltaFlow"/>	 
+				<Text id="TEXT_Parameter_DeltaT_Flow_Raw" 				value="DeltaFlow Rohwert"/>	 
+				<Text id="TEXT_Parameter_DeltaT_Flow_To_High_Flag" 		value="Teach Status"/>
+				<Text id="TEXT_DeltaT_Flow_low" 						value="Niedrig"/>
+				<Text id="TEXT_DeltaT_Flow_medium" 						value="Mittel"/>
+				<Text id="TEXT_DeltaT_Flow_high" 						value="Hoch"/>
+				<Text id="TEXT_DeltaT_Flow_zero" 						value="Hinreichend klein"/>		
+				<Text id="TEXT_Parameter_Hysterese" 					value="Hysterese"/>	
+				<!--Text id="TEXT_Parameter_Hysterese_Descr" 			value=""/-->		
+				<Text id="TEXT_Hysterese_off" 							value="aus"/>		
+				<Text id="TEXT_Hysterese_on" 							value="an"/>				
+				<Text id="TEXT_READY_TO_TEACH" 							value="Teachmodus freigegeben"/>	 
+				<Text id="TEXT_NOT_READY_TO_TEACH" 						value="Teachmodus gesperrt"/>		
+				<Text id="TEXT_Parameter_RANGE_VALUES" 					value="Teach Wert"/>	
+				<Text id="TEXT_Parameter_MIN_TEACH_VALUE" 				value="MIN-Teach"/>	
+				<Text id="TEXT_Parameter_MAX_TEACH_VALUE" 				value="MAX-Teach"/>
+				<!--Text id="TEXT_Parameter_Quicktech_Above_Under_new" 		value="Quick-Teach-Shift"/>
+				<Text id="TEXT_Parameter_Quicktech_Above_Under_Descr_new" 	value=""/-->	
+				<!--Text id="TEXT_Quicktech_Above_Under_40" 				value="+ 4,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_35" 				value="+ 3,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_30" 				value="+ 3,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_25" 				value="+ 2,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_20" 				value="+ 2,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_15" 				value="+ 1,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_10" 				value="+ 1,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_5" 				value="+ 0,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_0" 				value="    0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m5" 				value="- 0,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m10" 				value="- 1,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m15" 				value="- 1,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m20" 				value="- 2,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m25" 				value="- 2,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m30" 				value="- 3,0 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m35" 				value="- 3,5 %"/>
+				<Text id="TEXT_Quicktech_Above_Under_m40" 				value="- 4,0 %"/-->	
+				<!--Text id="TEXT_Parameter_SP_Gradient" 		        value="Schaltpunkt - Steigung"/>
+				<Text id="TEXT_Parameter_SP_Teach_Temperarture" 	value="Schaltpunkt - Teach-Temperatur"/-->
+			
+			
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_TemperatureSettings" 					value="Medientemperatur"/>
+			
+				<!-- Ebene 2  -->
+				<Text id="TEXT_Parameter_SP2" 							value="Schaltpunkt Medientemperatur"/>	
+				<Text id="TEXT_Parameter_SP2_Descr" 					value="Definiert die Temperatur [°C], bei der der Ausgang bei steigender Medientemperatur schaltet. Bei sinkender Medientemperatur schaltet der Ausgang, sobald der Schaltpunkt um den Wert der Hyterese von 2 K unterschritten wird."/>	
+			
+			
+			<!-- Ebene 1 ====================================================================================== -->
+			<!--Text id="TEXT_MENUE_CurrentOutputSettings" 				value="Stromausgang"/-->
+			
+				<!-- Ebene 2 ====================================================================================== -->
+				<!--Text id="TEXT_Parameter_ERROR_CURRENT" 				value="Ausgangsstrom im Fehlerfall"/>	
+				<Text id="TEXT_Parameter_ERROR_CURRENT_1" 				value="0 mA"/>	
+				<Text id="TEXT_Parameter_ERROR_CURRENT_2" 				value="> 21 mA"/>	
+				<Text id="TEXT_Parameter_ERROR_CURRENT_Descr" 			value=""/>
+				<Text id="TEXT_Parameter_CURRENT_MODE" 					value="Ausgangsstrombereich"/>	
+				<Text id="TEXT_Parameter_CURRENT_MODE_1" 				value="4...20 mA"/>	
+				<Text id="TEXT_Parameter_CURRENT_MODE_2" 				value="20...4 mA"/>	
+				<Text id="TEXT_Parameter_CURRENT_MODE_Descr" 			value=""/>
+				<Text id="TEXT_Parameter_FIXED_CURRENT" 				value="Ausgangsstrom simulieren"/>	
+				<Text id="TEXT_Parameter_FIXED_CURRENT_Descr" 			value="max 20.5 mA; 0 mA = Simulationsmodus deaktivieren"/-->
+			
+			
+			<!-- Ebene 1  -->
+			<Text id="TEXT_MENUE_SwitchOutputSettings" 					value="Schaltausgaenge"/>
+				
+				<!-- Ebene 2  -->							
+				<Text id="TEXT_SwitchOutput_Flow" 						value="Stroemungsgeschwindigkeit"/>							
+				<Text id="TEXT_SwitchOutput_Temperature" 				value="Medientemperatur"/>
+				<Text id="TEXT_SwitchOutput_Fault"	 					value="Fehlermeldung"/>
+				
+					<!-- Ebene 3  -->
+					<Text id="TEXT_Parameter_SP1_FUNCTION" 				value="Ausgangsart"/>
+					<Text id="TEXT_Parameter_SP2_FUNCTION" 				value="Ausgangsart"/>
+					<Text id="TEXT_Parameter_SP1_FUNCTION_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP2_FUNCTION_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_PNP_OVER" 					value="aktiv High"/>
+					<Text id="TEXT_Parameter_PNP_UNDER" 				value="aktiv Low"/>
+					<Text id="TEXT_Parameter_SP1_ON_DELAY" 				value="Einschaltverzoegerung"/>
+					<Text id="TEXT_Parameter_SP2_ON_DELAY" 				value="Einschaltverzoegerung"/>
+					<Text id="TEXT_Parameter_SP3_ON_DELAY" 				value="Einschaltverzoegerung"/>
+					<Text id="TEXT_Parameter_SP1_ON_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP2_ON_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP3_ON_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP1_OFF_DELAY" 			value="Ausschaltverzoegerung"/>
+					<Text id="TEXT_Parameter_SP2_OFF_DELAY" 			value="Ausschaltverzoegerung"/>
+					<Text id="TEXT_Parameter_SP3_OFF_DELAY" 			value="Ausschaltverzoegerung"/>
+					<Text id="TEXT_Parameter_SP1_OFF_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP2_OFF_DELAY_Descr" 		value=""/>
+					<Text id="TEXT_Parameter_SP3_OFF_DELAY_Descr" 		value=""/>
+					
+			
+			<!-- Ebene 1  -->
+			<!--Text id="TEXT_MENUE_Faults" 								value="Fehlermeldung"/-->
+			
+				<!-- Ebene 2  -->	
+				<Text id="TEXT_Parameter_Fault" 						value="Fehlermeldung"/>
+				<Text id="TEXT_Parameter_Fault_descr" 					value=""/>	
+				<Text id="TEXT_Fault_1"	 								value="Bereich zwischen minimaler und maximaler Stroemung zu gering"/>
+				<Text id="TEXT_Fault_2"	 								value="Stroemung oberhalb Anzeigebereich"/>
+				<Text id="TEXT_Fault_3"	 								value="Stroemung unterhalb Anzeigebereich"/>
+				<Text id="TEXT_Fault_4"	 								value="Stroemung oberhalb des Arbeitsbereich"/>
+				<Text id="TEXT_Fault_5"	 								value="Medientemperatur oberhalb Anzeigebereichs"/>
+				<Text id="TEXT_Fault_6"	 								value="Medientemperatur unterhalb Anzeigebereichs"/>
+				<Text id="TEXT_Fault_7"	 								value="Medientemperatur oberhalb Arbeitsbereichs"/>
+				<Text id="TEXT_Fault_8"	 								value="Medientemperatur unterhalb Arbeitsbereichs"/>
+				<Text id="TEXT_Fault_9"	 								value="Drahtbruch im Eingang (Sensor)"/>
+				<Text id="TEXT_Fault_10"	 							value="Kurzschluss im Eingang (Sensor)"/>
+				<!--Text id="TEXT_Fault_11"	 							value="Kurzschluss Transistorausgang Out 1 (FLOW)"/-->
+				<Text id="TEXT_Fault_12"	 							value="Kurzschluss Transistorausgang Out 2 (TEMP)"/>
+				<Text id="TEXT_Fault_13"	 							value="Kurzschluss Transistorausgang Out 3 (FAULT)"/>
+				<Text id="TEXT_Fault_14"	 							value="Genereller Fehler"/>
+				<!--Text id="TEXT_Fault_15"	 							value="Stromquelle Drahtbruch/offene Klemme"/-->
+				<!--Text id="TEXT_Fault_16"	 							value="Stromquelle defekt/Buerde zu hoch"/-->
+				<Text id="TEXT_NO_ERROR"	 							value="Kein Fehler"/>	
+				<Text id="TEXT_ERROR"	 								value="Fehler"/>
+		</Language>	
+
+		<!-- ==================================================== -->
+		<!-- ==================================================== -->
+		<!--  Language fr									      -->
+		<!-- ==================================================== -->	
+		<!-- ==================================================== -->		
+		
+		<!--/Language-->
+	
+	</ExternalTextCollection>
+	<Stamp crc="971914862"><Checker name="IODD-Checker V1.0.10" version="V1.0.10.0"/></Stamp>
+</IODevice>
