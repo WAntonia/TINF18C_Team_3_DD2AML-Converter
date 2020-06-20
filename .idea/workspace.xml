@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e204d77f-f9a3-4f4f-ba8c-bd0116fd43a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/PROJECT/STR/Testfiles/CSP+/0x2319_SPCL-GW-001_1.0.0_en/0x2319_SPCL-GW-001_1.0.0_en.amlx" beforeDir="false" afterPath="$PROJECT_DIR$/PROJECT/STR/Testfiles/CSP+/0x2319_SPCL-GW-001_1.0.0_en/0x2319_SPCL-GW-001_1.0.0_en.amlx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROJECT/STR/Testfiles/GSD/GSDML-V2.35-Example-CompactDevice-20180201/V2.35-Example-CompactDevice-20180201.amlx" beforeDir="false" afterPath="$PROJECT_DIR$/PROJECT/STR/Testfiles/GSD/GSDML-V2.35-Example-CompactDevice-20180201/V2.35-Example-CompactDevice-20180201.amlx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROJECT/STR/Testfiles/IODD/OMRON-E2EQ-X3B4-IL2-20170301-IODD1.1/OMRON-E2EQ-X3B4-IL2-20170301.amlx" beforeDir="false" afterPath="$PROJECT_DIR$/PROJECT/STR/Testfiles/IODD/OMRON-E2EQ-X3B4-IL2-20170301-IODD1.1/OMRON-E2EQ-X3B4-IL2-20170301.amlx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE/src/Dd2Aml.Setup/Components.wxs" beforeDir="false" afterPath="$PROJECT_DIR$/SOURCE/src/Dd2Aml.Setup/Components.wxs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ProjectId" id="1dajdVNA4vdILp630yDiQxcdD92" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e204d77f-f9a3-4f4f-ba8c-bd0116fd43a3" name="Default Changelist" comment="" />
+      <created>1592670187595</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592670187595</updated>
+      <workItem from="1592670205384" duration="3000" />
+    </task>
+    <servers />
+  </component>
+</project>

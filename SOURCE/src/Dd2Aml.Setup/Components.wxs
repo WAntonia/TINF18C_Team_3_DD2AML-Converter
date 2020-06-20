@@ -2,43 +2,43 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
-            <Component Id="AML.Engine.dll" Guid="08F218D7-7B02-490D-BB9F-1592A26150AF">
+            <Component Id="AML.Engine.dll" Guid="5DDA3015-769B-443E-AC39-186A15260E36">
                 <File Id="AML.Engine.dll" KeyPath="yes" Source="$(var.SourceDir)\AML.Engine.dll" />
             </Component>
-            <Component Id="Dd2Aml.Cli.exe" Guid="4DE2AA72-7FE9-4853-A064-1A7FE2F887F0">
+            <Component Id="Dd2Aml.Cli.exe" Guid="D9DFA326-E0FB-4BFF-869B-745D026C7E75">
                 <File Id="Dd2Aml.Cli.exe" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Cli.exe" />
             </Component>
-            <Component Id="Dd2Aml.Cli.exe.config" Guid="E08A76E9-7B6C-4FBB-8DCC-E8E3C23C1AB0">
+            <Component Id="Dd2Aml.Cli.exe.config" Guid="81814EC3-116F-4919-953E-8C1706BC4F23">
                 <File Id="Dd2Aml.Cli.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Cli.exe.config" />
             </Component>
-            <Component Id="Dd2Aml.Gui.exe" Guid="F29DD044-CBCB-45E6-B468-C830C36E5FB3">
+            <Component Id="Dd2Aml.Gui.exe" Guid="F696FCDC-F9AD-45CF-8097-81F84BBD6BB2">
                 <File Id="Dd2Aml.Gui.exe" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Gui.exe" />
             </Component>
-            <Component Id="Dd2Aml.Gui.exe.config" Guid="EF7A3522-B474-4256-BAD2-AD49E38499D8">
+            <Component Id="Dd2Aml.Gui.exe.config" Guid="01FCEF74-AB60-4032-A9A2-DBD8BCB2CCD0">
                 <File Id="Dd2Aml.Gui.exe.config" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Gui.exe.config" />
             </Component>
-            <Component Id="Dd2Aml.Lib.dll" Guid="D65FE77A-1BEE-435A-A087-719CDEF59047">
+            <Component Id="Dd2Aml.Lib.dll" Guid="3DEF2867-4751-43F1-B9C5-089E455CC631">
                 <File Id="Dd2Aml.Lib.dll" KeyPath="yes" Source="$(var.SourceDir)\Dd2Aml.Lib.dll" />
             </Component>
-            <Component Id="NLog.config" Guid="9C9CEFD2-B8C1-44CF-B946-83F2789D5511">
+            <Component Id="NLog.config" Guid="547B80FE-3A89-482E-99E8-0FCFF9E88766">
                 <File Id="NLog.config" KeyPath="yes" Source="$(var.SourceDir)\NLog.config" />
             </Component>
-            <Component Id="NLog.dll" Guid="BA1E2B97-BCAF-4F08-9E4E-1F94E0A8EBB6">
+            <Component Id="NLog.dll" Guid="E18E15E2-DE63-4E58-A9E1-93C4430C4E31">
                 <File Id="NLog.dll" KeyPath="yes" Source="$(var.SourceDir)\NLog.dll" />
             </Component>
-            <Component Id="README.md" Guid="7A0ED8CC-2787-46F4-BBDF-E3603C1EE627">
+            <Component Id="README.md" Guid="5B39EF2C-EEC0-46C2-B0C8-9D1E54DAA311">
                 <File Id="README.md" KeyPath="yes" Source="$(var.SourceDir)\README.md" />
             </Component>
             <Directory Id="Aml2" Name="Aml2">
-                <Component Id="gsd2aml.xml" Guid="6462EED6-7D2A-428D-A5CC-6B8694193ED5">
+                <Component Id="gsd2aml.xml" Guid="623DF096-BBF8-4D06-AB87-F9726F2D3123">
                     <File Id="gsd2aml.xml" KeyPath="yes" Source="$(var.SourceDir)\Aml2\gsd2aml.xml" />
                 </Component>
-                <Component Id="iodd2aml.xml" Guid="BBEE9C7F-35B1-4111-B8CB-10674F352D65">
+                <Component Id="iodd2aml.xml" Guid="D43924DE-D194-4400-AE10-2939390301E1">
                     <File Id="iodd2aml.xml" KeyPath="yes" Source="$(var.SourceDir)\Aml2\iodd2aml.xml" />
                 </Component>
             </Directory>
             <Directory Id="Aml3" Name="Aml3">
-                <Component Id="gsd2aml3.xml" Guid="F548EB22-B60F-4483-8888-6567B5774C62">
+                <Component Id="gsd2aml3.xml" Guid="359AC714-A3CF-4F06-80C5-9202171FA547">
                     <File Id="gsd2aml3.xml" KeyPath="yes" Source="$(var.SourceDir)\Aml3\gsd2aml3.xml" />
                 </Component>
             </Directory>
