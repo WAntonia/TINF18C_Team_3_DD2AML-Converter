@@ -109,12 +109,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Aml2\cspp2aml.xml" />
+    <EmbeddedResource Include="Aml2\cspp2aml.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aml2\iodd2aml.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aml3\cspp2aml3.xml" />
-    <EmbeddedResource Include="Aml3\iodd2aml3.xml" />
+    <EmbeddedResource Include="Aml3\cspp2aml3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aml3\iodd2aml3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Aml3\gsd2aml3.xml">
